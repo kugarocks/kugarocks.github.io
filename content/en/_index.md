@@ -5,7 +5,7 @@ description: ""
 date: 2023-09-07T16:33:54+02:00
 lastmod: 2023-09-07T16:33:54+02:00
 draft: false
-video: "video/mini-rocks.mp4"
+video: "videos/minions/mini-rocks.mp4"
 
 sectionTitle1: '<a href="https://minions.wiki" target="_blank">https://minions.wiki</a>'
 sectionImage1: "images/minions/minions-wiki.png"

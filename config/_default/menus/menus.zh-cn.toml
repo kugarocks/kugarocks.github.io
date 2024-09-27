@@ -7,7 +7,7 @@
 [[main]]
   identifier = "linux"
   name = "Linux"
-  url = "/zh-cn/linux/"
+  url = "/zh-cn/linux/readme/"
   weight = 200
 
 [[main]]
@@ -42,3 +42,14 @@
   name = "四次元百宝袋"
   pageRef = "/tech/fourd-pocket/"
   weight = 300
+
+[[sidebar_linux]]
+  name = "README"
+  pageRef = "/linux/readme/"
+  weight = 100
+
+
+[[sidebar_linux]]
+  name = "第一章：Say My Name"
+  pageRef = "/linux/say-my-name/"
+  weight = 200
