@@ -1,5 +1,5 @@
 ---
-title: "ℹ️ README"
+title: "README"
 description: ""
 summary: ""
 date: 2024-08-24T20:00:00+08:00
