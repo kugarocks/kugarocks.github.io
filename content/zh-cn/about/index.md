@@ -7,10 +7,10 @@ identifier: "about"
 | --- | --- |
 | 大学 | 华南农业大学 |
 | 专业 | 软件工程 |
-| 喜欢学科 | 密码学 |
-| 输入方式 | VIM/五笔 |
-| 编程语言 | Golang/Python |
-| 编辑器 | Cursor/JetBrains |
+| 爱好 | 开源 |
+| 工作经历 | 115网盘/酷狗/BIGO/趣丸 |
+| 编程语言 | Golang/Python/PHP |
+| 最近着迷 | Cursor |
 
 ## 联系我
 

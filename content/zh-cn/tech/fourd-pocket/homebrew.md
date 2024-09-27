@@ -1,12 +1,12 @@
 ---
-title: "homebrew"
+title: "Homebrew"
 description: ""
 summary: ""
 date: 2024-08-22T00:00:00+08:00
 lastmod: 2024-09-08T00:00:00+08:00
 weight: 400
 seo:
-  title: "homebrew"
+  title: "Homebrew"
   description: ""
   canonical: ""
   noindex: false
