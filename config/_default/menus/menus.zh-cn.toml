@@ -43,6 +43,11 @@
   pageRef = "/tech/fourd-pocket/"
   weight = 300
 
+[[sidebar_tech]]
+  name = "Cursor"
+  pageRef = "/tech/cursor/"
+  weight = 400
+
 [[sidebar_linux]]
   name = "README"
   pageRef = "/linux/readme/"

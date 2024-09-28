@@ -1,12 +1,13 @@
 ---
-title: "用 Cursor 写聊天室"
+title: "开发聊天室"
+alias: "Cursor 开发聊天室"
 description: ""
 summary: ""
 date: 2024-09-08T00:00:00+08:00
 lastmod: 2024-09-08T00:00:00+08:00
-weight: 900
+weight: 200
 seo:
-  title: "用 Cursor 写聊天室"
+  title: "Cursor 开发聊天室"
   description: ""
   canonical: ""
   noindex: false
