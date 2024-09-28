@@ -48,8 +48,17 @@
   pageRef = "/linux/readme/"
   weight = 100
 
-
 [[sidebar_linux]]
   name = "第一章：Say My Name"
   pageRef = "/linux/say-my-name/"
   weight = 200
+
+[[sidebar_linux]]
+  name = "第二章：Terminal"
+  pageRef = "/linux/terminal/"
+  weight = 300
+
+[[sidebar_linux]]
+  name = "第三章：Shell"
+  pageRef = "/linux/shell/"
+  weight = 400

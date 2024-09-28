@@ -35,8 +35,16 @@ html {
     overflow-y: scroll;
 }
 
+.docs-content {
+    line-height: 1.64;
+}
+
 .docs-content, blockquote {
     font-size: $font-size-base;
+}
+
+.docs-content ul {
+    padding-left: 16px;
 }
 
 .bg-index {

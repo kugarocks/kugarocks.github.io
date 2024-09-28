@@ -16,6 +16,11 @@ seo:
 
 ### ping.pe
 
-[https://ping.pe](https://ping.pe)，从多个地理位置检查网络连接，也可查询域名的 IP。
+{{< link-card
+  title="ping.pe"
+  description="全球网络延迟和路由监控工具"
+  href="https://ping.pe"
+  target="_blank"
+>}}
 
 ![ping-pe](/images/misc/ping-pe.png)

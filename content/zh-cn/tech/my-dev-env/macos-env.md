@@ -40,7 +40,12 @@ Shortcuts
 
 ## iTerm2
 
-[Terminal emulator for macOS.](https://iterm2.com/)
+{{< link-card
+  title="iTerm2"
+  description="Terminal emulator for macOS."
+  href="https://iterm2.com/"
+  target="_blank"
+>}}
 
 Preferences config
 
@@ -84,7 +89,12 @@ alias ldir='ls -ld -- */'
 
 ## HSTR
 
-[Easily view, navigate and search your command history.](https://github.com/dvorka/hstr)
+{{< link-card
+  title="HSTR"
+  description="Easily view, navigate and search your command history."
+  href="https://github.com/dvorka/hstr"
+  target="_blank"
+>}}
 
 ```bash {frame="none"}
 brew install hstr
@@ -138,13 +148,27 @@ Replace name, email, GitHub user.
 
 ## Kubernetes
 
-[kubectl: The Kubernetes command-line tool.](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
+### kubectl
+
+{{< link-card
+  title="kubectl"
+  description="The Kubernetes command-line tool."
+  href="https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/"
+  target="_blank"
+>}}
 
 ```bash {frame="none"}
 brew install kubectl
 ```
 
-[kubectx: Switch between contexts & namespaces.](https://github.com/ahmetb/kubectx)
+### kubectx
+
+{{< link-card
+  title="kubectx"
+  description="Switch between contexts & namespaces."
+  href="https://github.com/ahmetb/kubectx"
+  target="_blank"
+>}}
 
 ```bash {frame="none"}
 brew install kubectx
@@ -160,7 +184,14 @@ alias kn="kubens"
 KUBECTX_CURRENT_FGCOLOR=$(tput setaf 6)
 ```
 
-[kube-ps1: Kubernetes prompt for bash and zsh.](https://github.com/jonmosco/kube-ps1)
+### kube-ps1
+
+{{< link-card
+  title="kube-ps1"
+  description="Kubernetes prompt for bash and zsh."
+  href="https://github.com/jonmosco/kube-ps1"
+  target="_blank"
+>}}
 
 ```bash {frame="none"}
 brew install kube-ps1
@@ -181,7 +212,14 @@ KUBE_PS1_CTX_COLOR="83"
 KUBE_PS1_NS_COLOR="201"
 ```
 
-[kubectl-aliases: Convenient shell aliases for kubectl.](https://github.com/ahmetb/kubectl-aliases)
+### kubectl-aliases
+
+{{< link-card
+  title="kubectl-aliases"
+  description="Convenient shell aliases for kubectl."
+  href="https://github.com/ahmetb/kubectl-aliases"
+  target="_blank"
+>}}
 
 Download [.kubectl\_aliases](https://raw.githubusercontent.com/ahmetb/kubectl-aliases/master/.kubectl\_aliases) file & Add the following to your `.zshrc` file:
 
