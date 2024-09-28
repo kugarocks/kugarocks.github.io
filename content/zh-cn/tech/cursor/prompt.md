@@ -15,8 +15,14 @@ seo:
 
 ## Prompt
 
-修改 markdown 的代码框类型
+修改 markdown 的代码框类型。
 
 ```txt {frame="none"}
-把 markdown 的代码框类型改成 bash {frame="none"}
+把 markdown 的代码框类型全部改成 bash {frame="none"}
 ```
+
+* 我使用的模型是 `cursor-small`。
+* 这里加了全部范围，所以会修改所有代码框类型。
+* 如果不加全部，会检测代码框类型是否为 `bash`。
+  * 是：修改。
+  * 否：不修改。
