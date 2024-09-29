@@ -67,3 +67,8 @@
   name = "第三章：Shell"
   pageRef = "/linux/shell/"
   weight = 400
+
+[[sidebar_linux]]
+  name = "第四章：Commands"
+  pageRef = "/linux/commands/"
+  weight = 500
