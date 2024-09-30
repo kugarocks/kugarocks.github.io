@@ -218,3 +218,22 @@ html {
 a {
     color: var(--link-color);
 }
+
+// remove code block border && add radius begin
+.expressive-code pre {
+    border-radius: 6px;
+}
+
+.highlight > .chroma {
+    border: none;
+}
+
+.expressive-code .frame.is-terminal .header {
+    border: none;
+    border-radius: 6px 6px 0 0;
+}
+
+.expressive-code .frame.is-terminal .header::after {
+    border-bottom: none;
+}
+// remove code block border && add radius end
