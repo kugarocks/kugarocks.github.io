@@ -219,7 +219,7 @@ a {
     color: var(--link-color);
 }
 
-// remove code block border && add radius begin
+// remove code block border && add radius
 .expressive-code pre {
     border-radius: 6px;
 }
@@ -237,3 +237,14 @@ a {
     border-bottom: none;
 }
 // remove code block border && add radius end
+
+// better code block padding && copy button size
+.highlight > pre {
+    padding: 0.64rem 1rem;
+}
+
+.expressive-code .copy button {
+    width: 2rem;
+    height: 2rem;
+}
+// better code block padding && copy button size end
