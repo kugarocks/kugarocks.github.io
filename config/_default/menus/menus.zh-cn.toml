@@ -69,6 +69,11 @@
   weight = 400
 
 [[sidebar_linux]]
-  name = "第四章：Commands"
-  pageRef = "/linux/commands/"
+  name = "第四章：命令"
+  pageRef = "/linux/cmd/"
   weight = 500
+
+[[sidebar_linux]]
+  name = "第五章：环境变量"
+  pageRef = "/linux/env/"
+  weight = 600
