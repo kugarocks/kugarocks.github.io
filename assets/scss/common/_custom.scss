@@ -267,3 +267,9 @@ code:not(:where(.not-content *)) {
     border-radius: 0.20rem;
 }
 // better inline code border radius end
+
+// better table margin
+table {
+    margin: 1rem 0 1.6rem 0;
+}
+// better table margin end

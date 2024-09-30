@@ -97,3 +97,13 @@
   name = "第九章：Shell 脚本"
   pageRef = "/linux/script/"
   weight = 1000
+
+[[sidebar_linux]]
+  name = "第十章：文本处理"
+  pageRef = "/linux/text/"
+  weight = 1100
+
+[[sidebar_linux]]
+  name = "附录"
+  pageRef = "/linux/appendix/"
+  weight = 10000
