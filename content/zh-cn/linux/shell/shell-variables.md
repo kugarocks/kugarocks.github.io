@@ -128,4 +128,4 @@ echo $RANDOM
 
 ## 自定义 Shell 变量
 
-todo：参考后面环境变量的章节。
+[参考后面环境变量的章节](/zh-cn/linux/env/concept/#自定义-shell-变量)

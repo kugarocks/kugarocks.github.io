@@ -87,3 +87,13 @@
   name = "第七章：进程"
   pageRef = "/linux/proc/"
   weight = 800
+
+[[sidebar_linux]]
+  name = "第八章：文件系统"
+  pageRef = "/linux/file-system/"
+  weight = 900
+
+[[sidebar_linux]]
+  name = "第九章：Shell 脚本"
+  pageRef = "/linux/script/"
+  weight = 1000
