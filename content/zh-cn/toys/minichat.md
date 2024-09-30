@@ -50,7 +50,7 @@ seo:
 go run main.go -theme onepiece
 ```
 
-### 小黄人主题
+### 小黄人
 
 | 名称 | 头像 |
 | --- | --- |
@@ -59,7 +59,7 @@ go run main.go -theme onepiece
 | Jerry, Phil | ![Jerry](images/minions/avatar/jerry.jpg) ![Phil](images/minions/avatar/phil.jpg) |
 | Tim, Mark | ![Tim](images/minions/avatar/tim.jpg) ![Mark](images/minions/avatar/mark.jpg) |
 
-### 海贼王主题
+### 海贼王
 
 | 名称 | 头像 |
 | --- | --- |
