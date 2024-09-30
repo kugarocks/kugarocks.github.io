@@ -77,3 +77,8 @@
   name = "第五章：环境变量"
   pageRef = "/linux/env/"
   weight = 600
+
+[[sidebar_linux]]
+  name = "第六章：权限管理"
+  pageRef = "/linux/perm/"
+  weight = 700
