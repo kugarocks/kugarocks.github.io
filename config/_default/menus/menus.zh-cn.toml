@@ -82,3 +82,8 @@
   name = "第六章：权限管理"
   pageRef = "/linux/perm/"
   weight = 700
+
+[[sidebar_linux]]
+  name = "第七章：进程"
+  pageRef = "/linux/proc/"
+  weight = 800
