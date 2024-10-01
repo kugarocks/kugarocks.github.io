@@ -24,7 +24,7 @@ Standard File Descriptors。
 
 ### 標準輸入
 
-命令 `cat` 默認從標準輸入讀取內容，如果直接運行 `cat` 而唔指定文件名，佢會等用戶輸入。
+命令 `cat` 默認從標準輸入讀取內容__AB__如果直接運行 `cat` 而唔指定文件名__AB__佢會等用戶輸入。
 
 ```bash {frame="none"}
 cat
@@ -82,7 +82,7 @@ ls 404 &> foo
 exec ls
 ```
 
-Shell 進程會被新命令嘅進程取代，執行完後唔會返回到原來嘅 Shell 中。
+Shell 進程會被新命令嘅進程取代__AB__執行完後唔會返回到原來嘅 Shell 中。
 
 ### 喺腳本中使用
 
@@ -93,7 +93,7 @@ exec /bin/date
 echo "This will never be executed"
 ```
 
-腳本進程會被 `date` 命令取代，`echo` 唔會執行。
+腳本進程會被 `date` 命令取代__AB__`echo` 唔會執行。
 
 ### 文件描述符重定向
 
@@ -105,11 +105,11 @@ exec 1> output.txt
 echo "呢個會寫入到 output.txt"
 ```
 
-用於修改文件描述符時，唔會替換當前進程，只會影響後續命令嘅輸入輸出。
+用於修改文件描述符時__AB__唔會替換當前進程__AB__只會影響後續命令嘅輸入輸出。
 
 ## 關閉文件描述符
 
-重定向到 `&-` 即可關閉。關閉之後，唔可以再寫數據。
+重定向到 `&-` 即可關閉。關閉之後__AB__唔可以再寫數據。
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -121,7 +121,7 @@ exec 3>&-
 
 ## /dev/null
 
-空設備，位桶。
+空設備__AB__位桶。
 
 ```bash {frame="none"}
 crw-rw-rw- 1 root root 1, 3 Aug 14 23:16 /dev/null
@@ -135,13 +135,13 @@ command > /dev/null 2>&1
 
 ## MKTEMP 命令
 
-根據文件名模板，創建臨時文件。
+根據文件名模板__AB__創建臨時文件。
 
 ```bash {frame="none"}
 filename.XXXXXX
 ```
 
-命令會把 X 代替為隨機字符，模板最少為 6 個 X。
+命令會把 X 代替為隨機字符__AB__模板最少為 6 個 X。
 
 ### 創建文件
 

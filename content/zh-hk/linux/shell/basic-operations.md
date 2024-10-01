@@ -22,8 +22,8 @@ echo $SHELL
 /bin/bash
 ```
 
-如果你喺當前終端中啟動咗一個新嘅 Shell（例如從 Bash 切換到 Zsh），
-呢個命令顯示嘅仍然係默認嘅登錄 Shell，呢個配置係存放喺 `/etc/passwd` 裡面嘅。
+如果你喺當前終端中啟動咗一個新嘅 Shell（例如從 Bash 切換到 Zsh）__AB__
+呢個命令顯示嘅仍然係默認嘅登錄 Shell__AB__呢個配置係存放喺 `/etc/passwd` 裡面嘅。
 
 ```bash {frame="none"}
 grep root /etc/passwd
@@ -33,8 +33,8 @@ grep root /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 ```
 
-喺 macOS 中，默認嘅 Shell 信息通常係存儲喺用戶賬戶設置中嘅，而唔係 `/etc/passwd` 文件中。
-從 macOS Catalina（10.15）開始，默認嘅 shell 已更改為 `zsh`，之前嘅默認 Shell 係 `bash`。
+喺 macOS 中__AB__默認嘅 Shell 信息通常係存儲喺用戶賬戶設置中嘅__AB__而唔係 `/etc/passwd` 文件中。
+從 macOS Catalina（10.15）開始__AB__默認嘅 shell 已更改為 `zsh`__AB__之前嘅默認 Shell 係 `bash`。
 可以通過以下方法查看默認 shell。
 
 ```bash {frame="none"}
@@ -47,7 +47,7 @@ UserShell: /bin/zsh
 
 ## 查看緊運行嘅 Shell
 
-`$0` 喺 Shell 中運行返回 Shell 名稱，喺腳本中運行返回腳本名稱/路徑。
+`$0` 喺 Shell 中運行返回 Shell 名稱__AB__喺腳本中運行返回腳本名稱/路徑。
 
 ```bash {frame="none"}
 echo $0
@@ -70,7 +70,7 @@ ps -p $$
   17216 pts/0    00:00:00 bash
 ```
 
-如果你喺當前終端中啟動咗一個新嘅 Shell（從 Bash 切換到 Sh），上面嘅兩種方法會顯示 `sh`。
+如果你喺當前終端中啟動咗一個新嘅 Shell（從 Bash 切換到 Sh）__AB__上面嘅兩種方法會顯示 `sh`。
 
 ## 查看支持嘅 Shell
 
@@ -94,7 +94,7 @@ cat /etc/shells
 
 ## 修改默認嘅 Shell
 
-修改成功後，`/etc/passwd` 中嘅內容會隨之更新。
+修改成功後__AB__`/etc/passwd` 中嘅內容會隨之更新。
 
 ### chsh
 
@@ -120,7 +120,7 @@ chsh -s /bin/foo
 chsh: /bin/foo is an invalid shell
 ```
 
-佢會檢查輸入嘅 Shell 係咪喺 `/etc/shells` 文件中，防止因為輸入咗唔合法嘅 Shell 而導致登錄失敗。
+佢會檢查輸入嘅 Shell 係咪喺 `/etc/shells` 文件中__AB__防止因為輸入咗唔合法嘅 Shell 而導致登錄失敗。
 
 ### usermod
 
@@ -131,14 +131,14 @@ sudo usermod -s /bin/dash kuga
 ```
 
 {{< callout context="caution" title="注意" >}}
-usermod 唔會檢查 Shell 嘅合法性，唔建議使用。
+usermod 唔會檢查 Shell 嘅合法性__AB__唔建議使用。
 {{< /callout >}}
 
 ```bash {frame="none"}
 sudo usermod -s /bin/notexist kuga
 ```
 
-上面嘅命令唔會報錯，但會導致 kuga 用戶無法登錄。
+上面嘅命令唔會報錯__AB__但會導致 kuga 用戶無法登錄。
 
 ### 添加 sudo 權限
 
@@ -148,7 +148,7 @@ sudo usermod -s /bin/notexist kuga
 getent group sudo
 ```
 
-畀用戶添加 sudo 組嘅權限，需要 root 執行。
+畀用戶添加 sudo 組嘅權限__AB__需要 root 執行。
 
 ```bash {frame="none"}
 usermod -aG sudo username
@@ -156,15 +156,15 @@ usermod -aG sudo username
 
 ## 唔好直接編輯 passwd
 
-如果唔小心寫錯配置，好有可能會導致成個系統無法登錄。
+如果唔小心寫錯配置__AB__好有可能會導致成個系統無法登錄。
 
 ## 盡量唔好使用 root
 
-我就係唔小心把 root 嘅登錄 Shell 改成咗 zsh，
-但 Ubuntu 並冇安裝 zsh，所以 root 就登唔上去。
-好彩我另外一個用戶有 sudo 權限，仲可以正常登錄，
+我就係唔小心把 root 嘅登錄 Shell 改成咗 zsh__AB__
+但 Ubuntu 並冇安裝 zsh__AB__所以 root 就登唔上去。
+好彩我另外一個用戶有 sudo 權限__AB__仲可以正常登錄__AB__
 我先成功把 root 嘅 Shell 改返嚟。
-如果運氣唔好，冇 sudo 權限嘅用戶，咁就麻煩咗。
+如果運氣唔好__AB__冇 sudo 權限嘅用戶__AB__咁就麻煩咗。
 
 ```bash {frame="none"}
 sudo chsh -s /bin/bash root

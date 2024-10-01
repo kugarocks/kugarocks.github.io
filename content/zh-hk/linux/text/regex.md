@@ -18,23 +18,23 @@ seo:
 
 | 類型 | 縮寫 | 全稱 |
 | --- | --- | --- |
-| 基本正則表達式 | BRE | BRE，Basic Regular Expressions |
-| 擴展正則表達式 | ERE | ERE，Extended Regular Expressions |
+| 基本正則表達式 | BRE | BRE__AB__Basic Regular Expressions |
+| 擴展正則表達式 | ERE | ERE__AB__Extended Regular Expressions |
 | Perl 正則表達式 | PCRE | Perl-Compatible Regular Expressions |
 | POSIX 正則表達式 | BRE & ERE | BRE & ERE |
 
-BRE 同 ERE 係 POSIX 標準入面嘅兩種正則表達式，
-BRE 比較基礎，需要對某啲元字符轉義，ERE 係 BRE 嘅擴展，提供咗更多嘅元字符同功能。
-PCRE 係一種功能更強大、語法更靈活嘅正則表達式類型，
+BRE 同 ERE 係 POSIX 標準入面嘅兩種正則表達式__AB__
+BRE 比較基礎__AB__需要對某啲元字符轉義__AB__ERE 係 BRE 嘅擴展__AB__提供咗更多嘅元字符同功能。
+PCRE 係一種功能更強大、語法更靈活嘅正則表達式類型__AB__
 廣泛用於現代編程語言如：Python、Ruby、Javascript。
 
 ## SED 命令
 
-支持 BRE 同 ERE，默認使用 BRE。
+支持 BRE 同 ERE__AB__默認使用 BRE。
 
 ### BRE 模式
 
-呢種模式需要對元字符進行轉義，例如：
+呢種模式需要對元字符進行轉義__AB__例如：
 
 * `)`：需要使用 `\)` 轉義。
 * `|`：需要使用 `\|` 轉義。
@@ -49,7 +49,7 @@ app
 
 ### ERE 模式
 
-使用 `-E` 或 `-r` 選項啟用 ERE，唔需要轉義元字符。
+使用 `-E` 或 `-r` 選項啟用 ERE__AB__唔需要轉義元字符。
 
 ```bash {frame="none"}
 echo 'abc' | sed -E 's/(b|c)/p/g'
@@ -73,13 +73,13 @@ app
 
 ## 特殊字符
 
-有特殊含意嘅字符，需要轉義。
+有特殊含意嘅字符__AB__需要轉義。
 
 ```txt {frame="none"}
 .*[]^${}\+?|()
 ```
 
-雖然 `/` 唔係正則表達式特殊字符，但喺 `sed` 同 `gawk` 入面都要轉義。
+雖然 `/` 唔係正則表達式特殊字符__AB__但喺 `sed` 同 `gawk` 入面都要轉義。
 
 ### 行首 ^
 
@@ -89,7 +89,7 @@ app
 echo 'aa bb' | sed -n '/^aa/p'
 ```
 
-如果 `^` 唔係出現喺開頭，則同普通字符一樣，無須轉義。
+如果 `^` 唔係出現喺開頭__AB__則同普通字符一樣__AB__無須轉義。
 
 ```bash {frame="none"}
 echo 'aa b^b' | sed -n '/b^/p'
@@ -103,7 +103,7 @@ echo 'aa b^b' | sed -n '/b^/p'
 echo 'aa bb' | sed -n '/bb$/p'
 ```
 
-如果 `$` 唔係出現喺結尾，則同普通字符一樣，無須轉義。
+如果 `$` 唔係出現喺結尾__AB__則同普通字符一樣__AB__無須轉義。
 
 ```bash {frame="none"}
 echo 'aa b$b' | sed -n '/b$b/p'
@@ -119,7 +119,7 @@ echo 'abc' | sed -n '/a.c/p'
 
 ### 字符組 []
 
-Character Class，可以匹配組內任一字符。
+Character Class__AB__可以匹配組內任一字符。
 
 ```bash {frame="none"}
 echo 'cat' | sed -n '/[ch]at/p'
@@ -185,7 +185,7 @@ echo 'at' | sed -En '/c?at/p'
 echo 'ccbbat' | sed -En '/c?at/p'
 ```
 
-上面嘅例子都係可以匹配嘅，可以用 ^ 限制。
+上面嘅例子都係可以匹配嘅__AB__可以用 ^ 限制。
 
 ```bash {frame="none"}
 echo 'ccbbat' | sed -En '/^c?at/p'

@@ -14,7 +14,7 @@ seo:
 
 ## Systemd
 
-系統嘅第一個進程，進程號為 1。
+系統嘅第一個進程__AB__進程號為 1。
 
 ```bash {frame="none"}
 ps -p 1
@@ -25,7 +25,7 @@ PID TTY          TIME CMD
   1 ?        00:00:04 systemd
 ```
 
-但當我哋想顯示詳細信息嘅時候，結果會有啲唔同。
+但當我哋想顯示詳細信息嘅時候__AB__結果會有啲唔同。
 
 ```bash {frame="none"}
 ps -p 1 -f
@@ -36,7 +36,7 @@ UID  PID PPID C STIME TTY TIME     CMD
 root   1    0 0 Aug07 ?   00:00:04 /sbin/init noibrs
 ```
 
-其實呢兩個進程係一樣嘅，因為 `init` 指向嘅係 `systemd`。
+其實呢兩個進程係一樣嘅__AB__因為 `init` 指向嘅係 `systemd`。
 
 ```bash {frame="none"}
 file /sbin/init
@@ -46,14 +46,14 @@ file /sbin/init
 /sbin/init: symbolic link to /lib/systemd/systemd
 ```
 
-`init` 係 Unix 最早嘅初始化進程，由於 `systemd` 取代咗 `init`，
-為咗兼容性，`/sbin/init` 通常係一個指向 `systemd` 嘅軟鏈接。
-名稱後面加 `d` 係 Unix 守護進程嘅命名規範，[System D](https://en.wikipedia.org/wiki/System_D) 係一個術語，
-表示快速思考同解決問題嘅能力。`systemd` 誕生於 2010 年，之前用嘅係 SysVinit。
+`init` 係 Unix 最早嘅初始化進程__AB__由於 `systemd` 取代咗 `init`__AB__
+為咗兼容性__AB__`/sbin/init` 通常係一個指向 `systemd` 嘅軟鏈接。
+名稱後面加 `d` 係 Unix 守護進程嘅命名規範__AB__[System D](https://en.wikipedia.org/wiki/System_D) 係一個術語__AB__
+表示快速思考同解決問題嘅能力。`systemd` 誕生於 2010 年__AB__之前用嘅係 SysVinit。
 
 ## SysVinit
 
-Unix System V 呢種初始化方法依家已經唔多用，但喺一啲舊嘅發行版中仲可以見到。
+Unix System V 呢種初始化方法依家已經唔多用__AB__但喺一啲舊嘅發行版中仲可以見到。
 
 ### runlevel
 
@@ -67,7 +67,7 @@ runlevel
 N 5
 ```
 
-5 對應 `graphical.target`，N 表示上一次嘅 runlevel 為 No。
+5 對應 `graphical.target`__AB__N 表示上一次嘅 runlevel 為 No。
 
 ```bash {frame="none"}
 who -r
@@ -77,8 +77,8 @@ who -r
 run-level 5  2024-08-07 21:30
 ```
 
-阿里雲嘅 Ubuntu 默認目標為 `graphical.target`，
-呢個係為咗方便用戶使用圖形界面（VNC）嚟管理操作系統，
+阿里雲嘅 Ubuntu 默認目標為 `graphical.target`__AB__
+呢個係為咗方便用戶使用圖形界面（VNC）嚟管理操作系統__AB__
 唔需要嘅話可以把目標換成 `multi-user.target`。
 
 ```bash {frame="none"}
@@ -87,8 +87,8 @@ systemctl set-default multi-user.target
 
 ### /etc/rcX.d
 
-rc 係 run commands 嘅縮寫，`.d` 係目錄嘅意思，目的是為咗避免命名衝突。
-呢個目錄包含咗特定運行級下啟動嘅進程，例如運行級 5 對應 `/etc/rc5.d`。
+rc 係 run commands 嘅縮寫__AB__`.d` 係目錄嘅意思__AB__目的是為咗避免命名衝突。
+呢個目錄包含咗特定運行級下啟動嘅進程__AB__例如運行級 5 對應 `/etc/rc5.d`。
 
 ```bash {frame="none"}
 ls -l /etc/rc5.d
@@ -100,11 +100,11 @@ lrwxrwxrwx 1 root root 20 Apr 21  2022 K01irqbalance -> ../init.d/irqbalance
 lrwxrwxrwx 1 root root 17 Jul 10 11:05 K01sysstat -> ../init.d/sysstat
 ```
 
-雖然依家使用嘅係 `systemd`，但為咗兼容性，呢啲目錄同腳本仍然保留住。
+雖然依家使用嘅係 `systemd`__AB__但為咗兼容性__AB__呢啲目錄同腳本仍然保留住。
 
 ## Unit Files
 
-單元文件係 systemd 嘅配置文件，用嚟定義同管理系統服務、設備、掛載點、套接字同其他系統資源。
+單元文件係 systemd 嘅配置文件__AB__用嚟定義同管理系統服務、設備、掛載點、套接字同其他系統資源。
 每個單元文件都描述咗 systemd 點樣啟動、停止同監視相關資源。
 
 ### 基本分類
@@ -158,7 +158,7 @@ Aug 08 12:43:17 guitarocks systemd[1]: Started A high performance web server and
 /usr/lib/systemd/system/nginx.service
 ```
 
-Nginx 服務嘅單元文件有好幾個路徑，第一個係軟鏈接。
+Nginx 服務嘅單元文件有好幾個路徑__AB__第一個係軟鏈接。
 
 ```bash {frame="none"}
 file /etc/systemd/system/multi-user.target.wants/nginx.service
@@ -168,7 +168,7 @@ file /etc/systemd/system/multi-user.target.wants/nginx.service
 ...: symbolic link to /lib/systemd/system/nginx.service
 ```
 
-第二第三個係硬鏈接，佢哋嘅 inode 係一樣嘅，並且 `/lib` 係指向 `/usr/lib` 嘅軟鏈接。
+第二第三個係硬鏈接__AB__佢哋嘅 inode 係一樣嘅__AB__並且 `/lib` 係指向 `/usr/lib` 嘅軟鏈接。
 
 ```bash {frame="none"}
 ls -i /usr/lib/systemd/system/nginx.service
@@ -224,21 +224,21 @@ Documentation=man:nginx(8)
 After=network.target nss-lookup.target
 
 [Service]
-# forking 表示服務喺啟動時會創建子進程，父進程會退出
+# forking 表示服務喺啟動時會創建子進程__AB__父進程會退出
 Type=forking
 # 存儲主進程嘅 ID
 PIDFile=/run/nginx.pid
-# 啟動準備，測試 nginx 配置
+# 啟動準備__AB__測試 nginx 配置
 ExecStartPre=/usr/sbin/nginx -t -q -g 'daemon on; master_process on;'
-# 啟動命令，-g 設置全局指定，會覆蓋Nginx配置文件嘅選項
+# 啟動命令__AB__-g 設置全局指定__AB__會覆蓋Nginx配置文件嘅選項
 ExecStart=/usr/sbin/nginx -g 'daemon on; master_process on;'
 # 重載配置命令
 ExecReload=/usr/sbin/nginx -g 'daemon on; master_process on;' -s reload
 # 終止進程嘅命令
 ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid
-# 終止服務嘅等待時間，超過 5 秒則強制終止
+# 終止服務嘅等待時間__AB__超過 5 秒則強制終止
 TimeoutStopSec=5
-# 終止進程嘅方式，SIGTERM，超時，SIGKILL，優雅->強制
+# 終止進程嘅方式__AB__SIGTERM__AB__超時__AB__SIGKILL__AB__優雅->強制
 KillMode=mixed
 
 # 如何安裝同啟用服務
@@ -250,15 +250,15 @@ WantedBy=multi-user.target
 
 * `systemctl start [unit]`：啟動單元。
 * `systemctl stop [unit]`：停止單元。
-* `systemctl enable [unit]`：啟用單元，使其喺引導時自動啟動。
+* `systemctl enable [unit]`：啟用單元__AB__使其喺引導時自動啟動。
 * `systemctl disable [unit]`：禁用單元。
 * `systemctl status [unit]`：查看單元狀態。
 * `systemctl daemon-reload`：喺修改或添加單元文件後重新加載 systemd 配置。
 
 ## Targets
 
-從上面可以看到，target 係一種單元文件嘅類型，同一般單元文件不同，佢代表嘅係系統當前嘅運行狀態，
-target 定義咗該狀態下需要啟動哪些進程同服務，所以 target 可以包含多個單元文件。
+從上面可以看到__AB__target 係一種單元文件嘅類型__AB__同一般單元文件不同__AB__佢代表嘅係系統當前嘅運行狀態__AB__
+target 定義咗該狀態下需要啟動哪些進程同服務__AB__所以 target 可以包含多個單元文件。
 用下面嘅命令可以查看當前系統嘅 target。
 
 ```bash {frame="none"}
@@ -266,7 +266,7 @@ systemctl get-default
 ```
 
 ```bash {frame="none"}
-multi-user.target # 多用戶模式，唔包含圖形界面
+multi-user.target # 多用戶模式__AB__唔包含圖形界面
 ```
 
 ### multi-user.target
@@ -305,9 +305,9 @@ AllowIsolate=yes
 /lib/systemd/system/multi-user.target.wants/
 ```
 
-* `/etc` 係用戶定義配置，`/lib` 係系統默認配置。
-* 用戶定義配置：優先級更高，同一服務 systemd 會優先執行。
-* 系統默認配置：系統或軟件包更新時，會隨之更新。
+* `/etc` 係用戶定義配置__AB__`/lib` 係系統默認配置。
+* 用戶定義配置：優先級更高__AB__同一服務 systemd 會優先執行。
+* 系統默認配置：系統或軟件包更新時__AB__會隨之更新。
 
 ### 常用命令
 

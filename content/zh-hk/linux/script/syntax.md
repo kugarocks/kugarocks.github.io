@@ -39,7 +39,7 @@ echo "hello, \"\""  # hello, ""
 
 ## 單引號
 
-唔解釋變量，只有單引號係特殊字符。
+唔解釋變量__AB__只有單引號係特殊字符。
 
 ```bash {frame="none"}
 name=foo
@@ -48,7 +48,7 @@ echo 'hello, $$'    # hello, $$
 echo 'hello, ""'    # hello, ""
 ```
 
-要輸出單引號，需要先關閉單引號。
+要輸出單引號__AB__需要先關閉單引號。
 
 ```bash {frame="none"}
 echo 'I'\''m fine'  # I'm fine
@@ -66,7 +66,7 @@ result=`date`
 result=$(date)
 ```
 
-推薦使用 `$()`，可讀性更好，更多例子如下：
+推薦使用 `$()`__AB__可讀性更好__AB__更多例子如下：
 
 ```bash {frame="none"}
 echo "dir is: $(pwd)"
@@ -76,11 +76,11 @@ echo "dir is: $(pwd)"
 count=$(ls $(pwd) | wc -l)
 ```
 
-[喺呢度 `ls` 冇使用 `-l` 選項，但 count 嘅值係 4，原因喺呢度。](/zh-cn/linux/cmd/common-1/#隱藏字符)
+[喺呢度 `ls` 冇使用 `-l` 選項__AB__但 count 嘅值係 4__AB__原因喺呢度。](/zh-cn/linux/cmd/common-1/#隱藏字符)
 
 ## 輸出重定向
 
-標準輸出重定向 `>`，新建/覆蓋文件。
+標準輸出重定向 `>`__AB__新建/覆蓋文件。
 
 ```bash {frame="none"}
 cmd > file
@@ -92,7 +92,7 @@ cmd > file
 cmd >> file
 ```
 
-標準錯誤重定向 `2>`，新建/覆蓋文件。
+標準錯誤重定向 `2>`__AB__新建/覆蓋文件。
 
 ```bash {frame="none"}
 cmd 2> file
@@ -112,7 +112,7 @@ ls 404 > foobar.log 2>&1
 
 ## 輸入重定向
 
-常用方式，使用 `<` 符號。
+常用方式__AB__使用 `<` 符號。
 
 ```bash {frame="none"}
 echo "a b c" > foo
@@ -126,7 +126,7 @@ wc < foo
 1 3 6
 ```
 
-內聯重定向，Inline Input Redirection。
+內聯重定向__AB__Inline Input Redirection。
 
 ```bash {frame="none"}
 wc << FOO
@@ -140,23 +140,23 @@ FOO
 3       3      17
 ```
 
-FOO 為自定義標記，用於多行輸入。
+FOO 為自定義標記__AB__用於多行輸入。
 
 ## EXPR 命令
 
-反人類嘅數學運算指令，`+` 號兩邊嘅空格唔可以少。
+反人類嘅數學運算指令__AB__`+` 號兩邊嘅空格唔可以少。
 
 ```bash {frame="none"}
 expr 2 + 5
 ```
 
-`*` 號係通配符，仲要轉義。
+`*` 號係通配符__AB__仲要轉義。
 
 ```bash {frame="none"}
 expr 2 \* 5
 ```
 
-只有整除，唔支持浮點數。
+只有整除__AB__唔支持浮點數。
 
 ```bash {frame="none"}
 expr 24 / 10
@@ -173,7 +173,7 @@ var2=$[2*(3+2)]
 
 ## BC 計算器
 
-精確數學運算計算器，全稱 **Basic/Bench Calculator。**
+精確數學運算計算器__AB__全稱 **Basic/Bench Calculator。**
 
 ### 交互模式
 
@@ -208,14 +208,14 @@ bc -q
 12.5
 ```
 
-除法會用到 `scale` 變量，默認值為 0，表示整除。
+除法會用到 `scale` 變量__AB__默認值為 0__AB__表示整除。
 
 ```bash {frame="none"}
 scale=2
 10/3
 ```
 
-表示保留 2 位小數，**`scale` 變量僅對除法有效**。
+表示保留 2 位小數__AB__**`scale` 變量僅對除法有效**。
 
 ### 管道方式
 
@@ -238,10 +238,10 @@ EOF
 
 ## EXIT 命令
 
-腳本嘅默認退出碼係 0，表示正常退出，可以使用 `exit` 改變。
+腳本嘅默認退出碼係 0__AB__表示正常退出__AB__可以使用 `exit` 改變。
 
 ```bash {frame="none"}
 exit 5
 ```
 
-退出碼嘅範圍係 0-255，取模（%256）。
+退出碼嘅範圍係 0-255__AB__取模（%256）。

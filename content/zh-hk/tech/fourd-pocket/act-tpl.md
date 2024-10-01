@@ -14,17 +14,17 @@ seo:
 
 ## 背景
 
-2019-2020，當時用 PHP 寫嘅呢個活動模板項目，雖然已經停止開發咗，但而家仲喺運行，喺上面跑嘅活動已經有 400 多個咗。
-我記得我離職嘅時候先 50 多個，而家 PHP 喺國內已經唔係咁流行咗，要唔係因為遷移成本大，早就改成 Java 咗。
-不過得知自己寫嘅代碼仲喺運行，仲上線咗咁多活動，滿打滿算都省咗唔少開發成本，心裏仲係幾開心嘅。
+2019-2020__AB__當時用 PHP 寫嘅呢個活動模板項目__AB__雖然已經停止開發咗__AB__但而家仲喺運行__AB__喺上面跑嘅活動已經有 400 多個咗。
+我記得我離職嘅時候先 50 多個__AB__而家 PHP 喺國內已經唔係咁流行咗__AB__要唔係因為遷移成本大__AB__早就改成 Java 咗。
+不過得知自己寫嘅代碼仲喺運行__AB__仲上線咗咁多活動__AB__滿打滿算都省咗唔少開發成本__AB__心裏仲係幾開心嘅。
 
-今次打算把活動模板再次搭建起嚟，亦記錄一下當中碰到嘅問題。
-畢竟對於一個 5 年前嘅老項目，好多依賴嘅軟件都更新咗，會出現各種各樣嘅問題。
+今次打算把活動模板再次搭建起嚟__AB__亦記錄一下當中碰到嘅問題。
+畢竟對於一個 5 年前嘅老項目__AB__好多依賴嘅軟件都更新咗__AB__會出現各種各樣嘅問題。
 
 ## PHP 7.2
 
-2024 年嘅 PHP 已經去到 8.X 咗，有啲特性已經唔再支持，所以只能安裝舊版。
-不過 Homebrew 嘅官方唔提供舊版本嘅下載，需要使用 `shivammathur/homebrew-php`。
+2024 年嘅 PHP 已經去到 8.X 咗__AB__有啲特性已經唔再支持__AB__所以只能安裝舊版。
+不過 Homebrew 嘅官方唔提供舊版本嘅下載__AB__需要使用 `shivammathur/homebrew-php`。
 
 {{< link-card
   title="shivammathur/homebrew-php"
@@ -70,7 +70,7 @@ php@7.2   started kuga ~/Library/LaunchAgents/homebrew.mxcl.php@7.2.plist
 
 ## MySQL 8.4
 
-MySQL 也從 5 跳到 8 了，呢度直接安裝 8.4。
+MySQL 也從 5 跳到 8 了__AB__呢度直接安裝 8.4。
 
 ```bash {frame="none"}
 brew install mysql@8.4
@@ -84,9 +84,9 @@ PHP 7.2 連接數據庫嘅時候會報以下錯誤。
 CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client
 ```
 
-出於安全考慮，MySQL 8.0 之後引入咗新嘅驗證方法 `caching_sha2_password`，
+出於安全考慮__AB__MySQL 8.0 之後引入咗新嘅驗證方法 `caching_sha2_password`__AB__
 呢個同舊版本客戶端使用嘅 `mysql_native_password` 唔兼容。
-解決方法有兩個，一係升級客戶端，二係啟用舊版模塊。
+解決方法有兩個__AB__一係升級客戶端__AB__二係啟用舊版模塊。
 呢度最簡單嘅方法當然係讓 MySQL 8.4 啟用 `mysql_native_password` 模塊。
 
 ```bash {frame="none"}

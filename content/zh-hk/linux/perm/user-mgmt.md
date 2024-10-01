@@ -17,7 +17,7 @@ seo:
 ### /etc/passwd
 
 Linux 使用 `/etc/passwd` 文件嚟保存用戶賬號信息。
-因為好多服務進程需要讀取用戶賬號嘅信息，可以見到呢個文件嘅權限都係可讀嘅。
+因為好多服務進程需要讀取用戶賬號嘅信息__AB__可以見到呢個文件嘅權限都係可讀嘅。
 
 ```bash {frame="none"}
 -rw-r--r-- 1 root root 2010 Aug 24 15:12 /etc/passwd
@@ -43,8 +43,8 @@ kuga:x:1000:1000:,,,:/home/kuga:/bin/bash
 | 目錄位置 | /home/kuga |
 | 默認 Shell | /bin/bash |
 
-系統會預留一定嘅 UID 範圍，Ubuntu 新添加嘅用戶 ID 由 1000 開始。
-下面嘅命令會按第 3 個字段 UID 逆序排序，然後輸出前 10 行，只顯示 136 字段（用戶名，UID，目錄位置）。
+系統會預留一定嘅 UID 範圍__AB__Ubuntu 新添加嘅用戶 ID 由 1000 開始。
+下面嘅命令會按第 3 個字段 UID 逆序排序__AB__然後輸出前 10 行__AB__只顯示 136 字段（用戶名__AB__UID__AB__目錄位置）。
 
 ```bash {frame="none"}
 sort -t ':' -k 3 -nr /etc/passwd | cut -d ':' -f1,3,6 | head -n 10
@@ -65,8 +65,8 @@ tss:110:/var/lib/tpm
 
 ### /etc/shadow
 
-由於歷史原因，早期嘅用戶密碼使用 `/etc/passwd` 存儲，所以文件名係 passwd。
-後來因為密碼容易被暴力破解，依家嘅密碼已經搬到新文件 `/etc/shadow`。
+由於歷史原因__AB__早期嘅用戶密碼使用 `/etc/passwd` 存儲__AB__所以文件名係 passwd。
+後來因為密碼容易被暴力破解__AB__依家嘅密碼已經搬到新文件 `/etc/shadow`。
 **呢個文件只有 root 同 shadow 組可讀**。
 
 ```bash {frame="none"}
@@ -83,7 +83,7 @@ sys:*:19103:0:99999:7:::
 sync:*:19103:0:99999:7:::
 ```
 
-呢啲字段一般都係管理密碼嘅（如幾多日後必須更改），呢度唔展開。
+呢啲字段一般都係管理密碼嘅（如幾多日後必須更改）__AB__呢度唔展開。
 
 ## Useradd
 
@@ -130,7 +130,7 @@ CREATE_MAIL_SPOOL=no
 * INACTIVE：密碼過期後多少天禁用賬號。
 * EXPIRE：賬號過期日期。
 * SHELL：默認使用嘅登錄 Shell。
-* SKEL：Skeletal，該目錄內容會複製到用戶主目錄。
+* SKEL：Skeletal__AB__該目錄內容會複製到用戶主目錄。
 * CREATE_MAIL_SPOOL：是否創建郵件存儲文件。
 
 ### /etc/default/useradd
@@ -168,13 +168,13 @@ SHELL=/bin/sh
 # HOME=/home
 ```
 
-如果把 SHELL 改成 `/bin/bash`，那麼 `useradd -D` 就會自動更新。
+如果把 SHELL 改成 `/bin/bash`__AB__那麼 `useradd -D` 就會自動更新。
 
 ### /etc/login.defs
 
 用戶賬號同登錄管理嘅核心配置文件。
 功能包括：密碼策略、UID/GID 範圍、HOME 目錄管理、用戶同組管理、登錄設置等等。
-文件中嘅設置會影響著如 `useradd`、`usermod`、`passwd` 等命令嘅行為，修改前建議提前備份。
+文件中嘅設置會影響著如 `useradd`、`usermod`、`passwd` 等命令嘅行為__AB__修改前建議提前備份。
 
 ```bash {frame="none"}
 -rw-r--r-- 1 root root 10734 Nov 11  2021 /etc/login.defs
@@ -196,10 +196,10 @@ USERGROUPS_ENAB yes
 
 如果 `USERGROUPS_ENAB` 嘅值為 yes：
 
-* `userdel`：刪除用戶嘅時候，會同時刪除空嘅用戶用。
-* `useradd`：創建用戶嘅時候，會同時創建同用戶名一樣嘅組。
+* `userdel`：刪除用戶嘅時候__AB__會同時刪除空嘅用戶用。
+* `useradd`：創建用戶嘅時候__AB__會同時創建同用戶名一樣嘅組。
 
-這就係為咗緊上面創建用戶嘅時候，沒有使用 `GROUP=100` 呢個默認參數。
+這就係為咗緊上面創建用戶嘅時候__AB__沒有使用 `GROUP=100` 呢個默認參數。
 
 ### 使用命令修改配置
 
@@ -221,7 +221,7 @@ sudo useradd -D -g 100
 sudo useradd -D -b path
 ```
 
-執行命令後，你會發現，文件嘅權限由 `644` -> `600`。
+執行命令後__AB__你會發現__AB__文件嘅權限由 `644` -> `600`。
 
 ```bash {frame="none"}
 -rw------- 1 root root 1195 Aug 28 11:22 /etc/default/useradd
@@ -233,7 +233,7 @@ sudo useradd -D -b path
 sudo chmod 644 /etc/default/useradd
 ```
 
-[翻一下源碼](https://github.com/shadow-maint/shadow/blob/5c0b99c77e3963cc3d4ee4980b0bb3c9955c032c/src/useradd.c#L525)，在 `set_defaults(void)` 方法中，執行過程大致如下：
+[翻一下源碼](https://github.com/shadow-maint/shadow/blob/5c0b99c77e3963cc3d4ee4980b0bb3c9955c032c/src/useradd.c#L525)__AB__在 `set_defaults(void)` 方法中__AB__執行過程大致如下：
 
 ```bash {frame="none"}
 /*
@@ -252,7 +252,7 @@ set_defaults(void)
 
 * 使用 `mkstemp` 函數創建臨時文件 A。
 * 處理 `/etc/default/useradd` 文件並複製到 A 中。
-* 備份原來嘅 `useradd` 文件，**重命名**為 `useradd-`。
+* 備份原來嘅 `useradd` 文件__AB__**重命名**為 `useradd-`。
 * 把 A 文件覆蓋原來嘅 `useradd` 文件。
 * **`mkstemp` 函數創建嘅文件權限係 `0600`**。
 
@@ -281,7 +281,7 @@ sudo useradd -D -s /bin/sh
 ```
 
 不難發現 `useradd-` 嘅 inode 就係修改前 `useradd` 嘅 inode。
-關於權限被修改嘅問題，顯然係唔合理嘅，命令唔應該修改文件嘅權限。
+關於權限被修改嘅問題__AB__顯然係唔合理嘅__AB__命令唔應該修改文件嘅權限。
 在 GitHub 上可以查看這個 [pull request](https://github.com/shadow-maint/shadow/pull/1083)。
 
 ## Usermod
@@ -294,7 +294,7 @@ sudo usermod -l newuser olduser
 
 ### 將用戶添加到一個組
 
-`-a` 表示追加到組，而唔係替換當前組列表。
+`-a` 表示追加到組__AB__而唔係替換當前組列表。
 
 ```bash {frame="none"}
 sudo usermod -aG group user
@@ -302,7 +302,7 @@ sudo usermod -aG group user
 
 ### 更改用戶嘅默認 Shell
 
-`usermod` 唔會檢查 Shell 嘅合法性，可用 `chsh` 代替。
+`usermod` 唔會檢查 Shell 嘅合法性__AB__可用 `chsh` 代替。
 
 ```bash {frame="none"}
 sudo chsh -s /bin/bash user
@@ -334,7 +334,7 @@ sudo passwd soda
 
 ### 禁止密碼登錄
 
-下面兩種方法係一樣嘅，而且**唔會禁止 SSH 公鑰認證**。
+下面兩種方法係一樣嘅__AB__而且**唔會禁止 SSH 公鑰認證**。
 
 ```bash {frame="none"}
 sudo usermod -L user
@@ -344,7 +344,7 @@ sudo usermod -L user
 sudo passwd -l user
 ```
 
-執行後，`/etc/shadow` 文件嘅密碼字段前面會加 `!` 。
+執行後__AB__`/etc/shadow` 文件嘅密碼字段前面會加 `!` 。
 
 ```bash {frame="none"}
 sudo grep user /etc/shadow
@@ -356,7 +356,7 @@ user:!$y...:19959:0:99999:7:::
 
 ### 恢復密碼登錄
 
-下面兩種方法係一樣嘅，可以混著用。
+下面兩種方法係一樣嘅__AB__可以混著用。
 
 ```bash {frame="none"}
 sudo usermod -U user
@@ -366,11 +366,11 @@ sudo usermod -U user
 sudo passwd -u user
 ```
 
-執行後，`/etc/shadow` 文件嘅密碼字段前面會刪除 `!` 。
+執行後__AB__`/etc/shadow` 文件嘅密碼字段前面會刪除 `!` 。
 
 ### 禁止 SSH 公鑰認證
 
-沒有了登錄 Shell，自然密碼也係唔能登錄。
+沒有了登錄 Shell__AB__自然密碼也係唔能登錄。
 
 ```bash {frame="none"}
 sudo usermod -s /usr/sbin/nologin user
@@ -386,7 +386,7 @@ sudo usermod -s /bin/bash user
 
 ### 僅刪除用戶
 
-呢種方法只刪除用戶，保留主目錄。
+呢種方法只刪除用戶__AB__保留主目錄。
 
 ```bash {frame="none"}
 sudo userdel user
@@ -394,14 +394,14 @@ sudo userdel user
 
 ### 主目錄同郵件
 
-不但刪除用戶，還要刪除主目錄同郵件。
+不但刪除用戶__AB__還要刪除主目錄同郵件。
 
 ```bash {frame="none"}
 sudo userdel -r user
 ```
 
-如果文件或目錄沒不存在，會在終端提示。
+如果文件或目錄沒不存在__AB__會在終端提示。
 
 ## Adduser Package
 
-呢個包提供兩個實用命令，`adduser` 同 `deluser`，屬於上層封裝好嘅工具。
+呢個包提供兩個實用命令__AB__`adduser` 同 `deluser`__AB__屬於上層封裝好嘅工具。

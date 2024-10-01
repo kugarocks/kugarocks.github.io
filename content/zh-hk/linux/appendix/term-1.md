@@ -14,7 +14,7 @@ seo:
 
 ## hassle-free
 
-冇麻煩嘅，省心嘅。
+冇麻煩嘅__AB__省心嘅。
 
 ```txt {frame="none" text-wrap="wrap"}
 Go compiles to a single, static binary with minimal runtime dependencies, making deployment straightforward and hassle-free. 
@@ -62,7 +62,7 @@ When a program is invoked it is given an array of strings called the environment
 
 ## expands to
 
-展開為，發展為，代表。呢個翻譯怪怪嘅。
+展開為__AB__發展為__AB__代表。呢個翻譯怪怪嘅。
 
 ```txt {frame="none" text-wrap="wrap"}
 ($$) Expands to the process ID of the shell. In a subshell, it expands to the process ID of the invoking shell, not the subshell.
@@ -70,7 +70,7 @@ When a program is invoked it is given an array of strings called the environment
 
 ## skeletal
 
-骨骼嘅，類似於腳手架。
+骨骼嘅__AB__類似於腳手架。
 
 ```txt {frame="none" text-wrap="wrap"}
 The SKEL variable specifies the directory containing "skeletal" user files; in other words, files such as a sample .profile that will be copied to the new user's home directory when it is created.

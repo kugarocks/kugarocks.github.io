@@ -14,7 +14,7 @@ seo:
 
 ## Bash Shell
 
-喺默認情況下，Bash Shell 會忽略 `SIGQUIT(3)` 同 `SIGTERM(15)` 信號，
+喺默認情況下__AB__Bash Shell 會忽略 `SIGQUIT(3)` 同 `SIGTERM(15)` 信號__AB__
 所以執行下面嘅命令唔會有任何反應（`$$` 係當前 Shell 嘅進程 ID）。
 
 ```bash {frame="none"}
@@ -25,7 +25,7 @@ kill -3 $$
 kill -15 $$
 ```
 
-如果收到 `SIGHUP(1)` 信號，Bash Shell 會退出，但喺退出之前，
+如果收到 `SIGHUP(1)` 信號__AB__Bash Shell 會退出__AB__但喺退出之前__AB__
 佢會把 `SIGHUP` 信號傳畀所有由該 Shell 啟動嘅進程同腳本。
 
 ```bash {frame="none"}
@@ -86,8 +86,8 @@ trap -- SIGINT
 
 ## NOHUP
 
-No Hang Up，由該命令啟動嘅進程或者腳本會忽略 SIGHUP 信號。
-即係話，即使終端退出，由該終端啟動嘅進程或者腳本唔會跟住一齊退出。
+No Hang Up__AB__由該命令啟動嘅進程或者腳本會忽略 SIGHUP 信號。
+即係話__AB__即使終端退出__AB__由該終端啟動嘅進程或者腳本唔會跟住一齊退出。
 
 ```txt {frame="none"}
 run a command immune to hangups, with output to a non-tty
@@ -115,7 +115,7 @@ nohup ./foo > out.log 2>&1
 
 ## Nice Value
 
-控制進程優先級嘅參數。`nice` 值越高，進程嘅優先級越低，分配到嘅 CPU 資源越少。
+控制進程優先級嘅參數。`nice` 值越高__AB__進程嘅優先級越低__AB__分配到嘅 CPU 資源越少。
 
 ### 範圍
 

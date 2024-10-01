@@ -80,7 +80,7 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bott
 
 ### 驗證源配置
 
-完成更換源操作後，可以執行以下命令驗證源配置是否成功。
+完成更換源操作後__AB__可以執行以下命令驗證源配置是否成功。
 
 ```bash {frame="none"}
 brew update
@@ -90,17 +90,17 @@ brew update
 brew config | grep -E 'ORIGIN|BOTTLE'
 ```
 
-通過 `brew config` 命令，你可以檢查當前使用嘅倉庫源同 Bottle 源。
+通過 `brew config` 命令__AB__你可以檢查當前使用嘅倉庫源同 Bottle 源。
 
 ### 常見報錯
 
-如果報 `homebrew/core` 目錄唔存在，可以使用以下命令檢查。
+如果報 `homebrew/core` 目錄唔存在__AB__可以使用以下命令檢查。
 
 ```bash {frame="none"}
 brew tap
 ```
 
-如果冇輸出 `homebrew/core`，可以使用以下命令強制安裝。
+如果冇輸出 `homebrew/core`__AB__可以使用以下命令強制安裝。
 
 ```bash {frame="none"}
 brew tap --force homebrew/core

@@ -14,9 +14,9 @@ seo:
 
 ## Subshell
 
-Subshell 嘅定義喺一啲書本或者資料中模糊唔清，畀出嘅解釋往往同某啲例子自相矛盾，令人捉摸唔透。
-所以，為咗避免呢種語義同邏輯上嘅問題，呢度唔會畀出佢嘅定義（建議參考官方 BASH 手冊），
-亦唔會用 “子 Shell” 呢個翻譯，只係從佢嘅實際表現去理解佢嘅定義。
+Subshell 嘅定義喺一啲書本或者資料中模糊唔清__AB__畀出嘅解釋往往同某啲例子自相矛盾__AB__令人捉摸唔透。
+所以__AB__為咗避免呢種語義同邏輯上嘅問題__AB__呢度唔會畀出佢嘅定義（建議參考官方 BASH 手冊）__AB__
+亦唔會用 “子 Shell” 呢個翻譯__AB__只係從佢嘅實際表現去理解佢嘅定義。
 下面列舉嘅變量同 Subshell 概念有密切嘅關係。
 
 {{< link-card
@@ -28,13 +28,13 @@ Subshell 嘅定義喺一啲書本或者資料中模糊唔清，畀出嘅解釋�
 
 ### BASH_SUBSHELL
 
-Shell 變量，**非環境變量**，官方手冊解釋。
+Shell 變量__AB__**非環境變量**__AB__官方手冊解釋。
 
 ```bash {frame="none" text-wrap="wrap"}
 Incremented by one within each subshell or subshell environment when the shell begins executing in that environment. The initial value is 0. If BASH_SUBSHELL is unset, it loses its special properties, even if it is subsequently reset.
 ```
 
-亦可以用 man 命令，內容可能會有啲唔同。
+亦可以用 man 命令__AB__內容可能會有啲唔同。
 
 ```bash {frame="none"}
 man bash | grep -A 3 'BASH_SUBSHELL' | head -n 4
@@ -52,7 +52,7 @@ echo $BASH_SUBSHELL
 
 ### SHLVL
 
-**環境變量**，官方手冊解釋。
+**環境變量**__AB__官方手冊解釋。
 
 ```bash {frame="none" text-wrap="wrap"}
 Incremented by one each time a new instance of Bash is started. This is intended to be a count of how deeply your Bash shells are nested.
@@ -76,7 +76,7 @@ echo $SHLVL
 
 ## 命令分組
 
-全稱 Command Grouping，Bash 提供兩種方法創建命令分組。
+全稱 Command Grouping__AB__Bash 提供兩種方法創建命令分組。
 
 ### 括號：()
 
@@ -115,12 +115,12 @@ echo $SHLVL
 可以得出以下結論。
 
 * BASH_SUBSHELL：每創建一個 Subshell 就加 1。
-* SHLVL：無論創建幾多個 Subshell，都唔變。
+* SHLVL：無論創建幾多個 Subshell__AB__都唔變。
 
 ### 花括號：\{\}
 
-呢個方法唔會創建 Subshell，命令分組係喺當前 Shell 嘅上下文中處理嘅。
-喺語法上，花括號同命令之間嘅空格唔可以省略，每個命令結尾嘅分號亦係必須嘅。
+呢個方法唔會創建 Subshell__AB__命令分組係喺當前 Shell 嘅上下文中處理嘅。
+喺語法上__AB__花括號同命令之間嘅空格唔可以省略__AB__每個命令結尾嘅分號亦係必須嘅。
 
 ```bash {frame="none"}
 { pwd; { echo $BASH_SUBSHELL; } }
@@ -144,11 +144,11 @@ echo $SHLVL
 
 ## Shell PID
 
-可以通過 BASHPID 或者 `$$` 睇 Shell 嘅 PID，但佢哋係有區別嘅。
+可以通過 BASHPID 或者 `$$` 睇 Shell 嘅 PID__AB__但佢哋係有區別嘅。
 
 ### BASHPID
 
-Shell 變量，**非環境變量**，官方解釋。
+Shell 變量__AB__**非環境變量**__AB__官方解釋。
 
 ```bash {frame="none" text-wrap="wrap"}
 Expands to the process ID of the current Bash process. This differs from $$ under certain circumstances, such as subshells that do not require Bash to be re-initialized. Assignments to BASHPID have no effect. If BASHPID is unset, it loses its special properties, even if it is subsequently reset.
@@ -176,7 +176,7 @@ kuga       57326   57325  0 15:13 pts/0    00:00:00      \_ ps -f --forest
 57325
 ```
 
-可以睇到，BASHPID 輸出咗 Subshell 嘅 PID。
+可以睇到__AB__BASHPID 輸出咗 Subshell 嘅 PID。
 
 ### 特殊參數 $$
 
@@ -186,7 +186,7 @@ kuga       57326   57325  0 15:13 pts/0    00:00:00      \_ ps -f --forest
 ($$) Expands to the process ID of the shell. In a subshell, it expands to the process ID of the invoking shell, not the subshell.
 ```
 
-喺 Subshell 中，`$$` 表示嘅係 invoking shell 嘅 PID。
+喺 Subshell 中__AB__`$$` 表示嘅係 invoking shell 嘅 PID。
 
 ```bash {frame="none"}
 (pwd; (ps -f --forest; echo $$))
@@ -202,7 +202,7 @@ kuga       57349   57348  0 15:20 pts/0    00:00:00          \_ ps -f --forest
 56414
 ```
 
-可以睇到，無論有幾多個 Subshells，`$$` 始終表示頂層 Bash 嘅 PID。
+可以睇到__AB__無論有幾多個 Subshells__AB__`$$` 始終表示頂層 Bash 嘅 PID。
 
 ## 創建 Bash 實例
 
@@ -238,4 +238,4 @@ echo $BASH_SUBSHELL $SHLVL $BASHPID $$
 * BASHPID：新 Bash 實例嘅 PID。
 * $$：新 Bash 實例嘅 PID。
 
-如果話呢種創建 Bash 嘅方式都係 Subshell 嘅話，語義同表現上就會自相矛盾。
+如果話呢種創建 Bash 嘅方式都係 Subshell 嘅話__AB__語義同表現上就會自相矛盾。
