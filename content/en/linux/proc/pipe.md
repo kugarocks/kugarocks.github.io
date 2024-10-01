@@ -1,45 +1,45 @@
 ---
-title: "管道"
+title: "Pipe"
 description: ""
 summary: ""
 date: 2024-08-30T20:00:00+08:00
 lastmod: 2024-08-30T20:00:00+08:00
 weight: 2700
 seo:
-  title: "管道"
+  title: "Pipe"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 基本概念
+## Basic Concepts
 
-管道可以把一个命令的输出作为下一个命令的输入，
-在命令行环境中通过符号 `|` 来表示，是一种进程间的单向通信形式，基于文件描述符实现。
+A pipe can use the output of one command as the input of the next command,
+represented by the symbol `|` in the command-line environment, which is a form of one-way communication between processes, implemented based on file descriptors.
 
-## 工作原理
+## Working Principle
 
-管道会创建了内存缓冲区，两个进程（命令）通过这个缓冲区通信。
+A pipe creates a memory buffer, and two processes (commands) communicate through this buffer.
 
-### 创建管道
+### Creating a Pipe
 
-使用 `|` 创建管道时，Shell 会调 `pipe()` 来创建管道，包含两个文件描述符。
+When creating a pipe using `|`, the Shell calls `pipe()` to create the pipe, which includes two file descriptors.
 
-* 写入端文件描述符：`A`。
-* 读取端文件描述符：`B`。
+* Write-end file descriptor: `A`.
+* Read-end file descriptor: `B`.
 
-### 命令连接
+### Command Connection
 
-* 左侧命令：把标准输出（文件描述符 `1`）重定向到管道的写入端 `A`**。**
-* 右侧命令：把标准输入（文件描述符 `0`）重定向到管道的读取端 `B`**。**
+* Left command: Redirects the standard output (file descriptor `1`) to the write-end `A` of the pipe.
+* Right command: Redirects the standard input (file descriptor `0`) to the read-end `B` of the pipe.
 
-### 数据流动
+### Data Flow
 
-* 实时数据传输：两边的命令会并行执行，不会等前一个命令结束。
-* 无临时文件：数据在内存中传递。
-* 缓冲区大小：取决于系统。
+* Real-time data transmission: The commands on both sides execute in parallel, without waiting for the previous command to finish.
+* No temporary files: Data is transmitted in memory.
+* Buffer size: Depends on the system.
 
-## 查看缓冲区大小
+## Buffer Size
 
 ```bash {frame="none"}
 cat /proc/sys/fs/pipe-max-size
@@ -49,7 +49,7 @@ cat /proc/sys/fs/pipe-max-size
 1048576
 ```
 
-## 局限性
+## Limitations
 
-* 单向通信：双向通信需要使用其他机制，如命名管道（FIFO）或套接字。
-* 缓冲区大小：如果缓冲区满了，上游命令会暂停。
+* One-way communication: Two-way communication requires the use of other mechanisms, such as named pipes (FIFO) or sockets.
+* Buffer size: If the buffer is full, the upstream command will pause.
