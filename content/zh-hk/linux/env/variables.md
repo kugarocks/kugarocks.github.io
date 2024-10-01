@@ -62,7 +62,7 @@ kuga
 
 ## PATH
 
-可執行程序搜索嘅路徑__AB__以冒號分隔。
+可執行程序搜索嘅路徑，以冒號分隔。
 
 ```bash {frame="none"}
 printenv PATH
@@ -74,7 +74,7 @@ printenv PATH
 
 ## SHLVL
 
-Shell 嘅層級__AB__從 1 開始。
+Shell 嘅層級，從 1 開始。
 
 ```bash {frame="none"}
 printenv SHLVL

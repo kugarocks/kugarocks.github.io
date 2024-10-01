@@ -16,10 +16,10 @@ seo:
 
 ![ibm-2260](/images/misc/ibm-2260.png)
 
-早期嘅終端係一種獨立嘅硬件設備__AB__用嚟連接到主計算機或者伺服器。佢哋通常包括：
+早期嘅終端係一種獨立嘅硬件設備，用嚟連接到主計算機或者伺服器。佢哋通常包括：
 
-* **輸入設備**：例如鍵盤__AB__用嚟輸入命令同數據。
-* **輸出設備**：例如顯示器或者打印機__AB__用嚟顯示計算結果同系統反饋。
+* **輸入設備**：例如鍵盤，用嚟輸入命令同數據。
+* **輸出設備**：例如顯示器或者打印機，用嚟顯示計算結果同系統反饋。
 
 例如：早期嘅 Teletype (tty) 終端、DEC VT100 終端。
 
@@ -27,27 +27,27 @@ seo:
 
 ![iterm2](/images/misc/iterm2-cover.png)
 
-現代終端更多係以軟件形式存在__AB__即係終端模擬器（Terminal Emulator）__AB__
-佢哋喺現代操作系統中（例如 Linux、macOS、Windows）作為應用程序運行__AB__模擬早期硬件終端嘅功能。
+現代終端更多係以軟件形式存在，即係終端模擬器（Terminal Emulator），
+佢哋喺現代操作系統中（例如 Linux、macOS、Windows）作為應用程序運行，模擬早期硬件終端嘅功能。
 
 ## 常見嘅終端模擬器
 
 | 終端模擬器 | 描述 |
 | --- | --- |
-| **iTerm2** | macOS 系統上嘅高級終端模擬器__AB__提供咗豐富嘅功能__AB__例如分屏、標籤頁、搜索等。 |
-| **GNOME Terminal** | 常見於 Linux 系統嘅默認終端模擬器__AB__功能強大且易於使用。 |
-| **PuTTY** | Windows 系統上廣泛使用嘅 SSH 客戶端__AB__適用於遠程連接同管理。 |
-| **Windows Terminal** | Windows 系統上嘅現代終端模擬器__AB__支持多個命令行環境__AB__例如 PowerShell、CMD、WSL。 |
+| **iTerm2** | macOS 系統上嘅高級終端模擬器，提供咗豐富嘅功能，例如分屏、標籤頁、搜索等。 |
+| **GNOME Terminal** | 常見於 Linux 系統嘅默認終端模擬器，功能強大且易於使用。 |
+| **PuTTY** | Windows 系統上廣泛使用嘅 SSH 客戶端，適用於遠程連接同管理。 |
+| **Windows Terminal** | Windows 系統上嘅現代終端模擬器，支持多個命令行環境，例如 PowerShell、CMD、WSL。 |
 
 ## Teletype
 
 ![teletype-model-33](/images/misc/teletype-model-33.png)
 
-雖然 Teletype 設備而家已經唔再使用__AB__但佢嘅概念同功能依然保留喺 Linux 中。
+雖然 Teletype 設備而家已經唔再使用，但佢嘅概念同功能依然保留喺 Linux 中。
 
 ### /dev/tty
 
-可以睇到佢嘅文件類型係 `c`（字符設備）__AB__代表當前進程所連接嘅終端設備。
+可以睇到佢嘅文件類型係 `c`（字符設備），代表當前進程所連接嘅終端設備。
 
 ```bash {frame="none"}
 ls -l /dev/tty
@@ -57,7 +57,7 @@ ls -l /dev/tty
 crw-rw-rw- 1 root tty 5, 0 Aug  7 22:33 /dev/tty
 ```
 
-佢嘅權限係 `666`__AB__主設備號係 `5`__AB__次設備號係 `0`__AB__呢個就係我哋常常睇到嘅標準輸入/輸出。
+佢嘅權限係 `666`，主設備號係 `5`，次設備號係 `0`，呢個就係我哋常常睇到嘅標準輸入/輸出。
 
 ```bash {frame="none"}
 echo "Hello, World" > /dev/tty
@@ -70,7 +70,7 @@ echo "Hello, $name"
 
 ### /dev/pts
 
-PTS 係偽終端嘅簡寫（Pseudo-Terminal）__AB__`/dev/pts` 係一個目錄__AB__用嚟存放偽終端設備文件。
+PTS 係偽終端嘅簡寫（Pseudo-Terminal），`/dev/pts` 係一個目錄，用嚟存放偽終端設備文件。
 
 ```bash {frame="none"}
 ls -l /dev/pts/
@@ -81,10 +81,10 @@ crw------- 1 root tty  136, 0 Aug  8 09:52 0
 c--------- 1 root root   5, 2 Aug  7 21:30 ptmx
 ```
 
-列出 `/dev/pts` 目錄嘅文件__AB__一般情況下會睇到兩類文件。
+列出 `/dev/pts` 目錄嘅文件，一般情況下會睇到兩類文件。
 
-* ptmx：Master Device__AB__主設備__AB__用嚟創建同管理偽終端對。
-* 0/1/2：Slave Device__AB__從設備__AB__每一個 `ssh` 會話對應一個數字。
+* ptmx：Master Device，主設備，用嚟創建同管理偽終端對。
+* 0/1/2：Slave Device，從設備，每一個 `ssh` 會話對應一個數字。
 
 喺命令行輸入 tty 命令可以睇到當前連接嘅偽終端設備文件。
 

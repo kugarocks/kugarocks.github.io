@@ -127,16 +127,16 @@ crw-rw-rw- 1 root tty  5,   0 Aug  7 22:33 /dev/tty
 brw-rw---- 1 root disk 252, 0 Aug  7 21:30 /dev/vda
 ```
 
-* 文件類型：`d` 目錄__AB__`-` 文件__AB__`l` 鏈接__AB__`c` 字符設備__AB__`b` 塊設備。
-* 文件權限：700__AB__Owner: 7__AB__Group: 0, Other: 0
+* 文件類型：`d` 目錄，`-` 文件，`l` 鏈接，`c` 字符設備，`b` 塊設備。
+* 文件權限：700，Owner: 7，Group: 0, Other: 0
 * 硬鏈接數：9
 * 文件屬主：root
 * 文件組別：root
 * 文件大小：4.0K
 * 修改時間：Aug 7 22:38
 * 文件名稱：root
-* 主設備號：Major Number__AB__5/252__AB__標識設備驅動程序
-* 次設備號：Minor Number__AB__0__AB__標識同一類設備中嘅某個設備實例
+* 主設備號：Major Number，5/252，標識設備驅動程序
+* 次設備號：Minor Number，0，標識同一類設備中嘅某個設備實例
 
 ### 只顯示目錄
 
@@ -253,7 +253,7 @@ file /bin/
 
 ## LESS
 
-`more` 命令只能按回車加載__AB__`less` 命令更強大__AB__因為 less is more。
+`more` 命令只能按回車加載，`less` 命令更強大，因為 less is more。
 
 ```bash {frame="none"}
 man less
@@ -333,7 +333,7 @@ df -h -t ext4
 df -h -t apfs
 ```
 
-`ext4` 係 Linux 嘅文件系統類型__AB__`apfs` 係 macOS 嘅文件系統類型。
+`ext4` 係 Linux 嘅文件系統類型，`apfs` 係 macOS 嘅文件系統類型。
 
 ## DU
 

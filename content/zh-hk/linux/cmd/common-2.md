@@ -14,7 +14,7 @@ seo:
 
 ## SORT
 
-預設按字符嘅編碼排序__AB__唔係數值。
+預設按字符嘅編碼排序，唔係數值。
 
 ```bash {frame="none"}
 sort - sort lines of text files
@@ -50,7 +50,7 @@ sort -k 1 file
 
 ### 指定分隔符同列
 
-`-k` 下標由 1 開始__AB__第 3 列係用戶 ID。
+`-k` 下標由 1 開始，第 3 列係用戶 ID。
 
 ```bash {frame="none"}
 sort -t ':' -k 3 -n /etc/passwd
@@ -84,7 +84,7 @@ alias -p
 
 ### 外/內部命令
 
-可以睇命令係咪內部命令__AB__內部命令同 Shell 編譯成一體__AB__同外部命令唔同__AB__唔使子進程執行。
+可以睇命令係咪內部命令，內部命令同 Shell 編譯成一體，同外部命令唔同，唔使子進程執行。
 
 ```bash {frame="none"}
 type cd

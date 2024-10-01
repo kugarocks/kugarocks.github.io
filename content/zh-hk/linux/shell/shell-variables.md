@@ -14,8 +14,8 @@ seo:
 
 ## Shell 變量
 
-Shell 變量係一個統稱__AB__如果用嘅係某個特定嘅 Shell__AB__例如 Bash__AB__咁可以稱佢為 Bash 變量。
-但係呢度必須要注意__AB__Shell 變量唔係環境變量__AB__唔好畀佢嘅大寫迷惑咗__AB__以下係相關嘅官方文檔。
+Shell 變量係一個統稱，如果用嘅係某個特定嘅 Shell，例如 Bash，咁可以稱佢為 Bash 變量。
+但係呢度必須要注意，Shell 變量唔係環境變量，唔好畀佢嘅大寫迷惑咗，以下係相關嘅官方文檔。
 
 {{< link-card
   title="Shell Variables"
@@ -31,7 +31,7 @@ Shell 變量係一個統稱__AB__如果用嘅係某個特定嘅 Shell__AB__例�
   target="_blank"
 >}}
 
-使用 man 指令__AB__然後搜索 `Shell Variables` 都可以睇到。
+使用 man 指令，然後搜索 `Shell Variables` 都可以睇到。
 
 ```bash {frame="none"}
 man bash
@@ -92,7 +92,7 @@ echo $BASH_VERSION
 
 ### BASH\_SUBSHELL
 
-Subshell 嘅嵌套級別__AB__從 0 開始。
+Subshell 嘅嵌套級別，從 0 開始。
 
 ```bash {frame="none"}
 echo $BASH_SUBSHELL

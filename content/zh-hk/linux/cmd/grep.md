@@ -14,9 +14,9 @@ seo:
 
 ## 簡介
 
-全稱 **Global Regular Expression Print**__AB__來源於一個 Unix 編輯器 `ed` 中嘅命令 `g/re/p`__AB__
-其中 `g`（global）係全局匹配__AB__`re`（regular expression）係正則表達式__AB__`p`（print）係打印。
-所以__AB__`grep` 工具本質上就係用嚟全局匹配正則表達式並打印結果。
+全稱 **Global Regular Expression Print**，來源於一個 Unix 編輯器 `ed` 中嘅命令 `g/re/p`，
+其中 `g`（global）係全局匹配，`re`（regular expression）係正則表達式，`p`（print）係打印。
+所以，`grep` 工具本質上就係用嚟全局匹配正則表達式並打印結果。
 
 ```bash {frame="none"}
 man grep
@@ -27,25 +27,25 @@ grep, egrep, fgrep, rgrep - print lines that match patterns
 ```
 
 另外 `egrep`、`fgrep` 、`rgrep` 分別同 `grep -E`、`grep -F` 、`grep -r` 一樣。
-呢啲變體已經被棄用__AB__但為咗向後兼容仍然提供。
-另外如果唔使用正則表達式__AB__**使用 `-F` 選項會快啲**__AB__
-因為預設情況下__AB__即使冇使用正則表達式__AB__`grep`  仍然會將模式視為正則表達式。
+呢啲變體已經被棄用，但為咗向後兼容仍然提供。
+另外如果唔使用正則表達式，**使用 `-F` 選項會快啲**，
+因為預設情況下，即使冇使用正則表達式，`grep`  仍然會將模式視為正則表達式。
 
 ## 正則表達式
 
-`grep` 預設使用POSIX嘅正則表達式__AB__根據唔同選項分為以下幾種：
+`grep` 預設使用POSIX嘅正則表達式，根據唔同選項分為以下幾種：
 
-1. **基本正則表達式（Basic Regular Expressions__AB__BRE）**：
-預設模式__AB__POSIX 標準__AB__某啲元字符（如 `?`、`+`、`{}`）需要通過反斜杠 `\` 嚟轉義。
+1. **基本正則表達式（Basic Regular Expressions，BRE）**：
+預設模式，POSIX 標準，某啲元字符（如 `?`、`+`、`{}`）需要通過反斜杠 `\` 嚟轉義。
 
-2. **擴展正則表達式（Extended Regular Expressions__AB__ERE）**：
-通過 `grep -E` 或 `egrep` 使用__AB__像 `?`、`+`、`{}` 等元字符可以直接使用__AB__唔使轉義。
+2. **擴展正則表達式（Extended Regular Expressions，ERE）**：
+通過 `grep -E` 或 `egrep` 使用，像 `?`、`+`、`{}` 等元字符可以直接使用，唔使轉義。
 
-3. **Perl 風格嘅正則表達式（Perl-Compatible Regular Expressions__AB__PCRE）**：
-某啲 `grep` 實現（如 GNU `grep`）提供咗 `-P` 選項__AB__用於啟用 Perl 風格嘅正則表達式。
+3. **Perl 風格嘅正則表達式（Perl-Compatible Regular Expressions，PCRE）**：
+某啲 `grep` 實現（如 GNU `grep`）提供咗 `-P` 選項，用於啟用 Perl 風格嘅正則表達式。
 
 {{< callout context="note" title="Note">}}
-某啲 grep 實現（如 GNU grep）提供咗 -P 選項__AB__用於啟用 Perl 風格嘅正則表達式。
+某啲 grep 實現（如 GNU grep）提供咗 -P 選項，用於啟用 Perl 風格嘅正則表達式。
 {{< /callout >}}
 
 ## 常用例子

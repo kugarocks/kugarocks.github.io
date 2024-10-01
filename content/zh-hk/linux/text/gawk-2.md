@@ -35,7 +35,7 @@ gawk -F, '/1,a/{ print $1 }' foo
 a1
 ```
 
-呢度係用**整行**去匹配嘅__AB__等價於 `$0`。
+呢度係用**整行**去匹配嘅，等價於 `$0`。
 
 ### 指定字段匹配
 
@@ -52,7 +52,7 @@ b2
 
 ## sub
 
-Substitution__AB__替換第一個匹配嘅字符串。
+Substitution，替換第一個匹配嘅字符串。
 
 ### 基本語法
 
@@ -62,9 +62,9 @@ sub(regex, replacement [, target])
 
 * `regex`：匹配嘅正則表達式。
 * `replacement`：替換匹配嘅字符串。
-* `target`：可選__AB__目標字符串__AB__默認 `$0`。
+* `target`：可選，目標字符串，默認 `$0`。
 
-唔提供 `target`__AB__默認係整行匹配。
+唔提供 `target`，默認係整行匹配。
 
 ### 基礎用法
 
@@ -98,7 +98,7 @@ echo "app cat" | gawk '{ sub(/\w+/, "[&]"); print }'
 
 ## gsub
 
-Global Substitution__AB__全局替換。
+Global Substitution，全局替換。
 
 ### 基本語法
 
@@ -108,9 +108,9 @@ gsub(regex, replacement [, target])
 
 * `regex`：匹配嘅正則表達式。
 * `replacement`：替換匹配嘅字符串。
-* `target`：可選__AB__目標字符串__AB__默認 `$0`。
+* `target`：可選，目標字符串，默認 `$0`。
 
-唔提供 `target`__AB__默認係整行匹配。
+唔提供 `target`，默認係整行匹配。
 
 ### 基礎用法
 
@@ -168,12 +168,12 @@ ap[p] ca[t]
 
 ## gensub
 
-General Substitution__AB__通用替換。
+General Substitution，通用替換。
 
 * 比 `sub` 同 `gsub` 強大。
 * 支持捕獲組（Capture Groups）。
 * 可選擇替換特定匹配項。
-* 唔原地修改__AB__返回替換後嘅字符串。
+* 唔原地修改，返回替換後嘅字符串。
 * `sub` 同 `gsub` 唔支持捕獲組。
 
 ### 基本語法
@@ -183,9 +183,9 @@ gensub(regex, replacement, how [, target])
 ```
 
 * `regex`：匹配嘅正則表達式。
-* `replacement`：替換字符串__AB__可用捕獲組。
+* `replacement`：替換字符串，可用捕獲組。
 * `how`：可指定全局或第 N 次匹配替換。
-* `target`：可選__AB__目標字符串__AB__默認 `$0`。
+* `target`：可選，目標字符串，默認 `$0`。
 
 ### 基礎用法
 

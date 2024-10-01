@@ -14,7 +14,7 @@ seo:
 
 ## IF 語句
 
-如果 `command` 嘅退出碼係 `0`__AB__咁就執行 `then` 嘅內容。
+如果 `command` 嘅退出碼係 `0`，咁就執行 `then` 嘅內容。
 
 ```bash {frame="none"}
 if command
@@ -69,11 +69,11 @@ soda:x:1001:1001:,,,:/home/soda:/bin/bash
 soda exists
 ```
 
-`grep` 有數據嗰陣__AB__退出碼係 `0`__AB__冇數據嗰陣退出碼係 `1`。
+`grep` 有數據嗰陣，退出碼係 `0`，冇數據嗰陣退出碼係 `1`。
 
 ## TEST 命令
 
-測試條件__AB__如果係真__AB__返回碼係 `0`__AB__否則返回碼係 `1`。
+測試條件，如果係真，返回碼係 `0`，否則返回碼係 `1`。
 
 ```bash {frame="none"}
 test - check file types and compare values
@@ -91,7 +91,7 @@ test EXPRESSION
 [ EXPRESSION ]
 ```
 
-喺命令行執行完之後__AB__可以用 `echo $?` 睇返嘅返回碼。
+喺命令行執行完之後，可以用 `echo $?` 睇返嘅返回碼。
 
 ### 檢查文件
 
@@ -107,7 +107,7 @@ test EXPRESSION
 * `[ a -nt b ]`：文件 a 係咪比 b 新。
 * `[ a -ot b ]`：文件 a 係咪比 b 舊。
 
-如果 `file` 或者 `$file` 變數包含空格__AB__要用雙引號。
+如果 `file` 或者 `$file` 變數包含空格，要用雙引號。
 
 ```bash {frame="none"}
 [ -e "file" ]
@@ -147,7 +147,7 @@ test EXPRESSION
 
 ## 雙括號
 
-雙括號可以使用高級數學表達式__AB__無需轉義。
+雙括號可以使用高級數學表達式，無需轉義。
 
 ```bash {frame="none"}
 if (( 2**10 > 1000 ))
@@ -193,4 +193,4 @@ esac
 * `$1`：腳本嘅第一個參數
 * `)`：分支條件結束標記。
 * `;;`：分支命令結束標記。
-* `*)`：默認分支__AB__所有分支唔匹配時執行。
+* `*)`：默認分支，所有分支唔匹配時執行。

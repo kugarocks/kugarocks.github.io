@@ -14,13 +14,13 @@ seo:
 
 ## ACL
 
-訪問控制列表（Access Control List）係一種更為靈活同細粒度嘅權限管理機制__AB__
-用嚟定義同控制文件系統對象嘅訪問權限。相比傳統嘅文件權限系統__AB__ACL 提供咗更細緻嘅權限控制__AB__
-容許你為唔同嘅用戶同用戶組設置特定嘅權限__AB__唔再局限於傳統嘅三個角色（Owner、Group、Others）。
+訪問控制列表（Access Control List）係一種更為靈活同細粒度嘅權限管理機制，
+用嚟定義同控制文件系統對象嘅訪問權限。相比傳統嘅文件權限系統，ACL 提供咗更細緻嘅權限控制，
+容許你為唔同嘅用戶同用戶組設置特定嘅權限，唔再局限於傳統嘅三個角色（Owner、Group、Others）。
 
 ## 安裝
 
-如果未安裝__AB__可以用以下命令。
+如果未安裝，可以用以下命令。
 
 ```bash {frame="none"}
 sudo apt-get install acl
@@ -169,7 +169,7 @@ setfacl -m g:soda foo
 
 ## 末尾的 + 號
 
-使用 ACL 的文件__AB__權限列後面會有一個 + 號。
+使用 ACL 的文件，權限列後面會有一個 + 號。
 
 ```bash {frame="none"}
 -rw-rw-r--+
@@ -177,4 +177,4 @@ setfacl -m g:soda foo
 
 ## RBAC
 
-差不多 7-8 年前__AB__曾經接觸過一個 ACL 的管理後台__AB__後來改成了 RBAC。
+差不多 7-8 年前，曾經接觸過一個 ACL 的管理後台，後來改成了 RBAC。

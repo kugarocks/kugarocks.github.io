@@ -55,7 +55,7 @@ double
 echo "Result: $?"
 ```
 
-**本質係退出狀態碼__AB__範圍 [0, 255]__AB__超出會對 256 取模。**
+**本質係退出狀態碼，範圍 [0, 255]，超出會對 256 取模。**
 
 ### 使用標準輸出
 
@@ -139,7 +139,7 @@ yellow
 
 ### 使用 local
 
-`local` 變量只喺函數內部生效__AB__同外部重名變量相互獨立。
+`local` 變量只喺函數內部生效，同外部重名變量相互獨立。
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -166,7 +166,7 @@ green
 
 ## 函數是否被定義
 
-後面定義的同名函數會覆蓋前面定義同名函數__AB__所以喺定義函數之前__AB__可以先判斷一下。
+後面定義的同名函數會覆蓋前面定義同名函數，所以喺定義函數之前，可以先判斷一下。
 
 ```bash {frame="none"}
 declare -f FUNC_NAME
@@ -188,7 +188,7 @@ declare -f sayhello
 echo $?
 ```
 
-函數已定義__AB__退出碼為 0__AB__未定義__AB__退出碼為 1。
+函數已定義，退出碼為 0，未定義，退出碼為 1。
 
 ```bash {frame="none"}
 if declare -f sayhello > /dev/null; then
