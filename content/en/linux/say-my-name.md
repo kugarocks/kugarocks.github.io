@@ -1,5 +1,5 @@
 ---
-title: "第一章：Say My Name"
+title: "Chapter 1: Say My Name"
 description: ""
 summary: ""
 date: 2024-08-24T20:00:00+08:00
@@ -14,36 +14,38 @@ seo:
 
 ## Linux Torvalds
 
-这个名字的发音要怎么读呢，挺好奇的，搜了一下，还真有人搞了一个集合，救命啊哈哈哈。
+How to pronounce this name is quite curious, searched it, and someone even made a collection, oh my god, haha.
 
 {{< video src="videos/misc/say-my-name.mp4" controls="true" >}}
 
-## Linux 的定义
+## Definition of Linux
 
-根据维斯百科的资料，Linux 既是一个 Unix-like 内核，
-又是一个基于 Linux 内核的开源 Unix-like 操作系统的统称。
-Linux 内核由 Linus Torvalds 于 1991 年 9 月 17 日首次发布，
-它通常被打包成一个发行版本，其中包括内核以及许多由 GNU 项目提供的系统软件和库。
+According to Wikipedia, Linux is both a Unix-like kernel and a generic term for an open-source Unix-like operating system based on the Linux kernel.
+The Linux kernel was first released by Linus Torvalds on September 17, 1991, and it is usually packaged into a distribution version,
+including the kernel and many system software and libraries provided by the GNU project.
 
-## Linux 的历史
+## History of Linux
 
-1990 年，Linux Torvalds 在 Helsinki 大学上了一门 Unix 课程。
-1991 年，他对操作系统产生了兴趣，但是课本里 Minix 系统（Minimal Unix-like 操作系统）的许可证只能用于教学。
-于是他自己写了一个操作系统内核，这就是 Linux 内核的第一版。
+In 1990, Linus Torvalds took a Unix course at the University of Helsinki.
+In 1991, he became interested in operating systems,
+but the license for the Minix system (Minimal Unix-like operating system) in the textbook could only be used for teaching.
+So he wrote his own operating system kernel, which was the first version of the Linux kernel.
 
-后来 Linux Torvalds 把内核发布到 Internet 上征求大家的意见。
-就这样，一个集合全球智慧的开源操作系统从此诞生了，还配套了一系列由 GNU 组积开发的系统软件和库。
+Later, Linus Torvalds released the kernel on the Internet for feedback.
+And so, an open-source operating system that gathered global wisdom was born,
+accompanied by a series of system software and libraries developed by the GNU team.
 
-## Linux 名字的由来
+## Linux Naming
 
-Torvalds 一开始想把操作系统命名为 Freax，这是 free、freak,、x（Unix）的混成词。
-起初他也有想过用 Linux 这个名字，但觉得太自负了，所以没有用。
-他的同事 Ari Lemmke，是当时 FTP 的管理员之一，觉得 Freax 不好，未经 Torvalds 同意的情况下，将项目命名为 Linux。
-后来，Torvalds 也同意了 Linux 这个名字。
+Torvalds initially wanted to name the operating system Freax, which is a combination of free, freak, and x (Unix).
+At first, he also considered using the name Linux, but felt it was too arrogant, so he didn't use it.
+His colleague Ari Lemmke, one of the FTP administrators at the time,
+thought Freax was not good and, without Torvalds' consent, named the project Linux.
+Later, Torvalds also agreed to the name Linux.
 
-## Linux 吉祥物 Tux
+## Linux Mascot Tux
 
-Torvalds 提到他以前在 Canberra 动物园被一只企鹅咬过。
-他觉得一只吃饱后坐着的稍微有点胖的企鹅非常合适作为 Linux 的吉祥物。
-第一个称这只企鹅为 Tux 的人是 James Hughes，他说这代表 (T)orvalds (u)ni(x)。
-另外 Tux 也是 Tuxedo (燕尾服)的缩写，燕尾服与企鹅的外观相似。
+Torvalds mentioned that he was bitten by a penguin at the Canberra Zoo.
+He thought a slightly chubby penguin sitting after eating was very suitable as the mascot for Linux.
+The first person to call this penguin Tux was James Hughes, who said it represented (T)orvalds (u)ni(x).
+Additionally, Tux is also an abbreviation for Tuxedo (tailcoat), which resembles the appearance of a penguin.

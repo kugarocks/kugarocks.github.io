@@ -74,8 +74,8 @@ stat foo
 
 ```bash {frame="none"}
   File: foo
-  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
-Device: fc03h/64515d	Inode: 791470      Links: 1
+  Size: 0            Blocks: 0          IO Block: 4096   regular empty file
+Device: fc03h/64515d Inode: 791470      Links: 1
 Access: (0664/-rw-rw-r--)  Uid: ( 1000/    kuga)   Gid: ( 1000/    kuga)
 Access: 2024-08-29 16:18:20.603296561 +0800
 Modify: 2024-08-29 16:18:20.603296561 +0800
@@ -112,7 +112,7 @@ touch foobar
 
 可以看到 `/dev/vda3` 的 IFree 减 1 了。如果 inode 用完，就不能新建文件了。
 
-## 日志模式类型&#x20;
+## 日志模式类型
 
 文件系统一般分为 3 种日志模式：
 
