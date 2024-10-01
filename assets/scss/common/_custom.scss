@@ -64,7 +64,7 @@ html {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 2rem 0;  // 可根据需要调整上下边距
+    margin: 0;  // 可根据需要调整上下边距
 }
 
 .index-video-container video {
@@ -266,10 +266,23 @@ code:not(:where(.not-content *)) {
     background-color: #f1f1f1;
     border-radius: 0.20rem;
 }
-// better inline code border radius end
 
 // better table margin
 table {
     margin: 1rem 0 1.6rem 0;
 }
-// better table margin end
+
+// section padding
+.section {
+    padding-top: 1rem;
+    padding-bottom: 0;
+}
+
+.section-tail {
+    padding-bottom: 4rem;
+}
+
+// index header section title
+.container-lg .section {
+    padding-top: 3rem;
+}
