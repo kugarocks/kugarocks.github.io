@@ -11,9 +11,19 @@
 [zh-cn]
   languageName = "简体中文"
   contentDir = "content/zh-cn"
-  weight = 30
+  weight = 20
   [zh-cn.params]
     languageISO = "ZH-CN"
     languageTag = "zh-CN"
     footer = '由 <a class="text-muted" href="https://thulite.io/">Thulite</a> 提供'
     alertText = '<a class="alert-link stretched-link fw-normal" href="/blog/example-post/">Doks 版本 1.0 已发布！</a>'
+
+[zh-hk]
+  languageName = "繁體中文-香港"
+  contentDir = "content/zh-hk"
+  weight = 30
+  [zh-hk.params]
+    languageISO = "ZH-HK"
+    languageTag = "zh-HK"
+    footer = '由 <a class="text-muted" href="https://thulite.io/">Thulite</a> 提供'
+    alertText = '<a class="alert-link stretched-link fw-normal" href="/blog/example-post/">Doks 版本 1.0 已發佈！</a>'

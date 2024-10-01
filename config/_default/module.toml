@@ -40,6 +40,11 @@
   target = "content"
   lang = "zh-cn"
 
+[[mounts]]
+  source = "content/zh-hk"
+  target = "content"
+  lang = "zh-hk"
+
 ## data
 [[mounts]]
   source = "node_modules/@thulite/doks-core/data"
