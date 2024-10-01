@@ -12,9 +12,9 @@ seo:
   noindex: false
 ---
 
-## 更换国内源
+## Chinese Source
 
-### 主仓库的配置
+### Main Repository
 
 ```bash {frame="none"}
 cd $(brew --repo) && git remote -v
@@ -25,7 +25,7 @@ origin https://github.com/Homebrew/brew.git (fetch)
 origin https://github.com/Homebrew/brew.git (push)
 ```
 
-### 核心仓库的配置
+### Core Repository
 
 ```bash {frame="none"}
 cd $(brew --repo homebrew/core) && git remote -v
@@ -36,7 +36,7 @@ origin https://github.com/Homebrew/homebrew-core.git (fetch)
 origin https://github.com/Homebrew/homebrew-core.git (push)
 ```
 
-### 阿里云镜像
+### Aliyun Mirror
 
 ```bash {frame="none"}
 git -C "$(brew --repo)" remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git
@@ -50,7 +50,7 @@ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.aliy
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
 ```
 
-### 中科大镜像
+### USTC Mirror
 
 ```bash {frame="none"}
 git -C "$(brew --repo)" remote set-url origin https://mirrors.ustc.edu.cn/brew.git
@@ -64,7 +64,7 @@ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.ustc
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 ```
 
-### 清华大学镜像
+### Tsinghua University Mirror
 
 ```bash {frame="none"}
 git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
@@ -78,9 +78,9 @@ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 ```
 
-### 验证源配置
+### Verify Source
 
-完成更换源操作后，可执行以下命令验证源配置是否成功。
+After completing the source change operation, you can execute the following command to verify whether the source configuration is successful.
 
 ```bash {frame="none"}
 brew update
@@ -90,17 +90,17 @@ brew update
 brew config | grep -E 'ORIGIN|BOTTLE'
 ```
 
-通过 `brew config` 命令，你可以检查当前使用的仓库源和 Bottle 源。
+With the `brew config` command, you can check the current repository source and Bottle source.
 
-### 常见报错
+### Common Errors
 
-如果报 `homebrew/core` 目录不存在，可使用以下命令检查。
+If the `homebrew/core` directory does not exist, you can use the following command to check.
 
 ```bash {frame="none"}
 brew tap
 ```
 
-如果没有输出 `homebrew/core`，可使用以下命令强制安装。
+If there is no output for `homebrew/core`, you can use the following command to force installation.
 
 ```bash {frame="none"}
 brew tap --force homebrew/core

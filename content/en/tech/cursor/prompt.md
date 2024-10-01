@@ -1,13 +1,13 @@
 ---
-title: "常用提示词"
-alias: "Cursor 常用提示词"
+title: "Prompt"
+alias: "Cursor Prompt"
 description: ""
 summary: ""
 date: 2024-09-08T00:00:00+08:00
 lastmod: 2024-09-08T00:00:00+08:00
 weight: 100
 seo:
-  title: "Cursor 常用提示词"
+  title: "Cursor Prompt"
   description: ""
   canonical: ""
   noindex: false
@@ -15,14 +15,14 @@ seo:
 
 ## Prompt
 
-修改 markdown 的代码框类型。
+Change the markdown code block type.
 
 ```txt {frame="none"}
-把 markdown 的代码框类型全部改成 bash {frame="none"}
+Change all markdown code block types to bash {frame="none"}
 ```
 
-* 我使用的模型是 `cursor-small`。
-* 这里加了全部范围，所以会修改所有代码框类型。
-* 如果不加全部，会检测代码框类型是否为 `bash`。
-  * 是：修改。
-  * 否：不修改。
+* The model I use is `cursor-small`.
+* Adding the full range here will modify all code block types.
+* If you don't add the full range, it will detect whether the code block type is `bash`.
+  * Yes: Modify.
+  * No: Do not modify.

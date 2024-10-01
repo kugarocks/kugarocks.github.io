@@ -1,34 +1,34 @@
 ---
-title: "活动模板-搭建环境"
+title: "Setup Activity Template"
 description: ""
 summary: ""
 date: 2024-09-07T00:00:00+08:00
 lastmod: 2024-09-08T00:00:00+08:00
 weight: 800
 seo:
-  title: "活动模板-搭建环境"
+  title: "Setup Activity Template"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 背景
+## Background
 
-2019-2020，当时用 PHP 写的这个活动模板项目，虽然已经停止开发了，但现在还在运行，在上面跑的活动已经有 400 多个了。
-我记得我离职的时候才 50 多个，现在 PHP 在国内已经不怎么流行了，要不是因为迁移成本大，早就改成 Java 了。
-不过得知自己写的代码还在运行，还上线了这么多活动，满打满算也省了不少开发成本，心里还是挺开心的。
+In 2019-2020, when this activity template project was written in PHP, it had already stopped development, but it's still running, with over 400 activities running on it.
+I remember when I left, there were only over 50, and now PHP is no longer popular in China, if not for the high migration cost, it would have been changed to Java long ago.
+However, knowing that the code I wrote is still running, and so many activities have been launched, it's still quite heartening to think about the development cost saved.
 
-这次打算把活动模板再次搭建起来，也记录一下当中碰到的问题。
-毕竟对于一个 5 年前的老项目，很多依赖的软件都更新了，会出现各种各样的问题。
+This time, I plan to rebuild the activity template and record the problems encountered along the way.
+After all, for a 5-year-old project, many of the software dependencies have been updated, and various problems will arise.
 
 ## PHP 7.2
 
-2024 年的 PHP 已经去到 8.X 了，有些特性已经不再支持，所以只能安装旧版。
-不过 Homebrew 的官方不提供旧版本的下载，需要使用 `shivammathur/homebrew-php`。
+By 2024, PHP has already reached 8.X, and some features are no longer supported, so an older version must be installed.
+However, Homebrew's official does not provide downloads for older versions, and `shivammathur/homebrew-php` must be used.
 
 {{< link-card
   title="shivammathur/homebrew-php"
-  description="Homebrew 的 PHP 扩展"
+  description="Homebrew PHP extension"
   href="https://github.com/shivammathur/homebrew-php"
   target="_blank"
 >}}
@@ -52,13 +52,13 @@ echo 'export PATH="/usr/local/opt/php@7.2/bin:$PATH"' >> ~/.zshrc
 echo 'export PATH="/usr/local/opt/php@7.2/sbin:$PATH"' >> ~/.zshrc
 ```
 
-### 启动服务
+### Start Service
 
 ```bash {frame="none"}
 brew services start php@7.2
 ```
 
-### 查看服务
+### View Service
 
 ```bash {frame="none"}
 brew services list
@@ -70,36 +70,36 @@ php@7.2   started kuga ~/Library/LaunchAgents/homebrew.mxcl.php@7.2.plist
 
 ## MySQL 8.4
 
-MySQL 也从 5 跳到 8 了，这里直接安装 8.4。
+MySQL has also jumped from 5 to 8, and here we directly install 8.4.
 
 ```bash {frame="none"}
 brew install mysql@8.4
 ```
 
-### 身份验证报错
+### Authentication Error
 
-PHP 7.2 连接数据库的时候会报以下错误。
+When PHP 7.2 connects to the database, it will report the following error.
 
 ```bash {frame="none" text-wrap="wrap"}
 CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client
 ```
 
-出于安全考虑，MySQL 8.0 之后引入了新的验证方法 `caching_sha2_password`，
-这与旧版本客户端使用的 `mysql_native_password` 不兼容。
-解决方法有两个，一是升级客户端，二是启用旧版模块。
-这里最简单的方法当然是让 MySQL 8.4 启用 `mysql_native_password` 模块。
+For security reasons, MySQL 8.0 and later introduced a new authentication method `caching_sha2_password`,
+which is incompatible with the `mysql_native_password` used by older clients.
+There are two solutions, one is to upgrade the client, and the other is to enable the old module.
+Here, the simplest method is to enable the `mysql_native_password` module for MySQL 8.4.
 
 ```bash {frame="none"}
 vim /usr/local/etc/my.cnf
 ```
 
-在 `[mysqld]` 模块中添加以下配置。
+Add the following configuration in the `[mysqld]` module.
 
 ```bash {frame="none"}
 mysql_native_password=ON
 ```
 
-重启 MySQL 服务。
+Restart the MySQL service.
 
 ```bash {frame="none"}
 brew services restart mysql@8.4

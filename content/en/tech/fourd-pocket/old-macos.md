@@ -1,48 +1,48 @@
 ---
-title: "安装旧版 macOS"
+title: "Install Old macOS"
 description: ""
 summary: ""
 date: 2024-08-02T00:00:00+08:00
 lastmod: 2024-09-08T00:00:00+08:00
 weight: 600
 seo:
-  title: "安装旧版 macOS"
+  title: "Install Old macOS"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 背景
+## Background
 
-出于种种原因，要在一台苹果电脑上安装旧版本的 macOS 是一件不容易的事。
-因为苹果官网的下载链接会引导你到 App Store，
-当它发现你要下载的系统版本比你当前使用的系统还要旧的时候，
-是不会提供下载的，只能下载更新的版本。
+For various reasons, installing an old version of macOS on an Apple computer is not an easy task.
+Because the download link on the Apple official website will guide you to the App Store,
+when it finds that the system version you want to download is older than the system you are currently using,
+it will not provide the download, only the updated version.
 
-前几天我一个朋友刚高中毕业，大学想要学计算机，我就推荐他买苹果电脑。
-但他之前都没用过 macOS，所以我打算把我那台 2014 年的 MacBook Air 给他体验一下。
-当时这台电脑的系统是 High Sierra 10.13，
-我想着搞个 USB 启动盘重装一下系统，顺手把磁盘的数据都抹掉，
-没想到这一顿操作以后，我人麻了。
+A few days ago, a friend of mine just graduated from high school and wanted to study computer science in college, so I recommended him to buy an Apple computer.
+But he had never used macOS before, so I planned to let him experience my 2014 MacBook Air.
+At that time, the system of this computer was High Sierra 10.13,
+I thought about making a USB boot disk to reinstall the system, and conveniently erase all the data on the disk,
+I didn't expect that after this operation, I was stunned.
 
-## 证书过期
+## Certificate Expired
 
-我在网上随便找了一个 High Sierra 镜像，因为苹果官网根本下载不了旧版本的 macOS。
-引导盘做好了之后，一切都很顺利，直到它给我来了个惊喜 。（这个图我是网上找的）
+I found a High Sierra image online, because the Apple official website cannot download old versions of macOS.
+After the boot disk was made, everything went smoothly, until it gave me a surprise. (I found this picture online)
 
 ![macos-damaged](/images/misc/macos-damaged.jpg)
 
-查了一下资料，很多都说是证书过期的问题，因为以前苹果发布的证书有些是在 2019 年过期的。
+Checked some information, many said it was a problem with the expired certificate, because some of the certificates issued by Apple expired in 2019.
 
 ![cert-info](/images/misc/cert-info.jpg)
 
-## 解决方案
+## Solution
 
-### 下载最新官方镜像（推荐）
+### Download Latest Image (Recommended)
 
-一个镜像能不能用不仅仅是证书的问题，所以最靠谱的方法是从苹果官方下载最新的安装包。
-但前面说了 App Store 根本不提供下载，
-幸运的是我们可以通过 `softwareupdate` 这个命令，去下载当前电脑所支持的系统版本。
+Whether an image can be used is not just a certificate issue, so the most reliable method is to download the latest installation package from the Apple official website.
+But as mentioned earlier, the App Store does not provide downloads at all,
+Fortunately, we can use the `softwareupdate` command to download the system version supported by the current computer.
 
 ```bash {frame="none"}
 softwareupdate --list-full-installers
@@ -72,11 +72,11 @@ Software Update found the following full installers:
 softwareupdate --fetch-full-installer --full-installer-version 10.14.6
 ```
 
-因为我另一台电脑支持的最旧版本是 Mojave，不是 High Sierra，所以最后我安装了 10.14.6。
+Because my other computer supports the oldest version is Mojave, not High Sierra, so in the end I installed 10.14.6.
 
-### 安装时修改系统时间
+### Modify System Time
 
-打开 Utilities -> Terminal，使用 `date` 命令修改时间。
+Open Utilities -> Terminal, use the `date` command to modify the time.
 
 ```bash {frame="none"}
 date 010101012018
@@ -84,19 +84,19 @@ date 010101012018
 
 ![macos-terminal](/images/misc/macos-terminal.jpg)
 
-## 知其所以然
+## Understand the reason
 
-虽然问题是解决了，但我更想验证一下到底是不是证书过期的问题。
+Although the problem has been solved, I want to verify whether it is really a problem with the expired certificate.
 
-* High Sierra：报错，application is damaged
-* Mojave：成功安装
+* High Sierra: Error, application is damaged
+* Mojave: Successfully installed
 
-这两个安装包都是后缀为 `.app` 的文件（其实也是目录），
-不像上面的 `.pkg` 文件，直接打开就能看到证书信息，需要使用别的方法。
+These two installation packages are files (actually directories) with the suffix `.app`,
+unlike the above `.pkg` files, you can directly see the certificate information when you open them, you need to use another method.
 
-### 查看证书信息
+### Certificate Information
 
-我们可以通过 `pkgutil` 查看 `.app` 的证书信息。
+We can use `pkgutil` to view the certificate information of `.app`.
 
 ```bash {frame="none"}
 pkgutil --check-signature Install\ macOS\ High\ Sierra.app
@@ -124,63 +124,63 @@ Package "Install macOS High Sierra":
            68 C5 BE 91 B5 A1 10 01 F0 24
 ```
 
-可以看到，这里面的证书信息包含了 3 个部份，但只有 2，3 部份有过期信息，且均没过期。
-更离谱的是，我也查了 Mojave 的证书信息，和上面的 High Sierra 是一模一样的。
-那到底是什么问题？后来我发现可以使用 `codesign` 查看更详细的证书信息。
+You can see that the certificate information in this package contains 3 parts, but only parts 2 and 3 have expiration information, and none of them have expired.
+What's even more ridiculous is that I also checked the certificate information of Mojave, and it is exactly the same as High Sierra.
+So what's the problem? Later I found that you can use `codesign` to view more detailed certificate information.
 
 ```bash {frame="none"}
 codesign --display --extract-certificates Install\ macOS\ High\ Sierra.app
 ```
 
-这个命令会在当前目录生成 3 个证书文件。
+This command will generate 3 certificate files in the current directory.
 
 ```bash {frame="none"}
 codesign0 codesign1 codesign2
 ```
 
-再使用 `qlmanage` 命令查看证书信息。
+Use the `qlmanage` command to view the certificate information.
 
-```bash {frame="none"}
+```bash {frame="none"}}
 qlmanage -c public.x509-certificate -p codesign0
 ```
 
 ![software-signing](/images/misc/software-signing.png)
 
-可以看到 Software Signing 的过期时间是 2021 年 4 月 13 日，
-也正是上面 `pkgutil` 第一部份所缺失的信息。
-当我以为真相大白的时候，同样的命令，Mojave 也的过期时间也是 2021 年 4 月 13 日。
-这我就不懂了，那应该两个安装包都不行才对吧，然后我又问了一下 ChatGPT。
+You can see that the expiration date of Software Signing is April 13, 2021,
+which is exactly the missing information in the first part of `pkgutil`.
+When I thought the truth was revealed, the same command, the expiration date of Mojave is also April 13, 2021.
+I don't understand this, then both installation packages should not work, and then I asked ChatGPT again.
 
-> 🤡：为什么 macos 的安装程序中 Software Signing 证书过期，还能正常运行
+> 🤡: Why can the Software Signing certificate in the macos installation program still run normally after it expires
 >
-> 🤖：在 macOS 中，安装程序中的 Software Signing 证书过期后依然能够正常运行的原因是因为系统的设计方式。在创建安装程序时，只要证书在签署时是有效的，macOS 会忽略证书的过期日期，从而允许已签署的应用程序继续运行。以下是具体原因：
+> 🤖: In macOS, the reason why the Software Signing certificate in the installation program can still run normally after it expires is because of the system's design. When creating the installation program, as long as the certificate is valid at the time of signing, macOS will ignore the expiration date of the certificate, allowing the signed application to continue running. The following are the specific reasons:
 >
-> 1. **签署时的有效性**：在安装程序创建时，只要证书是有效的，签署过程就会成功完成。这意味着安装程序在创建时已经被认证为安全的，即使之后证书过期，系统依然认可该签署的合法性。
-> 2. **系统设计**：macOS 的设计理念是为了确保应用程序的连续性和用户体验的稳定性。为了避免因证书过期而导致用户无法使用已安装的应用程序，macOS 在运行时会忽略已签署应用程序的证书过期问题。
-> 3. **减少用户和开发者的负担**：如果每次证书过期都要求用户重新安装应用程序，或者开发者必须频繁更新证书，这将给用户和开发者带来极大的不便。忽略过期证书可以避免这种情况，确保用户能够持续使用他们依赖的应用程序。
-> 4. **实际操作中的容错性**：虽然理论上证书有有效期，但实际操作中，macOS 的容错性设计允许过期证书签署的应用程序继续运行。这种设计是为了确保系统的灵活性和可靠性。
+> 1. **Validity at the time of signing**: When creating the installation program, as long as the certificate is valid, the signing process will be successfully completed. This means that the installation program has been certified as safe at the time of creation, even if the certificate expires later, the system still recognizes the legality of the signing.
+> 2. **System design**: The design concept of macOS is to ensure the continuity of applications and the stability of user experience. In order to avoid the situation where users cannot use the installed applications due to the expiration of the certificate, macOS will ignore the expiration date of the signed application at runtime.
+> 3. **Reduce the burden on users and developers**: If the expiration of the certificate requires users to reinstall the application every time, or developers have to update the certificate frequently, this will bring great inconvenience to users and developers. Ignoring the expiration of the certificate can avoid this situation, ensuring that users can continue to use the applications they rely on.
+> 4. **Fault tolerance in actual operation**: Although the certificate has a validity period in theory, in actual operation, the fault tolerance design of macOS allows the signed application to continue running even if the certificate expires. This design is to ensure the flexibility and reliability of the system.
 >
-> 综上所述，macOS 的安装程序中，Software Signing 证书过期后依然能够正常运行，是由于系统在签署时验证有效性，并在运行时忽略证书过期日期，从而确保应用程序的连续性和用户体验的稳定性。
+> In summary, the reason why the Software Signing certificate in the installation program of macOS can still run normally after it expires is because the system verifies the validity at the time of signing, and ignores the expiration date of the certificate at runtime, ensuring the continuity of the application and the stability of the user experience.
 
-所以到这里我是不是可以认为两个安装包的证书都是没问题的？
+So can I assume that the certificates of the two installation packages are not a problem?
 
 ### Apple Installer Checksums
 
-似乎我们还可以验证一下安装包的完整性，[Mac OSX Installers SHA1 Checksums](https://github.com/notpeter/apple-installer-checksums)。
+It seems that we can also verify the integrity of the installation package, [Mac OSX Installers SHA1 Checksums](https://github.com/notpeter/apple-installer-checksums).
 
-```bash {frame="none"}
+```bash {frame="none"}}
 shasum /Applications/Install*OS*.app/Contents/SharedSupport/{Base,Install}*.dmg
 ```
 
-但我都试了，结果是一样的，这也代表不了什么。
+But I tried it, the result is the same, which also does not represent anything.
 
-### 真相到底是什么
+### What is the truth
 
-> It doesn't work，but I don't know why.
+> It doesn't work, but I don't know why.
 
-事情发展到这里，我已经不知道是什么原因导致 High Sierra 安装包报错了。
+The situation has developed to this point, I really don't know what caused the High Sierra installation package to report an error.
 
-## 参考
+## Reference
 
 * [https://eclecticlight.co/2019/10/18/beware-apple-security-certificates-after-24-october-they-may-have-expired/](https://eclecticlight.co/2019/10/18/beware-apple-security-certificates-after-24-october-they-may-have-expired/)
 * [https://www.youtube.com/watch?v=E4Mu4tI8-iw](https://www.youtube.com/watch?v=E4Mu4tI8-iw)
