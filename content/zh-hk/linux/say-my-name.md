@@ -18,14 +18,14 @@ seo:
 
 {{< video src="videos/misc/say-my-name.mp4" controls="true" >}}
 
-## Linux 嘅定義
+## Linux 定義
 
 根據維基百科嘅資料，Linux 既係一個 Unix-like 核心，
 又係一個基於 Linux 核心嘅開源 Unix-like 操作系統嘅統稱。
 Linux 核心由 Linus Torvalds 喺 1991 年 9 月 17 日首次發佈，
 佢通常會被打包成一個發行版本，其中包括核心以及好多由 GNU 項目提供嘅系統軟件同埋庫。
 
-## Linux 嘅歷史
+## Linux 歷史
 
 1990 年，Linux Torvalds 喺 Helsinki 大學上咗一門 Unix 課程。
 1991 年，佢對操作系統產生咗興趣，但係課本入面嘅 Minix 系統（Minimal Unix-like 操作系統）嘅許可證只能用於教學。
@@ -34,7 +34,7 @@ Linux 核心由 Linus Torvalds 喺 1991 年 9 月 17 日首次發佈，
 後來 Linux Torvalds 把核心發佈到 Internet 上徵求大家嘅意見。
 就咁樣，一個集合全球智慧嘅開源操作系統從此誕生咗，仲配套咗一系列由 GNU 組織開發嘅系統軟件同埋庫。
 
-## Linux 名字嘅由來
+## Linux 名字由來
 
 Torvalds 一開始想把操作系統命名為 Freax，呢個係 free、freak、x（Unix）嘅混成詞。
 起初佢都有諗過用 Linux 呢個名，但覺得太自負，所以冇用。

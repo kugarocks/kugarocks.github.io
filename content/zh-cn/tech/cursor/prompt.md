@@ -5,7 +5,7 @@ description: ""
 summary: ""
 date: 2024-09-08T00:00:00+08:00
 lastmod: 2024-09-08T00:00:00+08:00
-weight: 100
+weight: 900
 seo:
   title: "Cursor 常用提示词"
   description: ""

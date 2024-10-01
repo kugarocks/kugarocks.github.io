@@ -61,7 +61,7 @@ pip install scrapy scrapy-splash
 scrapy startproject mycrawler
 ```
 
-### 喺 Docker 運行 Splash
+### Docker 運行 Splash
 
 ```bash {frame="none"}
 docker run -p 8050:8050 scrapinghub/splash

@@ -30,7 +30,7 @@ seo:
 現代終端更多係以軟件形式存在，即係終端模擬器（Terminal Emulator），
 佢哋喺現代操作系統中（例如 Linux、macOS、Windows）作為應用程序運行，模擬早期硬件終端嘅功能。
 
-## 常見嘅終端模擬器
+## 常見終端模擬器
 
 | 終端模擬器 | 描述 |
 | --- | --- |
@@ -106,7 +106,7 @@ man tty
 tty - print the file name of the terminal connected to standard input
 ```
 
-### 睇當前登錄嘅用戶
+### 當前登錄嘅用戶
 
 最常用嘅方法係 `w` 命令。
 
@@ -144,7 +144,7 @@ crw------- 1 root tty  136, 1 Aug  8 09:53 1
 c--------- 1 root root   5, 2 Aug  7 21:30 ptmx
 ```
 
-### 俾特定 PTS 發送消息
+### 特定 PTS 發送消息
 
 ```bash {frame="none"}
 echo "hello, world" > /dev/pts/1
