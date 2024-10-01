@@ -19,7 +19,7 @@
     alertText = '<a class="alert-link stretched-link fw-normal" href="/blog/example-post/">Doks 版本 1.0 已发布！</a>'
 
 [zh-hk]
-  languageName = "繁體中文-香港"
+  languageName = "繁体中文(香港)"
   contentDir = "content/zh-hk"
   weight = 30
   [zh-hk.params]
