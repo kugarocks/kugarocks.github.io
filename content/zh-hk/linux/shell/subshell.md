@@ -14,27 +14,27 @@ seo:
 
 ## Subshell
 
-Subshell 的定义在一些书本或资料中模糊不清，给出的解释往往和某些例子自相矛盾，让人捉摸不透。
-因此，为了避免这种语义与逻辑上的问题，这里不会给出它的定义（建议参考官方 BASH 手册），
-也不会使用 “子 Shell” 这个翻译，仅仅从它的实际表现去理解它的定义。
-下面列举的变量和 Subshell 概念有着密切的联系。
+Subshell 嘅定義喺一啲書本或者資料中模糊唔清，畀出嘅解釋往往同某啲例子自相矛盾，令人捉摸唔透。
+所以，為咗避免呢種語義同邏輯上嘅問題，呢度唔會畀出佢嘅定義（建議參考官方 BASH 手冊），
+亦唔會用 “子 Shell” 呢個翻譯，只係從佢嘅實際表現去理解佢嘅定義。
+下面列舉嘅變量同 Subshell 概念有密切嘅關係。
 
 {{< link-card
   title="Bash Reference Manual"
-  description="Bash 参考手册"
+  description="Bash 參考手冊"
   href="https://www.gnu.org/software/bash/manual/bash.html"
   target="_blank"
 >}}
 
 ### BASH_SUBSHELL
 
-Shell 变量，**非环境变量**，官方手册解释。
+Shell 變量，**非環境變量**，官方手冊解釋。
 
 ```bash {frame="none" text-wrap="wrap"}
 Incremented by one within each subshell or subshell environment when the shell begins executing in that environment. The initial value is 0. If BASH_SUBSHELL is unset, it loses its special properties, even if it is subsequently reset.
 ```
 
-也可以使用 man 命令，内容可能会有一点差别。
+亦可以用 man 命令，內容可能會有啲唔同。
 
 ```bash {frame="none"}
 man bash | grep -A 3 'BASH_SUBSHELL' | head -n 4
@@ -52,19 +52,19 @@ echo $BASH_SUBSHELL
 
 ### SHLVL
 
-**环境变量**，官方手册解释。
+**環境變量**，官方手冊解釋。
 
 ```bash {frame="none" text-wrap="wrap"}
 Incremented by one each time a new instance of Bash is started. This is intended to be a count of how deeply your Bash shells are nested.
 ```
 
-使用 man 命令。
+用 man 命令。
 
 ```bash {frame="none"}
 man bash | grep 'SHLVL'
 ```
 
-这个值是从 1 开始的。
+呢個值係從 1 開始嘅。
 
 ```bash {frame="none"}
 echo $SHLVL
@@ -74,13 +74,13 @@ echo $SHLVL
 1
 ```
 
-## 命令分组
+## 命令分組
 
-全称 Command Grouping，Bash 提供两种方法创建命令分组。
+全稱 Command Grouping，Bash 提供兩種方法創建命令分組。
 
-### 括号：()
+### 括號：()
 
-该方法会创建一个 Subshell 环境去处理命令分组。
+呢個方法會創建一個 Subshell 環境去處理命令分組。
 
 ```bash {frame="none"}
 (pwd; echo $BASH_SUBSHELL)
@@ -112,15 +112,15 @@ echo $SHLVL
 1
 ```
 
-可以得出以下结论。
+可以得出以下結論。
 
-* BASH_SUBSHELL：每创建一个 Subshell 就加 1。
-* SHLVL：无论创建多少个 Subshell，都不变。
+* BASH_SUBSHELL：每創建一個 Subshell 就加 1。
+* SHLVL：無論創建幾多個 Subshell，都唔變。
 
-### 花括号：\{\}
+### 花括號：\{\}
 
-这种方法不会创建 Subshell，命令分组是在当前 Shell 的上下文中处理的。
-在语法上，花括号与命令之间的空格不能省略，每个命令结尾的分号也是必须的。
+呢個方法唔會創建 Subshell，命令分組係喺當前 Shell 嘅上下文中處理嘅。
+喺語法上，花括號同命令之間嘅空格唔可以省略，每個命令結尾嘅分號亦係必須嘅。
 
 ```bash {frame="none"}
 { pwd; { echo $BASH_SUBSHELL; } }
@@ -144,11 +144,11 @@ echo $SHLVL
 
 ## Shell PID
 
-可通过 BASHPID 或 `$$` 查看 Shell 的 PID，但它们是有区别的。
+可以通過 BASHPID 或者 `$$` 睇 Shell 嘅 PID，但佢哋係有區別嘅。
 
 ### BASHPID
 
-Shell 变量，**非环境变量**，官方解释。
+Shell 變量，**非環境變量**，官方解釋。
 
 ```bash {frame="none" text-wrap="wrap"}
 Expands to the process ID of the current Bash process. This differs from $$ under certain circumstances, such as subshells that do not require Bash to be re-initialized. Assignments to BASHPID have no effect. If BASHPID is unset, it loses its special properties, even if it is subsequently reset.
@@ -162,7 +162,7 @@ echo $BASHPID
 56414
 ```
 
-使用 `()` 查看 BASHPID。
+用 `()` 睇 BASHPID。
 
 ```bash {frame="none"}
 (ps -f --forest; echo $BASHPID)
@@ -176,17 +176,17 @@ kuga       57326   57325  0 15:13 pts/0    00:00:00      \_ ps -f --forest
 57325
 ```
 
-可以看到，BASHPID 输出了 Subshell 的 PID。
+可以睇到，BASHPID 輸出咗 Subshell 嘅 PID。
 
-### 特殊参数 $$
+### 特殊參數 $$
 
-官方解释。
+官方解釋。
 
 ```bash {frame="none" text-wrap="wrap"}
 ($$) Expands to the process ID of the shell. In a subshell, it expands to the process ID of the invoking shell, not the subshell.
 ```
 
-在 Subshell 中，`$$` 表示的是 invoking shell 的 PID。
+喺 Subshell 中，`$$` 表示嘅係 invoking shell 嘅 PID。
 
 ```bash {frame="none"}
 (pwd; (ps -f --forest; echo $$))
@@ -202,11 +202,11 @@ kuga       57349   57348  0 15:20 pts/0    00:00:00          \_ ps -f --forest
 56414
 ```
 
-可以看到，无论有多少个 Subshells，`$$` 始终表示顶层 Bash 的 PID。
+可以睇到，無論有幾多個 Subshells，`$$` 始終表示頂層 Bash 嘅 PID。
 
-## 创建 Bash 实例
+## 創建 Bash 實例
 
-在 Bash 中输入 `bash` 就可以创建一个全新的 Bash 实例。
+喺 Bash 中輸入 `bash` 就可以創建一個全新嘅 Bash 實例。
 
 ```bash {frame="none"}
 bash
@@ -223,7 +223,7 @@ kuga       57359   56414  0 15:29 pts/0     00:00:00  \_ bash
 kuga       57402   57359  0 15:30 pts/0     00:00:00      \_ ps -f --forest
 ```
 
-这时候再观察一下上面提到的变量。
+呢個時候再觀察一下上面提到嘅變量。
 
 ```bash {frame="none"}
 echo $BASH_SUBSHELL $SHLVL $BASHPID $$
@@ -233,9 +233,9 @@ echo $BASH_SUBSHELL $SHLVL $BASHPID $$
 0 2 57359 57359
 ```
 
-* BASH_SUBSHELL：没有变化。
-* SHLVL：从 1 -> 2。
-* BASHPID：新 Bash 实例的 PID。
-* $$：新 Bash 实例的 PID。
+* BASH_SUBSHELL：冇變。
+* SHLVL：從 1 -> 2。
+* BASHPID：新 Bash 實例嘅 PID。
+* $$：新 Bash 實例嘅 PID。
 
-如果说这种创建 Bash 的方式也是 Subshell 的话，语义和表现上就会自相矛盾。
+如果話呢種創建 Bash 嘅方式都係 Subshell 嘅話，語義同表現上就會自相矛盾。

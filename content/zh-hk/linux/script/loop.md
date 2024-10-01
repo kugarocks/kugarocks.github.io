@@ -1,18 +1,18 @@
 ---
-title: "循环结构"
+title: "循環結構"
 description: ""
 summary: ""
 date: 2024-08-30T20:00:00+08:00
 lastmod: 2024-08-31T20:00:00+08:00
 weight: 3300
 seo:
-  title: "循环结构"
+  title: "循環結構"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## FOR 语句
+## FOR 語句
 
 ```bash {frame="none"}
 for var in list
@@ -21,7 +21,7 @@ do
 done
 ```
 
-`var` 变量的循环体外可以正常使用。
+`var` 變量喺循環體外可以正常使用。
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -39,7 +39,7 @@ hello banana
 outside var
 ```
 
-变量存储列表。
+變量存儲列表。
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -49,13 +49,13 @@ list=$list" orange"
 for var in $list
 ```
 
-命令替换。
+命令替換。
 
 ```bash {frame="none"}
 for var in $(cat file)
 ```
 
-通配符遍历目录。
+通配符遍歷目錄。
 
 ```bash {frame="none"}
 for var in /home/soda/*
@@ -63,35 +63,35 @@ for var in /home/soda/*
 
 ## IFS - 字段分隔符
 
-环境变量 IFS（Internal Field Separator）指定了字段分隔符。
+環境變量 IFS（Internal Field Separator）指定咗字段分隔符。
 
 ```bash {frame="none"}
 echo $IFS
 ```
 
-默认值为空，表示以下列字符分隔。
+默認值係空，表示以下列字符分隔。
 
 * 空格
 * 制表符
-* 换行符
+* 換行符
 
-### 以换行符分隔
+### 以換行符分隔
 
 ```bash {frame="none"}
 IFS=$'\n'
 ```
 
-### 以多个符号分隔
+### 以多個符號分隔
 
 ```bash {frame="none"}
 IFS=$'\n:;"'
 ```
 
-表示以换行符、冒号、分号、双引号作为分隔符。
+表示以換行符、冒號、分號、雙引號作為分隔符。
 
-## C 语言中的 FOR
+## C 語言中的 FOR
 
-`i` 变量在外部正常访问。
+`i` 變量喺外部正常訪問。
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -109,7 +109,7 @@ index 2
 last index 3
 ```
 
-## WHILE 语句
+## WHILE 語句
 
 ```bash {frame="none"}
 while test command
@@ -135,9 +135,9 @@ index 2
 index 1
 ```
 
-多个 `while` 条件的时候，以最后一个条件的退出码判断。
+多個 `while` 條件嘅時候，以最後一個條件嘅退出碼判斷。
 
-## UNTIL 语句
+## UNTIL 語句
 
 ```bash {frame="none"}
 until test command
@@ -163,9 +163,9 @@ index 2
 index 1
 ```
 
-## BREAK 语句
+## BREAK 語句
 
-支持指定退出循环的层数。
+支持指定退出循環嘅層數。
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -187,9 +187,9 @@ i=0
   j=1
 ```
 
-`break` 默认值是 1，表示退出 1 层循环。
+`break` 默認值係 1，表示退出 1 層循環。
 
-## CONTINUE 语句
+## CONTINUE 語句
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -217,11 +217,11 @@ i=2
   j=1
 ```
 
-和 `break` 一样，默认也是 1。
+同 `break` 一樣，默認都係 1。
 
-## 循环输出重定向
+## 循環輸出重定向
 
-可以对循环中的标准输出重定向。
+可以對循環中嘅標準輸出重定向。
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -232,11 +232,11 @@ do
 done > output.txt
 ```
 
-循环体的输出会生定向到 `output.txt`。
+循環體嘅輸出會重定向到 `output.txt`。
 
-## 循环输出管道
+## 循環輸出管道
 
-循环体的输出还可以使用管道传输。
+循環體嘅輸出仲可以用管道傳輸。
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -247,6 +247,6 @@ do
 done | sort
 ```
 
-## 总结
+## 總結
 
-我竟然有点喜欢 `break` 的语法糖。
+我竟然有啲鍾意 `break` 嘅語法糖。

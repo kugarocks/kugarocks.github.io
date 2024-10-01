@@ -1,12 +1,12 @@
 ---
-title: "信号处理"
+title: "信號處理"
 description: ""
 summary: ""
 date: 2024-09-02T20:00:00+08:00
 lastmod: 2024-09-02T20:00:00+08:00
 weight: 3600
 seo:
-  title: "信号处理"
+  title: "信號處理"
   description: ""
   canonical: ""
   noindex: false
@@ -14,8 +14,8 @@ seo:
 
 ## Bash Shell
 
-在默认情况下，Bash Shell 会忽略 `SIGQUIT(3)` 和 `SIGTERM(15)` 信号，
-因此执行下面的命令不会有任何反应（`$$` 是当前 Shell 的进程 ID）。
+喺默認情況下，Bash Shell 會忽略 `SIGQUIT(3)` 同 `SIGTERM(15)` 信號，
+所以執行下面嘅命令唔會有任何反應（`$$` 係當前 Shell 嘅進程 ID）。
 
 ```bash {frame="none"}
 kill -3 $$
@@ -25,8 +25,8 @@ kill -3 $$
 kill -15 $$
 ```
 
-如果收到 `SIGHUP(1)` 信号，Bash Shell 会退出，但在退出前，
-它会把 `SIGHUP` 信号传给所有由该 Shell 启动的进程和脚本。
+如果收到 `SIGHUP(1)` 信號，Bash Shell 會退出，但喺退出之前，
+佢會把 `SIGHUP` 信號傳畀所有由該 Shell 啟動嘅進程同腳本。
 
 ```bash {frame="none"}
 kill -1 $$
@@ -34,15 +34,15 @@ kill -1 $$
 
 ## TRAP
 
-可以使用 `trap` 命令捕获信号。
+可以用 `trap` 命令捕捉信號。
 
 ```bash {frame="none"}
 trap commands signals
 ```
 
-### 捕获信号
+### 捕捉信號
 
-键盘 `Ctrl+C` 的信号是 `SIGINT`。
+鍵盤 `Ctrl+C` 嘅信號係 `SIGINT`。
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -68,17 +68,17 @@ loop #4
 loop #5
 ```
 
-### 退出信号
+### 退出信號
 
-可以捕获脚本退出时候的信号。
+可以捕捉腳本退出時候嘅信號。
 
 ```bash {frame="none"}
 trap "echo ' Trapped Ctrl-C'" EXIT
 ```
 
-### 移除信号
+### 移除信號
 
-使用 `--` 即可移除信号。
+用 `--` 就可以移除信號。
 
 ```bash {frame="none"}
 trap -- SIGINT
@@ -86,8 +86,8 @@ trap -- SIGINT
 
 ## NOHUP
 
-No Hand Up，由该命令启动的进程或脚本会忽略 SIGHUB 信号。
-也就是说，即使终端退出，由该终端启动的进程或脚本不会跟着一起退出。
+No Hang Up，由該命令啟動嘅進程或者腳本會忽略 SIGHUP 信號。
+即係話，即使終端退出，由該終端啟動嘅進程或者腳本唔會跟住一齊退出。
 
 ```txt {frame="none"}
 run a command immune to hangups, with output to a non-tty
@@ -97,13 +97,13 @@ run a command immune to hangups, with output to a non-tty
 nohup ./foo
 ```
 
-默认会把 `STDOUT` 和 `STDERR` 重定向到 `nohup.out`。
+默認會把 `STDOUT` 同 `STDERR` 重定向到 `nohup.out`。
 
 ```bash {frame="none"}
 -rw------- 1 kuga kuga   40 Sep  2 18:46 nohup.out
 ```
 
-自己重定向会更好一些。
+自己重定向會好啲。
 
 ```bash {frame="none"}
 nohup ./foo > out.log 2>&1
@@ -115,17 +115,17 @@ nohup ./foo > out.log 2>&1
 
 ## Nice Value
 
-控制进程优先级的参数。`nice` 值越高，进程的优先级越低，分配到的 CPU 资源越少。
+控制進程優先級嘅參數。`nice` 值越高，進程嘅優先級越低，分配到嘅 CPU 資源越少。
 
-### 范围
+### 範圍
 
-`nice` 值的范围从 `-20` 到 `19`：
+`nice` 值嘅範圍從 `-20` 到 `19`：
 
-* `-20`：最高优先级。
-* `0`：默认优先级。
-* `19`：最低优先级。
+* `-20`：最高優先級。
+* `0`：默認優先級。
+* `19`：最低優先級。
 
-### 启动进程优先级
+### 啟動進程優先級
 
 ```bash {frame="none"}
 nice -n VALUE command
@@ -135,7 +135,7 @@ nice -n VALUE command
 nice -n 10 ./foo
 ```
 
-### 修改进程优先级
+### 修改進程優先級
 
 ```bash {frame="none"}
 renice VALUE -p PID
@@ -145,7 +145,7 @@ renice VALUE -p PID
 renice 5 -p 404
 ```
 
-### 权限
+### 權限
 
-* 普通用户只能降低进程的优先级。
-* root 用户才能提高进程的优先级。
+* 普通用戶只能降低進程嘅優先級。
+* root 用戶先可以提高進程嘅優先級。

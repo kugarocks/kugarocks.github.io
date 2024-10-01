@@ -1,25 +1,25 @@
 ---
-title: "小黄人百科"
+title: "小黃人百科"
 description: ""
 summary: ""
 date: 2024-09-30T20:00:00+08:00
 lastmod: 2024-09-30T20:00:00+08:00
 weight: 200
 seo:
-  title: "小黄人百科"
+  title: "小黃人百科"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 简介
+## 簡介
 
-偶然间发现 `minions.wiki` 的域名还没注册，于是就做了一个干净纯粹的小黄人百科。
-不过里面的小黄还不完整，有空的时候我会继续完善，如果你有兴趣，欢迎提交 PR。
+偶然間發現 `minions.wiki` 嘅域名仲未註冊，於是就整咗一個乾淨純粹嘅小黃人百科。
+不過入面嘅小黃人仲未完整，有空嘅時候我會繼續完善，如果你有興趣，歡迎提交 PR。
 
 {{< link-card
   title="Minions Wiki"
-  description="小黄人百科"
+  description="小黃人百科"
   href="https://minions.wiki"
   target="_blank"
 >}}
@@ -33,19 +33,19 @@ seo:
 
 ## HUGO
 
-项目使用 Hugo 和 [hugo-cards](https://github.com/bul-ikana/hugo-cards) 主题。
-做的时候发现 hugo-cards 不支持 Profile Sidebar，在移动端的样式也不够理想，所以自己改了一下。
-后来提交了 [PR](https://github.com/bul-ikana/hugo-cards/pull/28)，现在已经合并了，
-这也是我第一个在 GitHub 上合并的 PR。
+項目使用 Hugo 同 [hugo-cards](https://github.com/bul-ikana/hugo-cards) 主題。
+做嘅時候發現 hugo-cards 唔支持 Profile Sidebar，喺移動端嘅樣式都唔夠理想，所以自己改咗一下。
+後來提交咗 [PR](https://github.com/bul-ikana/hugo-cards/pull/28)，而家已經合併咗，
+呢個都係我第一個喺 GitHub 上合併嘅 PR。
 
 ## Cursor
 
-里面的翻译是使用 Cursor 完成的，不得不说其中的港式粤语翻译还蛮有意思的。
+入面嘅翻譯係使用 Cursor 完成嘅，不得不講其中嘅港式粵語翻譯仲幾有意思嘅。
 
 ## Despicable Me Wiki
 
-下面是另外一个关于小黄人电影的百科网站，
-不过它不支持中文，有广告，界面还丑丑的。
+下面係另外一個關於小黃人電影嘅百科網站，
+不過佢唔支持中文，有廣告，界面仲醜醜哋。
 
 {{< link-card
   title="Despicable Me Wiki"

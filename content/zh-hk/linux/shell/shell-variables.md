@@ -1,37 +1,37 @@
 ---
-title: "Shell 变量"
+title: "Shell 變量"
 description: ""
 summary: ""
 date: 2024-08-26T20:00:00+08:00
 lastmod: 2024-08-27T20:00:00+08:00
 weight: 800
 seo:
-  title: "Shell 变量"
+  title: "Shell 變量"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## Shell Variables
+## Shell 變量
 
-Shell 变量是一个统称，如果用的是某个特定的 Shell，例如 Bash，那么可以称它为 Bash 变量。
-但这里必须要注意，Shell 变量不是环境变量，不要被它的大写迷惑了，以下是相关的官方文档。
+Shell 變量係一個統稱，如果用嘅係某個特定嘅 Shell，例如 Bash，咁可以稱佢為 Bash 變量。
+但係呢度必須要注意，Shell 變量唔係環境變量，唔好畀佢嘅大寫迷惑咗，以下係相關嘅官方文檔。
 
 {{< link-card
   title="Shell Variables"
-  description="Shell 变量"
+  description="Shell 變量"
   href="https://www.gnu.org/software/bash/manual/html_node/Shell-Variables.html"
   target="_blank"
 >}}
 
 {{< link-card
   title="Bash Variables"
-  description="Bash 变量"
+  description="Bash 變量"
   href="https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html"
   target="_blank"
 >}}
 
-使用 man 指令，然后搜索 `Shell Variables` 也能查看。
+使用 man 指令，然後搜索 `Shell Variables` 都可以睇到。
 
 ```bash {frame="none"}
 man bash
@@ -41,7 +41,7 @@ man bash
 /Shell Variables
 ```
 
-## 常见 Shell 变量
+## 常見 Shell 變量
 
 ### PS1
 
@@ -57,7 +57,7 @@ echo $PS1
 
 ### UID
 
-当前用户 ID。
+當前用戶 ID。
 
 ```bash {frame="none"}
 echo $UID
@@ -78,7 +78,7 @@ UID          PID    PPID  C STIME TTY          TIME CMD
 kuga       46635   46570  0 10:56 ?        00:00:00 sshd: kuga@pts/0
 ```
 
-可以看到 bash 的父进程是 sshd。
+可以睇到 bash 嘅父進程係 sshd。
 
 ### BASH\_VERSION
 
@@ -92,7 +92,7 @@ echo $BASH_VERSION
 
 ### BASH\_SUBSHELL
 
-&#x20;Subshell 的嵌套级别，从 0 开始。
+Subshell 嘅嵌套級別，從 0 開始。
 
 ```bash {frame="none"}
 echo $BASH_SUBSHELL
@@ -104,7 +104,7 @@ echo $BASH_SUBSHELL
 
 ### SECONDS
 
-Shell 启动到现在的秒数。
+Shell 啟動到而家嘅秒數。
 
 ```bash {frame="none"}
 echo $SECONDS
@@ -116,7 +116,7 @@ echo $SECONDS
 
 ### RANDOM
 
-0 \~ 32767 随机数。
+0 到 32767 嘅隨機數。
 
 ```bash {frame="none"}
 echo $RANDOM
@@ -126,6 +126,6 @@ echo $RANDOM
 1024
 ```
 
-## 自定义 Shell 变量
+## 自定義 Shell 變量
 
-[参考后面环境变量的章节](/zh-cn/linux/env/concept/#自定义-shell-变量)
+[參考後面環境變量嘅章節](/zh-cn/linux/env/concept/#自定義-shell-變量)

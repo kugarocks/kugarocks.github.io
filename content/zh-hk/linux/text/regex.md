@@ -1,43 +1,43 @@
 ---
-title: "正则表达式"
+title: "正則表達式"
 description: ""
 summary: ""
 date: 2024-09-04T20:00:00+08:00
 lastmod: 2024-09-04T20:00:00+08:00
 weight: 4100
 seo:
-  title: "正则表达式"
+  title: "正則表達式"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 简介
+## 簡介
 
-正则表达式（Regular Expressions, regex）根据不同的标准可分为以下几类。
+正則表達式（Regular Expressions, regex）根據唔同嘅標準可以分為以下幾類。
 
-| 类型 | 缩写 | 全称 |
+| 類型 | 縮寫 | 全稱 |
 | --- | --- | --- |
-| 基本正则表达式 | BRE | BRE，Basic Regular Expressions |
-| 扩展正则表达式 | ERE | ERE，Extended Regular Expressions |
-| Perl 正则表达式 | PCRE | Perl-Compatible Regular Expressions |
-| POSIX 正则表达式 | BRE & ERE | BRE & ERE |
+| 基本正則表達式 | BRE | BRE，Basic Regular Expressions |
+| 擴展正則表達式 | ERE | ERE，Extended Regular Expressions |
+| Perl 正則表達式 | PCRE | Perl-Compatible Regular Expressions |
+| POSIX 正則表達式 | BRE & ERE | BRE & ERE |
 
-BRE 和 ERE 是 POSIX 标准中的两种正则表达式，
-BRE 较为基础，需要对某些元字符转义，ERE 是 BRE 的扩展，提供了更多的元字符和功能。
-PCRE 是一种功能更强大、语法更灵活的正则表达式类型，
-广泛用于现代编程语言如：Python、Ruby、Javascript。
+BRE 同 ERE 係 POSIX 標準入面嘅兩種正則表達式，
+BRE 比較基礎，需要對某啲元字符轉義，ERE 係 BRE 嘅擴展，提供咗更多嘅元字符同功能。
+PCRE 係一種功能更強大、語法更靈活嘅正則表達式類型，
+廣泛用於現代編程語言如：Python、Ruby、Javascript。
 
 ## SED 命令
 
-支持 BRE 和 ERE，默认使用 BRE。
+支持 BRE 同 ERE，默認使用 BRE。
 
 ### BRE 模式
 
-这种模式需要对元字符进行转义，例如：
+呢種模式需要對元字符進行轉義，例如：
 
-* `)`：需要使用 `\)` 转义。
-* `|`：需要使用 `\|` 转义。
+* `)`：需要使用 `\)` 轉義。
+* `|`：需要使用 `\|` 轉義。
 
 ```bash {frame="none"}
 echo 'abc' | sed 's/\(b\|c\)/p/g'
@@ -49,7 +49,7 @@ app
 
 ### ERE 模式
 
-使用 `-E` 或 `-r` 选项启用 ERE，不需要转义元字符。
+使用 `-E` 或 `-r` 選項啟用 ERE，唔需要轉義元字符。
 
 ```bash {frame="none"}
 echo 'abc' | sed -E 's/(b|c)/p/g'
@@ -61,7 +61,7 @@ app
 
 ## GAWK
 
-默认使用 ERE 模式。
+默認使用 ERE 模式。
 
 ```bash {frame="none"}
 echo 'abc' | gawk '{gsub(/(b|c)/, "p"); print }'
@@ -73,23 +73,23 @@ app
 
 ## 特殊字符
 
-有特殊含意的字符，需要转义。
+有特殊含意嘅字符，需要轉義。
 
 ```txt {frame="none"}
 .*[]^${}\+?|()
 ```
 
-虽然 `/` 不是正则表达式特殊字符，但在 `sed` 和 `gawk` 中也要转义。
+雖然 `/` 唔係正則表達式特殊字符，但喺 `sed` 同 `gawk` 入面都要轉義。
 
 ### 行首 ^
 
-匹配行的首部位置。
+匹配行嘅首部位置。
 
 ```bash {frame="none"}
 echo 'aa bb' | sed -n '/^aa/p'
 ```
 
-如果 `^` 不是出现在开头，则和普通字符一样，无须转义。
+如果 `^` 唔係出現喺開頭，則同普通字符一樣，無須轉義。
 
 ```bash {frame="none"}
 echo 'aa b^b' | sed -n '/b^/p'
@@ -97,29 +97,29 @@ echo 'aa b^b' | sed -n '/b^/p'
 
 ### 行尾 $
 
-匹配行的尾部位置。
+匹配行嘅尾部位置。
 
 ```bash {frame="none"}
 echo 'aa bb' | sed -n '/bb$/p'
 ```
 
-如果 `$` 不是出现在结尾，则和普通字符一样，无须转义。
+如果 `$` 唔係出現喺結尾，則同普通字符一樣，無須轉義。
 
 ```bash {frame="none"}
 echo 'aa b$b' | sed -n '/b$b/p'
 ```
 
-### 点字符 \.
+### 點字符 \.
 
-匹配除换行符外的任意单个字符。
+匹配除換行符外嘅任意單個字符。
 
 ```bash {frame="none"}
 echo 'abc' | sed -n '/a.c/p'
 ```
 
-### 字符组 []
+### 字符組 []
 
-Character Class，可匹配组内任一字符。
+Character Class，可以匹配組內任一字符。
 
 ```bash {frame="none"}
 echo 'cat' | sed -n '/[ch]at/p'
@@ -129,27 +129,27 @@ echo 'cat' | sed -n '/[ch]at/p'
 echo 'yes' | sed -n '/[Yy][Ee][Ss]/p'
 ```
 
-排除组内字符。
+排除組內字符。
 
 ```bash {frame="none"}
 echo 'bat' | sed -n '/[^ch]at/p'
 ```
 
-匹配 `c` - `e` 之间的字符。
+匹配 `c` - `e` 之間嘅字符。
 
 ```bash {frame="none"}
 echo 'cat' | sed -n '/[c-e]at/p'
 ```
 
-匹配 `c` - `e` 或 `0` - `9` 之间的字符。
+匹配 `c` - `e` 或 `0` - `9` 之間嘅字符。
 
 ```bash {frame="none"}
 echo 'cat' | sed -n '/[c-e0-9]at/p'
 ```
 
-### 星号 *
+### 星號 *
 
-匹配 `*` 号前面的字符 0 次或多次。
+匹配 `*` 號前面嘅字符 0 次或多次。
 
 ```bash {frame="none"}
 echo '24' | sed -n '/23*4/p'
@@ -171,11 +171,11 @@ echo 'bat' | sed -n '/b[ae]*/p'
 echo 'baaeeaet' | sed -n '/b[ae]*/p'
 ```
 
-以上例子都是可以成功匹配的。
+以上例子都係可以成功匹配嘅。
 
-### 问号 ?
+### 問號 ?
 
-匹配 `?` 号前面的字符 0 次或 1 次。
+匹配 `?` 號前面嘅字符 0 次或 1 次。
 
 ```bash {frame="none"}
 echo 'at' | sed -En '/c?at/p'
@@ -185,7 +185,7 @@ echo 'at' | sed -En '/c?at/p'
 echo 'ccbbat' | sed -En '/c?at/p'
 ```
 
-上面的例子都是可以匹配的，可以用 ^ 限制。
+上面嘅例子都係可以匹配嘅，可以用 ^ 限制。
 
 ```bash {frame="none"}
 echo 'ccbbat' | sed -En '/^c?at/p'
@@ -193,17 +193,17 @@ echo 'ccbbat' | sed -En '/^c?at/p'
 
 上面只能匹配 at 或 cat。
 
-### 加号 +
+### 加號 +
 
-匹配 `+` 号前面的字符 1 次或多次。
+匹配 `+` 號前面嘅字符 1 次或多次。
 
 ```bash {frame="none"}
 echo 'at' | sed -En '/c+at/p'
 ```
 
-### 区间 {}
+### 區間 {}
 
-指定 `{}` 前面字符的匹配次数。
+指定 `{}` 前面字符嘅匹配次數。
 
 ```bash {frame="none"}
 echo 'cat' | sed -En '/^c{1}at/p'
@@ -213,17 +213,17 @@ echo 'cat' | sed -En '/^c{1}at/p'
 echo 'ccat' | sed -En '/^c{1,2}at/p'
 ```
 
-### 竖线 |
+### 竪線 |
 
-表示或逻辑。
+表示或邏輯。
 
 ```bash {frame="none"}
 echo 'cat' | sed -En '/cat|hat/p'
 ```
 
-### 分组 ()
+### 分組 ()
 
-分组可视为一个整体。
+分組可以視為一個整體。
 
 ```bash {frame="none"}
 echo 'cat' | sed -En '/(c|h)at/p'

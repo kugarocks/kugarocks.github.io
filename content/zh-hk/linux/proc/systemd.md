@@ -14,7 +14,7 @@ seo:
 
 ## Systemd
 
-系统的第一个进程，进程号为 1。
+系統嘅第一個進程，進程號為 1。
 
 ```bash {frame="none"}
 ps -p 1
@@ -25,7 +25,7 @@ PID TTY          TIME CMD
   1 ?        00:00:04 systemd
 ```
 
-但当我们想显示详细信息的时候，结果会有些不一样。
+但當我哋想顯示詳細信息嘅時候，結果會有啲唔同。
 
 ```bash {frame="none"}
 ps -p 1 -f
@@ -36,7 +36,7 @@ UID  PID PPID C STIME TTY TIME     CMD
 root   1    0 0 Aug07 ?   00:00:04 /sbin/init noibrs
 ```
 
-其实这两个进程是一样的，因为 `init` 指向的是 `systemd`。
+其實呢兩個進程係一樣嘅，因為 `init` 指向嘅係 `systemd`。
 
 ```bash {frame="none"}
 file /sbin/init
@@ -46,18 +46,18 @@ file /sbin/init
 /sbin/init: symbolic link to /lib/systemd/systemd
 ```
 
-`init` 是 Unix 最早的初始化进程，由于 `systemd` 取代了 `init`，
-为了兼容性，`/sbin/init` 通常是一个指向 `systemd` 的软链接。
-名称后面加 `d` 是 Unix 守护进程的命名规范，[System D](https://en.wikipedia.org/wiki/System_D) 是一个术语，
-表示快速思考和解决问题的能力。`systemd` 诞生于 2010 年，之前用的是 SysVinit。
+`init` 係 Unix 最早嘅初始化進程，由於 `systemd` 取代咗 `init`，
+為咗兼容性，`/sbin/init` 通常係一個指向 `systemd` 嘅軟鏈接。
+名稱後面加 `d` 係 Unix 守護進程嘅命名規範，[System D](https://en.wikipedia.org/wiki/System_D) 係一個術語，
+表示快速思考同解決問題嘅能力。`systemd` 誕生於 2010 年，之前用嘅係 SysVinit。
 
 ## SysVinit
 
-Unix System V 这种初始化方法现在已经不怎么用了，但在一些旧的发行版中还能见到。
+Unix System V 呢種初始化方法依家已經唔多用，但喺一啲舊嘅發行版中仲可以見到。
 
 ### runlevel
 
-runlevel 也是这个 SysVinit 的产物。
+runlevel 亦係呢個 SysVinit 嘅產物。
 
 ```bash {frame="none"}
 runlevel
@@ -67,7 +67,7 @@ runlevel
 N 5
 ```
 
-5 对应 `graphical.target`，N 表示上一次的 runlevel 为 No。
+5 對應 `graphical.target`，N 表示上一次嘅 runlevel 為 No。
 
 ```bash {frame="none"}
 who -r
@@ -77,9 +77,9 @@ who -r
 run-level 5  2024-08-07 21:30
 ```
 
-阿里云的 Ubuntu 默认目标为 `graphical.target`，‌
-这是为了方便用户使用图形界面（VNC）来管理操作系统，
-不需要的话可以把目标换成 `multi-user.target`。
+阿里雲嘅 Ubuntu 默認目標為 `graphical.target`，
+呢個係為咗方便用戶使用圖形界面（VNC）嚟管理操作系統，
+唔需要嘅話可以把目標換成 `multi-user.target`。
 
 ```bash {frame="none"}
 systemctl set-default multi-user.target
@@ -87,8 +87,8 @@ systemctl set-default multi-user.target
 
 ### /etc/rcX.d
 
-rc 是 run commands 的缩写，`.d` 是目录的意思，目的是为了避免命名冲突。
-这个目录包含了特定运行级下启动的进程，例如运行级 5 对应 `/etc/rc5.d`。
+rc 係 run commands 嘅縮寫，`.d` 係目錄嘅意思，目的是為咗避免命名衝突。
+呢個目錄包含咗特定運行級下啟動嘅進程，例如運行級 5 對應 `/etc/rc5.d`。
 
 ```bash {frame="none"}
 ls -l /etc/rc5.d
@@ -100,33 +100,33 @@ lrwxrwxrwx 1 root root 20 Apr 21  2022 K01irqbalance -> ../init.d/irqbalance
 lrwxrwxrwx 1 root root 17 Jul 10 11:05 K01sysstat -> ../init.d/sysstat
 ```
 
-虽然现在使用的是 `systemd`，但为了兼容性，这些目录和脚本仍然保留着。
+雖然依家使用嘅係 `systemd`，但為咗兼容性，呢啲目錄同腳本仍然保留住。
 
 ## Unit Files
 
-单元文件是 systemd 的配置文件，用于定义和管理系统服务、设备、挂载点、套接字和其他系统资源。
-每个单元文件都描述了 systemd 如何启动、停止和监视相关资源。
+單元文件係 systemd 嘅配置文件，用嚟定義同管理系統服務、設備、掛載點、套接字同其他系統資源。
+每個單元文件都描述咗 systemd 點樣啟動、停止同監視相關資源。
 
-### 基本分类
+### 基本分類
 
-| 类型 | 描述 | 扩展名 |
+| 類型 | 描述 | 擴展名 |
 | --- | --- | --- |
-| 服务单元 | 系统服务 | `.service` |
-| 挂载单元 | 文件系统挂载点 | `.mount` |
-| 设备单元 | 定义设备 | `.device` |
-| 套接字单元 | 套接字服务 | `.socket` |
-| 计时器单元 | 定时任务 | `.timer` |
-| 目标单元 | 系统目标状态 | `.target` |
+| 服務單元 | 系統服務 | `.service` |
+| 掛載單元 | 文件系統掛載點 | `.mount` |
+| 設備單元 | 定義設備 | `.device` |
+| 套接字單元 | 套接字服務 | `.socket` |
+| 計時器單元 | 定時任務 | `.timer` |
+| 目標單元 | 系統目標狀態 | `.target` |
 
-### 所在目录
+### 所在目錄
 
-* `/etc/systemd/system/`：系统管理员定义的单元文件。
-* `/usr/lib/systemd/system/`：发行版提供的单元文件。
-* `/run/systemd/system/`：运行时生成的单元文件。
+* `/etc/systemd/system/`：系統管理員定義嘅單元文件。
+* `/usr/lib/systemd/system/`：發行版提供嘅單元文件。
+* `/run/systemd/system/`：運行時生成嘅單元文件。
 
-### Nginx 状态
+### Nginx 狀態
 
-可以通过 Nginx 的状态查看服务的单元文件路径。
+可以透過 Nginx 嘅狀態查看服務嘅單元文件路徑。
 
 ```bash {frame="none"}
 systemctl status nginx
@@ -150,7 +150,7 @@ Aug 08 12:43:17 guitarocks systemd[1]: Starting A high performance web server an
 Aug 08 12:43:17 guitarocks systemd[1]: Started A high performance web server and a reverse proxy server.
 ```
 
-### Nginx 单元文件
+### Nginx 單元文件
 
 ```bash {frame="none"}
 /etc/systemd/system/multi-user.target.wants/nginx.service
@@ -158,7 +158,7 @@ Aug 08 12:43:17 guitarocks systemd[1]: Started A high performance web server and
 /usr/lib/systemd/system/nginx.service
 ```
 
-Nginx 服务的单元文件有好几个路径，第一个是软链接。
+Nginx 服務嘅單元文件有好幾個路徑，第一個係軟鏈接。
 
 ```bash {frame="none"}
 file /etc/systemd/system/multi-user.target.wants/nginx.service
@@ -168,7 +168,7 @@ file /etc/systemd/system/multi-user.target.wants/nginx.service
 ...: symbolic link to /lib/systemd/system/nginx.service
 ```
 
-第二第三个是硬链接，他们的 inode 是一样的，并且 `/lib` 是指向 `/usr/lib` 的软链接。
+第二第三個係硬鏈接，佢哋嘅 inode 係一樣嘅，並且 `/lib` 係指向 `/usr/lib` 嘅軟鏈接。
 
 ```bash {frame="none"}
 ls -i /usr/lib/systemd/system/nginx.service
@@ -198,7 +198,7 @@ file /lib
 /lib: symbolic link to usr/lib
 ```
 
-下面是单元文件的内容。
+下面係單元文件嘅內容。
 
 ```bash {frame="none"}
 cat /lib/systemd/system/nginx.service
@@ -217,63 +217,63 @@ cat /lib/systemd/system/nginx.service
 # nginx signals reference doc:
 # http://nginx.org/en/docs/control.html
 #
-# 定义了服务的描述和依赖关系
+# 定義咗服務嘅描述同依賴關系
 [Unit]
 Description=A high performance web server and a reverse proxy server
 Documentation=man:nginx(8)
 After=network.target nss-lookup.target
 
 [Service]
-# forking 表示服务在启动时会创建子进程，父进程会退出
+# forking 表示服務喺啟動時會創建子進程，父進程會退出
 Type=forking
-# 存储主进程的 ID
+# 存儲主進程嘅 ID
 PIDFile=/run/nginx.pid
-# 启动准备，测试 nginx 配置
+# 啟動準備，測試 nginx 配置
 ExecStartPre=/usr/sbin/nginx -t -q -g 'daemon on; master_process on;'
-# 启动命令，-g 设置全局指定，会覆盖Nginx配置文件的选项
+# 啟動命令，-g 設置全局指定，會覆蓋Nginx配置文件嘅選項
 ExecStart=/usr/sbin/nginx -g 'daemon on; master_process on;'
-# 重载配置命令
+# 重載配置命令
 ExecReload=/usr/sbin/nginx -g 'daemon on; master_process on;' -s reload
-# 终止进程的命令
+# 終止進程嘅命令
 ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid
-# 终止服务的等待时间，超过 5 秒则强制终止
+# 終止服務嘅等待時間，超過 5 秒則強制終止
 TimeoutStopSec=5
-# 终止进程的方式，SIGTERM，超时，SIGKILL，优雅->强制
+# 終止進程嘅方式，SIGTERM，超時，SIGKILL，優雅->強制
 KillMode=mixed
 
-# 如何安装和启用服务
+# 如何安裝同啟用服務
 [Install]
 WantedBy=multi-user.target
 ```
 
 ### 常用命令
 
-* `systemctl start [unit]`：启动单元。
-* `systemctl stop [unit]`：停止单元。
-* `systemctl enable [unit]`：启用单元，使其在引导时自动启动。
-* `systemctl disable [unit]`：禁用单元。
-* `systemctl status [unit]`：查看单元状态。
-* `systemctl daemon-reload`：在修改或添加单元文件后重新加载 systemd 配置。
+* `systemctl start [unit]`：啟動單元。
+* `systemctl stop [unit]`：停止單元。
+* `systemctl enable [unit]`：啟用單元，使其喺引導時自動啟動。
+* `systemctl disable [unit]`：禁用單元。
+* `systemctl status [unit]`：查看單元狀態。
+* `systemctl daemon-reload`：喺修改或添加單元文件後重新加載 systemd 配置。
 
 ## Targets
 
-从上面可以看到，target 是一种单元文件的类型，和一般单元文件不同，它代表的是系统当前的运行状态，
-target 定义了该状态下需要启动哪些进程和服务，所以 target 可以包含多个单元文件。
-用下面的命令可以查看当前系统的 target。
+從上面可以看到，target 係一種單元文件嘅類型，同一般單元文件不同，佢代表嘅係系統當前嘅運行狀態，
+target 定義咗該狀態下需要啟動哪些進程同服務，所以 target 可以包含多個單元文件。
+用下面嘅命令可以查看當前系統嘅 target。
 
 ```bash {frame="none"}
 systemctl get-default
 ```
 
 ```bash {frame="none"}
-multi-user.target # 多用户模式，不包含图形界面
+multi-user.target # 多用戶模式，唔包含圖形界面
 ```
 
 ### multi-user.target
 
-target 文件通常存储在 `/usr/lib/systemd/system/` 或 `/etc/systemd/system/` 目录中。
-每个 target 文件都包含关于该 target 的依赖关系和启动顺序的信息。
-我们可以看一下 `multi-user.target` 这个文件内容。
+target 文件通常存儲喺 `/usr/lib/systemd/system/` 或 `/etc/systemd/system/` 目錄中。
+每個 target 文件都包含關於該 target 嘅依賴關系同啟動順序嘅信息。
+我哋可以睇下 `multi-user.target` 呢個文件內容。
 
 ```bash {frame="none"}
 cat /lib/systemd/system/multi-user.target
@@ -298,26 +298,26 @@ After=basic.target rescue.service rescue.target
 AllowIsolate=yes
 ```
 
-下面两个目录包含了 `multi-user.target` 状态所需要的内容。
+下面兩個目錄包含咗 `multi-user.target` 狀態所需要嘅內容。
 
 ```bash {frame="none"}
 /etc/systemd/system/multi-user.target.wants/
 /lib/systemd/system/multi-user.target.wants/
 ```
 
-* `/etc` 是用户定义配置，`/lib` 是系统默认配置。
-* 用户定义配置：优先级更高，同一服务 systemd 会优先执行。
-* 系统默认配置：系统或软件包更新时，会随之更新。
+* `/etc` 係用戶定義配置，`/lib` 係系統默認配置。
+* 用戶定義配置：優先級更高，同一服務 systemd 會優先執行。
+* 系統默認配置：系統或軟件包更新時，會隨之更新。
 
 ### 常用命令
 
-设置默认 target：
+設置默認 target：
 
 ```bash {frame="none"}
 systemctl set-default multi-user.target
 ```
 
-切换到指定 target：
+切換到指定 target：
 
 ```bash {frame="none"}
 systemctl isolate graphical.target

@@ -7,6 +7,6 @@ lastmod: 2023-09-07T16:27:22+02:00
 weight: 100
 ---
 
-我能修好，相信我，我可是一个工程师。
+我可以整好，信我啦，我係一個工程師。
 
 ![i-can-fix-it](/images/meme/i-can-fix-it.png)

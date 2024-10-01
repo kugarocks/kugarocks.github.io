@@ -1,38 +1,38 @@
 ---
-title: "内建命令与外部命令"
+title: "內建命令與外部命令"
 description: ""
 summary: ""
 date: 2024-08-24T20:00:00+08:00
 lastmod: 2024-08-27T20:00:00+08:00
 weight: 700
 seo:
-  title: "内建命令与外部命令"
+  title: "內建命令與外部命令"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 内建命令
+## 內建命令
 
 Builtin Commands。
-内建命令是由 Shell 自身实现的命令，它们在 Shell 内部运行，
-**无需启动新进程**或调用外部程序，是 Shell 操作的基本功能。
+內建命令係由 Shell 自身實現嘅命令，佢哋喺 Shell 內部運行，
+**無需啟動新進程**或者調用外部程序，係 Shell 操作嘅基本功能。
 
-### 常见的内建命令
+### 常見嘅內建命令
 
-* `cd`：更改当前工作目录。
-* `echo`：输出字符串到终端。
-* `exit`：退出当前 Shell 会话。
-* `export`：设置或导出环境变量。
-* `alias`：为命令创建别名。
-* `set`：设置 Shell 选项和变量。
-* `read`：从标准输入读取一行并赋值给变量。
+* `cd`：更改當前工作目錄。
+* `echo`：輸出字符串到終端。
+* `exit`：退出當前 Shell 會話。
+* `export`：設置或者導出環境變量。
+* `alias`：為命令創建別名。
+* `set`：設置 Shell 選項同變量。
+* `read`：從標準輸入讀取一行並賦值畀變量。
 
-### 完整的内键命令
+### 完整嘅內建命令
 
 {{< link-card
   title="Bash Builtin Commands"
-  description="Bash 内建命令"
+  description="Bash 內建命令"
   href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html"
   target="_blank"
 >}}
@@ -40,63 +40,63 @@ Builtin Commands。
 ## 外部命令
 
 External Commands。
-外部命令是指那些不是由 Shell 自身实现的命令，而是系统中的可执行文件。
-当你运行一个外部命令时，Shell 会通过查找 `PATH` 环境变量中的目录，
-找到对应的可执行文件，并**启动一个新进程**来运行该命令。
+外部命令係指嗰啲唔係由 Shell 自身實現嘅命令，而係系統中嘅可執行文件。
+當你運行一個外部命令時，Shell 會通過查找 `PATH` 環境變量中嘅目錄，
+搵到對應嘅可執行文件，並**啟動一個新進程**嚟運行該命令。
 
-### 常见的外部命令
+### 常見嘅外部命令
 
-* `/bin/ls`：列出目录内容。
-* `/usr/bin/grep`：搜索文件中内容。
-* `/bin/cat`：显示文件内容。
-* `/bin/mkdir`：创建目录。
+* `/bin/ls`：列出目錄內容。
+* `/usr/bin/grep`：搜索文件中內容。
+* `/bin/cat`：顯示文件內容。
+* `/bin/mkdir`：創建目錄。
 
-## 区分内建命令与外部命令
+## 區分內建命令與外部命令
 
 ### 使用 type 命令
 
 ```bash {frame="none"}
 type cd
-```
+````
 
 ```bash {frame="none"}
 cd is a shell builtin
-```
+````
 
 ***
 
 ```bash {frame="none"}
 type cat
-```
+````
 
 ```bash {frame="none"}
 cat is /usr/bin/cat
-```
+````
 
-### 列出所有实现
+### 列出所有實現
 
 ```bash {frame="none"}
 type -a pwd
-```
+````
 
 ```bash {frame="none"}
 pwd is a shell builtin
 pwd is /usr/bin/pwd
 pwd is /bin/pwd
-```
+````
 
-上面列出了 pwd 的内建实现和外部实现，如果要使用外部实现，需要使用完整路径。
+上面列出咗 pwd 嘅內建實現同外部實現，如果要使用外部實現，需要使用完整路徑。
 
-### 列出命令的别名
+### 列出命令嘅別名
 
 ```bash {frame="none"}
 type -a ls
-```
+````
 
 ```bash {frame="none"}
 ls is aliased to `ls --color=auto'
 ls is /usr/bin/ls
 ls is /bin/ls
-```
+````
 
-另外使用 `which` 命令只会显示外部命令。
+另外使用 `which` 命令只會顯示外部命令。

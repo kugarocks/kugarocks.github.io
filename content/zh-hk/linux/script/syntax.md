@@ -1,12 +1,12 @@
 ---
-title: "基本语法"
+title: "基本語法"
 description: ""
 summary: ""
 date: 2024-08-30T20:00:00+08:00
 lastmod: 2024-08-30T20:00:00+08:00
 weight: 3100
 seo:
-  title: "基本语法"
+  title: "基本語法"
   description: ""
   canonical: ""
   noindex: false
@@ -18,17 +18,17 @@ seo:
 #!/usr/bin/env bash
 ```
 
-## 变量赋值
+## 變量賦值
 
-`=` 号两边不能有空格。
+`=` 號兩邊唔可以有空格。
 
 ```bash {frame="none"}
 name=foo
 ```
 
-## 双引号
+## 雙引號
 
-可解释变量。
+可以解釋變量。
 
 ```bash {frame="none"}
 name=foo
@@ -37,9 +37,9 @@ echo "hello, \$\$"  # hello, $$
 echo "hello, \"\""  # hello, ""
 ```
 
-## 单引号
+## 單引號
 
-不解释变量，只有单引号是特殊字符。
+唔解釋變量，只有單引號係特殊字符。
 
 ```bash {frame="none"}
 name=foo
@@ -48,15 +48,15 @@ echo 'hello, $$'    # hello, $$
 echo 'hello, ""'    # hello, ""
 ```
 
-要输出单引号，需要先关闭单引号。
+要輸出單引號，需要先關閉單引號。
 
 ```bash {frame="none"}
 echo 'I'\''m fine'  # I'm fine
 ```
 
-## 命令替换
+## 命令替換
 
-有**反单号**和 **`$()`** 两种用法。
+有**反單號**同 **`$()`** 兩種用法。
 
 ```bash {frame="none"}
 result=`date`
@@ -66,7 +66,7 @@ result=`date`
 result=$(date)
 ```
 
-推荐使用 `$()`，可读性更好，更多例子如下：
+推薦使用 `$()`，可讀性更好，更多例子如下：
 
 ```bash {frame="none"}
 echo "dir is: $(pwd)"
@@ -76,43 +76,43 @@ echo "dir is: $(pwd)"
 count=$(ls $(pwd) | wc -l)
 ```
 
-[在这里 `ls` 没有使用 `-l` 选项，但 count 的值是 4，原因在这。](/zh-cn/linux/cmd/common-1/#隐藏字符)
+[喺呢度 `ls` 冇使用 `-l` 選項，但 count 嘅值係 4，原因喺呢度。](/zh-cn/linux/cmd/common-1/#隱藏字符)
 
-## 输出重定向
+## 輸出重定向
 
-标准输出重定向 `>`，新建/覆盖文件。
+標準輸出重定向 `>`，新建/覆蓋文件。
 
 ```bash {frame="none"}
 cmd > file
 ```
 
-追加输出重定向 `>>`。
+追加輸出重定向 `>>`。
 
 ```bash {frame="none"}
 cmd >> file
 ```
 
-标准错误重定向 `2>`，新建/覆盖文件。
+標準錯誤重定向 `2>`，新建/覆蓋文件。
 
 ```bash {frame="none"}
 cmd 2> file
 ```
 
-标准输出和错误重定向到不同文件。
+標準輸出同錯誤重定向到唔同文件。
 
 ```bash {frame="none"}
 cmd > foo.log 2> bar.log
 ```
 
-标准输出和错误重定向到同一文件。
+標準輸出同錯誤重定向到同一文件。
 
 ```bash {frame="none"}
 ls 404 > foobar.log 2>&1
 ```
 
-## 输入重定向
+## 輸入重定向
 
-常用方式，使用 `<` 符号。
+常用方式，使用 `<` 符號。
 
 ```bash {frame="none"}
 echo "a b c" > foo
@@ -126,7 +126,7 @@ wc < foo
 1 3 6
 ```
 
-内联重定向，Inline Input Redirection。
+內聯重定向，Inline Input Redirection。
 
 ```bash {frame="none"}
 wc << FOO
@@ -140,40 +140,40 @@ FOO
 3       3      17
 ```
 
-FOO 为自定义标记，用于多行输入。
+FOO 為自定義標記，用於多行輸入。
 
 ## EXPR 命令
 
-反人类的数学运算指令，`+` 号两边的空格不能少。
+反人類嘅數學運算指令，`+` 號兩邊嘅空格唔可以少。
 
 ```bash {frame="none"}
 expr 2 + 5
 ```
 
-`*` 号是通匹符，还得转义。
+`*` 號係通配符，仲要轉義。
 
 ```bash {frame="none"}
 expr 2 \* 5
 ```
 
-只有整除，不支持浮点数。
+只有整除，唔支持浮點數。
 
 ```bash {frame="none"}
 expr 24 / 10
 ```
 
-## 方括号
+## 方括號
 
-可使用 `[]` 执行数学运算。
+可以使用 `[]` 執行數學運算。
 
 ```bash {frame="none"}
 var1=$[1+5*2]
 var2=$[2*(3+2)]
 ```
 
-## BC 计算器
+## BC 計算器
 
-精确数学运算计算器，全称 **Basic/Bench Calculator。**
+精確數學運算計算器，全稱 **Basic/Bench Calculator。**
 
 ### 交互模式
 
@@ -193,29 +193,29 @@ For details type `warranty'.
 quit
 ```
 
-`-q` 选项不打印上面那串英文欢迎语。
+`-q` 選項唔會打印上面嗰串英文歡迎語。
 
 ```bash {frame="none"}
 bc -q
 ```
 
-### 浮点数
+### 浮點數
 
-可以直接使用浮点数计算。
+可以直接使用浮點數計算。
 
 ```bash {frame="none"}
 2.5*5
 12.5
 ```
 
-除法会用到 `scale` 变量，默认值为 0，表示整除。
+除法會用到 `scale` 變量，默認值為 0，表示整除。
 
 ```bash {frame="none"}
 scale=2
 10/3
 ```
 
-表示保留 2 位小数，**`scale` 变量仅对除法有效**。
+表示保留 2 位小數，**`scale` 變量僅對除法有效**。
 
 ### 管道方式
 
@@ -223,7 +223,7 @@ scale=2
 foo=$(echo "scale=2; 10/3" | bc)
 ```
 
-### 内联输入重定向
+### 內聯輸入重定向
 
 ```bash {frame="none"}
 var1=10.24
@@ -238,10 +238,10 @@ EOF
 
 ## EXIT 命令
 
-脚本的默认退出码是 0，表示正常退出，可使用 `exit` 改变。
+腳本嘅默認退出碼係 0，表示正常退出，可以使用 `exit` 改變。
 
 ```bash {frame="none"}
 exit 5
 ```
 
-退出码的范围是 0-255，取模（%256）。
+退出碼嘅範圍係 0-255，取模（%256）。

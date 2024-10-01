@@ -1,5 +1,5 @@
 ---
-title: "四次元百宝袋"
+title: "四次元百寶袋"
 sidebar:
   collapsed: false
 ---

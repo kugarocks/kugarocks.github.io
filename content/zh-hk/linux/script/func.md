@@ -1,18 +1,18 @@
 ---
-title: "函数"
+title: "函數"
 description: ""
 summary: ""
 date: 2024-09-02T20:00:00+08:00
 lastmod: 2024-09-03T20:00:00+08:00
 weight: 3700
 seo:
-  title: "函数"
+  title: "函數"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 创建函数
+## 創建函數
 
 ```bash {frame="none"}
 function name {
@@ -28,13 +28,13 @@ name() {
 }
 ```
 
-## 函数返回值
+## 函數返回值
 
-返回值有多种形式。
+返回值有多種形式。
 
 ### 使用 $?
 
-表示函数最后一条命令的退出状态码。
+表示函數最後一條命令的退出狀態碼。
 
 ```bash {frame="none"}
 echo $?
@@ -55,9 +55,9 @@ double
 echo "Result: $?"
 ```
 
-**本质是退出状态码，范围 [0, 255]，超出会对 256 取模。**
+**本質係退出狀態碼，範圍 [0, 255]，超出會對 256 取模。**
 
-### 使用标准输出
+### 使用標準輸出
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -71,9 +71,9 @@ result=$(double)
 echo "Result: $result"
 ```
 
-`result` 会保存函数中所有的标准输出。
+`result` 會保存函數中所有的標準輸出。
 
-## 函数传参
+## 函數傳參
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -90,13 +90,13 @@ result=$(add 1 2)
 echo "Result: $result"
 ```
 
-函数里面的 `$#`、`$1` 和外层的参数相互独立。
+函數入面嘅 `$#`、`$1` 同外層嘅參數相互獨立。
 
-## 变量的作用域
+## 變量的作用域
 
-### 函数外定义
+### 函數外定義
 
-哪里都能访问。
+邊度都可以訪問。
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -115,7 +115,7 @@ green
 yellow
 ```
 
-### 函数内定义
+### 函數內定義
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -123,7 +123,7 @@ yellow
 function foo {
     soda=green
 }
-# 函数没执行前无法访问
+# 函數未執行前無法訪問
 echo $soda
 foo
 echo $soda
@@ -139,7 +139,7 @@ yellow
 
 ### 使用 local
 
-`local` 变量只在函数内部生效，和外部重名变量相互独立。
+`local` 變量只喺函數內部生效，同外部重名變量相互獨立。
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -160,19 +160,19 @@ yellow
 green
 ```
 
-## 变量是否被定义
+## 變量是否被定義
 
-[可以使用参数展开的 + 标记](can-shu-zhan-kai.md#biao-ji)。
+[可以使用參數展開的 + 標記](can-shu-zhan-kai.md#biao-ji)。
 
-## 函数是否被定义
+## 函數是否被定義
 
-后面定义的同名函数会覆盖前面定义同名函数的，所以在定义函数之前，可以先判断一下。
+後面定義的同名函數會覆蓋前面定義同名函數，所以喺定義函數之前，可以先判斷一下。
 
 ```bash {frame="none"}
 declare -f FUNC_NAME
 ```
 
-例如把函数写在 .bashrc 文件。
+例如把函數寫喺 .bashrc 文件。
 
 ```bash {frame="none"}
 function sayhello() {
@@ -188,7 +188,7 @@ declare -f sayhello
 echo $?
 ```
 
-函数已定义，退出码为 0，未定义，退出码为 1。
+函數已定義，退出碼為 0，未定義，退出碼為 1。
 
 ```bash {frame="none"}
 if declare -f sayhello > /dev/null; then

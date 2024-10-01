@@ -1,5 +1,5 @@
 ---
-title: "脚本"
+title: "腳本"
 sidebar:
   collapsed: true
 ---

@@ -94,7 +94,7 @@
   weight = 500
 
 [[sidebar_linux]]
-  name = "第五章：環境變數"
+  name = "第五章：環境變量"
   pageRef = "/linux/env/"
   weight = 600
 

@@ -1,22 +1,22 @@
 ---
-title: "组管理"
+title: "組管理"
 description: ""
 summary: ""
 date: 2024-08-27T20:00:00+08:00
 lastmod: 2024-08-28T20:00:00+08:00
 weight: 2200
 seo:
-  title: "组管理"
+  title: "組管理"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 用户和组的关系
+## 用戶同組嘅關係
 
-### 主组 - Primary Group
+### 主組 - Primary Group
 
-创建用户的时候，会同时创建一个同名组，这个就是主组。
+創建用戶嘅時候，會同時創建一個同名組，呢個就係主組。
 
 ```bash {frame="none"}
 grep soda /etc/passwd
@@ -26,7 +26,7 @@ grep soda /etc/passwd
 soda:x:1001:1001:,,,:/home/soda:/bin/bash
 ```
 
-第 4 个字段表示主组 ID 1001，还可以使用 groups 命令查看。
+第 4 個字段表示主組 ID 1001，仲可以用 groups 命令嚟睇。
 
 ```bash {frame="none"}
 groups soda
@@ -36,13 +36,13 @@ groups soda
 soda : soda
 ```
 
-### 附加组 - Secondary Groups
+### 附加組 - Secondary Groups
 
-用户还可以属于多个附加组，用于权限的访问控制。
+用戶仲可以屬於多個附加組，用嚟做權限嘅訪問控制。
 
 ### ID 指令
 
-查看用户组信息最实用的命令。
+睇用戶組信息最實用嘅命令。
 
 ```bash {frame="none"}
 id soda
@@ -52,19 +52,19 @@ id soda
 uid=1001(soda) gid=1001(soda) groups=1001(soda)
 ```
 
-`gid` 表示主组，`groups` 表示附加组。
+`gid` 表示主組，`groups` 表示附加組。
 
 ## /etc/group
 
-组的配置文件，使用命令修改，不要手动编辑，不然改错就寄了。
+組嘅配置文件，用命令嚟改，唔好手動改，唔然改錯就麻煩。
 
 ```bash {frame="none"}
 -rw-r--r-- 1 root root 886 Aug 28 21:00 /etc/group
 ```
 
-### 组信息
+### 組信息
 
-查看 sudo 组的信息
+睇 sudo 組嘅信息
 
 ```bash {frame="none"}
 grep sudo /etc/group
@@ -74,14 +74,14 @@ grep sudo /etc/group
 sudo:x:27:kuga
 ```
 
-* 组名：sudo
-* 密码：x
-* 组ID：27
-* 成员：kuga
+* 組名：sudo
+* 密碼：x
+* 組ID：27
+* 成員：kuga
 
-组成员有多个时，以逗号分隔：`kuga,soda`。
+組成員有多個時，以逗號分隔：`kuga,soda`。
 
-### 新建组
+### 新建組
 
 ```bash {frame="none"}
 sudo groupadd rocks
@@ -95,17 +95,17 @@ grep rocks /etc/group
 rocks:x:1002:
 ```
 
-### 修改组名
+### 改組名
 
 ```bash {frame="none"}
 sudo groupmod -n newrocks rocks
 ```
 
-## 用户分配组
+## 用戶分配組
 
-### 保留附加组
+### 保留附加組
 
-此方法不会覆盖附加组列表。
+呢個方法唔會覆蓋附加組列表。
 
 ```bash {frame="none"}
 sudo usermod -aG rocks soda
@@ -119,9 +119,9 @@ id soda
 ... groups=1001(soda),1002(rocks)
 ```
 
-### 覆盖附加组
+### 覆蓋附加組
 
-去掉 `-a` (append) 选项会覆盖整个符加组列表。
+去掉 `-a` (append) 選項會覆蓋成個附加組列表。
 
 ```bash {frame="none"}
 sudo usermod -G sudo soda
@@ -135,17 +135,17 @@ id soda
 ... groups=1001(soda),27(sudo)
 ```
 
-显然，soda 组不见了。
+顯然，soda 組唔見咗。
 
-### 删除附加组
+### 刪除附加組
 
-删除 soda 用户的 sudo 附加组。
+刪除 soda 用戶嘅 sudo 附加組。
 
 ```bash {frame="none"}
 sudo gpasswd -d soda sudo
 ```
 
-也可以使用覆盖的方式，只保留 soda 组。
+仲可以用覆蓋嘅方式，只保留 soda 組。
 
 ```bash {frame="none"}
 sudo usermod -G soda soda

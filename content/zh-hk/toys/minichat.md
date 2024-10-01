@@ -12,21 +12,21 @@ seo:
   noindex: false
 ---
 
-## 简介
+## 簡介
 
-有一次我想把一段文本从一台电脑发到另一台电脑上，但发现如此简单的需求却没有直接了当的工具。
-问了一下 ChatGPT，总结了一下现有的工具，发现都不太好用。
+有一次我想把一段文本從一台電腦發到另一台電腦上，但發現如此簡單的需求卻冇直接了當嘅工具。
+問咗一下 ChatGPT，總結咗一下現有嘅工具，發現都唔太好用。
 
-| 方法 | 缺点 |
+| 方法 | 缺點 |
 | --- | --- |
-| Airdrop | 创建文件和搜索设备 |
-| iMessage | 登录苹果账号 |
-| 通用剪贴板 | 登录苹果账号 |
-| 微信/QQ | 登录两个账号 |
-| 邮件 | 什么年代了 |
+| Airdrop | 創建文件同搜索設備 |
+| iMessage | 登錄蘋果賬號 |
+| 通用剪貼板 | 登錄蘋果賬號 |
+| 微信/QQ | 登錄兩個賬號 |
+| 電郵 | 乜年代啦 |
 
-那不如自己写一个聊天室，访问一下网页直接发送就行了，用 Cursor 开发还很快乐。
-聊天室对移动端也做了一些简单的适配，服务部署在阿里云广州节点，访问速度嘎嘎快。
+咁不如自己寫一個聊天室，訪問一下網頁直接發送就得啦，用 Cursor 開發仲好開心。
+聊天室對移動端都做咗啲簡單嘅適配，服務部署喺阿里雲廣州節點，訪問速度嘎嘎快。
 
 {{< link-card
   title="Minichat"
@@ -42,26 +42,26 @@ seo:
   target="_blank"
 >}}
 
-## 主题
+## 主題
 
-服务启动的时候可以指定主题，默认是小黄人。
+服務啟動嘅時候可以指定主題，默認係小黃人。
 
 ```bash {frame="none"}
 go run main.go -theme onepiece
 ```
 
-### 小黄人
+### 小黃人
 
-| 名称 | 头像 |
+| 名稱 | 頭像 |
 | --- | --- |
 | Stuart, Kevin | ![Stuart](images/minions/avatar/stuart.jpg) ![Kevin](images/minions/avatar/kevin.jpg) |
 | Bob, Dave | ![Bob](images/minions/avatar/bob.jpg) ![Dave](images/minions/avatar/dave.jpg) |
 | Jerry, Phil | ![Jerry](images/minions/avatar/jerry.jpg) ![Phil](images/minions/avatar/phil.jpg) |
 | Tim, Mark | ![Tim](images/minions/avatar/tim.jpg) ![Mark](images/minions/avatar/mark.jpg) |
 
-### 海贼王
+### 海賊王
 
-| 名称 | 头像 |
+| 名稱 | 頭像 |
 | --- | --- |
 | Luffy, Zoro | ![Luffy](images/onepiece/avatar/luffy.jpg) ![Zoro](images/onepiece/avatar/zoro.jpg) |
 | Nami, Sanji | ![Nami](images/onepiece/avatar/nami.jpg) ![Sanji](images/onepiece/avatar/sanji.jpg) |
@@ -69,50 +69,50 @@ go run main.go -theme onepiece
 | Chopper, Usopp | ![Chopper](images/onepiece/avatar/chopper.jpg) ![Usopp](images/onepiece/avatar/usopp.jpg) |
 | Brook | ![Brook](images/onepiece/avatar/brook.jpg) |
 
-## 提示词
+## 提示詞
 
-提示词也很简单，只要定义好使用的技术栈，根据自己的需求一步步修改就行了。
-不过下面的提示词只是很小一部份，因为整个过程还包括大量的细节和优化，这里就不展开了。
+提示詞都好簡單，只要定義好使用嘅技術棧，根據自己嘅需求一步步修改就得啦。
+不過下面嘅提示詞只係好少一部分，因為成個過程仲包括大量嘅細節同優化，呢度就唔展開講啦。
 
 ```txt {frame="none"}
-* 实现一个简单的实时聊天室
-* 服务端使用 Golang、Websocket
-* 客户端使用网页
+* 實現一個簡單嘅實時聊天室
+* 服務端使用 Golang、Websocket
+* 客戶端使用網頁
 ```
 
 ```txt {frame="none"}
-* 网页左侧显示在线用户列表
-* 当网页打开时自动生成用户名
-* 用户名随机从复仇者联盟的角色中选取
-* 不能选取重复的用户名
-* 用户名的总数为 20 个
+* 網頁左側顯示在線用戶列表
+* 當網頁打開時自動生成用戶名
+* 用戶名隨機從復仇者聯盟嘅角色中選取
+* 唔可以選取重複嘅用戶名
+* 用戶名嘅總數為 20 個
 ```
 
 ```txt {frame="none"}
-* 网页右侧下方是消息输入框
-* 消息输入框支持多行输入
-* 消息输入框可以拖动调整大小
+* 網頁右側下方係消息輸入框
+* 消息輸入框支持多行輸入
+* 消息輸入框可以拖動調整大小
 ```
 
 ```txt {frame="none"}
-* 聊天消息窗口支持多行显示
-* 聊天内容用边框包围
-* 用户名放在边框的外面，上方
+* 聊天消息窗口支持多行顯示
+* 聊天內容用邊框包圍
+* 用戶名放喺邊框嘅外面，上方
 ```
 
 ```txt {frame="none"}
-* 消息边框的右上方添加复制按钮
-* 点击复制按钮后文字改为已复制
-* 1 秒之后恢复为原来的文字
+* 消息邊框嘅右上方添加複製按鈕
+* 點擊複製按鈕後文字改為已複製
+* 1 秒之後恢復為原來嘅文字
 ```
 
 ```txt {frame="none"}
-* 消息输入框和聊天消息窗口用一条线分隔
-* 可以上下拖动这条线来改变两个窗口大小
-* 页面的风格改成终端形式
+* 消息輸入框同聊天消息窗口用一條線分隔
+* 可以上下拖動呢條線嚟改變兩個窗口大小
+* 頁面嘅風格改成終端形式
 ```
 
 ```txt {frame="none"}
-* 用户名字的颜色用绿色
-* 其它颜色用点黑白灰
+* 用戶名嘅顏色用綠色
+* 其他顏色用啲黑白灰
 ```

@@ -1,12 +1,12 @@
 ---
-title: "GAWK 命令 - 1"
+title: "GAWK 指令 - 1"
 description: ""
 summary: ""
 date: 2024-09-05T20:00:00+08:00
 lastmod: 2024-09-05T20:00:00+08:00
 weight: 4300
 seo:
-  title: "GAWK 命令 - 1"
+  title: "GAWK 指令 - 1"
   description: ""
   canonical: ""
   noindex: false
@@ -14,8 +14,8 @@ seo:
 
 ## GNU AWK
 
-`gawk` 是 GNU 版本的文本处理工具。
-在大多数 GNU/Linux 发行版中，`gawk` 是默认的 `awk` 实现，因此在日常使用中通常没有区别。
+`gawk` 係 GNU 版本嘅文本處理工具。
+喺大部分 GNU/Linux 發行版入面，`gawk` 係預設嘅 `awk` 實現，所以喺日常使用中通常冇乜分別。
 
 ```bash {frame="none"}
 readlink -f /usr/bin/awk
@@ -25,40 +25,40 @@ readlink -f /usr/bin/awk
 /usr/bin/gawk
 ```
 
-`gawk` 命令默认使用 ERE 模式。
+`gawk` 命令默認使用 ERE 模式。
 
-### 基本语法
+### 基本語法
 
 ```bash {frame="none"}
 gawk [OPTIONS] program file
 ```
 
-* `OPTIONS`：命令选项。
-* `program`：这尼玛命令里面还有个程序。
-* `file`：处理的文件，如果省略，读取 STDIN。
+* `OPTIONS`：命令選項。
+* `program`：呢個命令入面仲有個程序。
+* `file`：處理嘅文件，如果省略，讀取 STDIN。
 
-省略 `file` 为交互模式，输入一行执行一次。
+省略 `file` 係交互模式，輸入一行執行一次。
 
-### 运行过程
+### 運行過程
 
-* 读入一行数据：
-  * 有匹配规则：
-    * 匹配成功：执行相关操作。
-    * 匹配失败：不执行操作。
-  * 无匹配规则：执行相关操作。
+* 讀入一行數據：
+  * 有匹配規則：
+    * 匹配成功：執行相關操作。
+    * 匹配失敗：唔執行操作。
+  * 無匹配規則：執行相關操作。
 
-### 基础用法
+### 基礎用法
 
-创建 foo 文件。
+創建 foo 文件。
 
 ```bash {frame="none"}
 echo -e 'aa 11\nbb 22' > foo
 ```
 
-对于每行数据，`gawk` 默认使用空格/制表符分隔字段。
+對於每行數據，`gawk` 默認使用空格/制表符分隔欄位。
 
-* `$N`：表示第 N 个字段。
-* `$0`：表示整行数据。
+* `$N`：表示第 N 個欄位。
+* `$0`：表示整行數據。
 
 ```bash {frame="none"}
 gawk '{print $1}' foo
@@ -69,13 +69,13 @@ aa
 bb
 ```
 
-### BEGIN/END 结构
+### BEGIN/END 結構
 
-* BEGIN：初始化，在解释前执行。
-* BODY：对每个记录执行一次。
-* END：结束处理。
+* BEGIN：初始化，解釋之前執行。
+* BODY：對每個記錄執行一次。
+* END：結束處理。
 
-注意使用引号 `'EOF'` 创建文件，这样不会处理特殊字符 `$`。
+留意使用引號 `'EOF'` 創建文件，咁樣就唔會處理特殊字符 `$`。
 
 ```bash {frame="none"}
 cat <<'EOF' > foo.gawk
@@ -106,19 +106,19 @@ bin     /bin
 ------- -------
 ```
 
-## 常用选项
+## 常用選項
 
 ### 指定分隔符
 
-`-F` 选项可以修改行的分隔符。
+`-F` 選項可以修改行嘅分隔符。
 
 ```bash {frame="none"}
 gawk -F: '{print $1}' /etc/passwd | head -n 1
 ```
 
-### 指定文件
+### 指定檔案
 
-`-f` 选项可以指定文件。
+`-f` 選項可以指定檔案。
 
 ```bash {frame="none"}
 echo '{print $1 "-dir:" $6}' > foo.gawk
@@ -132,9 +132,9 @@ gawk -F: -f foo.gawk /etc/passwd | head -n 1
 root-dir:/root
 ```
 
-### 变量参数赋值
+### 變量參數賦值
 
-`-v` 选项可以在 BEGIN 之前给变量赋值。
+`-v` 選項可以喺 BEGIN 之前畀變量賦值。
 
 ```bash {frame="none"}
 gawk -v n=2 'BEGIN{print 2*n}'
@@ -144,7 +144,7 @@ gawk -v n=2 'BEGIN{print 2*n}'
 4
 ```
 
-如果不需要在 BEGIN 中使用，可以不用 `-v` 参数。
+如果唔需要喺 BEGIN 中使用，可以唔使用 `-v` 參數。
 
 ```bash {frame="none"}
 echo 'a b c' | gawk '{print $n}' n=2
@@ -154,11 +154,11 @@ echo 'a b c' | gawk '{print $n}' n=2
 b
 ```
 
-## 内置变量
+## 內置變量
 
-### 变量 $N
+### 變量 $N
 
-`$N` 还可以赋值，字符串的双引号不能省略。
+`$N` 仲可以賦值，字符串嘅雙引號唔可以省略。
 
 ```bash {frame="none"}
 echo 'hey man' | gawk '{$2="bro"; print $0}'
@@ -168,7 +168,7 @@ echo 'hey man' | gawk '{$2="bro"; print $0}'
 hey bro
 ```
 
-### 变量 FS
+### 變量 FS
 
 Field Separator，字段分隔符。
 
@@ -176,9 +176,9 @@ Field Separator，字段分隔符。
 gawk 'BEGIN{FS=":"} {print $1}' /etc/passwd | head -n 1
 ```
 
-### 变量 NF
+### 變量 NF
 
-Number of Fields，表示记录中的字段的数量。
+Number of Fields，表示記錄中嘅字段數量。
 
 ```bash {frame="none"}
 gawk -F: '$1=="root"{print $1":"$NF}' /etc/passwd
@@ -188,10 +188,10 @@ gawk -F: '$1=="root"{print $1":"$NF}' /etc/passwd
 root:/bin/bash
 ```
 
-### 变量 NR
+### 變量 NR
 
-Number of Records，表示当前处理的记录编号，默认值为 1，处理一行后会加 1。
-可用于跳过文本的第一行，第一行的 `NR` 值为 1。
+Number of Records，表示而家處理緊嘅記錄編號，默認值係 1，處理完一行之後會加 1。
+可以用嚟跳過文本嘅第一行，第一行嘅 `NR` 值係 1。
 
 ```bash {frame="none"}
 cat <<EOF > foo
@@ -209,10 +209,10 @@ gawk '{if (NR>1) {if ($2>85) {print $1,$2}}}' foo
 foo 90
 ```
 
-### 变量 RS
+### 變量 RS
 
-Record Separator，输入记录分隔符，默认值为 `\n`，表示以换行符分隔每条记录。
-将 `RS` 设置为 `""` 表示以空行作为记录分隔符，对于下面的文本，会分为上下 2 个记录。
+記錄分隔符，輸入記錄分隔符，默認值係 `\n`，表示以換行符分隔每條記錄。
+將 `RS` 設置為 `""` 表示以空行作為記錄分隔符，對於下面嘅文本，會分為上下 2 個記錄。
 
 ```bash {frame="none"}
 cat <<EOF > foo
@@ -226,7 +226,7 @@ yellow
 EOF
 ```
 
-设置 `FS="\n"`，则可通过 `$N` 获取每行记录。`RS` 和 `FS` 通常结合使用。
+設置 `FS="\n"`，噉就可以透過 `$N` 獲取每行記錄。`RS` 同 `FS` 通常結合使用。
 
 ```bash {frame="none"}
 gawk 'BEGIN{RS=""; FS="\n"} {print $1"\t"$3}' foo
@@ -237,9 +237,9 @@ apple  red
 banana yellow
 ```
 
-### 变量 OFS
+### 變量 OFS
 
-Output Field Separator，输出字段分隔符。
+Output Field Separator，輸出欄位分隔符。
 
 ```bash {frame="none"}
 echo 'aa,bb' | gawk 'BEGIN{FS=","; OFS="-"} {print $1,$2}'
@@ -249,9 +249,9 @@ echo 'aa,bb' | gawk 'BEGIN{FS=","; OFS="-"} {print $1,$2}'
 aa-bb
 ```
 
-### 变量 FIELDWIDTHS
+### 變量 FIELDWIDTHS
 
-指定字符宽度进行分隔。
+指定字符寬度進行分隔。
 
 ```bash {frame="none"}
 echo 'abbc' | gawk 'BEGIN{FIELDWIDTHS="1 2 1"} {print $1,$2,$3}'
@@ -261,9 +261,9 @@ echo 'abbc' | gawk 'BEGIN{FIELDWIDTHS="1 2 1"} {print $1,$2,$3}'
 a bb c
 ```
 
-## 条件与结构
+## 條件同結構
 
-### 条件表达式
+### 條件表達式
 
 `==`、`<`，`<=`，`>`，`>=`。
 
@@ -271,29 +271,29 @@ a bb c
 gawk -F: '$7=="/bin/bash"{print $1}' /etc/passwd
 ```
 
-输出所有以 bash 启动的用户。
+輸出所有以 bash 啟動嘅用戶。
 
-### 条件语句
+### 條件語句
 
-`if` 里面单条语句可不加 `{}`。
+`if` 裏面單條語句可以唔加 `{}`。
 
 ```bash {frame="none"}
 echo -e '10\n20' | gawk '{if ($1>15) print $1}'
 ```
 
-`if` 里面多条语句要加 `{}`。
+`if` 裡面多條語句要加 `{}`。
 
 ```bash {frame="none"}
 echo -e '10\n20' | gawk '{if ($1>15) {x=2*$i; print x}}'
 ```
 
-单行的 `else` 语句，前面的语句要加 `;` 号。
+單行嘅 `else` 語句，前面嘅語句要加 `;` 號。
 
 ```bash {frame="none"}
 echo -e '10\n20' | gawk '{if ($1>15) print $1; else print "no"}'
 ```
 
-多行不需要加分号。
+多行唔需要加分號。
 
 ```bash {frame="none"}
 echo -e '10\n20' | gawk '{
@@ -306,9 +306,9 @@ if ($i>15) {
 }'
 ```
 
-### FOR 语句
+### FOR 語句
 
-对每一行的字段求和，`+=` 和 `++` 都支持。
+對每一行嘅字段求和，`+=` 同 `++` 都支持。
 
 ```bash {frame="none"}  
 echo '1 2 3' | gawk '{
@@ -320,9 +320,9 @@ print total
 }'
 ```
 
-### WHILE 语句
+### WHILE 語句
 
-对每一行的字段求和。
+對每一行嘅字段求和。
 
 ```bash {frame="none"}
 echo '1 2 3' | gawk '{
@@ -336,9 +336,9 @@ print total
 }'
 ```
 
-### DO-WHILE 语句
+### DO-WHILE 語句
 
-对每一行的字段求和
+對每一行嘅字段求和
 
 ```bash {frame="none"}
 echo '1 2 3' | gawk '{
@@ -352,23 +352,23 @@ print total
 }'
 ```
 
-## 函数相关
+## 函數相關
 
-### 内建函数
+### 內建函數
 
-* `int(x)`：取 x 的整数部分。
-* `exp(x)`：x 的指数。
-* `sqrt(x)`：x 的平方根。
-* `rand()`：比 0 大且小于 1 的随机数。
-* `length(x)`：x 的字符串长度。
-* `tolower(x)`：x 转小写。
-* `toupper(x)`：x 转大写。
+* `int(x)`：攞 x 嘅整數部分。
+* `exp(x)`：x 嘅指數。
+* `sqrt(x)`：x 嘅平方根。
+* `rand()`：比 0 大但小於 1 嘅隨機數。
+* `length(x)`：x 嘅字符串長度。
+* `tolower(x)`：將 x 轉做小寫。
+* `toupper(x)`：將 x 轉做大寫。
 
-还有很多，如 `gensub`，`gsub`。
+仲有好多，例如 `gensub`，`gsub`。
 
-### 自定义函数
+### 自定義函數
 
-自定义函数必须出现在 `BEGIN` 块之前。
+自定義函數必須出現喺 `BEGIN` 塊之前。
 
 ```bash {frame="none"}
 gawk '
@@ -383,7 +383,7 @@ BEGIN {
 }'
 ```
 
-可以使用函数库文件，再引用。
+可以使用函數庫文件，再引用。
 
 ```bash {frame="none"}  
 cat <<'EOF' > funclib.gawk
@@ -394,7 +394,7 @@ function random(ts, num) {
 EOF
 ```
 
-gawk 程序文件如下。
+gawk 程序檔案如下。
 
 ```bash {frame="none"}
 cat <<'EOF' > test.gawk
@@ -406,19 +406,19 @@ BEGIN {
 EOF
 ```
 
-使用 -f 选项引用两个文件。
+使用 -f 選項引用兩個文件。
 
 ```bash {frame="none"}
 gawk -f funclib.gawk -f test.gawk
 ```
 
-引用函数库就不能使用内联程序模式，都需要引用。
+引用函數庫就唔可以用內聯程序模式，都需要引用。
 
-## 其它例子
+## 其他例子
 
-### 自定义变量
+### 自定義變量
 
-支持数学运算和浮点数，这不比 bash 强 🤪。
+支持數學運算同浮點數，呢個唔比 bash 強 🤪。
 
 ```bash {frame="none"}
 gawk 'BEGIN{a=2; a=a*2/3; print a}'
@@ -428,21 +428,21 @@ gawk 'BEGIN{a=2; a=a*2/3; print a}'
 1.33333
 ```
 
-### 数组操作
+### 數組操作
 
-特点：关联数组，类似字典，无序。
+特點：關聯數組，好似字典，無序。
 
 ```bash {frame="none"}
 gawk 'BEGIN{arr["name"]="foo"; print arr["name"]}'
 ```
 
-可以使用数字下标，其实也是字典。
+可以用數字下標，其實都係字典。
 
 ```bash {frame="none"}
 gawk 'BEGIN{arr[3]="foo"; print arr[3]}'
 ```
 
-遍历数组，删除元素。
+遍歷陣列，刪除元素。
 
 ```bash {frame="none"}
 gawk 'BEGIN{
@@ -464,7 +464,7 @@ key: c  val: cat
 
 ### 格式化打印
 
-处理浮点数。
+處理浮點數。
 
 ```bash {frame="none"}
 gawk 'BEGIN{printf "%.2f\n", 2/3}'
@@ -474,13 +474,13 @@ gawk 'BEGIN{printf "%.2f\n", 2/3}'
 0.67
 ```
 
-指定宽度。
+指定闊度。
 
 ```bash {frame="none"}
 echo -e 'foo\nfoobar' | gawk '{printf "%8s\n", $1}'
 ```
 
-左对齐。
+左靠齊。
 
 ```bash {frame="none"}
 echo -e 'foo\nfoobar' | gawk '{printf "%-8s\n", $1}'

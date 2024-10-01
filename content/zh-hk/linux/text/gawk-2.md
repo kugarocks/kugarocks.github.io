@@ -12,13 +12,13 @@ seo:
   noindex: false
 ---
 
-## 正则匹配
+## 正則匹配
 
-`gawk` 默认使用 ERE 模式。
+`gawk` 默認使用 ERE 模式。
 
-### 基础用法
+### 基礎用法
 
-首先创建 `foo` 文本文件。
+首先創建 `foo` 文本文件。
 
 ```bash {frame="none"}
 cat <<EOF > foo
@@ -35,11 +35,11 @@ gawk -F, '/1,a/{ print $1 }' foo
 a1
 ```
 
-这里是用**整行**去匹配的，等价于 `$0`。
+呢度係用**整行**去匹配嘅，等價於 `$0`。
 
 ### 指定字段匹配
 
-`$2 ~` 指定了使用第 2 个字段匹配。
+`$2 ~` 指定咗使用第 2 個字段匹配。
 
 ```bash {frame="none"}
 gawk 'BEGIN{ FS="," } $2 ~ /^[ab]2/{ print $2 }' foo
@@ -52,21 +52,21 @@ b2
 
 ## sub
 
-Substitution，替换第一个匹配的字符串。
+Substitution，替換第一個匹配嘅字符串。
 
-### 基本语法
+### 基本語法
 
 ```bash {frame="none"}
 sub(regex, replacement [, target])
 ```
 
-* `regex`：匹配的正则表达式。
-* `replacement`：替换匹配的字符串。
-* `target`：可选，目标字符串，默认 `$0`。
+* `regex`：匹配嘅正則表達式。
+* `replacement`：替換匹配嘅字符串。
+* `target`：可選，目標字符串，默認 `$0`。
 
-不提供 `target`，默认是整行匹配。
+唔提供 `target`，默認係整行匹配。
 
-### 基础用法
+### 基礎用法
 
 ```bash {frame="none"}
 echo "aa bb aa" | gawk '{ sub(/aa/, "cc"); print }'
@@ -76,7 +76,7 @@ echo "aa bb aa" | gawk '{ sub(/aa/, "cc"); print }'
 cc bb aa
 ```
 
-指定替换第 3 列。
+指定替換第 3 列。
 
 ```bash {frame="none"}
 echo "aa bb aa" | gawk '{ sub(/aa/, "cc", $3); print }'
@@ -86,7 +86,7 @@ echo "aa bb aa" | gawk '{ sub(/aa/, "cc", $3); print }'
 aa bb cc
 ```
 
-### 特殊符号 &
+### 特殊符號 &
 
 ```bash {frame="none"}
 echo "app cat" | gawk '{ sub(/\w+/, "[&]"); print }'
@@ -98,21 +98,21 @@ echo "app cat" | gawk '{ sub(/\w+/, "[&]"); print }'
 
 ## gsub
 
-Global Substitution，全局替换。
+Global Substitution，全局替換。
 
-### 基本语法
+### 基本語法
 
 ```bash {frame="none"}
 gsub(regex, replacement [, target])
 ```
 
-* `regex`：匹配的正则表达式。
-* `replacement`：替换匹配的字符串。
-* `target`：可选，目标字符串，默认 `$0`。
+* `regex`：匹配嘅正則表達式。
+* `replacement`：替換匹配嘅字符串。
+* `target`：可選，目標字符串，默認 `$0`。
 
-不提供 `target`，默认是整行匹配。
+唔提供 `target`，默認係整行匹配。
 
-### 基础用法
+### 基礎用法
 
 ```bash {frame="none"}
 echo 'aa bb aa' | gawk '{ gsub("aa", "cc"); print }'
@@ -122,7 +122,7 @@ echo 'aa bb aa' | gawk '{ gsub("aa", "cc"); print }'
 cc bb cc
 ```
 
-指定替换第 3 列。
+指定替換第 3 列。
 
 ```bash {frame="none"}
 echo 'aa bb aa' | gawk '{ gsub("aa", "cc", $3); print }'
@@ -132,7 +132,7 @@ echo 'aa bb aa' | gawk '{ gsub("aa", "cc", $3); print }'
 aa bb cc
 ```
 
-### 特殊符号 &
+### 特殊符號 &
 
 ```bash {frame="none"}
 echo "app cat" | gawk '{ gsub(/\w+/, "[&]"); print }'
@@ -142,9 +142,9 @@ echo "app cat" | gawk '{ gsub(/\w+/, "[&]"); print }'
 [app] [cat]
 ```
 
-### 匹配单词首字符
+### 匹配單詞首字符
 
-`\<` 表示单词的开头。
+`\<` 表示單詞嘅開頭。
 
 ```bash {frame="none"}
 echo 'app cat' | gawk '{ gsub(/\<[a-z]/, "[&]"); print }'
@@ -154,9 +154,9 @@ echo 'app cat' | gawk '{ gsub(/\<[a-z]/, "[&]"); print }'
 [a]pp [c]at
 ```
 
-### 匹配单词尾字符
+### 匹配單詞尾字符
 
-`\>` 表示单词的结尾。
+`\>` 表示單詞嘅結尾。
 
 ```bash {frame="none"}
 echo 'app cat' | gawk '{ gsub(/[a-z]\>/, "[&]"); print }'
@@ -168,28 +168,28 @@ ap[p] ca[t]
 
 ## gensub
 
-General Substitution，通用替换。
+General Substitution，通用替換。
 
-* 比 `sub` 和 `gsub` 强大。
-* 支持捕获组（Capture Groups）。
-* 可选择替换特定匹配项。
-* 不原地修改，返回替换后的字符串。
-* `sub` 和 `gsub` 不支持捕获组。
+* 比 `sub` 同 `gsub` 強大。
+* 支持捕獲組（Capture Groups）。
+* 可選擇替換特定匹配項。
+* 唔原地修改，返回替換後嘅字符串。
+* `sub` 同 `gsub` 唔支持捕獲組。
 
-### 基本语法
+### 基本語法
 
 ```bash {frame="none"}
 gensub(regex, replacement, how [, target])
 ```
 
-* `regex`：匹配的正则表达式。
-* `replacement`：替换字符串，可用捕获组。
-* `how`：可指定全局或第 N 次匹配替换。
-* `target`：可选，目标字符串，默认 `$0`。
+* `regex`：匹配嘅正則表達式。
+* `replacement`：替換字符串，可用捕獲組。
+* `how`：可指定全局或第 N 次匹配替換。
+* `target`：可選，目標字符串，默認 `$0`。
 
-### 基础用法
+### 基礎用法
 
-使用 `g` 全局替换。
+使用 `g` 全局替換。
 
 ```bash {frame="none"}
 echo "aa aa aa" | gawk '{ print gensub(/aa/, "bb", "g") }'
@@ -199,7 +199,7 @@ echo "aa aa aa" | gawk '{ print gensub(/aa/, "bb", "g") }'
 bb bb bb
 ```
 
-替换第 2 个匹配项。
+替換第 2 個匹配項。
 
 ```bash {frame="none"}
 echo "aa aa aa" | gawk '{ print gensub(/aa/, "bb", "2") }'
@@ -209,9 +209,9 @@ echo "aa aa aa" | gawk '{ print gensub(/aa/, "bb", "2") }'
 aa bb aa
 ```
 
-### 使用捕获组
+### 使用捕獲組
 
-`\1` 表示第一个匹配参数。
+`\1` 表示第一個匹配參數。
 
 ```bash {frame="none"}
 echo "aa-bb" | gawk '{ print gensub(/(\w+)-(\w+)/, "\\2:\\1", "g")}'

@@ -12,7 +12,7 @@ seo:
   noindex: false
 ---
 
-## 查看终端默认的 Shell
+## 查看終端默認嘅 Shell
 
 ```bash {frame="none"}
 echo $SHELL
@@ -22,8 +22,8 @@ echo $SHELL
 /bin/bash
 ```
 
-如果你在当前终端中启动了一个新的 Shell（比如从 Bash 切换到 Zsh），
-这个命令显示的仍然是默认的登录 Shell，这个配置是存放在 `/etc/passwd` 里面的。
+如果你喺當前終端中啟動咗一個新嘅 Shell（例如從 Bash 切換到 Zsh），
+呢個命令顯示嘅仍然係默認嘅登錄 Shell，呢個配置係存放喺 `/etc/passwd` 裡面嘅。
 
 ```bash {frame="none"}
 grep root /etc/passwd
@@ -33,9 +33,9 @@ grep root /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 ```
 
-在 macOS 中，默认的 Shell 信息通常是存储在用户账户设置中的，而不是 `/etc/passwd` 文件中。
-从 macOS Catalina（10.15）开始，默认的 shell 已更改为 `zsh`，之前的默认 Shell 是 `bash`。
-可以通过以下方法查看默认 shell。
+喺 macOS 中，默認嘅 Shell 信息通常係存儲喺用戶賬戶設置中嘅，而唔係 `/etc/passwd` 文件中。
+從 macOS Catalina（10.15）開始，默認嘅 shell 已更改為 `zsh`，之前嘅默認 Shell 係 `bash`。
+可以通過以下方法查看默認 shell。
 
 ```bash {frame="none"}
 dscl . -read /Users/$(whoami) UserShell
@@ -45,9 +45,9 @@ dscl . -read /Users/$(whoami) UserShell
 UserShell: /bin/zsh
 ```
 
-## 查看正在运行的 Shell
+## 查看緊運行嘅 Shell
 
-`$0` 在 Shell 中运行返回 Shell 名称，在脚本中运行返回脚本名称/路径。
+`$0` 喺 Shell 中運行返回 Shell 名稱，喺腳本中運行返回腳本名稱/路徑。
 
 ```bash {frame="none"}
 echo $0
@@ -57,9 +57,9 @@ echo $0
 -bash
 ```
 
-**前面的连字符 `-` 表示该 Shell 是用户的登录 Shell。**
+**前面嘅連字符 `-` 表示該 Shell 係用戶嘅登錄 Shell。**
 
-也可以通过 `ps` 命令查看进程状态。
+亦可以通過 `ps` 命令查看進程狀態。
 
 ```bash {frame="none"}
 ps -p $$
@@ -70,9 +70,9 @@ ps -p $$
   17216 pts/0    00:00:00 bash
 ```
 
-如果你在当前终端中启动了一个新的 Shell（从 Bash 切换到 Sh），上面的两种方法会显示 `sh`。
+如果你喺當前終端中啟動咗一個新嘅 Shell（從 Bash 切換到 Sh），上面嘅兩種方法會顯示 `sh`。
 
-## 查看支持的 Shell
+## 查看支持嘅 Shell
 
 ```bash {frame="none"}
 cat /etc/shells
@@ -92,25 +92,25 @@ cat /etc/shells
 /usr/bin/screen
 ```
 
-## 修改默认的 Shell
+## 修改默認嘅 Shell
 
-修改成功后，`/etc/passwd` 中的内容会随之更新。
+修改成功後，`/etc/passwd` 中嘅內容會隨之更新。
 
 ### chsh
 
-修改当前用户的登录 Shell 会要求输入用户密码。
+修改當前用戶嘅登錄 Shell 會要求輸入用戶密碼。
 
 ```bash {frame="none"}
 chsh -s /bin/bash
 ```
 
-使用 root 用户或 sudo 还可以修改其它用户的登录 Shell。
+使用 root 用戶或者 sudo 仲可以修改其他用戶嘅登錄 Shell。
 
 ```bash {frame="none"}
 sudo chsh -s /bin/bash kuga
 ```
 
-**注意：如果我们输入一个不存在的 Shell。**
+**注意：如果我哋輸入一個唔存在嘅 Shell。**
 
 ```bash {frame="none"}
 chsh -s /bin/foo
@@ -120,51 +120,51 @@ chsh -s /bin/foo
 chsh: /bin/foo is an invalid shell
 ```
 
-它会检查输入的 Shell 是否在 `/etc/shells` 文件中，防止因为输入了不合法的 Shell 而导致登录失败。
+佢會檢查輸入嘅 Shell 係咪喺 `/etc/shells` 文件中，防止因為輸入咗唔合法嘅 Shell 而導致登錄失敗。
 
 ### usermod
 
-使用这个命令需要 root 用户或拥有 sudo 权限的用户。
+使用呢個命令需要 root 用戶或者擁有 sudo 權限嘅用戶。
 
 ```bash {frame="none"}
 sudo usermod -s /bin/dash kuga
 ```
 
 {{< callout context="caution" title="注意" >}}
-usermod 不会检查 Shell 的合法性，不建议使用。
+usermod 唔會檢查 Shell 嘅合法性，唔建議使用。
 {{< /callout >}}
 
 ```bash {frame="none"}
 sudo usermod -s /bin/notexist kuga
 ```
 
-上面的命令不会报错，但会导致 kuga 用户无法登录。
+上面嘅命令唔會報錯，但會導致 kuga 用戶無法登錄。
 
-### 添加 sudo 权限
+### 添加 sudo 權限
 
-查看 sudo 组的成员列表。
+查看 sudo 組嘅成員列表。
 
 ```bash {frame="none"}
 getent group sudo
 ```
 
-给用户添加 sudo 组的权限，需要 root 执行。
+畀用戶添加 sudo 組嘅權限，需要 root 執行。
 
 ```bash {frame="none"}
 usermod -aG sudo username
 ```
 
-## 不要直接编辑 passwd
+## 唔好直接編輯 passwd
 
-如果不小心写错配置，很有可能会导致整个系统无法登录。
+如果唔小心寫錯配置，好有可能會導致成個系統無法登錄。
 
-## 尽量不要使用 root
+## 盡量唔好使用 root
 
-我就是不小心把 root 的登录 Shell 改成了 zsh，
-但 Ubuntu 并没有安装 zsh，所以 root 就登不上去了。
-还好我另外一个用户有 sudo 权限，还能正常登录，
-我才成功把 root 的 Shell 改回来。
-如果运气不好，没有 sudo 权限的用户，那就麻烦了。
+我就係唔小心把 root 嘅登錄 Shell 改成咗 zsh，
+但 Ubuntu 並冇安裝 zsh，所以 root 就登唔上去。
+好彩我另外一個用戶有 sudo 權限，仲可以正常登錄，
+我先成功把 root 嘅 Shell 改返嚟。
+如果運氣唔好，冇 sudo 權限嘅用戶，咁就麻煩咗。
 
 ```bash {frame="none"}
 sudo chsh -s /bin/bash root

@@ -1,12 +1,12 @@
 ---
-title: "活动模板-搭建环境"
+title: "活動模板-搭建環境"
 description: ""
 summary: ""
 date: 2024-09-07T00:00:00+08:00
 lastmod: 2024-09-08T00:00:00+08:00
 weight: 800
 seo:
-  title: "活动模板-搭建环境"
+  title: "活動模板-搭建環境"
   description: ""
   canonical: ""
   noindex: false
@@ -14,21 +14,21 @@ seo:
 
 ## 背景
 
-2019-2020，当时用 PHP 写的这个活动模板项目，虽然已经停止开发了，但现在还在运行，在上面跑的活动已经有 400 多个了。
-我记得我离职的时候才 50 多个，现在 PHP 在国内已经不怎么流行了，要不是因为迁移成本大，早就改成 Java 了。
-不过得知自己写的代码还在运行，还上线了这么多活动，满打满算也省了不少开发成本，心里还是挺开心的。
+2019-2020，當時用 PHP 寫嘅呢個活動模板項目，雖然已經停止開發咗，但而家仲喺運行，喺上面跑嘅活動已經有 400 多個咗。
+我記得我離職嘅時候先 50 多個，而家 PHP 喺國內已經唔係咁流行咗，要唔係因為遷移成本大，早就改成 Java 咗。
+不過得知自己寫嘅代碼仲喺運行，仲上線咗咁多活動，滿打滿算都省咗唔少開發成本，心裏仲係幾開心嘅。
 
-这次打算把活动模板再次搭建起来，也记录一下当中碰到的问题。
-毕竟对于一个 5 年前的老项目，很多依赖的软件都更新了，会出现各种各样的问题。
+今次打算把活動模板再次搭建起嚟，亦記錄一下當中碰到嘅問題。
+畢竟對於一個 5 年前嘅老項目，好多依賴嘅軟件都更新咗，會出現各種各樣嘅問題。
 
 ## PHP 7.2
 
-2024 年的 PHP 已经去到 8.X 了，有些特性已经不再支持，所以只能安装旧版。
-不过 Homebrew 的官方不提供旧版本的下载，需要使用 `shivammathur/homebrew-php`。
+2024 年嘅 PHP 已經去到 8.X 咗，有啲特性已經唔再支持，所以只能安裝舊版。
+不過 Homebrew 嘅官方唔提供舊版本嘅下載，需要使用 `shivammathur/homebrew-php`。
 
 {{< link-card
   title="shivammathur/homebrew-php"
-  description="Homebrew 的 PHP 扩展"
+  description="Homebrew 嘅 PHP 擴展"
   href="https://github.com/shivammathur/homebrew-php"
   target="_blank"
 >}}
@@ -52,13 +52,13 @@ echo 'export PATH="/usr/local/opt/php@7.2/bin:$PATH"' >> ~/.zshrc
 echo 'export PATH="/usr/local/opt/php@7.2/sbin:$PATH"' >> ~/.zshrc
 ```
 
-### 启动服务
+### 啟動服務
 
 ```bash {frame="none"}
 brew services start php@7.2
 ```
 
-### 查看服务
+### 查看服務
 
 ```bash {frame="none"}
 brew services list
@@ -70,36 +70,36 @@ php@7.2   started kuga ~/Library/LaunchAgents/homebrew.mxcl.php@7.2.plist
 
 ## MySQL 8.4
 
-MySQL 也从 5 跳到 8 了，这里直接安装 8.4。
+MySQL 也從 5 跳到 8 了，呢度直接安裝 8.4。
 
 ```bash {frame="none"}
 brew install mysql@8.4
 ```
 
-### 身份验证报错
+### 身份驗證報錯
 
-PHP 7.2 连接数据库的时候会报以下错误。
+PHP 7.2 連接數據庫嘅時候會報以下錯誤。
 
 ```bash {frame="none" text-wrap="wrap"}
 CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client
 ```
 
-出于安全考虑，MySQL 8.0 之后引入了新的验证方法 `caching_sha2_password`，
-这与旧版本客户端使用的 `mysql_native_password` 不兼容。
-解决方法有两个，一是升级客户端，二是启用旧版模块。
-这里最简单的方法当然是让 MySQL 8.4 启用 `mysql_native_password` 模块。
+出於安全考慮，MySQL 8.0 之後引入咗新嘅驗證方法 `caching_sha2_password`，
+呢個同舊版本客戶端使用嘅 `mysql_native_password` 唔兼容。
+解決方法有兩個，一係升級客戶端，二係啟用舊版模塊。
+呢度最簡單嘅方法當然係讓 MySQL 8.4 啟用 `mysql_native_password` 模塊。
 
 ```bash {frame="none"}
 vim /usr/local/etc/my.cnf
 ```
 
-在 `[mysqld]` 模块中添加以下配置。
+喺 `[mysqld]` 模塊中添加以下配置。
 
 ```bash {frame="none"}
 mysql_native_password=ON
 ```
 
-重启 MySQL 服务。
+重啟 MySQL 服務。
 
 ```bash {frame="none"}
 brew services restart mysql@8.4
