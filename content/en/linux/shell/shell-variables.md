@@ -1,12 +1,12 @@
 ---
-title: "Shell 变量"
+title: "Shell Variables"
 description: ""
 summary: ""
 date: 2024-08-26T20:00:00+08:00
 lastmod: 2024-08-27T20:00:00+08:00
 weight: 800
 seo:
-  title: "Shell 变量"
+  title: "Shell Variables"
   description: ""
   canonical: ""
   noindex: false
@@ -14,24 +14,24 @@ seo:
 
 ## Shell Variables
 
-Shell 变量是一个统称，如果用的是某个特定的 Shell，例如 Bash，那么可以称它为 Bash 变量。
-但这里必须要注意，Shell 变量不是环境变量，不要被它的大写迷惑了，以下是相关的官方文档。
+Shell variables are a general term. If you are using a specific shell, such as Bash, you can call it a Bash variable.
+But it is important to note that shell variables are not environment variables, do not be confused by their capitalization, here are the relevant official documents.
 
 {{< link-card
   title="Shell Variables"
-  description="Shell 变量"
+  description="gun.org"
   href="https://www.gnu.org/software/bash/manual/html_node/Shell-Variables.html"
   target="_blank"
 >}}
 
 {{< link-card
   title="Bash Variables"
-  description="Bash 变量"
+  description="gun.org"
   href="https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html"
   target="_blank"
 >}}
 
-使用 man 指令，然后搜索 `Shell Variables` 也能查看。
+You can also view it by using the man command and searching for `Shell Variables`.
 
 ```bash {frame="none"}
 man bash
@@ -41,11 +41,11 @@ man bash
 /Shell Variables
 ```
 
-## 常见 Shell 变量
+## Common Shell Variables
 
 ### PS1
 
-Shell 命令提示符。
+Shell command prompt.
 
 ```bash {frame="none"}
 echo $PS1
@@ -57,7 +57,7 @@ echo $PS1
 
 ### UID
 
-当前用户 ID。
+Current user ID.
 
 ```bash {frame="none"}
 echo $UID
@@ -78,7 +78,7 @@ UID          PID    PPID  C STIME TTY          TIME CMD
 kuga       46635   46570  0 10:56 ?        00:00:00 sshd: kuga@pts/0
 ```
 
-可以看到 bash 的父进程是 sshd。
+You can see that the parent process of bash is sshd.
 
 ### BASH\_VERSION
 
@@ -92,7 +92,7 @@ echo $BASH_VERSION
 
 ### BASH\_SUBSHELL
 
-&#x20;Subshell 的嵌套级别，从 0 开始。
+&#x20;Subshell nesting level, starting from 0.
 
 ```bash {frame="none"}
 echo $BASH_SUBSHELL
@@ -104,7 +104,7 @@ echo $BASH_SUBSHELL
 
 ### SECONDS
 
-Shell 启动到现在的秒数。
+Seconds since the shell started.
 
 ```bash {frame="none"}
 echo $SECONDS
@@ -116,7 +116,7 @@ echo $SECONDS
 
 ### RANDOM
 
-0 \~ 32767 随机数。
+0 \~ 32767 random number.
 
 ```bash {frame="none"}
 echo $RANDOM
@@ -126,6 +126,6 @@ echo $RANDOM
 1024
 ```
 
-## 自定义 Shell 变量
+## Custom Shell Variables
 
-[参考后面环境变量的章节](/zh-cn/linux/env/concept/#自定义-shell-变量)
+[Refer to the later chapter on environment variables](/en/linux/env/concept/#custom-shell-variables)

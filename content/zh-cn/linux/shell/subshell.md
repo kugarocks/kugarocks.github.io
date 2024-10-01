@@ -142,7 +142,7 @@ echo $SHLVL
 1
 ```
 
-## Shell  PID
+## Shell PID
 
 可通过 BASHPID 或 `$$` 查看 Shell 的 PID，但它们是有区别的。
 

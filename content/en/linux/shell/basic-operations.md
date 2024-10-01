@@ -1,18 +1,18 @@
 ---
-title: "Shell 基本操作"
+title: "Basic Operations"
 description: ""
 summary: ""
 date: 2024-08-24T20:00:00+08:00
 lastmod: 2024-08-27T20:00:00+08:00
 weight: 600
 seo:
-  title: "Shell 基本操作"
+  title: "Basic Operations"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 查看终端默认的 Shell
+## Default Shell
 
 ```bash {frame="none"}
 echo $SHELL
@@ -22,8 +22,8 @@ echo $SHELL
 /bin/bash
 ```
 
-如果你在当前终端中启动了一个新的 Shell（比如从 Bash 切换到 Zsh），
-这个命令显示的仍然是默认的登录 Shell，这个配置是存放在 `/etc/passwd` 里面的。
+If you start a new Shell in the current terminal (e.g., switching from Bash to Zsh),
+this command still displays the default login Shell, which is configured in `/etc/passwd`.
 
 ```bash {frame="none"}
 grep root /etc/passwd
@@ -33,9 +33,9 @@ grep root /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 ```
 
-在 macOS 中，默认的 Shell 信息通常是存储在用户账户设置中的，而不是 `/etc/passwd` 文件中。
-从 macOS Catalina（10.15）开始，默认的 shell 已更改为 `zsh`，之前的默认 Shell 是 `bash`。
-可以通过以下方法查看默认 shell。
+On macOS, the default Shell information is typically stored in the user account settings,
+not in the `/etc/passwd` file. Starting from macOS Catalina (10.15), the default shell has been changed to `zsh`,
+previously the default Shell was `bash`. You can view the default shell using the following method.
 
 ```bash {frame="none"}
 dscl . -read /Users/$(whoami) UserShell
@@ -45,9 +45,9 @@ dscl . -read /Users/$(whoami) UserShell
 UserShell: /bin/zsh
 ```
 
-## 查看正在运行的 Shell
+## Current Shell
 
-`$0` 在 Shell 中运行返回 Shell 名称，在脚本中运行返回脚本名称/路径。
+`$0` in Shell returns the Shell name when running, and returns the script name/path when running in a script.
 
 ```bash {frame="none"}
 echo $0
@@ -57,9 +57,9 @@ echo $0
 -bash
 ```
 
-**前面的连字符 `-` 表示该 Shell 是用户的登录 Shell。**
+**The preceding hyphen `-` indicates that this Shell is the user's login Shell.**
 
-也可以通过 `ps` 命令查看进程状态。
+You can also use the `ps` command to view the process status.
 
 ```bash {frame="none"}
 ps -p $$
@@ -70,9 +70,9 @@ ps -p $$
   17216 pts/0    00:00:00 bash
 ```
 
-如果你在当前终端中启动了一个新的 Shell（从 Bash 切换到 Sh），上面的两种方法会显示 `sh`。
+If you start a new Shell in the current terminal (switching from Bash to Sh), the above two methods will display `sh`.
 
-## 查看支持的 Shell
+## Supported Shells
 
 ```bash {frame="none"}
 cat /etc/shells
@@ -92,25 +92,25 @@ cat /etc/shells
 /usr/bin/screen
 ```
 
-## 修改默认的 Shell
+## Change Default Shell
 
-修改成功后，`/etc/passwd` 中的内容会随之更新。
+The content in `/etc/passwd` will be updated after modification.
 
 ### chsh
 
-修改当前用户的登录 Shell 会要求输入用户密码。
+Modifying the login Shell of the current user will require entering the user password.
 
 ```bash {frame="none"}
 chsh -s /bin/bash
 ```
 
-使用 root 用户或 sudo 还可以修改其它用户的登录 Shell。
+Using the root user or sudo can also modify the login Shell of other users.
 
 ```bash {frame="none"}
 sudo chsh -s /bin/bash kuga
 ```
 
-**注意：如果我们输入一个不存在的 Shell。**
+**Note: If we enter a non-existent Shell.**
 
 ```bash {frame="none"}
 chsh -s /bin/foo
@@ -120,51 +120,51 @@ chsh -s /bin/foo
 chsh: /bin/foo is an invalid shell
 ```
 
-它会检查输入的 Shell 是否在 `/etc/shells` 文件中，防止因为输入了不合法的 Shell 而导致登录失败。
+It checks whether the entered Shell is in the `/etc/shells` file, preventing login failures due to entering an invalid Shell.
 
 ### usermod
 
-使用这个命令需要 root 用户或拥有 sudo 权限的用户。
+Using this command requires the root user or a user with sudo privileges.
 
 ```bash {frame="none"}
 sudo usermod -s /bin/dash kuga
 ```
 
-{{< callout context="caution" title="注意" >}}
-usermod 不会检查 Shell 的合法性，不建议使用。
+{{< callout context="caution" title="Note" >}}
+usermod does not check the validity of the Shell, it is not recommended to use.
 {{< /callout >}}
 
 ```bash {frame="none"}
 sudo usermod -s /bin/notexist kuga
 ```
 
-上面的命令不会报错，但会导致 kuga 用户无法登录。
+The above command will not error, but will cause the kuga user to be unable to log in.
 
-### 添加 sudo 权限
+### Add sudo Privileges
 
-查看 sudo 组的成员列表。
+View the list of members of the sudo group.
 
 ```bash {frame="none"}
 getent group sudo
 ```
 
-给用户添加 sudo 组的权限，需要 root 执行。
+Give the user sudo group privileges, which requires root execution.
 
 ```bash {frame="none"}
 usermod -aG sudo username
 ```
 
-## 不要直接编辑 passwd
+## Do Not Edit Passwd
 
-如果不小心写错配置，很有可能会导致整个系统无法登录。
+If you accidentally write the configuration incorrectly,
+it is very likely to cause the entire system to be unable to log in.
 
-## 尽量不要使用 root
+## Avoid Using Root
 
-我就是不小心把 root 的登录 Shell 改成了 zsh，
-但 Ubuntu 并没有安装 zsh，所以 root 就登不上去了。
-还好我另外一个用户有 sudo 权限，还能正常登录，
-我才成功把 root 的 Shell 改回来。
-如果运气不好，没有 sudo 权限的用户，那就麻烦了。
+I accidentally changed the login Shell of root to zsh, but Ubuntu did not have zsh installed,
+so root could not log in. Fortunately, I had another user with sudo privileges,
+so I could log in normally and successfully changed root's Shell back.
+If you're unlucky and don't have a user with sudo privileges, it would be troublesome.
 
 ```bash {frame="none"}
 sudo chsh -s /bin/bash root

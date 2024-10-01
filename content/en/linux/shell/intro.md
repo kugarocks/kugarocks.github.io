@@ -1,12 +1,12 @@
 ---
-title: "Shell 简介"
+title: "Shell Introduction"
 description: ""
 summary: ""
 date: 2024-08-24T20:00:00+08:00
 lastmod: 2024-08-27T20:00:00+08:00
 weight: 400
 seo:
-  title: "Shell简介"
+  title: "Shell Introduction"
   description: ""
   canonical: ""
   noindex: false
@@ -14,67 +14,67 @@ seo:
 
 ## GNU Bash Manual
 
-Bash 是 Linux 中的默认 Shell，**官方手册是永远的神**。
+Bash is the default Shell in Linux, **the official manual is forever divine**.
 
 {{< link-card
   title="Bash Reference Manual"
-  description="Bash 参考手册"
+  description="gnu.org"
   href="https://www.gnu.org/software/bash/manual/bash.html"
   target="_blank"
 >}}
 
-## Shell 的定义
+## Definition of Shell
 
-在 Linux 中，Shell 是一个**命令解释器（软件程序）**，负责接收用户输入的命令并将其传递给操作系统内核执行。
-Shell 提供了一种用户与操作系统交互的接口，是操作系统的最外层。
-另外它还支持编程，包括变量、循环、条件判断等，这也是我们常常所说的 Shell 脚本。
-常见的 Shell 按时间排序有以下几种：
+In Linux, Shell is a **command interpreter (software program)** that is responsible for receiving user input commands and passing them to the operating system kernel for execution.
+Shell provides an interface for users to interact with the operating system, which is the outermost layer of the operating system.
+Additionally, it supports programming, including variables, loops, conditional judgments, etc., which is also what we commonly call Shell scripts.
+Common Shells in chronological order are as follows:
 
-| Shell | 描述 |
+| Shell | Description |
 | --- | --- |
-| **Sh** | Bourne Shell，最早期的 Shell，作者是 Stephen Bourne。 |
-| **Bash** | Bourne Again Shell，Linux 最常用的 Shell，由 GNU 开发。 |
-| **Dash** | Debian Almquist Shell，常见于 Ubuntu。 |
-| **Zsh** | Z Shell，功能更强大，macOS 默认 Shell。 |
+| **Sh** | Bourne Shell, the earliest Shell, authored by Stephen Bourne. |
+| **Bash** | Bourne Again Shell, the most commonly used Shell in Linux, developed by GNU. |
+| **Dash** | Debian Almquist Shell, commonly seen in Ubuntu. |
+| **Zsh** | Z Shell, with more powerful features, the default Shell on macOS. |
 
-## 与终端的关系
+## Relationship with Terminal
 
-我们现在所说的终端一般是指终端模拟器，常见的有 GNOME Terminal、iTerm2 等等。
-终端提供了一个界面，用户可以通过该界面与 Shell 进行交互。
-终端不执行任何命令，它只是负责接收输入并显示输出。
-Shell 是在终端中运行的进程，负责实际的命令解释和执行工作。
-不要混淆终端和 Shell 的概念，例如下面的对话内容是不准确的。
+The terminal we refer to now is generally a terminal emulator, such as GNOME Terminal, iTerm2, etc.
+The terminal provides an interface where users can interact with Shell.
+The terminal does not execute any commands; it only receives input and displays output.
+Shell is a process running in the terminal, responsible for the actual command interpretation and execution work.
+Do not confuse the terminal and Shell concepts, such as the following dialogue content is inaccurate.
 
-> A：你平时用什么 Shell
+> A: What Shell do you usually use?
 >
-> B：我用 iTerm2
+> B: I use iTerm2
 >
-> A：打开 Shell，然后输入...
+> A: Open Shell, then enter...
 
-iTerm2 不是 Shell，是终端，另外 Shell 是不需要打开的，终端打开的时候就会默认启动。
+iTerm2 is not a Shell, it's a terminal, and Shell does not need to be opened; it will automatically start when the terminal is opened.
 
-## 不同 Shell 的区别
+## Differences Between Shells
 
-### 历史和起源
+### History and Origin
 
-* `sh` 是 Unix 系统的原始 Shell，提供基本功能。
-* `bash` 是 `sh` 的增强版，功能更加丰富，是 Linux 上的主流 Shell。
-* `zsh` 是一种功能更强大且可高度定制的 Shell，结合了多个 Shell 的优势。
+* `sh` is the original Shell of Unix systems, providing basic functions.
+* `bash` is an enhanced version of `sh`, with more features, and is the mainstream Shell on Linux.
+* `zsh` is a Shell with even more powerful features, combining the advantages of multiple Shells.
 
-### 功能性
+### Functionality
 
-* `sh` 提供基础的命令和脚本执行功能，主要用于简单脚本和系统任务。
-* `bash` 增加了交互式功能（如命令历史、补全），适合日常使用和复杂的脚本编写。
-* `zsh` 拥有最丰富的功能，特别是在自动补全、命令行提示、语法高亮等方面。
+* `sh` provides basic command and script execution functions, mainly used for simple scripts and system tasks.
+* `bash` adds interactive features (such as command history, completion), suitable for daily use and complex script writing.
+* `zsh` has the richest features, especially in automatic completion, command line prompts, and syntax highlighting.
 
-### 交互体验
+### Interactive Experience
 
-* `sh` 的交互体验较为基础，没有现代化的功能。
-* `bash` 提供了丰富的命令行交互体验，支持命令补全、历史等。
-* `zsh` 在交互体验上更进一步，支持更高级的补全、自动建议和错误更正。
+* `sh` has a basic interactive experience, without modern features.
+* `bash` provides a rich command line interactive experience, supporting command completion, history, etc.
+* `zsh` further enhances the interactive experience, supporting more advanced completion, automatic suggestions, and error correction.
 
-### 定制化
+### Customization
 
-* `sh` 几乎没有定制化选项。
-* `bash` 支持一些定制化，但相比 `zsh` 仍然有限。
-* `zsh` 可以通过框架（如 Oh My Zsh）轻松定制，支持插件、主题等。
+* `sh` has almost no customization options.
+* `bash` supports some customization, but is still limited compared to `zsh`.
+* `zsh` can be easily customized through frameworks (such as Oh My Zsh), supporting plugins, themes, etc.

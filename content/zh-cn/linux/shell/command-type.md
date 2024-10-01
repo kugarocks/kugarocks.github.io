@@ -14,7 +14,7 @@ seo:
 
 ## 内建命令
 
-Built-in Commands。
+Builtin Commands。
 内建命令是由 Shell 自身实现的命令，它们在 Shell 内部运行，
 **无需启动新进程**或调用外部程序，是 Shell 操作的基本功能。
 
