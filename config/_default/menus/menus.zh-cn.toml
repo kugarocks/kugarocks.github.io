@@ -31,6 +31,11 @@
   pageRef = "/toys/minichat/"
   weight = 300
 
+[[sidebar_toys]]
+  name = "命令行工具"
+  pageRef = "/toys/terminal-tool/"
+  weight = 400
+
 [[main]]
   identifier = "about"
   name = "About"
