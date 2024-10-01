@@ -5,6 +5,18 @@
 | Aliyun   | Guangzhou      | [https://www.kugarocks.com](https://www.kugarocks.com) |
 | GitHub   | -              | [https://kugarocks.github.io](https://kugarocks.github.io) |
 
+## Setup
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+Web Server is available at `http://localhost:1313/`.
+
 ## Languages
 
 | 中文           | EN                                |
