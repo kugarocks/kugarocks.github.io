@@ -5,6 +5,11 @@
 | Aliyun   | Guangzhou      | [https://www.kugarocks.com](https://www.kugarocks.com) |
 | GitHub   | -              | [https://kugarocks.github.io](https://kugarocks.github.io) |
 
+## Requirements
+
+* Node.js - `v20.11.0` or higher — run `node -v` to check.
+* Hugo extended - `v0.125.0` or higher — run `hugo version` to check.
+
 ## Setup
 
 ```bash
