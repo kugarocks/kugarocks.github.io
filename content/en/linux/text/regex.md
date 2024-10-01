@@ -1,43 +1,43 @@
 ---
-title: "正则表达式"
+title: "Regular Expression"
 description: ""
 summary: ""
 date: 2024-09-04T20:00:00+08:00
 lastmod: 2024-09-04T20:00:00+08:00
 weight: 4100
 seo:
-  title: "正则表达式"
+  title: "Regular Expression"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 简介
+## Introduction
 
-正则表达式（Regular Expressions, regex）根据不同的标准可分为以下几类。
+Regular Expressions (regex) can be divided into the following categories based on different standards.
 
-| 类型 | 缩写 | 全称 |
+| Type | Abbr | Full Name |
 | --- | --- | --- |
-| 基本正则表达式 | BRE | BRE，Basic Regular Expressions |
-| 扩展正则表达式 | ERE | ERE，Extended Regular Expressions |
-| Perl 正则表达式 | PCRE | Perl-Compatible Regular Expressions |
-| POSIX 正则表达式 | BRE & ERE | BRE & ERE |
+| Basic Regular Expressions | BRE | Basic Regular Expressions |
+| Extended Regular Expressions | ERE | Extended Regular Expressions |
+| Perl Regular Expressions | PCRE | Perl-Compatible Regular Expressions |
+| POSIX Regular Expressions | BRE & ERE | BRE & ERE |
 
-BRE 和 ERE 是 POSIX 标准中的两种正则表达式，
-BRE 较为基础，需要对某些元字符转义，ERE 是 BRE 的扩展，提供了更多的元字符和功能。
-PCRE 是一种功能更强大、语法更灵活的正则表达式类型，
-广泛用于现代编程语言如：Python、Ruby、Javascript。
+BRE and ERE are two types of regular expressions in the POSIX standard,
+BRE is more basic and requires escaping certain metacharacters, ERE is an extension of BRE, providing more metacharacters and functions.
+PCRE is a more powerful and flexible type of regular expression,
+widely used in modern programming languages such as: Python, Ruby, Javascript.
 
-## SED 命令
+## SED Command
 
-支持 BRE 和 ERE，默认使用 BRE。
+Supports BRE and ERE, defaults to BRE.
 
-### BRE 模式
+### BRE Pattern
 
-这种模式需要对元字符进行转义，例如：
+This pattern requires escaping metacharacters, for example:
 
-* `)`：需要使用 `\)` 转义。
-* `|`：需要使用 `\|` 转义。
+* `)`：needs to be escaped with `\)`。
+* `|`：needs to be escaped with `\|`。
 
 ```bash {frame="none"}
 echo 'abc' | sed 's/\(b\|c\)/p/g'
@@ -47,9 +47,9 @@ echo 'abc' | sed 's/\(b\|c\)/p/g'
 app
 ```
 
-### ERE 模式
+### ERE Pattern
 
-使用 `-E` 或 `-r` 选项启用 ERE，不需要转义元字符。
+Enables ERE using the `-E` or `-r` option, no need to escape metacharacters.
 
 ```bash {frame="none"}
 echo 'abc' | sed -E 's/(b|c)/p/g'
@@ -61,7 +61,7 @@ app
 
 ## GAWK
 
-默认使用 ERE 模式。
+Defaults to ERE mode.
 
 ```bash {frame="none"}
 echo 'abc' | gawk '{gsub(/(b|c)/, "p"); print }'
@@ -71,55 +71,55 @@ echo 'abc' | gawk '{gsub(/(b|c)/, "p"); print }'
 app
 ```
 
-## 特殊字符
+## Special Characters
 
-有特殊含意的字符，需要转义。
+Characters with special meanings, need to be escaped.
 
 ```txt {frame="none"}
 .*[]^${}\+?|()
 ```
 
-虽然 `/` 不是正则表达式特殊字符，但在 `sed` 和 `gawk` 中也要转义。
+Although `/` is not a special character in regular expressions, it also needs to be escaped in `sed` and `gawk`.
 
-### 行首 ^
+### Line Start ^
 
-匹配行的首部位置。
+Matches the start position of a line.
 
 ```bash {frame="none"}
 echo 'aa bb' | sed -n '/^aa/p'
 ```
 
-如果 `^` 不是出现在开头，则和普通字符一样，无须转义。
+If `^` is not at the beginning, it is treated as a normal character, no need to escape.
 
 ```bash {frame="none"}
 echo 'aa b^b' | sed -n '/b^/p'
 ```
 
-### 行尾 $
+### Line End $
 
-匹配行的尾部位置。
+Matches the end position of a line.
 
 ```bash {frame="none"}
 echo 'aa bb' | sed -n '/bb$/p'
 ```
 
-如果 `$` 不是出现在结尾，则和普通字符一样，无须转义。
+If `$` is not at the end, it is treated as a normal character, no need to escape.
 
 ```bash {frame="none"}
 echo 'aa b$b' | sed -n '/b$b/p'
 ```
 
-### 点字符 \.
+### Dot Character \.
 
-匹配除换行符外的任意单个字符。
+Matches any single character except newline.
 
 ```bash {frame="none"}
 echo 'abc' | sed -n '/a.c/p'
 ```
 
-### 字符组 []
+### Character Group []
 
-Character Class，可匹配组内任一字符。
+Character Class, can match any character within the group.
 
 ```bash {frame="none"}
 echo 'cat' | sed -n '/[ch]at/p'
@@ -129,27 +129,27 @@ echo 'cat' | sed -n '/[ch]at/p'
 echo 'yes' | sed -n '/[Yy][Ee][Ss]/p'
 ```
 
-排除组内字符。
+Excludes characters within the group.
 
 ```bash {frame="none"}
 echo 'bat' | sed -n '/[^ch]at/p'
 ```
 
-匹配 `c` - `e` 之间的字符。
+Matches characters between `c` and `e`.
 
 ```bash {frame="none"}
 echo 'cat' | sed -n '/[c-e]at/p'
 ```
 
-匹配 `c` - `e` 或 `0` - `9` 之间的字符。
+Matches characters between `c` and `e` or `0` and `9`.
 
 ```bash {frame="none"}
 echo 'cat' | sed -n '/[c-e0-9]at/p'
 ```
 
-### 星号 *
+### Asterisk *
 
-匹配 `*` 号前面的字符 0 次或多次。
+Matches the character before the `*` 0 or more times.
 
 ```bash {frame="none"}
 echo '24' | sed -n '/23*4/p'
@@ -171,11 +171,11 @@ echo 'bat' | sed -n '/b[ae]*/p'
 echo 'baaeeaet' | sed -n '/b[ae]*/p'
 ```
 
-以上例子都是可以成功匹配的。
+All the above examples can be successfully matched.
 
-### 问号 ?
+### Question Mark ?
 
-匹配 `?` 号前面的字符 0 次或 1 次。
+Matches the character before the `?` 0 or 1 time.
 
 ```bash {frame="none"}
 echo 'at' | sed -En '/c?at/p'
@@ -185,25 +185,25 @@ echo 'at' | sed -En '/c?at/p'
 echo 'ccbbat' | sed -En '/c?at/p'
 ```
 
-上面的例子都是可以匹配的，可以用 ^ 限制。
+The above examples can be matched, can be limited with ^.
 
 ```bash {frame="none"}
 echo 'ccbbat' | sed -En '/^c?at/p'
 ```
 
-上面只能匹配 at 或 cat。
+Above can only match at or cat.
 
-### 加号 +
+### Plus +
 
-匹配 `+` 号前面的字符 1 次或多次。
+Matches the character before the `+` 1 or more times.
 
 ```bash {frame="none"}
 echo 'at' | sed -En '/c+at/p'
 ```
 
-### 区间 {}
+### Interval {}
 
-指定 `{}` 前面字符的匹配次数。
+Specifies the number of matches for the character before `{}`.
 
 ```bash {frame="none"}
 echo 'cat' | sed -En '/^c{1}at/p'
@@ -213,17 +213,17 @@ echo 'cat' | sed -En '/^c{1}at/p'
 echo 'ccat' | sed -En '/^c{1,2}at/p'
 ```
 
-### 竖线 |
+### Vertical Line |
 
-表示或逻辑。
+Represents the OR logic.
 
 ```bash {frame="none"}
 echo 'cat' | sed -En '/cat|hat/p'
 ```
 
-### 分组 ()
+### Grouping ()
 
-分组可视为一个整体。
+Grouping can be viewed as a whole.
 
 ```bash {frame="none"}
 echo 'cat' | sed -En '/(c|h)at/p'

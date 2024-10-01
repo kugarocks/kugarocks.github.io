@@ -1,12 +1,12 @@
 ---
-title: "SED 命令"
+title: "SED"
 description: ""
 summary: ""
 date: 2024-09-04T20:00:00+08:00
 lastmod: 2024-09-05T20:00:00+08:00
 weight: 4200
 seo:
-  title: "SED 命令"
+  title: "SED"
   description: ""
   canonical: ""
   noindex: false
@@ -14,38 +14,38 @@ seo:
 
 ## Stream Editor
 
-流式文本处理器，作者是 **Lee E. McMahon**。
+A Stream Text Processor, authored by **Lee E. McMahon**.
 
-### 基本语法
+### Basic Syntax
 
 ```bash {frame="none"}
 sed [OPTIONS] 'command' file
 ```
 
-* `OPTIONS`：命令选项。
-* `command`：打印、替换、删除等。
-* `file`：处理的文件，如果省略，读取 STDIN。
+* `OPTIONS`: Command options.
+* `command`: Print, replace, delete, etc.
+* `file`: The file to process; if omitted, reads from STDIN.
 
-省略 `file` 为交互模式，输入一行执行一次。
+Omitting `file` enters interactive mode, executing one line at a time.
 
-### 运行过程
+### Execution Process
 
-* 读入一行数据：
-  * 有匹配规则：
-    * 匹配成功：执行相关操作。
-    * 匹配失败：原样打印数据。
-  * 无匹配规则：执行相关操作。
+* Reading a line of data:
+  * With a match rule:
+    * Match successful: Executes related operations.
+    * Match failed: Prints data as is.
+  * Without a match rule: Executes related operations.
 
-### 命令引号
+### Command Quotes
 
-* 单引号：可减少转义字符的影响，**优先使用**。
-* 双引号：可使用变量参数，需处理特殊字符。
+* Single quotes: Reduces the impact of escape characters, **preferably used**.
+* Double quotes: Can use variable parameters, requires handling special characters.
 
-## 常用例子
+## Common Examples
 
-### 替换第一处
+### Replace First Occurrence
 
-把第一处出现的 a 替换成 b。
+Replace the first occurrence of 'a' with 'b'.
 
 ```bash {frame="none"}
 echo 'aba' | sed 's/a/b/'
@@ -55,9 +55,9 @@ echo 'aba' | sed 's/a/b/'
 bba
 ```
 
-### 替换第 N 处
+### Replace Nth Occurrence
 
-把第 N 处出现的 a 替换成 b。
+Replace the Nth occurrence of 'a' with 'b'.
 
 ```bash {frame="none"}
 echo 'aba' | sed 's/a/b/2'
@@ -67,7 +67,7 @@ echo 'aba' | sed 's/a/b/2'
 abb
 ```
 
-### 替换所有出处
+### Replace All Occurrences
 
 ```bash {frame="none"}
 echo 'aba' | sed 's/a/b/g'
@@ -77,9 +77,9 @@ echo 'aba' | sed 's/a/b/g'
 bbb
 ```
 
-### 执行多条命令
+### Execute Mult Commands
 
-可以用 `;` 分隔，也可以使用 `-e` 选项。
+Can use `;` to separate, or use the `-e` option.
 
 ```bash {frame="none"}
 echo 'aba' | sed 's/a/b/; s/a/c/'
@@ -93,9 +93,9 @@ echo 'aba' | sed -e 's/a/b/' -e 's/a/c/'
 bbc
 ```
 
-### 使用命令文件
+### Using Command File
 
-`cmd.sed` 文件内容如下。
+The `cmd.sed` file content is as follows.
 
 ```bash {frame="none"}
 s/a/b/
@@ -110,9 +110,9 @@ echo 'aba' | sed -f cmd.sed
 bbc
 ```
 
-### 只打印替换行
+### Print Only Replaced Lines
 
-`-n` 表示抑制输出，`p` 表示只输出匹配行。
+`-n` indicates suppressing output, `p` indicates only outputting matched lines.
 
 ```bash {frame="none"}
 echo '
@@ -125,7 +125,7 @@ cc dd
 bb bb
 ```
 
-### 替换结果写文件
+### Write Result to File
 
 ```bash {frame="none"}
 echo '
@@ -142,9 +142,9 @@ cat out.txt
 bb bb
 ```
 
-### 修改命令分隔符
+### Modify Delimiter
 
-可以使用别的符号替换命令分隔符 `/`。
+Can use another symbol to replace the command delimiter `/`.
 
 ```bash {frame="none"}
 echo '/bin/sh' | sed 's#/sh#/bash#'
@@ -154,27 +154,27 @@ echo '/bin/sh' | sed 's#/sh#/bash#'
 /bin/bash
 ```
 
-### 指定行匹配
+### Specify Line Match
 
-匹配第 2 行。
+Match the 2nd line.
 
 ```bash {frame="none"}
 sed '2s/aa/bb/'
 ```
 
-匹配 2-4 行。
+Match lines 2-4.
 
 ```bash {frame="none"}
 sed '2,4s/aa/bb/'
 ```
 
-匹配 2 到最后一行。
+Match lines 2 to the last.
 
 ```bash {frame="none"}
 sed '2,$s/aa/bb/'
 ```
 
-### 指定行命令组
+### Specify Command Group
 
 ```bash {frame="none"}
 sed '2{s/cc/aa/; s/dd/bb/}'
@@ -187,13 +187,13 @@ s/dd/bb/
 }'
 ```
 
-### 删除所有行
+### Delete All Lines
 
 ```bash {frame="none"}
 sed 'd'
 ```
 
-### 删除指定行
+### Delete Specific Lines
 
 ```bash {frame="none"}
 sed '1d'
@@ -207,39 +207,39 @@ sed '2,4d'
 sed '2,$d'
 ```
 
-### 删除匹配行
+### Delete Matched Lines
 
 ```bash {frame="none"}
 sed '/aa bb/d'
 ```
 
-### 前插一行
+### Insert a Line Before
 
 ```bash {frame="none"}
 echo "hello" | sed 'i\New Line'
 ```
 
-### 后插一行
+### Insert a Line After
 
 ```bash {frame="none"}
 echo "hello" | sed 'a\New Line'
 ```
 
-### 指定行插入
+### Specify Line Insert
 
 ```bash {frame="none"}
 sed '3i\New Line'
 ```
 
-### 匹配行插入
+### Matched Line Insert
 
 ```bash {frame="none"}
 sed '/cc/i\New Line'
 ```
 
-### 插入多行
+### Insert Multiple Lines
 
-必须使用 `\`。
+Must use `\`.
 
 ```bash {frame="none"}
 sed '2i\
@@ -248,7 +248,7 @@ New Line 2
 '
 ```
 
-### 修改行
+### Modify Line
 
 ```bash {frame="none"}
 sed '2c\
@@ -263,7 +263,7 @@ Change Line 1
 '
 ```
 
-### 单字符替换
+### Single Char Replace
 
 ```bash {frame="none"}
 echo 'aabbcc' | sed 'y/ac/ca/'
@@ -273,34 +273,34 @@ echo 'aabbcc' | sed 'y/ac/ca/'
 ccbbaa
 ```
 
-### 打印特定行
+### Print Specific Lines
 
 ```bash {frame="none"}
 sed -n '2,5p'
 ```
 
-### 打印替换前后
+### Print Before/After Replacement
 
 ```bash {frame="none"}
 sed -n '/aa/{p; s/aa/cc/p}'
 ```
 
-### 打印行号
+### Print Line Number
 
 ```bash {frame="none"}
 sed -n '/bb/{=; p}'
 ```
 
-### 从文件读取
+### Reading from File
 
-创建 foo 和 bar 文件。
+Create foo and bar files.
 
 ```bash {frame="none"}
 echo -e 'aa\nbb' > foo
 echo -e '11\n22' > bar
 ```
 
-读取 foo 文件，并插入到 bar 的第一行以后。
+Read from the foo file and insert after the first line of bar.
 
 ```bash {frame="none"}
 sed '1r foo' bar
@@ -313,7 +313,7 @@ bb
 22
 ```
 
-匹配字符串再插入。
+Match string then insert.
 
 ```bash {frame="none"}
 sed '/22/r foo' bar
@@ -326,7 +326,7 @@ aa
 bb
 ```
 
-匹配字符串插入，使用 `d` 删除匹配行。
+Match string, insert, and use `d` to delete the matched line.
 
 ```bash {frame="none"}
 sed '/22/{
@@ -341,14 +341,14 @@ aa
 bb
 ```
 
-下面会报语法错误。
+The following will report a syntax error.
 
 ```bash {frame="none"}
-# 会报错
+# Will error
 sed '/22/{r foo; d}' bar
 ```
 
-硬是要一行也不是不行。
+It's not impossible to do it in one line.
 
 ```bash {frame="none"}
 sed '/22/r foo' bar | sed '/22/d'

@@ -1,20 +1,20 @@
 ---
-title: "创建多行文本"
+title: "Multi-Lines Text"
 description: ""
 summary: ""
 date: 2024-09-04T20:00:00+08:00
 lastmod: 2024-09-04T20:00:00+08:00
 weight: 4000
 seo:
-  title: "创建多行文本"
+  title: "Multi-Lines Text"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## ECHO 命令
+## Echo Command
 
-使用 `-e` 选项可以创建简单的多行文本。
+Using the `-e` option can create simple multi-line text.
 
 ```bash {frame="none"}
 echo -e 'aa\nbb'
@@ -27,26 +27,26 @@ bb
 
 ## Here Document
 
-Here Document（缩写为 Heredoc）是 Shell 中的一种输入重定向方式，
-允许在脚本或命令中嵌入多行文本并传递给命令或文件。
+Here Document (abbreviated as Heredoc) is a way of input redirection in Shell,
+allowing you to embed multi-line text within scripts or commands and pass it to commands or files.
 
-### 基本语法
+### Basic Syntax
 
 ```bash {frame="none"}
 command <<EOF
-多行文本内容
+Multi-line text content
 EOF
 ```
 
-* `command`：如 `cat`、`sed`、`gawk`。
-* `<<EOF`：标记文档的开始并定义结束标记。
-* `EOF`：标记文档结束位置。
+* `command`：such as `cat`, `sed`, `gawk`.
+* `<<EOF`：marks the beginning of the document and defines the end marker.
+* `EOF`：marks the end position of the document.
 
-这里的 `EOF` 只是一个例子，可用任意标记。
+Here, `EOF` is just an example, and any marker can be used.
 
-### 创建多行文本文件
+### Multi-Line Text File
 
-多行文本可重定向到 `foo.txt` 文件。
+Multi-line text can be redirected to the `foo.txt` file.
 
 ```bash {frame="none"}
 cat <<EOF > foo.txt
@@ -64,7 +64,7 @@ apple
 banana
 ```
 
-### 作为命令的输入
+### As Input to a Command
 
 ```bash {frame="none"}
 grep 'app' <<EOF
@@ -73,21 +73,21 @@ banana
 EOF
 ```
 
-### 引号的区别
+### Difference of Quotes
 
-如果 EOF 标记使用引号，功能会有所不同。
+If the EOF marker is used with quotes, the function will be different.
 
-| 引号类型 | 变量/特殊字符 |
+| Quote Type | Variable/Special Character |
 | --- | --- |
-| `EOF` | 解释 |
-| `'EOF'` | 不解释 |
-| `"EOF"` | 不解释 |
+| `EOF` | Interpret |
+| `'EOF'` | Do Not Interpret |
+| `"EOF"` | Do Not Interpret |
 
-如果内容只是纯文档，尽量使用引号，减少特殊字符的影响。
+If the content is just a pure document, try to use quotes to reduce the impact of special characters.
 
-### 使用引号
+### Using Quotes
 
-单/双引号是一样的，都不会解释 `$` 符号。
+Single/double quotes are the same, and neither will interpret the `$` symbol.
 
 ```bash {frame="none"}
 cat <<'EOF'
@@ -99,9 +99,9 @@ EOF
 $HOME
 ```
 
-### 不使用引号
+### Not Using Quotes
 
-和不使用引号是一样的，会解释 `$` 符号。
+And not using quotes is the same, and will interpret the `$` symbol.
 
 ```bash {frame="none"}
 cat <<EOF
