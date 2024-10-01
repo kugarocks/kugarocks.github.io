@@ -22,7 +22,7 @@
   weight = 100
 
 [[sidebar_toys]]
-  name = "小黄人百科"
+  name = "小黃人百科"
   pageRef = "/toys/minions-wiki/"
   weight = 200
 
@@ -54,12 +54,12 @@
   weight = 100
 
 [[sidebar_tech]]
-  name = "开发环境"
+  name = "開發環境"
   pageRef = "/tech/dev-env/"
   weight = 200
 
 [[sidebar_tech]]
-  name = "四次元百宝袋"
+  name = "四次元百寶袋"
   pageRef = "/tech/fourd-pocket/"
   weight = 300
 
@@ -94,36 +94,36 @@
   weight = 500
 
 [[sidebar_linux]]
-  name = "第五章：环境变量"
+  name = "第五章：環境變數"
   pageRef = "/linux/env/"
   weight = 600
 
 [[sidebar_linux]]
-  name = "第六章：权限管理"
+  name = "第六章：權限管理"
   pageRef = "/linux/perm/"
   weight = 700
 
 [[sidebar_linux]]
-  name = "第七章：进程"
+  name = "第七章：進程"
   pageRef = "/linux/proc/"
   weight = 800
 
 [[sidebar_linux]]
-  name = "第八章：文件系统"
+  name = "第八章：文件系統"
   pageRef = "/linux/file-system/"
   weight = 900
 
 [[sidebar_linux]]
-  name = "第九章：Shell 脚本"
+  name = "第九章：Shell 腳本"
   pageRef = "/linux/script/"
   weight = 1000
 
 [[sidebar_linux]]
-  name = "第十章：文本处理"
+  name = "第十章：文本處理"
   pageRef = "/linux/text/"
   weight = 1100
 
 [[sidebar_linux]]
-  name = "附录"
+  name = "附錄"
   pageRef = "/linux/appendix/"
   weight = 10000

@@ -1,12 +1,12 @@
 ---
-title: "常见环境变量"
+title: "常見環境變量"
 description: ""
 summary: ""
 date: 2024-08-27T20:00:00+08:00
 lastmod: 2024-08-27T20:00:00+08:00
 weight: 1900
 seo:
-  title: "常见环境变量"
+  title: "常見環境變量"
   description: ""
   canonical: ""
   noindex: false
@@ -14,7 +14,7 @@ seo:
 
 ## SHELL
 
-当前使用的 Shell。
+當前使用嘅 Shell。
 
 ```bash {frame="none"}
 printenv SHELL
@@ -26,7 +26,7 @@ printenv SHELL
 
 ## HOME
 
-用户主目录路径。
+用戶主目錄路徑。
 
 ```bash {frame="none"}
 printenv HOME
@@ -38,7 +38,7 @@ printenv HOME
 
 ## PWD
 
-当前目录的路径。
+當前目錄嘅路徑。
 
 ```bash {frame="none"}
 printenv PWD
@@ -50,7 +50,7 @@ printenv PWD
 
 ## USER
 
-当前用户。
+當前用戶。
 
 ```bash {frame="none"}
 printenv USER
@@ -62,7 +62,7 @@ kuga
 
 ## PATH
 
-可执行程序搜索的路径，以冒号分隔。
+可執行程序搜索嘅路徑，以冒號分隔。
 
 ```bash {frame="none"}
 printenv PATH
@@ -74,7 +74,7 @@ printenv PATH
 
 ## SHLVL
 
-Shell 的层级，从 1 开始。
+Shell 嘅層級，從 1 開始。
 
 ```bash {frame="none"}
 printenv SHLVL

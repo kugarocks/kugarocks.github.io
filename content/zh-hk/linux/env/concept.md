@@ -14,31 +14,31 @@ seo:
 
 ## 起源
 
-Linux 中的环境变量源自早期 UNIX 系统的设计需求。
-通过环境变量，用户和进程能够动态地影响系统行为，而不需要修改系统的核心代码。
-这种灵活性和可配置性使环境变量成为 Linux 系统和应用程序配置的关键部分。
+Linux 中嘅環境變量源自早期 UNIX 系統嘅設計需求。
+通過環境變量，用戶同進程能夠動態咁影響系統行為，而唔需要修改系統嘅核心代碼。
+呢種靈活性同可配置性使環境變量成為 Linux 系統同應用程序配置嘅關鍵部分。
 
-在 UNIX 中，每个进程都有自己的环境（即一组环境变量），这些环境变量在进程的启动时由父进程传递给子进程。
-最典型的例子是当用户登录系统时，系统启动的 Shell 进程会继承一组默认的环境变量，例如用户的主目录、Shell 类型等。
-用户可以在这个基础上修改或添加环境变量，影响自己启动的程序或进程的行为。
+喺 UNIX 中，每個進程都有自己嘅環境（即一組環境變量），呢啲環境變量喺進程嘅啟動時由父進程傳遞畀子進程。
+最典型嘅例子係當用戶登錄系統時，系統啟動嘅 Shell 進程會繼承一組默認嘅環境變量，例如用戶嘅主目錄、Shell 類型等。
+用戶可以喺呢個基礎上修改或添加環境變量，影響自己啟動嘅程序或進程嘅行為。
 
-## 概念勘误
+## 概念勘誤
 
-有些书籍和文章会把环境变量分为~~全局环境变量和局部环境变量~~，但这种分类是不准确的，
-因为在官方的文档中，从来没有这两种分类的定义，甚至连英文名称也没有。
-因此，为了避免语义上的逻辑问题，本文不会对环境变量进行上述的分类。
+有啲書籍同文章會把環境變量分為~~全局環境變量同局部環境變量~~，但呢種分類係唔準確嘅，
+因為喺官方嘅文檔中，從來冇呢兩種分類嘅定義，甚至連英文名稱都冇。
+因此，為咗避免語義上嘅邏輯問題，本文唔會對環境變量進行上述嘅分類。
 
-> 《Linux 命令行与Shell 脚本编程大全》
+> 《Linux 命令行與Shell 腳本編程大全》
 >
 > 《Linux Command Line and Shell Scripting Bible》
 
-上面这本书关于环境变量的章节是有问题的，不是翻译的问题，原版就有问题。
+上面呢本書關於環境變量嘅章節係有問題嘅，唔係翻譯嘅問題，原版就有問題。
 
-## 打印环境变量
+## 打印環境變量
 
 ### 命令：printenv
 
-不带参数会打印所有环境变量。
+唔帶參數會打印所有環境變量。
 
 ```bash {frame="none"}
 printenv | head -n 3
@@ -50,7 +50,7 @@ PWD=/home/kuga
 LOGNAME=kuga
 ```
 
-打印指定环境变量。
+打印指定環境變量。
 
 ```bash {frame="none"}
 printenv PATH
@@ -62,7 +62,7 @@ printenv PATH
 
 ### 命令：env
 
-不带参数会打印所有环境变量。
+唔帶參數會打印所有環境變量。
 
 ```bash {frame="none"}
 env | head -n 3
@@ -76,7 +76,7 @@ LOGNAME=kuga
 
 ### 命令：echo
 
-打印指定变量，可以是环境变量或 Shell 变量。
+打印指定變量，可以係環境變量或 Shell 變量。
 
 ```bash {frame="none"}
 echo $HOME
@@ -86,9 +86,9 @@ echo $HOME
 /home/kuga
 ```
 
-## 自定义 Shell 变量
+## 自定義 Shell 變量
 
-定义名为 soda 的 Shell 变量，值为 green。
+定義名為 soda 嘅 Shell 變量，值為 green。
 
 ```bash {frame="none"}
 soda=green
@@ -102,15 +102,15 @@ echo $soda
 green
 ```
 
-### 使用 printenv 访问
+### 使用 printenv 訪問
 
 ```bash {frame="none"}
 printenv soda
 ```
 
-输出为空，因为 soda **不是环境变量，它只是一个 Shell 变量**。
+輸出為空，因為 soda **唔係環境變量，佢只係一個 Shell 變量**。
 
-### 使用命令分组 () 访问
+### 使用命令分組 () 訪問
 
 ```bash {frame="none"}
 (echo $soda)
@@ -120,7 +120,7 @@ printenv soda
 green
 ```
 
-### 使用命令分组 () 修改
+### 使用命令分組 () 修改
 
 ```bash {frame="none"}
 (soda=yellow; echo $soda); echo $soda
@@ -131,9 +131,9 @@ yellow
 green
 ```
 
-Subshell 内部的修改不会影响外部的数据。
+Subshell 內部嘅修改唔會影響外部嘅數據。
 
-### 创建 Bash 实例访问
+### 創建 Bash 實例訪問
 
 ```bash {frame="none"}
 bash
@@ -143,21 +143,21 @@ bash
 echo $soda
 ```
 
-输出为空，这就是普通 Shell 变量的基本作用域。
+輸出為空，呢就係普通 Shell 變量嘅基本作用域。
 
-## 自定义环境变量
+## 自定義環境變量
 
-可以通过 `export` 指令把 Shell 变量转变为环境变量，官方手册的定义如下。
+可以通過 `export` 指令把 Shell 變量轉變為環境變量，官方手冊嘅定義如下。
 
 ```bash {frame="none" text-wrap="wrap"}
 Mark each name to be passed to child processes in the environment.
 ```
 
 ```bash {frame="none"}
-翻译：标记变量名称，使其在环境中可以传递给子进程。
+翻譯：標記變量名稱，使其喺環境中可以傳遞畀子進程。
 ```
 
-可以同时定义和导出变量，也可以分开操作。
+可以同時定義和導出變量，或分開操作。
 
 ```bash {frame="none"}
 export soda=green
@@ -167,9 +167,9 @@ export soda=green
 soda=green; export soda;
 ```
 
-### 使用 printenv 访问
+### 使用 printenv 訪問
 
-转变为环境变量之后，使用 printenv 就能正常打印了。
+轉變為環境變量之後，使用 printenv 就能正常打印了。
 
 ```bash {frame="none"}
 printenv soda
@@ -179,7 +179,7 @@ printenv soda
 green
 ```
 
-### 使用命令分组 () 访问
+### 使用命令分組 () 訪問
 
 ```bash {frame="none"}
 (printenv soda)
@@ -189,7 +189,7 @@ green
 green
 ```
 
-### 使用命令分组 () 修改
+### 使用命令分組 () 修改
 
 ```bash {frame="none"}
 (soda=yellow; echo $soda); echo $soda
@@ -200,9 +200,9 @@ yellow
 green
 ```
 
-同样，内部修改环境变量是不会影响外部的数据。
+同樣，內部修改環境變量是唔會影響外部嘅數據。
 
-### 创建 Bash 实例访问
+### 創建 Bash 實例訪問
 
 ```bash {frame="none"}
 bash -c "printenv soda"
@@ -212,11 +212,11 @@ bash -c "printenv soda"
 green
 ```
 
-环境变量在新创建的 Bash 实例中是能访问的。
+環境變量喺新創建嘅 Bash 實例中係能訪問嘅。
 
-### 查看所有 export 变量
+### 查看所有 export 變量
 
-不带参数，或使用 `-p` 就能打印所有 export 变量。
+唔帶參數，或使用 `-p` 就能打印所有 export 變量。
 
 ```bash {frame="none"}
 export
@@ -230,9 +230,9 @@ export | grep soda
 declare -x soda="green"
 ```
 
-### 取消 export 环境变量
+### 取消 export 環境變量
 
-使用 `-n` 选项就能取消 export，变回普通的 Shell 变量。
+使用 `-n` 選項就能取消 export，變回普通嘅 Shell 變量。
 
 ```bash {frame="none"}
 export -n soda
@@ -242,11 +242,11 @@ export -n soda
 printenv soda; echo $soda
 ```
 
-printenv 无输出，echo 正常输出，因为 soda 已经不再是环境变量。
+printenv 無輸出，echo 正常輸出，因為 soda 已經唔再係環境變量。
 
-### 删除变量
+### 刪除變量
 
-下面会删除整个变量，无论是环境变量还是 Shell 变量。
+下面會刪除整個變量，無論係環境變量或 Shell 變量。
 
 ```bash {frame="none"}
 unset soda
@@ -258,22 +258,22 @@ echo $soda
 
 ## 命令：declare
 
-用于声明变量和属性，不带任何参数就输出所有的变量声明和当前值。
+用於聲明變量和屬性，唔帶任何參數就輸出所有嘅變量聲明和當前值。
 
 ```bash {frame="none" text-wrap="wrap"}
 Declare variables and give them attributes. If no names are given, then display the values of variables instead.
 ```
 
-常用参数：
+常用參數：
 
-* `-i`：将变量声明为整数。
-* `-r`：将变量声明为只读。
-* `-x`：将变量导出为环境变量。
-* `-p`：显示变量的声明和当前值。
+* `-i`：將變量聲明為整數。
+* `-r`：將變量聲明為只讀。
+* `-x`：將變量導出為環境變量。
+* `-p`：顯示變量嘅聲明和當前值。
 
-### 不带参数声明
+### 不帶參數聲明
 
-效果和普通的 Shell 变量一样。
+效果和普通嘅 Shell 變量一樣。
 
 ```bash {frame="none"}
 declare soda="green"
@@ -283,7 +283,7 @@ declare soda="green"
 echo $soda
 ```
 
-### 显示当前变量的声明
+### 顯示當前變量嘅聲明
 
 ```bash {frame="none"}
 declare -p soda
@@ -293,13 +293,13 @@ declare -p soda
 declare -- soda="green"
 ```
 
-### 显示所有变量的声明
+### 顯示所有變量嘅聲明
 
 ```bash {frame="none"}
 declare -p
 ```
 
-### 声明环境变量
+### 聲明環境變量
 
 ```bash {frame="none"}
 declare -x soda="green"
@@ -313,18 +313,18 @@ printenv soda
 green
 ```
 
-在 `export` 中也能看到 soda 的定义。
+喺 `export` 中亦能睇到 soda 嘅定義。
 
 ```bash {frame="none"}
 export | grep soda
 ```
 
-### -x 与 -\- 的区别
+### -x 與 -\- 嘅區別
 
-不难发现，可以通过声明的符号区分不同的变量类型。
+不難發現，可以通過聲明嘅符號區分不同嘅變量類型。
 
-* `-x`：环境变量的声明。
-* `--`：普通 Shell 变量的声明。
+* `-x`：環境變量嘅聲明。
+* `--`：普通 Shell 變量嘅聲明。
 
 ```bash {frame="none"}
 declare -p soda
@@ -334,7 +334,7 @@ declare -p soda
 declare -x soda="green"
 ```
 
-取消 export 后。
+取消 export 後。
 
 ```bash {frame="none"}
 export -n soda
@@ -348,9 +348,9 @@ declare -p soda
 declare -- soda="green"
 ```
 
-## 内建命令手册
+## 內建命令手冊
 
-有些内建命令使用 `man` 是无法查看手册的，但可以使用 `help` 命令，或 `--help` 选项。
+有啲內建命令使用 `man` 係無法查看手冊嘅，但可以使用 `help` 命令，或 `--help` 選項。
 
 ### export
 
