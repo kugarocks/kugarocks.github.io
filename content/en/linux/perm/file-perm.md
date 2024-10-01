@@ -1,44 +1,44 @@
 ---
-title: "文件权限"
+title: "File Permission"
 description: ""
 summary: ""
 date: 2024-08-27T20:00:00+08:00
 lastmod: 2024-08-29T20:00:00+08:00
 weight: 2300
 seo:
-  title: "文件权限"
+  title: "File Permission"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 组成结构
+## Composition Structure
 
 ```bash {frame="none"}
 -rwxr-xr--
 ```
 
-第一个字符表示文件的类型：
+The first character indicates the file type:
 
-* **`-`**：文件，如文本文件、二进制文件等。
-* **`d`**：目录。
-* **`l`**：符号链接，Symbolic link (Soft link)。
-* **`b`**：块设备，如硬盘、光盘等。
-* **`c`**：字符设备，如终端设备、键盘等。
-* **`p`**：管道，进程间通信。
-* **`s`**：套接字，网络通信，进程间数据交换。
+* **`-`**：File, such as text files, binary files, etc.
+* **`d`**：Directory.
+* **`l`**：Symbolic link, Symbolic link (Soft link).
+* **`b`**：Block device, such as hard disk, CD-ROM, etc.
+* **`c`**：Character device, such as terminal device, keyboard, etc.
+* **`p`**：Pipe, inter-process communication.
+* **`s`**：Socket, network communication, data exchange between processes.
 
-后面的字符 3 个为一组（r=可读、w=可写、x=可执行），分别对应：
+The following characters are grouped into 3 (r=read, w=write, x=execute), corresponding to:
 
-| 类别 | 权限 | 描述 |
+| Category | Permission | Description |
 | --- | --- | --- |
-| 拥有者 | `rwx` | 可读/可写/可执行 |
-| 用户组 | `r-x` | 可读/不可写/可执行 |
-| 其它人 | `r--` | 可读/不可写/不可执行 |
+| Owner | `rwx` | Read/Write/Execute |
+| Group | `r-x` | Read/No Write/Execute |
+| Others | `r--` | Read/No Write/No Execute |
 
-## 目录的可执行权限
+## Directory Exec Perm
 
-和文件的可执行权限一样，如果要对目录进行操作，目录也必须有可执行权限。
+Like file execution permission, if you want to operate on a directory, the directory must also have execution permission.
 
 ```bash {frame="none"}
 cd /home
@@ -48,11 +48,11 @@ cd /home
 ls /home
 ```
 
-如果没有可执行权限，上面的命令会执行失败。
+If there is no execution permission, the above commands will fail.
 
 ## Umask
 
-创建一个文件或目录时，系统会使用 `umask` 的值来计算文件的权限。
+When creating a file or directory, the system uses the value of `umask` to calculate the file's permissions.
 
 ```bash {frame="none"}
 umask
@@ -62,34 +62,34 @@ umask
 0002
 ```
 
-* 第一位：特殊模式，这里不展开。
-* 第二位：Owner，拥有者。
-* 第三位：Group，组。
-* 第四位：Others，其它人。
+* The first bit: special mode, not expanded here.
+* The second bit: Owner, owner.
+* The third bit: Group, group.
+* The fourth bit: Others, others.
 
-### 全权限
+### Full Permissions
 
-* 新文件：`666`（默认不需要执行权限）。
-* 新目录：`777`（目录都需要执行权限）。
+* New file: `666` (default does not require execution permission).
+* New directory: `777` (directories all require execution permission).
 
-### 权限计算
+### Permission Calculation
 
-权限 = 全权限 - umask
+Permission = Full Permission - umask
 
-* 文件：`666` - `002` = `664`
-* 目录：`777` - `002` = `775`
+* File: `666` - `002` = `664`
+* Directory: `777` - `002` = `775`
 
-umask 是掩码，代表不想授予的权限。
+umask is a mask, representing the permissions that are not intended to be granted.
 
 ## chmod
 
-修改文件权限的命令。
+The command to modify file permissions.
 
 ```bash {frame="none"}
 chmod - change file mode bits
 ```
 
-### 八进制模式
+### Octal Mode
 
 ```bash {frame="none"}
 chmod 755 file
@@ -99,27 +99,27 @@ chmod 755 file
 -rwxr-xr-x 1 kuga kuga   16 Aug 23 11:08 file
 ```
 
-### 字符模式
+### Symbolic Mode
 
-`u` 代表用户：给用户添加执行权限。
+`u` represents user: adds execution permission for the user.
 
 ```bash {frame="none"}
 chmod u+x file
 ```
 
-`g` 代表组：给组去掉写权限。
+`g` represents group: removes write permission for the group.
 
 ```bash {frame="none"}
 chmod g-w file
 ```
 
-`o` 代表其它人：给其他人添加读权限。
+`o` represents others: adds read permission for others.
 
 ```bash {frame="none"}
 chmod g+r file
 ```
 
-`a` 代表上面 3 个：给所有人添加执行权限。
+`a` represents the above 3: adds execution permission for all.
 
 ```bash {frame="none"}
 chmod a+x file
@@ -127,37 +127,37 @@ chmod a+x file
 
 ## chown
 
-修改文件的拥有者和组。
+Modifies the owner and group of a file.
 
 ```bash {frame="none"}
 chown - change file owner and group
 ```
 
-### 更改所有者
+### Change Owner
 
 ```bash {frame="none"}
 chown user file
 ```
 
-### 递归更改所有者
+### Recursively Change Owner
 
 ```bash {frame="none"}
 chown -R user dir
 ```
 
-### 更改所有者和组
+### Change Owner and Group
 
 ```bash {frame="none"}
 chown user:group file
 ```
 
-### 递归更改所有者和组
+### Recursively Change Owner and Group
 
 ```bash {frame="none"}
 chown -R user:group dir
 ```
 
-### 只更改组
+### Change Group Only
 
 ```bash {frame="none"}
 chown :group file

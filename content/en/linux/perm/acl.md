@@ -1,12 +1,12 @@
 ---
-title: "访问控制列表"
+title: "Access Control List"
 description: ""
 summary: ""
 date: 2024-08-29T20:00:00+08:00
 lastmod: 2024-08-29T20:00:00+08:00
 weight: 2400
 seo:
-  title: "访问控制列表"
+  title: "Access Control List"
   description: ""
   canonical: ""
   noindex: false
@@ -14,29 +14,29 @@ seo:
 
 ## ACL
 
-访问控制列表（Access Control List）是一种更为灵活和细粒度的权限管理机制，
-用于定义和控制文件系统对象的访问权限。与传统的文件权限系统相比，ACL 提供了更细致的权限控制，
-允许你为不同的用户和用户组设置特定的权限，不再局限于传统的三个角色（Owner、Group、Others）。
+Access Control List (ACL) is a more flexible and fine-grained permission management mechanism,
+used to define and control the access permissions of file system objects. Compared to traditional file permission systems, ACL provides more detailed permission control,
+allowing you to set specific permissions for different users and user groups, no longer limited to the traditional three roles (Owner, Group, Others).
 
-## 安装
+## Installation
 
-如没安装，可用以下命令。
+If not installed, you can use the following command.
 
 ```bash {frame="none"}
 sudo apt-get install acl
 ```
 
-## getfacl
+## Getfacl
 
-获取文件的访问控制列表
+Get the access control list of a file
 
 ```bash {frame="none"}
 getfacl - get file access control lists
 ```
 
-### 使用例子
+### Usage Example
 
-获取 foo 文件的 ACL 信息。
+Get the ACL information of the foo file.
 
 ```bash {frame="none"}
 getfacl foo
@@ -51,17 +51,17 @@ group::rw-
 other::r--
 ```
 
-## setfacl
+## Setfacl
 
-设置文件的访问控制列表。
+Set the access control list of a file.
 
 ```bash {frame="none"}
 setfacl - set file access control lists
 ```
 
-### 指定用户授权
+### Specify User Authorization
 
-soda 用户添加对 foo 文件的读写权限。
+The soda user adds read and write permissions to the foo file.
 
 ```bash {frame="none"}
 setfacl -m u:soda:rw foo
@@ -82,9 +82,9 @@ mask::rw-
 other::r--
 ```
 
-### 指定组授权
+### Specify Group Authorization
 
-soda 组添加对 foo 文件的读写权限。
+The soda group adds read and write permissions to the foo file.
 
 ```bash {frame="none"}
 setfacl -m g:soda:rw foo
@@ -106,9 +106,9 @@ mask::rw-
 other::r--
 ```
 
-### 其它人授权
+### Other Authorization
 
-对其它人添加对 foo 文件的读写权限。
+Add read and write permissions to the foo file for others.
 
 ```bash {frame="none"}
 setfacl -m o::rw foo
@@ -130,17 +130,17 @@ mask::rw-
 other::rw-
 ```
 
-### 授权修改
+### Authorization Modification
 
-命令采取覆盖的形式。
+The command is in the form of override.
 
 ```bash {frame="none"}
 setfacl -m o::r foo
 ```
 
-`other::rw-` 会变成 `other::r--`。
+`other::rw-` will become `other::r--`.
 
-### 清空授权
+### Clear Authorization
 
 ```bash {frame="none"}
 setfacl -m u:soda:- foo
@@ -155,7 +155,7 @@ user:soda:---
 other::---
 ```
 
-### 删除授权
+### Delete Authorization
 
 ```bash {frame="none"}
 setfacl -x u:soda foo
@@ -165,11 +165,11 @@ setfacl -x u:soda foo
 setfacl -m g:soda foo
 ```
 
-`user:soda`、`group:soda` 这两行会删掉。
+The two lines `user:soda` and `group:soda` will be deleted.
 
-## 末尾的 + 号
+## End of Line +
 
-使用 ACL 的文件，权限列后面会有一个 + 号。
+For files using ACL, there will be a + sign after the permission column.
 
 ```bash {frame="none"}
 -rw-rw-r--+
@@ -177,4 +177,4 @@ setfacl -m g:soda foo
 
 ## RBAC
 
-差不多 7-8 年前，曾经接触过一个 ACL 的管理后台，后来改成了 RBAC。
+About 7-8 years ago, I once encountered a management interface for ACL, which was later changed to RBAC.

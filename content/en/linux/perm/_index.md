@@ -1,5 +1,5 @@
 ---
-title: "权限管理"
+title: "Permission Management"
 sidebar:
   collapsed: true
 ---

@@ -1,29 +1,29 @@
 ---
-title: "用户管理"
+title: "User Management"
 description: ""
 summary: ""
 date: 2024-08-27T20:00:00+08:00
 lastmod: 2024-08-28T20:00:00+08:00
 weight: 2100
 seo:
-  title: "用户管理"
+  title: "User Management"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 用户账号
+## User Account
 
 ### /etc/passwd
 
-Linux 使用 `/etc/passwd` 文件来保存用户账号信息。
-因为许多服务进程需要读取用户账号的信息，可以看到这个文件的权限都是可读的。
+Linux uses the `/etc/passwd` file to store user account information.
+Because many service processes need to read user account information, you can see that the file's permissions are all readable.
 
 ```bash {frame="none"}
 -rw-r--r-- 1 root root 2010 Aug 24 15:12 /etc/passwd
 ```
 
-查看某个用户的账号信息。
+View the account information of a user.
 
 ```bash {frame="none"}
 grep kuga /etc/passwd
@@ -35,16 +35,16 @@ kuga:x:1000:1000:,,,:/home/kuga:/bin/bash
 
 | KEY | VALUE |
 | --- | --- |
-| 用户名 | kuga |
-| 用户密码 | x |
-| 用户 ID | 1000 |
-| 用户组 ID | 1000 |
-| 备注字段 | ,,, |
-| 目录位置 | /home/kuga |
-| 默认 Shell | /bin/bash |
+| Username | kuga |
+| User Password | x |
+| User ID | 1000 |
+| User Group ID | 1000 |
+| Remark Field | ,,, |
+| Directory Location | /home/kuga |
+| Default Shell | /bin/bash |
 
-系统会预留一定的 UID 范围，Ubuntu 新添加的用户 ID 从 1000 开始。
-下面的命令会按第 3 个字段 UID 逆序排序，然后输出前 10 行，只显示 136 字段（用户名，UID，目录位置）。
+The system will reserve a certain range of UID, and the new user ID added to Ubuntu starts from 1000.
+The following command will sort by the third field UID in reverse order, then output the first 10 lines, and only display 136 fields (username, UID, directory location).
 
 ```bash {frame="none"}
 sort -t ':' -k 3 -nr /etc/passwd | cut -d ':' -f1,3,6 | head -n 10
@@ -65,15 +65,15 @@ tss:110:/var/lib/tpm
 
 ### /etc/shadow
 
-由于历史原因，早期的用户密码使用 `/etc/passwd` 存储，所以文件名是 passwd。
-后来因为密码容易被暴力破解，现在的密码已经搬到新文件 `/etc/shadow`。
-**这个文件只有 root 和 shadow 组可读**。
+For historical reasons, the early user passwords were stored in `/etc/passwd`, so the file name is passwd.
+Later, because passwords are easy to crack, the current passwords have been moved to the new file `/etc/shadow`.
+**This file is only readable by root and shadow group**.
 
 ```bash {frame="none"}
 -rw-r----- 1 root shadow 1255 Aug 24 15:08 /etc/shadow
 ```
 
-可以粗略看看这个文件的内容。
+You can roughly look at the contents of this file.
 
 ```bash {frame="none"}
 root:*:19955:0:99999:7:::
@@ -83,33 +83,33 @@ sys:*:19103:0:99999:7:::
 sync:*:19103:0:99999:7:::
 ```
 
-这些字段一般都是管理密码的（如多少天后必须更改），这里不展开。
+These fields are generally related to password management (such as how many days must be changed), which is not expanded here.
 
 ## Useradd
 
-### HOME 目录
+### HOME Directory
 
-默认不创建用户目录。
+By default, the user directory is not created.
 
 ```bash {frame="none"}
 useradd foo
 ```
 
-使用 `-m` 参数会创建用户目录。
+Use the `-m` parameter to create the user directory.
 
 ```bash {frame="none"}
 useradd -m foo
 ```
 
-使用 `-M` 参数不会创建用户目录。
+Use the `-M` parameter to not create the user directory.
 
 ```bash {frame="none"}
 useradd -M foo
 ```
 
-### 查看默认配置
+### Default Configuration
 
-使用 -D 选项可以查看添加用户时采用的默认配置。
+Use the -D option to view the default configuration used when adding a user.
 
 ```bash {frame="none"}
 useradd -D
@@ -125,17 +125,17 @@ SKEL=/etc/skel
 CREATE_MAIL_SPOOL=no
 ```
 
-* GROUP：用户默认组 ID。
-* HOME：用户目录位置。
-* INACTIVE：密码过期后多少天禁用账号。
-* EXPIRE：账号过期日期。
-* SHELL：默认使用的登录 Shell。
-* SKEL：Skeletal，该目录内容会复制到用户主目录。
-* CREATE_MAIL_SPOOL：是否创建邮件存储文件。
+* GROUP: User default group ID.
+* HOME: User directory location.
+* INACTIVE: Number of days to disable the account after the password expires.
+* EXPIRE: Account expiration date.
+* SHELL: Default login Shell used.
+* SKEL: Skeletal, the contents of this directory will be copied to the user's home directory.
+* CREATE_MAIL_SPOOL: Whether to create a mail storage file.
 
 ### /etc/default/useradd
 
-`useradd` 命令的默认配置文件。
+The default configuration file for the `useradd` command.
 
 ```bash {frame="none"}
 -rw-r--r-- 1 root root 1118 Aug 28 10:58 /etc/default/useradd
@@ -168,19 +168,19 @@ SHELL=/bin/sh
 # HOME=/home
 ```
 
-如果把 SHELL 改成 `/bin/bash`，那么 `useradd -D` 就会自动更新。
+If you change the SHELL to `/bin/bash`, then `useradd -D` will be automatically updated.
 
 ### /etc/login.defs
 
-用户账号和登录管理的核心配置文件。
-功能包括：密码策略、UID/GID 范围、HOME 目录管理、用户和组管理、登录设置等等。
-文件中的设置会影响诸如 `useradd`、`usermod`、`passwd` 等命令的行为，修改前建议提前备份。
+The core configuration file for user account and login management.
+Functions include: password policy, UID/GID range, HOME directory management, user and group management, login settings, etc.
+Settings in the file will affect the behavior of commands such as `useradd`, `usermod`, `passwd`, etc., it is recommended to back up before making changes.
 
 ```bash {frame="none"}
 -rw-r--r-- 1 root root 10734 Nov 11  2021 /etc/login.defs
 ```
 
-单独看一下 `USERGROUPS_ENAB` 参数。
+Take a look at the `USERGROUPS_ENAB` parameter separately.
 
 ```bash {frame="none"}
 grep -B 4 -E "USERGROUPS_ENAB (yes|no)" /etc/login.defs
@@ -194,46 +194,46 @@ grep -B 4 -E "USERGROUPS_ENAB (yes|no)" /etc/login.defs
 USERGROUPS_ENAB yes
 ```
 
-如果 `USERGROUPS_ENAB` 的值为 yes：
+If the value of `USERGROUPS_ENAB` is yes:
 
-* `userdel`：删除用户的时候，会同时删除空的用户用。
-* `useradd`：创建用户的时候，会同时创建和用户名一样的组。
+* `userdel`: When deleting a user, it will also delete the empty user group.
+* `useradd`: When creating a user, it will also create a group with the same name as the user.
 
-这就是为什么上面创建用户的时候，没有使用 `GROUP=100` 这个默认参数。
+This is why the default parameter `GROUP=100` was not used when creating a user.
 
-### 使用命令修改配置
+### Modify Conf By Cmd
 
-修改默认登录 Shell。
+Modify the default login Shell.
 
 ```bash {frame="none"}
 sudo useradd -D -s /bin/bash
 ```
 
-修改默认组 ID。
+Modify the default group ID.
 
 ```bash {frame="none"}
 sudo useradd -D -g 100
 ```
 
-修改默认的 HOME 目录。
+Modify the default HOME directory.
 
 ```bash {frame="none"}
 sudo useradd -D -b path
 ```
 
-执行命令后，你会发现，文件的权限从 `644` -> `600`。
+After executing the command, you will find that the file permissions have changed from `644` to `600`.
 
 ```bash {frame="none"}
 -rw------- 1 root root 1195 Aug 28 11:22 /etc/default/useradd
 ```
 
-权限更正如下。
+The corrected permissions are as follows.
 
 ```bash {frame="none"}
 sudo chmod 644 /etc/default/useradd
 ```
 
-[翻一下源码](https://github.com/shadow-maint/shadow/blob/5c0b99c77e3963cc3d4ee4980b0bb3c9955c032c/src/useradd.c#L525)，在 `set_defaults(void)` 方法中，执行过程大致如下：
+[Look at the source code](https://github.com/shadow-maint/shadow/blob/5c0b99c77e3963cc3d4ee4980b0bb3c9955c032c/src/useradd.c#L525), the execution process in the `set_defaults(void)` method is roughly as follows:
 
 ```bash {frame="none"}
 /*
@@ -250,13 +250,13 @@ set_defaults(void)
 }
 ```
 
-* 使用 `mkstemp` 函数创建临时文件 A。
-* 处理 `/etc/default/useradd` 文件并复制到 A 中。
-* 备份原来的 `useradd` 文件，**重命名**为 `useradd-`。
-* 把 A 文件覆盖原来的 `useradd` 文件。
-* **`mkstemp` 函数创建的文件权限是 `0600`**。
+* Use the `mkstemp` function to create a temporary file A.
+* Process the `/etc/default/useradd` file and copy it to A.
+* Backup the original `useradd` file, **rename** it to `useradd-`.
+* Overwrite the A file with the original `useradd` file.
+* **The file created by the `mkstemp` function has permissions of `0600`**.
 
-查看 `useradd` 和它的备份 `useradd-`。
+Check the `useradd` and its backup `useradd-` files.
 
 ```bash {frame="none"}
 ls -li /etc/default/useradd*
@@ -267,48 +267,48 @@ ls -li /etc/default/useradd*
 655237 -rw------- 1 root root 1197 Aug 28 16:07 /etc/default/useradd-
 ```
 
-如果使用执行命令修改默认登录 Shell。
+If you use the command to modify the default login Shell.
 
 ```bash {frame="none"}
 sudo useradd -D -s /bin/sh
 ```
 
-再次查看两个文件的 inode。
+Check the inode of the two files again.
 
 ```bash {frame="none"}
 655454 -rw------- 1 root root 1195 Aug 28 17:27 /etc/default/useradd
 655124 -rw------- 1 root root 1197 Aug 28 16:28 /etc/default/useradd-
 ```
 
-不难发现 `useradd-` 的 inode 就是修改前 `useradd` 的 inode。
-关于权限被修改的问题，显然是不合理的，命令不应该修改文件的权限。
-在 GitHub 上可以查看这个 [pull request](https://github.com/shadow-maint/shadow/pull/1083)。
+It is not difficult to find that the inode of `useradd-` is the same as the inode of `useradd` before the modification.
+The issue of permissions being modified is obviously unreasonable, the command should not modify the file permissions.
+You can check this [pull request](https://github.com/shadow-maint/shadow/pull/1083) on GitHub.
 
 ## Usermod
 
-### 更改用户的登录名
+### Modify User Login Name
 
 ```bash {frame="none"}
 sudo usermod -l newuser olduser
 ```
 
-### 将用户添加到一个组
+### Add User to a Group
 
-`-a` 表示追加到组，而不是替换当前组列表。
+The `-a` means to append to the group, not to replace the current group list.
 
 ```bash {frame="none"}
 sudo usermod -aG group user
 ```
 
-### 更改用户的默认 Shell
+### Modify User Default Shell
 
-`usermod` 不会检查 Shell 的合法性，可用 `chsh` 代替。
+`usermod` does not check the legality of the Shell, you can use `chsh` instead.
 
 ```bash {frame="none"}
 sudo chsh -s /bin/bash user
 ```
 
-### 更改用户 ID
+### Modify User ID
 
 ```bash {frame="none"}
 sudo usermod -u newuid user
@@ -316,25 +316,25 @@ sudo usermod -u newuid user
 
 ## Passwd
 
-### 修改当前用户的密码
+### Modify Current User PWD
 
-不加参数就是修改当前用户的密码。
+Without parameters, it is to change the password of the current user.
 
 ```bash {frame="none"}
 passwd
 ```
 
-### 修改指定用户的密码
+### Modify User PWD
 
 ```bash {frame="none"}
 sudo passwd soda
 ```
 
-## 登录管理
+## Login Management
 
-### 禁止密码登录
+### Disable PWD Login
 
-下面两种方法是一样的，而且**不会禁止 SSH 公钥认证**。
+The following two methods are the same, and **will not disable SSH public key authentication**.
 
 ```bash {frame="none"}
 sudo usermod -L user
@@ -344,7 +344,7 @@ sudo usermod -L user
 sudo passwd -l user
 ```
 
-执行后，`/etc/shadow` 文件的密码字段前面会加 `!` 。
+After execution, the password field in the `/etc/shadow` file will be prefixed with `!`.
 
 ```bash {frame="none"}
 sudo grep user /etc/shadow
@@ -354,9 +354,9 @@ sudo grep user /etc/shadow
 user:!$y...:19959:0:99999:7:::
 ```
 
-### 恢复密码登录
+### Enable PWD Login
 
-下面两种方法是一样的，可以混着用。
+The following two methods are the same, and can be used together.
 
 ```bash {frame="none"}
 sudo usermod -U user
@@ -366,17 +366,17 @@ sudo usermod -U user
 sudo passwd -u user
 ```
 
-执行后，`/etc/shadow` 文件的密码字段前面会删除 `!` 。
+After execution, the password field in the `/etc/shadow` file will delete the `!` prefix.
 
-### 禁止 SSH 公钥认证
+### Disable SSH Auth
 
-没有了登录 Shell，自然密码也是不能登录。
+Without a login Shell, naturally the password cannot be used for login.
 
 ```bash {frame="none"}
 sudo usermod -s /usr/sbin/nologin user
 ```
 
-### 恢复 SSH 公钥认证
+### Enable SSH Auth
 
 ```bash {frame="none"}
 sudo usermod -s /bin/bash user
@@ -384,24 +384,24 @@ sudo usermod -s /bin/bash user
 
 ## Userdel
 
-### 仅删除用户
+### Delete User Only
 
-这种方法只删除用户，保留主目录。
+This method only deletes the user and keeps the main directory.
 
 ```bash {frame="none"}
 sudo userdel user
 ```
 
-### 主目录和邮件
+### With Home and Mail
 
-不但删除用户，还要删除主目录和邮件。
+Not only delete the user, but also delete the main directory and mail.
 
 ```bash {frame="none"}
 sudo userdel -r user
 ```
 
-如果文件或目录没不存在，会在终端提示。
+If a file or directory does not exist, a prompt will appear in the terminal.
 
 ## Adduser Package
 
-这个包提供两个实用命令，`adduser` 和 `deluser`，属于上层封装好的工具。
+This package provides two useful commands, `adduser` and `deluser`, which are high-level encapsulated tools.
