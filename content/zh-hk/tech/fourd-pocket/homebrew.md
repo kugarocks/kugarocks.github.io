@@ -14,7 +14,7 @@ seo:
 
 ## 更換國內源
 
-### 主倉庫嘅配置
+### 主倉庫配置
 
 ```bash {frame="none"}
 cd $(brew --repo) && git remote -v
@@ -25,7 +25,7 @@ origin https://github.com/Homebrew/brew.git (fetch)
 origin https://github.com/Homebrew/brew.git (push)
 ```
 
-### 核心倉庫嘅配置
+### 核心倉庫配置
 
 ```bash {frame="none"}
 cd $(brew --repo homebrew/core) && git remote -v
