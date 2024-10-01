@@ -28,7 +28,7 @@ Shell 的启动方式会影响环境变量的加载过程，可分为以下几�
 
 {{< link-card
   title="What is an Interactive Shell"
-  description="官方文档"
+  description="什么是交互式 Shell"
   href="https://www.gnu.org/software/bash/manual/bash.html#What-is-an-Interactive-Shell_003f"
   target="_blank"
 >}}

@@ -37,7 +37,7 @@ seo:
 
 {{< link-card
   title="Github Repository"
-  description="GitHub 仓库"
+  description="kugarocks/minichat"
   href="https://github.com/kugarocks/minichat"
   target="_blank"
 >}}

@@ -26,7 +26,7 @@ seo:
 
 {{< link-card
   title="Github Repository"
-  description="GitHub 仓库"
+  description="kugarocks/minions-wiki"
   href="https://github.com/kugarocks/minions-wiki"
   target="_blank"
 >}}
@@ -49,7 +49,7 @@ seo:
 
 {{< link-card
   title="Despicable Me Wiki"
-  description="卑鄙的我百科"
+  description="despicableme.fandom.com"
   href="https://despicableme.fandom.com/wiki/Despicable_Me_Wiki"
   target="_blank"
 >}}
