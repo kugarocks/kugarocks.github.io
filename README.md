@@ -7,6 +7,8 @@
 
 ## Languages
 
-* 简体中文 (Simplified Chinese)
-* 繁体中文 (Traditional Chinese, Hong Kong)
-* English
+| 中文           | EN                                |
+| -------------- | --------------------------------- |
+| 简体中文        | Simplified Chinese                |
+| 繁体中文(香港)  | Traditional Chinese, Hong Kong    |
+| 英文           | English                           |
