@@ -1,9 +1,9 @@
 # kugarocks
 
-| Platform | Link                                      |
-| -------- | ----------------------------------------- |
-| Aliyun   | [https://www.kugarocks.com](https://www.kugarocks.com) |
-| GitHub | [https://kugarocks.github.io](https://kugarocks.github.io) |
+| Platform | Link                                      | Location       |
+| -------- | ----------------------------------------- | -------------- |
+| Aliyun   | [https://www.kugarocks.com](https://www.kugarocks.com) | Guangzhou |
+| GitHub   | [https://kugarocks.github.io](https://kugarocks.github.io) | - |
 
 ## Languages
 
