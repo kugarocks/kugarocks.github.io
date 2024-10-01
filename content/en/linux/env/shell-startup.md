@@ -1,34 +1,34 @@
 ---
-title: "Shell 的启动过程"
+title: "Shell Startup Process"
 description: ""
 summary: ""
 date: 2024-08-27T20:00:00+08:00
 lastmod: 2024-08-27T20:00:00+08:00
 weight: 1800
 seo:
-  title: "Shell 的启动过程"
+  title: "Shell Startup Process"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## Shell 的启动方式
+## Startup Methods
 
-Shell 的启动方式会影响环境变量的加载过程，可分为以下几种。
+The startup methods of Shell will affect the loading process of environment variables, which can be divided into the following categories.
 
-* 交互式（Interactive）
-  * 登录：以登录方式启动的 Shell 实例，如 SSH 登录。
-  * 非登录：
-    * 在 Shell 中输入 Bash 新建 Shell 实例。
-    * 在 GNOME Terminal 中打开一个新的终端会话。
-* 非交互式（Non-Interactive）
-  * 在脚本中启动的 Shell 实例。
+* Interactive (Interactive)
+  * Login: Shell instances started in login mode, such as SSH login.
+  * Non-login:
+    * Creating a new Shell instance by typing Bash in the Shell.
+    * Opening a new terminal session in GNOME Terminal.
+* Non-Interactive (Non-Interactive)
+  * Shell instances started in scripts.
 
-## 什么是交互式 Shell
+## Interactive Shell
 
 {{< link-card
   title="What is an Interactive Shell"
-  description="官方文档"
+  description="Official Documentation"
   href="https://www.gnu.org/software/bash/manual/bash.html#What-is-an-Interactive-Shell_003f"
   target="_blank"
 >}}
@@ -42,60 +42,60 @@ The -s invocation option may be used to set the positional parameters when an in
 ```
 
 ```bash {frame="none" text-wrap="wrap"}
-交互式 Shell 是指在启动时没有非选项参数（除非指定了 -s 选项），并且没有指定 -c 选项，其输入和错误输出都连接到终端（由 isatty(3) 判断），或者是通过 -i 选项启动的 Shell。
+An interactive shell is a shell that is started without non-option arguments (unless the -s option is specified) and without specifying the -c option, whose input and error output are both connected to terminals (as determined by isatty(3)), or a shell started with the -i option.
 
-交互式 Shell 通常从用户的终端读取并向终端写入内容。
+An interactive shell generally reads from and writes to a user’s terminal.
 
-当启动交互式 Shell 时，可以使用 -s 选项来设置位置参数。
+The -s invocation option can be used to set the positional parameters when an interactive shell is started.
 ```
 
-## 交互登录式
+## Interactive Login
 
-在 Ubuntu 中，使用 SSH 登录时，文件的加载流程大致如下。
+In Ubuntu, the file loading process is roughly as follows when using SSH to login.
 
-1. `/etc/profile`：**入口文件 - A**，所有用户都会执行。
-2. `/etc/bash.bashrc`：全局环境配置文件，**A** 会加载此文件。
-3. `/etc/profile.d`：全局环境配置目录，**A** 会加载此目录的所有文件。
-4. `~/.profile`：用户环境配置入口件文 - **B。**
-5. `~/.bashrc`：用户环境配置文件，**B** 会加载此文件。
+1. `/etc/profile`: **Entry File - A**, executed by all users.
+2. `/etc/bash.bashrc`: Global environment configuration file, **A** loads this file.
+3. `/etc/profile.d`: Global environment configuration directory, **A** loads all files in this directory.
+4. `~/.profile`: User environment configuration entry file - **B**.
+5. `~/.bashrc`: User environment configuration file, **B** loads this file.
 
-rc(Run Commands)，源于 Unix 传统。
+rc(Run Commands), originating from Unix tradition.
 
 ### /etc/profile
 
-`system-wide`：系统范围的配置文件。
+`system-wide`: System-wide configuration file.
 
 ```bash {frame="none"}
 # /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
 # and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
 
-# 检查提示符变量 PS1 是否被设置
+# Check if the prompt variable PS1 is set
 if [ "${PS1-}" ]; then
-  # 检查 BASH 变量是否被设置，且它的值是否不等于 /bin/sh
+  # Check if the BASH variable is set and its value is not /bin/sh
   if [ "${BASH-}" ] && [ "$BASH" != "/bin/sh" ]; then
     # The file bash.bashrc already sets the default PS1.
     # PS1='\h:\w\$ '
-    # 如果 bash.bashrc 文件存在，则加载
+    # If the bash.bashrc file exists, load it
     if [ -f /etc/bash.bashrc ]; then
       . /etc/bash.bashrc
     fi
   else
-    # 当前用户的 id 是否等于 0 (root)
+    # Is the current user's id equal to 0 (root)
     if [ "$(id -u)" -eq 0 ]; then
-      # root 用户提示符设为 #
+      # Set the prompt for root to #
       PS1='# '
     else
-      # 普通用户提示符设为 $
+      # Set the prompt for ordinary users to $
       PS1='$ '
     fi
   fi
 fi
 
-# profile.d 目录是否存在
+# Check if the profile.d directory exists
 if [ -d /etc/profile.d ]; then
-  # 遍历目录下的所有 sh 文件
+  # Iterate through all sh files in the directory
   for i in /etc/profile.d/*.sh; do
-    # 如果文件可读，则加载
+    # If the file is readable, load it
     if [ -r $i ]; then
       . $i
     fi
@@ -106,7 +106,7 @@ fi
 
 ### /etc/bash.bashrc
 
-文件内容有点多，就看几行注释吧。
+The file content is a bit long, just look at a few lines of comments.
 
 ```bash {frame="none"}
 # System-wide .bashrc file for interactive bash(1) shells.
@@ -118,11 +118,11 @@ fi
 [ -z "$PS1" ] && return
 ```
 
-如果不是交互式（PS1 变量没有设置），则直接退出。
+If not interactive (PS1 variable not set), exit directly.
 
 ### /etc/profile.d
 
-看一看目录的文件就好了。
+Just take a look at the files in the directory.
 
 ```bash {frame="none"}
 ls -l /etc/profile.d
@@ -138,9 +138,9 @@ total 24
 -rw-r--r-- 1 root root 1557 Feb 17  2020 Z97-byobu.sh
 ```
 
-### \~/.profile
+### ~/.profile
 
-这个文件会去加载我们常常用到的 `~/.bashrc` 文件。
+This file will load the `~/.bashrc` file we commonly use.
 
 ```bash {frame="none"}
 # ~/.profile: executed by the command interpreter for login shells.
@@ -157,7 +157,7 @@ total 24
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+      . "$HOME/.bashrc"
     fi
 fi
 
@@ -172,15 +172,15 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 ```
 
-看头部注释可以得知，如果 `~/.bash_profile` 和 `~/.bash_login` 存在的话，`~/.profile` 是不会被加载的，文件加载顺序如下。
+Looking at the header comments, you can know that if `~/.bash_profile` and `~/.bash_login` exist, `~/.profile` will not be loaded, and the file loading order is as follows.
 
 ```bash {frame="none"}
 bash_profile > bash_login > profile
 ```
 
-### \~/.bashrc
+### ~/.bashrc
 
-下面分析一下头部就差不多了。
+Let's analyze the header just below.
 
 ```bash {frame="none"}
 # ~/.bashrc: executed by bash(1) for non-login shells.
@@ -194,10 +194,10 @@ case $- in
 esac
 ```
 
-看第一行注释，这个文件会被非登录 Shell 执行。
-前面说到 `~/.profile` 文件也会加载此文件，也就是说登录式 Shell 和非登录式 Shell 都会用到这个文件。
+Looking at the first line of comments, this file is executed by non-login Shell.
+As mentioned earlier, `~/.profile` also loads this file, which means both login and non-login Shell use this file.
 
-再来分析一下这些魔法代码（真的是天才设计🤪）：
+Let's analyze these magical codes (it's really a genius design🤪):
 
 ```bash {frame="none"}
 # If not running interactively, don't do anything
@@ -207,7 +207,7 @@ case $- in
 esac
 ```
 
-`$-` 是一个特殊变量，表示当前 Shell 运行时启用的选项，可以打印出来。
+`$-` is a special variable that represents the options enabled when the Shell runs, which can be printed out.
 
 ```bash {frame="none"}
 echo $-
@@ -217,27 +217,27 @@ echo $-
 himBHs
 ```
 
-* `*i*` 是一个匹配条件： `$-` 中是否包含 `i`。
-* `i` 选项表示当前 Shell 是交互式的。
-* 如果匹配成功，会退出 case。
-* 如果匹配失败，会执行 return，退出当前脚本。
+* `*i*` is a matching condition: whether `$-` contains `i`.
+* `i` option indicates that the current Shell is interactive.
+* If the match is successful, it will exit the case.
+* If the match fails, it will execute return, exiting the script.
 
-总结：如果不是在交互式中运行，直接退出，什么都不做。
+In summary: if not running interactively, exit directly, do nothing.
 
-## 交互非登录式
+## Interactive Non-Login
 
-这里讨论的是非登录的情况。例如：
+Here we discuss non-login cases. For example:
 
-* 在 Shell 中输入 Bash 新建一个 Shell 实例。
-* 使用 `()` 执行命令分组时生成的 Subshell。
-* 在 GNOME Terminal 中打开一个新的终端会话。
+* Creating a new Shell instance by typing Bash in the Shell.
+* Subshell generated by executing command groups using `()`.
+* Opening a new terminal session in GNOME Terminal.
 
-一句话总结：不加载 `/etc/profile`，只加载 `~/.bashrc`。
+One sentence summary: does not load `/etc/profile`, only loads `~/.bashrc`.
 
-## 非交互式
+## Non-Interactive
 
-这种方式没有命令行提示符，不会加载任可配置文件，即使手动加载 `~/.bashrc`，也不会生效。
-因为上面的分析里提到，在非交互式中，会直接退出，什么都不做。
+This method does not have a command line prompt and does not load any configuration files, even if you manually load `~/.bashrc`, it will not take effect.
+Because the analysis above mentions that in non-interactive mode, it will directly exit, do nothing.
 
 ```bash {frame="none"}
 # If not running interactively, don't do anything
@@ -247,15 +247,15 @@ case $- in
 esac
 ```
 
-当然，你可以使用 BASH\_ENV 变量来设置加载的文件，解释如下。
+Of course, you can use the BASH_ENV variable to set the file to load, as explained below.
 
 ```bash {frame="none" text-wrap="wrap"}
 If this variable is set when Bash is invoked to execute a shell script, its value is expanded and used as the name of a startup file to read before executing the script. See Bash Startup Files.
 ```
 
-## 环境变量的持久化
+## Persistence of Env Vars
 
-只需把环境变量写在对应的文件中，如：`~/.bashrc`。
+You only need to write the environment variables in the corresponding files, such as `~/.bashrc`.
 
 ```bash {frame="none"}
 echo 'export MY_VARIABLE="my_value"' >> ~/.bashrc

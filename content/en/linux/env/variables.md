@@ -1,12 +1,12 @@
 ---
-title: "常见环境变量"
+title: "Environment Variables"
 description: ""
 summary: ""
 date: 2024-08-27T20:00:00+08:00
 lastmod: 2024-08-27T20:00:00+08:00
 weight: 1900
 seo:
-  title: "常见环境变量"
+  title: "Environment Variables"
   description: ""
   canonical: ""
   noindex: false
@@ -14,7 +14,7 @@ seo:
 
 ## SHELL
 
-当前使用的 Shell。
+The current shell in use.
 
 ```bash {frame="none"}
 printenv SHELL
@@ -26,7 +26,7 @@ printenv SHELL
 
 ## HOME
 
-用户主目录路径。
+The path to the user's home directory.
 
 ```bash {frame="none"}
 printenv HOME
@@ -38,7 +38,7 @@ printenv HOME
 
 ## PWD
 
-当前目录的路径。
+The path to the current directory.
 
 ```bash {frame="none"}
 printenv PWD
@@ -50,7 +50,7 @@ printenv PWD
 
 ## USER
 
-当前用户。
+The current user.
 
 ```bash {frame="none"}
 printenv USER
@@ -62,24 +62,24 @@ kuga
 
 ## PATH
 
-可执行程序搜索的路径，以冒号分隔。
+The path where executable programs are searched, separated by colons.
 
-```bash {frame="none"}
+```bash {frame="none"}}
 printenv PATH
 ```
 
-```bash {frame="none"}
+```bash {frame="none"}}
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ```
 
 ## SHLVL
 
-Shell 的层级，从 1 开始。
+The level of the shell, starting from 1.
 
-```bash {frame="none"}
+```bash {frame="none"}}
 printenv SHLVL
 ```
 
-```bash {frame="none"}
+```bash {frame="none"}}
 1
 ```

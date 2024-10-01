@@ -1,44 +1,42 @@
 ---
-title: "重要概念"
+title: "Concept"
 description: ""
 summary: ""
 date: 2024-08-24T20:00:00+08:00
 lastmod: 2024-08-27T20:00:00+08:00
 weight: 1700
 seo:
-  title: "重要概念"
+  title: "Concept"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 起源
+## Origins
 
-Linux 中的环境变量源自早期 UNIX 系统的设计需求。
-通过环境变量，用户和进程能够动态地影响系统行为，而不需要修改系统的核心代码。
-这种灵活性和可配置性使环境变量成为 Linux 系统和应用程序配置的关键部分。
+The environment variables in Linux originated from the design requirements of early UNIX systems.
+Through environment variables, users and processes can dynamically influence system behavior without modifying the system's core code.
+This flexibility and configurability make environment variables a key part of Linux system and application configurations.
 
-在 UNIX 中，每个进程都有自己的环境（即一组环境变量），这些环境变量在进程的启动时由父进程传递给子进程。
-最典型的例子是当用户登录系统时，系统启动的 Shell 进程会继承一组默认的环境变量，例如用户的主目录、Shell 类型等。
-用户可以在这个基础上修改或添加环境变量，影响自己启动的程序或进程的行为。
+In UNIX, each process has its own environment (i.e., a set of environment variables), which are passed from the parent process to the child process at startup.
+The most typical example is when a user logs into the system, the Shell process started by the system inherits a set of default environment variables, such as the user's home directory, Shell type, etc.
+Users can modify or add environment variables based on this, affecting the behavior of programs or processes they start.
 
-## 概念勘误
+## Concept Corrections
 
-有些书籍和文章会把环境变量分为~~全局环境变量和局部环境变量~~，但这种分类是不准确的，
-因为在官方的文档中，从来没有这两种分类的定义，甚至连英文名称也没有。
-因此，为了避免语义上的逻辑问题，本文不会对环境变量进行上述的分类。
+Some books and articles may divide environment variables into ~~global environment variables and local environment variables~~, but this classification is inaccurate,
+because there is no definition of these two categories in official documentation, not even in English names.
+Therefore, to avoid logical problems in semantics, this article will not classify environment variables as above.
 
-> 《Linux 命令行与Shell 脚本编程大全》
->
 > 《Linux Command Line and Shell Scripting Bible》
 
-上面这本书关于环境变量的章节是有问题的，不是翻译的问题，原版就有问题。
+The section on environment variables in this book is problematic, not a translation issue, but the original version has problems.
 
-## 打印环境变量
+## Printing Env Vars
 
-### 命令：printenv
+### Command: printenv
 
-不带参数会打印所有环境变量。
+Without arguments, it prints all environment variables.
 
 ```bash {frame="none"}
 printenv | head -n 3
@@ -50,7 +48,7 @@ PWD=/home/kuga
 LOGNAME=kuga
 ```
 
-打印指定环境变量。
+Prints a specific environment variable.
 
 ```bash {frame="none"}
 printenv PATH
@@ -60,9 +58,9 @@ printenv PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ```
 
-### 命令：env
+### Command: env
 
-不带参数会打印所有环境变量。
+Without arguments, it prints all environment variables.
 
 ```bash {frame="none"}
 env | head -n 3
@@ -74,9 +72,9 @@ PWD=/home/kuga
 LOGNAME=kuga
 ```
 
-### 命令：echo
+### Command: echo
 
-打印指定变量，可以是环境变量或 Shell 变量。
+Prints a specified variable, which can be an environment variable or a Shell variable.
 
 ```bash {frame="none"}
 echo $HOME
@@ -86,9 +84,9 @@ echo $HOME
 /home/kuga
 ```
 
-## 自定义 Shell 变量
+## Customizing Shell Vars
 
-定义名为 soda 的 Shell 变量，值为 green。
+Defines a Shell variable named soda with the value green.
 
 ```bash {frame="none"}
 soda=green
@@ -102,15 +100,15 @@ echo $soda
 green
 ```
 
-### 使用 printenv 访问
+### printenv
 
 ```bash {frame="none"}
 printenv soda
 ```
 
-输出为空，因为 soda **不是环境变量，它只是一个 Shell 变量**。
+Outputs nothing, because soda **is not an environment variable, it's just a Shell variable**.
 
-### 使用命令分组 () 访问
+### Command Group
 
 ```bash {frame="none"}
 (echo $soda)
@@ -120,7 +118,7 @@ printenv soda
 green
 ```
 
-### 使用命令分组 () 修改
+### Modify in Command Group
 
 ```bash {frame="none"}
 (soda=yellow; echo $soda); echo $soda
@@ -131,9 +129,9 @@ yellow
 green
 ```
 
-Subshell 内部的修改不会影响外部的数据。
+Subshell modifications do not affect external data.
 
-### 创建 Bash 实例访问
+### Creating a Bash Instance
 
 ```bash {frame="none"}
 bash
@@ -143,21 +141,21 @@ bash
 echo $soda
 ```
 
-输出为空，这就是普通 Shell 变量的基本作用域。
+Outputs nothing, which is the basic scope of a regular Shell variable.
 
-## 自定义环境变量
+## Customizing Env Vars
 
-可以通过 `export` 指令把 Shell 变量转变为环境变量，官方手册的定义如下。
+Environment variables can be created by exporting Shell variables using the `export` command, as defined in the official manual.
 
 ```bash {frame="none" text-wrap="wrap"}
 Mark each name to be passed to child processes in the environment.
 ```
 
 ```bash {frame="none"}
-翻译：标记变量名称，使其在环境中可以传递给子进程。
+Translation: Mark the variable name to be passed to child processes in the environment.
 ```
 
-可以同时定义和导出变量，也可以分开操作。
+Variables can be defined and exported simultaneously, or separately.
 
 ```bash {frame="none"}
 export soda=green
@@ -167,9 +165,9 @@ export soda=green
 soda=green; export soda;
 ```
 
-### 使用 printenv 访问
+### printenv
 
-转变为环境变量之后，使用 printenv 就能正常打印了。
+After being converted to an environment variable, printenv can normally print it.
 
 ```bash {frame="none"}
 printenv soda
@@ -179,7 +177,7 @@ printenv soda
 green
 ```
 
-### 使用命令分组 () 访问
+### Command Group
 
 ```bash {frame="none"}
 (printenv soda)
@@ -189,7 +187,7 @@ green
 green
 ```
 
-### 使用命令分组 () 修改
+### Modify in Command Group
 
 ```bash {frame="none"}
 (soda=yellow; echo $soda); echo $soda
@@ -200,9 +198,9 @@ yellow
 green
 ```
 
-同样，内部修改环境变量是不会影响外部的数据。
+Similarly, modifying environment variables within a subshell does not affect external data.
 
-### 创建 Bash 实例访问
+### Creating a Bash Instance
 
 ```bash {frame="none"}
 bash -c "printenv soda"
@@ -212,11 +210,11 @@ bash -c "printenv soda"
 green
 ```
 
-环境变量在新创建的 Bash 实例中是能访问的。
+Environment variables are accessible in a new Bash instance.
 
-### 查看所有 export 变量
+### Get All Export Variables
 
-不带参数，或使用 `-p` 就能打印所有 export 变量。
+Without arguments, or using `-p`, all export variables can be printed.
 
 ```bash {frame="none"}
 export
@@ -230,9 +228,9 @@ export | grep soda
 declare -x soda="green"
 ```
 
-### 取消 export 环境变量
+### Cancel Export Env Vars
 
-使用 `-n` 选项就能取消 export，变回普通的 Shell 变量。
+Using the `-n` option can cancel export, making it a regular Shell variable again.
 
 ```bash {frame="none"}
 export -n soda
@@ -242,11 +240,11 @@ export -n soda
 printenv soda; echo $soda
 ```
 
-printenv 无输出，echo 正常输出，因为 soda 已经不再是环境变量。
+printenv has no output, echo outputs normally, because soda is no longer an environment variable.
 
-### 删除变量
+### Deleting Variables
 
-下面会删除整个变量，无论是环境变量还是 Shell 变量。
+Below will delete the entire variable, whether it's an environment variable or a Shell variable.
 
 ```bash {frame="none"}
 unset soda
@@ -256,24 +254,24 @@ unset soda
 echo $soda
 ```
 
-## 命令：declare
+## Command: declare
 
-用于声明变量和属性，不带任何参数就输出所有的变量声明和当前值。
+Used to declare variables and attributes. If no names are given, then display the values of variables instead.
 
 ```bash {frame="none" text-wrap="wrap"}
 Declare variables and give them attributes. If no names are given, then display the values of variables instead.
 ```
 
-常用参数：
+Common parameters:
 
-* `-i`：将变量声明为整数。
-* `-r`：将变量声明为只读。
-* `-x`：将变量导出为环境变量。
-* `-p`：显示变量的声明和当前值。
+* `-i`：Declares the variable as an integer.
+* `-r`：Declares the variable as read-only.
+* `-x`：Exports the variable as an environment variable.
+* `-p`：Displays the declaration and current value of the variable.
 
-### 不带参数声明
+### Without Arguments
 
-效果和普通的 Shell 变量一样。
+The effect is the same as a regular Shell variable.
 
 ```bash {frame="none"}
 declare soda="green"
@@ -283,7 +281,7 @@ declare soda="green"
 echo $soda
 ```
 
-### 显示当前变量的声明
+### Display Var Declaration
 
 ```bash {frame="none"}
 declare -p soda
@@ -293,13 +291,13 @@ declare -p soda
 declare -- soda="green"
 ```
 
-### 显示所有变量的声明
+### Display All Vars Declaration
 
 ```bash {frame="none"}
 declare -p
 ```
 
-### 声明环境变量
+### Declare Env Vars
 
 ```bash {frame="none"}
 declare -x soda="green"
@@ -313,18 +311,18 @@ printenv soda
 green
 ```
 
-在 `export` 中也能看到 soda 的定义。
+The definition of soda can also be seen in `export`.
 
 ```bash {frame="none"}
 export | grep soda
 ```
 
-### -x 与 -\- 的区别
+### Diff Between -x and --
 
-不难发现，可以通过声明的符号区分不同的变量类型。
+It's not hard to see that the declaration symbols can be used to distinguish different types of variables.
 
-* `-x`：环境变量的声明。
-* `--`：普通 Shell 变量的声明。
+* `-x`：Declaration of environment variables.
+* `--`：Declaration of regular Shell variables.
 
 ```bash {frame="none"}
 declare -p soda
@@ -334,7 +332,7 @@ declare -p soda
 declare -x soda="green"
 ```
 
-取消 export 后。
+After canceling export.
 
 ```bash {frame="none"}
 export -n soda
@@ -348,9 +346,9 @@ declare -p soda
 declare -- soda="green"
 ```
 
-## 内建命令手册
+## Built-in Cmd Manual
 
-有些内建命令使用 `man` 是无法查看手册的，但可以使用 `help` 命令，或 `--help` 选项。
+Some built-in commands cannot be viewed using `man`, but can be viewed using the `help` command or the `--help` option.
 
 ### export
 
@@ -374,8 +372,8 @@ export --help
 
 ### declare
 
-同上
+Same as above
 
 ### unset
 
-同上
+Same as above

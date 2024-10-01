@@ -12,55 +12,52 @@ seo:
   noindex: false
 ---
 
-## 简介
+## Introduction
 
-Shebang 是 Unix 和类 Unix 操作系统中的一个特殊符号，由字符 `#!` 组成，
-用于指示脚本文件应该由哪个解释器来执行。它通常出现在脚本文件的第一行，后面跟着解释器的路径。
-Shebang 使得脚本文件能够像可执行程序一样直接运行，而不必手动调用解释器。
+Shebang is a special symbol in Unix and Unix-like operating systems, composed of the characters `#!`, used to indicate which interpreter should execute a script file. It usually appears at the beginning of a script file, followed by the path of the interpreter.
+Shebang allows script files to be run directly like executable programs, without manually calling the interpreter.
 
-## 名称由来
+## Origin of the Name
 
-`#` 在英语中表示 hash 或 sharp，`!` 在编程和命令行中表示 bang，
-这两个符号组合在一起就成了 hash-bang 或 sharp-bang。
-随着时间的推移，hash-bang 最终简化为 shebang。
+`#` in English represents hash or sharp, `!` in programming and command lines represents bang, and the combination of these two symbols is called hash-bang or sharp-bang. Over time, hash-bang was simplified to shebang.
 
-## 指定解释器
+## Specifying the Interpreter
 
-Shebang 后面指定的路径是解释器的位置，例如：
+The path specified after Shebang is the location of the interpreter, such as:
 
 ```bash {frame="none"}
 #!/bin/bash
 ```
 
-系统会使用该路径下的 bash 来执行这个脚本内容。
+The system will use the bash under this path to execute the script content.
 
-## 统一执行形式
+## Unified Execution Form
 
-不同类型的脚本可以统一使用 `./file` 的形式执行，无需显式调用解释器。
+Scripts of different types can be uniformly executed using the form `./file`, without explicitly calling the interpreter.
 
 ```bash {frame="none"}
 #!/bin/bash
 ```
 
-无需使用 `bash file` 执行，直接使用 `./file`。
+No need to use `bash file` to execute, directly use `./file`.
 
 ```bash {frame="none"}
 #!/bin/python3
 ```
 
-无需使用 `python file` 执行，直接使用 `./file`。
+No need to use `python file` to execute, directly use `./file`.
 
-## 常见例子
+## Common Examples
 
-我们在 bash 脚本中常常会看到下面的例子。
+We often see the following examples in bash scripts.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
 ```
 
-`env` 是一个与环境变量相关的命令。
-当后面跟的参数是 `bash` 时，它会根据环境变量 `PATH` 提供的路径查找 bash 的解释器。
-这样做的好处是无须写死 bash 解释器的路径，因为在不同的系统中，bash 解释器可能会在不同的位置。
+`env` is a command related to environment variables.
+When the argument following it is `bash`, it will search for the bash interpreter based on the path provided by the environment variable `PATH`.
+The advantage of doing this is that there is no need to hard-code the path of the bash interpreter, because the bash interpreter may be in different locations in different systems.
 
 ```bash {frame="none"}
 type -a bash
@@ -71,15 +68,15 @@ bash is /usr/bin/bash
 bash is /bin/bash
 ```
 
-对于上面的 python 例子，更好的 Shebang 是使用 env。
+For the above python example, a better Shebang is to use env.
 
 ```bash {frame="none"}
 #!/usr/bin/env python
 ```
 
-## 手动调用
+## Manual Invocation
 
-如果没有 Shebang，可以手动调用解释器。
+If there is no Shebang, the interpreter can be manually called.
 
 ```bash {frame="none"}
 bash script.sh
