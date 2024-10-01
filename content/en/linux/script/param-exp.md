@@ -1,12 +1,12 @@
 ---
-title: "参数展开"
+title: "Parameter Expansion"
 description: ""
 summary: ""
 date: 2024-09-02T20:00:00+08:00
 lastmod: 2024-09-03T20:00:00+08:00
 weight: 3800
 seo:
-  title: "参数展开"
+  title: "Parameter Expansion"
   description: ""
   canonical: ""
   noindex: false
@@ -14,37 +14,37 @@ seo:
 
 ## Parameter Expansion
 
-在 Bash 中，参数展开是一种用于操作和处理变量内容的机制。
-通过参数展开，可以获取变量的值，修改变量的值，或者为未设置的变量提供默认值。
+In Bash, parameter expansion is a mechanism for manipulating and handling the contents of variables.
+Through parameter expansion, you can get the value of a variable, modify the value of a variable, or provide a default value for an unset variable.
 
 {{< link-card
   title="Shell Parameter Expansion"
-  description="Shell 参数展开"
+  description="gnu.org"
   href="https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion"
   target="_blank"
 >}}
 
-## 变量展开
+## Variable Expansion
 
-最常见的方式。
+The most common way.
 
 ```bash {frame="none"}
 var="Bash"
 echo "Hello, ${var}!"
 ```
 
-## 默认值展开
+## Default Value Expansion
 
-### 标记 +
+### Mark +
 
 ```bash {frame="none"}
 ${var+DEFAULT}
 ```
 
-* var 未定义：返回空串。
-* var 已定义：
-  * 是空值：返回 DEFAULT。
-  * 非空值：返回 DEFAULT。
+* var is undefined: returns an empty string.
+* var is defined:
+  * is empty: returns DEFAULT.
+  * is not empty: returns DEFAULT.
 
 ```bash {frame="none"}
 unset var
@@ -66,7 +66,7 @@ echo ${var+foo}
 foo
 ```
 
-**可以用这个标记来判断变量是否未定义。**
+**This mark can be used to determine whether a variable is undefined.**
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -78,21 +78,20 @@ else
 fi
 ```
 
-{{< callout context="danger" title="注意" >}}
-如果 `${var+defined}` 没有使用双引号，当返回空字符串的时候，条件就会变成 `[ -n ]` ，
-这是一个有效的条件，不会产生任何错误，且它的返回值为真。显然这是不合理的，因此必须添加双引号。
+{{< callout context="danger" title="Note" >}}
+If `${var+defined}` is not used with double quotes, when an empty string is returned, the condition will become `[ -n ]`, which is a valid condition, will not produce any errors, and its return value is true. Obviously this is unreasonable, so double quotes must be added.
 {{< /callout >}}
 
-### 标记 -
+### Mark -
 
 ```bash {frame="none"}
 ${var-DEFAULT}
 ```
 
-* var 未定义：返回 DEFAULT。
-* var 已定义：
-  * 是空值：返回 var。
-  * 非空值：返回 var。
+* var is undefined: returns DEFAULT.
+* var is defined:
+  * is empty: returns var.
+  * is not empty: returns var.
 
 ```bash {frame="none"}
 unset var
@@ -114,18 +113,18 @@ echo ${var-foo}
  
 ```
 
-var 和 DEFAULT 的值有可能相同，因此不能用来判断 var 是否被定义。
+var and DEFAULT values may be the same, so they cannot be used to determine whether var is defined.
 
-### 标记 :+
+### Mark :+
 
 ```bash {frame="none"}
 ${var:+DEFAULT}
 ```
 
-* var 未定义：返回空串。
-* var 已定义：
-  * 是空值：返回空串。
-  * 非空值：返回 DEFAULT。
+* var is undefined: returns an empty string.
+* var is defined:
+  * is empty: returns an empty string.
+  * is not empty: returns DEFAULT.
 
 ```bash {frame="none"}
 var=abc
@@ -136,16 +135,16 @@ echo ${var:+foo}
 foo
 ```
 
-### 标记 :-
+### Mark :-
 
 ```bash {frame="none"}
 ${var:-DEFAULT}
 ```
 
-* var 未定义：返回 DEFAULT。
-* var 已定义
-  * 是空值：返回 DEFAULT。
-  * 非空值：返回 var。
+* var is undefined: returns DEFAULT.
+* var is defined
+  * is empty: returns DEFAULT.
+  * is not empty: returns var.
 
 ```bash {frame="none"}
 unset var
@@ -157,14 +156,14 @@ var=
 echo ${var:-foo}
 ```
 
-上面的两个例子都会输出 foo。
+Both of the above two examples will output foo.
 
-### 标记 :=
+### Mark :=
 
-* var 未定义：var=foo，返回 var。
-* var 已定义
-  * 是空值：var=foo，返回 var。
-  * 非空值：返回 var。
+* var is undefined: var=foo, returns var.
+* var is defined
+  * is empty: var=foo, returns var.
+  * is not empty: returns var.
 
 ```bash {frame="none"}
 unset var
@@ -177,9 +176,9 @@ foo
 foo
 ```
 
-## 字符串操作
+## String Operations
 
-### 提取子串
+### Extract Substring
 
 ```bash {frame="none"}
 var="heybro!"
@@ -190,7 +189,7 @@ echo ${var:3:4}
 bro!
 ```
 
-### 字符串长度
+### String Length
 
 ```bash {frame="none"}
 var="heybro!"
@@ -201,9 +200,9 @@ echo ${#var}
 7
 ```
 
-### 删除前缀
+### Remove Prefix
 
-删除最短匹配：用 `#`，模式 `*/`。
+Remove the shortest match: use `#`, pattern `*/`.
 
 ```bash {frame="none"}
 var="a/b/c"
@@ -214,7 +213,7 @@ echo ${var#*/}
 b/c
 ```
 
-删除最长匹配：用 `##`，模式 `*/`。
+Remove the longest match: use `##`, pattern `*/`.
 
 ```bash {frame="none"}
 var="a/b/c"
@@ -225,9 +224,9 @@ echo ${var##*/}
 c
 ```
 
-### 删除后缀
+### Remove Suffix
 
-删除最短匹配：用 `%`，模式 `/*`。
+Remove the shortest match: use `%`, pattern `/*`.
 
 ```bash {frame="none"}
 var="a/b/c"
@@ -238,7 +237,7 @@ echo ${var%/*}
 a/b
 ```
 
-删除最长匹配：用 `%%`，模式 `/*`。
+Remove the longest match: use `%%`, pattern `/*`.
 
 ```bash {frame="none"}
 var="a/b/c"
@@ -249,7 +248,7 @@ echo ${var%%/*}
 a
 ```
 
-### 替换第一个子串
+### Replace First Substring
 
 ```bash {frame="none"}
 var="aa bb aa"
@@ -260,7 +259,7 @@ echo ${var/aa/cc}
 cc bb aa
 ```
 
-### 替换所有子串
+### Replace All Substrings
 
 ```bash {frame="none"}
 var="aa bb aa"

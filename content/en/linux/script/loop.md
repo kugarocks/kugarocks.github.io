@@ -1,18 +1,18 @@
 ---
-title: "循环结构"
+title: "Loop"
 description: ""
 summary: ""
 date: 2024-08-30T20:00:00+08:00
 lastmod: 2024-08-31T20:00:00+08:00
 weight: 3300
 seo:
-  title: "循环结构"
+  title: "Loop"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## FOR 语句
+## For Statement
 
 ```bash {frame="none"}
 for var in list
@@ -21,7 +21,7 @@ do
 done
 ```
 
-`var` 变量的循环体外可以正常使用。
+The `var` variable can be normally used outside the loop body.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -39,7 +39,7 @@ hello banana
 outside var
 ```
 
-变量存储列表。
+Storing a list in a variable.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -49,49 +49,49 @@ list=$list" orange"
 for var in $list
 ```
 
-命令替换。
+Command substitution.
 
 ```bash {frame="none"}
 for var in $(cat file)
 ```
 
-通配符遍历目录。
+Wildcard iteration over a directory.
 
 ```bash {frame="none"}
 for var in /home/soda/*
 ```
 
-## IFS - 字段分隔符
+## IFS - Internal Field Separator
 
-环境变量 IFS（Internal Field Separator）指定了字段分隔符。
+The environment variable IFS (Internal Field Separator) specifies the field separator.
 
 ```bash {frame="none"}
 echo $IFS
 ```
 
-默认值为空，表示以下列字符分隔。
+The default value is empty, indicating that the following characters are separated.
 
-* 空格
-* 制表符
-* 换行符
+* Space
+* Tab
+* Newline
 
-### 以换行符分隔
+### Separating by Newline
 
 ```bash {frame="none"}
 IFS=$'\n'
 ```
 
-### 以多个符号分隔
+### Separating by Multiple Symbols
 
 ```bash {frame="none"}
 IFS=$'\n:;"'
 ```
 
-表示以换行符、冒号、分号、双引号作为分隔符。
+Indicates that newline, colon, semicolon, and double quotes are used as separators.
 
-## C 语言中的 FOR
+## For Loop in C Language
 
-`i` 变量在外部正常访问。
+The `i` variable can be normally accessed outside.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -109,7 +109,7 @@ index 2
 last index 3
 ```
 
-## WHILE 语句
+## While Statement
 
 ```bash {frame="none"}
 while test command
@@ -135,9 +135,9 @@ index 2
 index 1
 ```
 
-多个 `while` 条件的时候，以最后一个条件的退出码判断。
+Multiple `while` conditions are judged by the exit code of the last condition.
 
-## UNTIL 语句
+## Until Statement
 
 ```bash {frame="none"}
 until test command
@@ -163,9 +163,9 @@ index 2
 index 1
 ```
 
-## BREAK 语句
+## Break Statement
 
-支持指定退出循环的层数。
+Supports specifying the number of loop levels to exit.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -187,9 +187,9 @@ i=0
   j=1
 ```
 
-`break` 默认值是 1，表示退出 1 层循环。
+The `break` statement defaults to 1, indicating exit from 1 level of loop.
 
-## CONTINUE 语句
+## Continue Statement
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -217,11 +217,11 @@ i=2
   j=1
 ```
 
-和 `break` 一样，默认也是 1。
+Like `break`, the default is also 1.
 
-## 循环输出重定向
+## Loop Output Redirection
 
-可以对循环中的标准输出重定向。
+The standard output of the loop can be redirected.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -232,11 +232,11 @@ do
 done > output.txt
 ```
 
-循环体的输出会生定向到 `output.txt`。
+The output of the loop body will be redirected to `output.txt`.
 
-## 循环输出管道
+## Loop Output Pipe
 
-循环体的输出还可以使用管道传输。
+The output of the loop body can also be piped.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -247,6 +247,6 @@ do
 done | sort
 ```
 
-## 总结
+## Summary
 
-我竟然有点喜欢 `break` 的语法糖。
+I surprisingly like the syntax sugar of `break`.

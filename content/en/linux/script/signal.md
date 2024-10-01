@@ -1,12 +1,12 @@
 ---
-title: "信号处理"
+title: "Signal"
 description: ""
 summary: ""
 date: 2024-09-02T20:00:00+08:00
 lastmod: 2024-09-02T20:00:00+08:00
 weight: 3600
 seo:
-  title: "信号处理"
+  title: "Signal"
   description: ""
   canonical: ""
   noindex: false
@@ -14,8 +14,8 @@ seo:
 
 ## Bash Shell
 
-在默认情况下，Bash Shell 会忽略 `SIGQUIT(3)` 和 `SIGTERM(15)` 信号，
-因此执行下面的命令不会有任何反应（`$$` 是当前 Shell 的进程 ID）。
+By default, the Bash Shell ignores the `SIGQUIT(3)` and `SIGTERM(15)` signals,
+so executing the following commands will not have any effect (`$$` is the process ID of the current Shell).
 
 ```bash {frame="none"}
 kill -3 $$
@@ -25,8 +25,8 @@ kill -3 $$
 kill -15 $$
 ```
 
-如果收到 `SIGHUP(1)` 信号，Bash Shell 会退出，但在退出前，
-它会把 `SIGHUP` 信号传给所有由该 Shell 启动的进程和脚本。
+If the `SIGHUP(1)` signal is received, the Bash Shell will exit, but before exiting,
+it will pass the `SIGHUP` signal to all processes and scripts started by that Shell.
 
 ```bash {frame="none"}
 kill -1 $$
@@ -34,15 +34,15 @@ kill -1 $$
 
 ## TRAP
 
-可以使用 `trap` 命令捕获信号。
+The `trap` command can be used to catch signals.
 
 ```bash {frame="none"}
 trap commands signals
 ```
 
-### 捕获信号
+### Catch Signals
 
-键盘 `Ctrl+C` 的信号是 `SIGINT`。
+The `SIGINT` signal is the signal for `Ctrl+C`.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -68,17 +68,17 @@ loop #4
 loop #5
 ```
 
-### 退出信号
+### Exit Signals
 
-可以捕获脚本退出时候的信号。
+You can catch the signals when the script exits.
 
 ```bash {frame="none"}
 trap "echo ' Trapped Ctrl-C'" EXIT
 ```
 
-### 移除信号
+### Remove Signals
 
-使用 `--` 即可移除信号。
+Use `--` to remove signals.
 
 ```bash {frame="none"}
 trap -- SIGINT
@@ -86,8 +86,8 @@ trap -- SIGINT
 
 ## NOHUP
 
-No Hand Up，由该命令启动的进程或脚本会忽略 SIGHUB 信号。
-也就是说，即使终端退出，由该终端启动的进程或脚本不会跟着一起退出。
+No Hang Up, processes or scripts started by this command will ignore the SIGHUP signal.
+In other words, even if the terminal exits, the processes or scripts started by that terminal will not exit.
 
 ```txt {frame="none"}
 run a command immune to hangups, with output to a non-tty
@@ -97,13 +97,13 @@ run a command immune to hangups, with output to a non-tty
 nohup ./foo
 ```
 
-默认会把 `STDOUT` 和 `STDERR` 重定向到 `nohup.out`。
+By default, `STDOUT` and `STDERR` are redirected to `nohup.out`.
 
 ```bash {frame="none"}
 -rw------- 1 kuga kuga   40 Sep  2 18:46 nohup.out
 ```
 
-自己重定向会更好一些。
+It's better to redirect it yourself.
 
 ```bash {frame="none"}
 nohup ./foo > out.log 2>&1
@@ -115,17 +115,17 @@ nohup ./foo > out.log 2>&1
 
 ## Nice Value
 
-控制进程优先级的参数。`nice` 值越高，进程的优先级越低，分配到的 CPU 资源越少。
+A parameter that controls the priority of a process. The higher the `nice` value, the lower the priority of the process, and the less CPU resources it is allocated.
 
-### 范围
+### Range
 
-`nice` 值的范围从 `-20` 到 `19`：
+The `nice` value ranges from `-20` to `19`:
 
-* `-20`：最高优先级。
-* `0`：默认优先级。
-* `19`：最低优先级。
+* `-20`: Highest priority.
+* `0`: Default priority.
+* `19`: Lowest priority.
 
-### 启动进程优先级
+### Start Process Priority
 
 ```bash {frame="none"}
 nice -n VALUE command
@@ -135,7 +135,7 @@ nice -n VALUE command
 nice -n 10 ./foo
 ```
 
-### 修改进程优先级
+### Modify Process Priority
 
 ```bash {frame="none"}
 renice VALUE -p PID
@@ -145,7 +145,7 @@ renice VALUE -p PID
 renice 5 -p 404
 ```
 
-### 权限
+### Permissions
 
-* 普通用户只能降低进程的优先级。
-* root 用户才能提高进程的优先级。
+* Regular users can only lower the priority of a process.
+* Only root users can raise the priority of a process.

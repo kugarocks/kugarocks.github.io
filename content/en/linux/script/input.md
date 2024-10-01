@@ -1,24 +1,24 @@
 ---
-title: "输入处理"
+title: "Input"
 description: ""
 summary: ""
 date: 2024-08-31T20:00:00+08:00
 lastmod: 2024-08-31T20:00:00+08:00
 weight: 3400
 seo:
-  title: "输入处理"
+  title: "Input"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 位置参数
+## Positional Parameters
 
-Positional Parameters，脚本的位置参数。
+Positional Parameters, script positional parameters.
 
-* `$0`：脚本名，包含路径。
-* `$1`：第一个参数，以此类推。
-* `${10}`：大于 9 的参数要用花括号。
+* `$0`: script name, including path.
+* `$1`: the first argument, and so on.
+* `${10}`: arguments greater than 9 need to use curly braces.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -38,25 +38,25 @@ a
 
 ## BASENAME
 
-可以去掉脚本的路径，只保留名称。
+Can remove the script's path, leaving only the name.
 
 ```bash {frame="none"}
 basename /home/kuga/foo
 ```
 
-脚本中的用法。
+Usage in the script.
 
 ```bash {frame="none"}
 name=$(basename $0)
 ```
 
-## 特殊参数
+## Special Parameters
 
-[参考这里。](te-shu-can-shu.md)
+[Reference here.](te-shu-can-shu.md)
 
-## 移动参数
+## Shift Parameters
 
-`shift` 命令可以把位置参数左移一位。
+The `shift` command can shift the positional parameters to the left by one position.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -79,42 +79,42 @@ param #1 = a
 param #2 = b
 ```
 
-## 脚本选项
+## Script Options
 
-选项就是以在**单个连字符**后跟**单个字母**，如：`-a`。由于选项和参数都是出现在脚本的后面，为了区分开来，一般是用双连字符 `--`，左边是选项，右边是参数，例如。
+Options are single letters preceded by a single hyphen, such as `-a`. Since options and arguments are both located after the script, to distinguish them, a double hyphen `--` is usually used, with options on the left and arguments on the right, for example.
 
 ```bash {frame="none"}
 ./foo -a -b -- p1 p2
 ```
 
-要在脚本中正确解释选项和参数，不是一件容量的事情，为此官方提供了两个工具。
+To correctly interpret options and arguments in the script is not a trivial task, for which the official provides two tools.
 
 * **`getopt`**
-  * 外部命令。
-  * 支持长选项，如 `--help`。
-  * 适合复杂的命令行工具。
+  * External command.
+  * Supports long options, such as `--help`.
+  * Suitable for complex command-line tools.
 * **`getopts`**
-  * 内部命令。
-  * 不支持长选项。
-  * 适合简单的选项场景。
+  * Internal command.
+  * Does not support long options.
+  * Suitable for simple option scenarios.
 
-Github 上也有不少选项解释项目。
+There are also many option interpretation projects on Github.
 
-## getopt 命令
+## Getopt Command
 
 ```bash {frame="none"}
 getopt optstring parameters
 ```
 
-* `optstring`：选项的定义。
-* `parameters`：选项的内容。
+* `optstring`: the definition of the options.
+* `parameters`: the content of the options.
 
-例如对于 `optstring=ab:c`。
+For example, for `optstring=ab:c`.
 
-* 单字母 `a` 和 `c` 代表无值选项。
-* 字母 `b` 后跟 `:` 表示有值选项。
+* Single letters `a` and `c` represent options without values.
+* The letter `b` followed by `:` indicates an option with a value.
 
-看看下面例子的输出。
+Let's look at the output of the following example.
 
 ```bash {frame="none"}
 getopt ab:c -a -b bval -c p1 p2
@@ -124,19 +124,19 @@ getopt ab:c -a -b bval -c p1 p2
  -a -b bval -c -- p1 p2
 ```
 
-可以看到他使用 `--` 把选项和参数分隔开了。
+It can be seen that it uses `--` to separate options and arguments.
 
-## getopts 命令
+## Getopts Command
 
-`getopts` 是 Bash 的内置命令，它会逐个解释选项，然后把选项的信息存储在特定变量中，方便脚本访问。这才是给我这种小菜鸡用的命令。
+`getopts` is a built-in command in Bash, which will parse options one by one and store the information of the options in specific variables, making it convenient for scripts to access. This is the command for me, a small potato.
 
 ```bash {frame="none"}
 getopts optstring name
 ```
 
-* `name`：当前选项的名称。
-* `OPTIND`：每处理一个项目，该值会加 1。
-* `OPTARG`：如果选项有值，会保存在这个变量中。
+* `name`: the name of the current option.
+* `OPTIND`: each time an item is processed, this value will increase by 1.
+* `OPTARG`: if the option has a value, it will be saved in this variable.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -159,13 +159,13 @@ while getopts "ab:c:" name; do
   esac
 done
 
-# 显示 OPTIND 的值
+# Display the value of OPTIND
 echo "OPTIND: $OPTIND"
 
-# 使用 shift 来移除已解析的选项和参数
+# Use shift to remove parsed options and arguments
 shift $((OPTIND - 1))
 
-# 剩余的非选项参数
+# Remaining non-option arguments
 echo "Params: $@"
 ```
 

@@ -1,12 +1,12 @@
 ---
-title: "基本语法"
+title: "Basic Syntax"
 description: ""
 summary: ""
 date: 2024-08-30T20:00:00+08:00
 lastmod: 2024-08-30T20:00:00+08:00
 weight: 3100
 seo:
-  title: "基本语法"
+  title: "Basic Syntax"
   description: ""
   canonical: ""
   noindex: false
@@ -18,17 +18,17 @@ seo:
 #!/usr/bin/env bash
 ```
 
-## 变量赋值
+## Variable Assignment
 
-`=` 号两边不能有空格。
+No spaces are allowed around the `=` sign.
 
 ```bash {frame="none"}
 name=foo
 ```
 
-## 双引号
+## Double Quotes
 
-可解释变量。
+Can interpret variables.
 
 ```bash {frame="none"}
 name=foo
@@ -37,9 +37,9 @@ echo "hello, \$\$"  # hello, $$
 echo "hello, \"\""  # hello, ""
 ```
 
-## 单引号
+## Single Quotes
 
-不解释变量，只有单引号是特殊字符。
+Do not interpret variables, except for single quotes as special characters.
 
 ```bash {frame="none"}
 name=foo
@@ -48,15 +48,15 @@ echo 'hello, $$'    # hello, $$
 echo 'hello, ""'    # hello, ""
 ```
 
-要输出单引号，需要先关闭单引号。
+To output single quotes, you need to close single quotes first.
 
 ```bash {frame="none"}
 echo 'I'\''m fine'  # I'm fine
 ```
 
-## 命令替换
+## Command Substitution
 
-有**反单号**和 **`$()`** 两种用法。
+There are two ways to use **backticks** and **`$()`**.
 
 ```bash {frame="none"}
 result=`date`
@@ -66,7 +66,7 @@ result=`date`
 result=$(date)
 ```
 
-推荐使用 `$()`，可读性更好，更多例子如下：
+It is recommended to use `$()`, which is more readable, with more examples as follows:
 
 ```bash {frame="none"}
 echo "dir is: $(pwd)"
@@ -76,43 +76,43 @@ echo "dir is: $(pwd)"
 count=$(ls $(pwd) | wc -l)
 ```
 
-[在这里 `ls` 没有使用 `-l` 选项，但 count 的值是 4，原因在这。](/zh-cn/linux/cmd/common-1/#隐藏字符)
+[Here, `ls` did not use the `-l` option, but the value of count is 4, the reason is here.](/en/linux/cmd/common-1/#hidden-character)
 
-## 输出重定向
+## Output Redirection
 
-标准输出重定向 `>`，新建/覆盖文件。
+Standard output redirection `>`, creates a new file or overwrites an existing one.
 
 ```bash {frame="none"}
 cmd > file
 ```
 
-追加输出重定向 `>>`。
+Append output redirection `>>`.
 
 ```bash {frame="none"}
 cmd >> file
 ```
 
-标准错误重定向 `2>`，新建/覆盖文件。
+Standard error redirection `2>`, creates a new file or overwrites an existing one.
 
 ```bash {frame="none"}
 cmd 2> file
 ```
 
-标准输出和错误重定向到不同文件。
+Standard output and error redirection to different files.
 
 ```bash {frame="none"}
 cmd > foo.log 2> bar.log
 ```
 
-标准输出和错误重定向到同一文件。
+Standard output and error redirection to the same file.
 
 ```bash {frame="none"}
 ls 404 > foobar.log 2>&1
 ```
 
-## 输入重定向
+## Input Redirection
 
-常用方式，使用 `<` 符号。
+Common way, using `<` symbol.
 
 ```bash {frame="none"}
 echo "a b c" > foo
@@ -126,7 +126,7 @@ wc < foo
 1 3 6
 ```
 
-内联重定向，Inline Input Redirection。
+Inline redirection, Inline Input Redirection.
 
 ```bash {frame="none"}
 wc << FOO
@@ -140,42 +140,42 @@ FOO
 3       3      17
 ```
 
-FOO 为自定义标记，用于多行输入。
+FOO is a custom marker, used for multi-line input.
 
-## EXPR 命令
+## EXPR Command
 
-反人类的数学运算指令，`+` 号两边的空格不能少。
+The inhumane math operation command, spaces around the `+` sign cannot be less.
 
 ```bash {frame="none"}
 expr 2 + 5
 ```
 
-`*` 号是通匹符，还得转义。
+The `*` sign is a wildcard, and it needs to be escaped.
 
 ```bash {frame="none"}
 expr 2 \* 5
 ```
 
-只有整除，不支持浮点数。
+Only integer division is supported, no floating-point numbers.
 
 ```bash {frame="none"}
 expr 24 / 10
 ```
 
-## 方括号
+## Brackets
 
-可使用 `[]` 执行数学运算。
+You can use `[]` to perform mathematical operations.
 
 ```bash {frame="none"}
 var1=$[1+5*2]
 var2=$[2*(3+2)]
 ```
 
-## BC 计算器
+## BC Calculator
 
-精确数学运算计算器，全称 **Basic/Bench Calculator。**
+A precise math operation calculator, full name **Basic/Bench Calculator.**
 
-### 交互模式
+### Interactive Mode
 
 ```bash {frame="none"}
 bc
@@ -193,37 +193,37 @@ For details type `warranty'.
 quit
 ```
 
-`-q` 选项不打印上面那串英文欢迎语。
+The `-q` option does not print the above English welcome message.
 
 ```bash {frame="none"}
 bc -q
 ```
 
-### 浮点数
+### Floating Point
 
-可以直接使用浮点数计算。
+You can directly use floating-point numbers for calculations.
 
 ```bash {frame="none"}
 2.5*5
 12.5
 ```
 
-除法会用到 `scale` 变量，默认值为 0，表示整除。
+Division uses the `scale` variable, default value is 0, indicating integer division.
 
 ```bash {frame="none"}
 scale=2
 10/3
 ```
 
-表示保留 2 位小数，**`scale` 变量仅对除法有效**。
+Indicates to keep 2 decimal places, **`scale` variable only applies to division**.
 
-### 管道方式
+### Pipeline Method
 
 ```bash {frame="none"}
 foo=$(echo "scale=2; 10/3" | bc)
 ```
 
-### 内联输入重定向
+### Inline Input Redirection
 
 ```bash {frame="none"}
 var1=10.24
@@ -236,12 +236,12 @@ EOF
 )
 ```
 
-## EXIT 命令
+## EXIT Command
 
-脚本的默认退出码是 0，表示正常退出，可使用 `exit` 改变。
+The default exit code of the script is 0, indicating normal exit, and can be changed using `exit`.
 
 ```bash {frame="none"}
 exit 5
 ```
 
-退出码的范围是 0-255，取模（%256）。
+The exit code range is 0-255, mod (%256).

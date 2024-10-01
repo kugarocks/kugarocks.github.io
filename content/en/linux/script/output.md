@@ -1,36 +1,36 @@
 ---
-title: "输出处理"
+title: "Output"
 description: ""
 summary: ""
 date: 2024-08-31T20:00:00+08:00
 lastmod: 2024-09-03T20:00:00+08:00
 weight: 3500
 seo:
-  title: "输出处理"
+  title: "Output"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 标准文件描述符
+## Standard File Descriptors
 
-Standard File Descriptors。
+Standard File Descriptors.
 
-| 名称     | 编号 | 说明   |
+| Name     | Number | Description   |
 | ------ | -- | ---- |
-| STDIN  | 0  | 标准输入 |
-| STDOUT | 1  | 标准输出 |
-| STDERR | 2  | 标准错误 |
+| STDIN  | 0  | Standard Input |
+| STDOUT | 1  | Standard Output |
+| STDERR | 2  | Standard Error |
 
-### 标准输入
+### Standard Input
 
-命令 `cat` 默认从标准输入读取内容，如果直接运行 `cat` 而不指定文件名，它会等待用户输入。
+The `cat` command reads content from the standard input by default. If you run `cat` without specifying a filename, it will wait for user input.
 
 ```bash {frame="none"}
 cat
 ```
 
-重定向使用 `<`。
+Redirection is done using `<`.
 
 ```bash {frame="none"}
 cat < foo
@@ -40,51 +40,51 @@ cat < foo
 wc < foo
 ```
 
-### 标准输出
+### Standard Output
 
-默认是终端或屏幕。
+The default is the terminal or screen.
 
 ```bash {frame="none"}
 echo "hello world"
 ```
 
-重定向使用 `>` 或 `1>`。
+Redirection is done using `>` or `1>`.
 
 ```bash {frame="none"}
 echo "hello world" > foo
 ```
 
-### 标准错误
+### Standard Error
 
-默认是终端或屏幕。
+The default is the terminal or screen.
 
 ```bash {frame="none"}
 ls 404
 ```
 
-重定向使用 `2>`。
+Redirection is done using `2>`.
 
 ```bash {frame="none"}
 ls 404 2> foo
 ```
 
-使用 `&>` 可以同时重定向标准输出和错误输出。
+Using `&>` can redirect both standard output and standard error output simultaneously.
 
 ```bash {frame="none"}
 ls 404 &> foo
 ```
 
-## EXEC 命令
+## EXEC Command
 
-### 在命令行中使用
+### Using in Command Line
 
 ```bash {frame="none"}
 exec ls
 ```
 
-Shell 进程会被新命令的进程取代，执行完后不会返回到原来的 Shell 中。
+The Shell process will be replaced by the new command's process, and after execution, it will not return to the original Shell.
 
-### 在脚本中使用
+### Using in Script
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -93,23 +93,23 @@ exec /bin/date
 echo "This will never be executed"
 ```
 
-脚本进程会被 `date` 命令替代，`echo` 不会执行。
+The script process will be replaced by the `date` command, and `echo` will not be executed.
 
-### 文件描述符重定向
+### File Descriptor Redirection
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
 
-echo "这将输出到终端"
+echo "This will output to the terminal"
 exec 1> output.txt
-echo "这将被写入到 output.txt"
+echo "This will be written to output.txt"
 ```
 
-用于修改文件描述符时，不会替换当前进程，只会影响后续命令的输入输出。
+When modifying file descriptors, it will not replace the current process, but will affect the input/output of subsequent commands.
 
-## 关闭文件描述符
+## Closing File Descriptors
 
-重定向到 `&-` 即可关闭。关闭之后，不能再写数据。
+Redirecting to `&-` will close it. After closing, no more data can be written.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -121,31 +121,31 @@ exec 3>&-
 
 ## /dev/null
 
-空设备，位桶。
+The null device, a bit bucket.
 
 ```bash {frame="none"}
 crw-rw-rw- 1 root root 1, 3 Aug 14 23:16 /dev/null
 ```
 
-把标准输出和标准错误重定向到空设备。
+Redirecting both standard output and standard error to the null device.
 
 ```bash {frame="none"}
 command > /dev/null 2>&1
 ```
 
-## MKTEMP 命令
+## MKTEMP Command
 
-根据文件名模板，创建临时文件。
+Creates a temporary file based on a filename template.
 
 ```bash {frame="none"}
 filename.XXXXXX
 ```
 
-命令会把 X 代替为随机字符，模板最少为 6 个 X。
+The command will replace the X with random characters, and the template must have at least 6 X's.
 
-### 创建文件
+### Creating Files
 
-该命令创建的文件**只有 Owner 有权限**。
+Files created by this command **only have permissions for the Owner**.
 
 ```bash {frame="none"}
 mktemp foo.XXXXXX
@@ -155,7 +155,7 @@ mktemp foo.XXXXXX
 -rw------- 1 kuga kuga 0 Sep  2 17:27 foo.zPtFtG
 ```
 
-### 创建目录
+### Creating Directories
 
 ```bash {frame="none"}
 mktemp -d bar.XXXXXX
@@ -165,9 +165,9 @@ mktemp -d bar.XXXXXX
 drwx------ 2 kuga kuga 4096 Sep  2 17:29 bar.RQAMzc
 ```
 
-### 使用 /tmp 目录
+### Using the /tmp Directory
 
-使用 `-t` 选项会在 /tmp 目录创建文件。
+Using the `-t` option will create files in the /tmp directory.
 
 ```bash {frame="none"}
 mktemp -t foo.XXXXXX
@@ -177,9 +177,9 @@ mktemp -t foo.XXXXXX
 /tmp/foo.0IglAI
 ```
 
-## TEE 命令
+## TEE Command
 
-同时把数据重定向到标准输出和文件。
+Simultaneously redirects data to standard output and a file.
 
 ```txt {frame="none"}
 tee - read from standard input and write to standard output and files
@@ -201,4 +201,4 @@ cat testfile
 Mon Sep  2 05:36:44 PM CST 2024
 ```
 
-屏幕和文件都有同一份数据。
+The same data is on both the screen and in the file.

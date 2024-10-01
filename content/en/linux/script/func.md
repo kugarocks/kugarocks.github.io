@@ -1,18 +1,18 @@
 ---
-title: "函数"
+title: "Function"
 description: ""
 summary: ""
 date: 2024-09-02T20:00:00+08:00
 lastmod: 2024-09-03T20:00:00+08:00
 weight: 3700
 seo:
-  title: "函数"
+  title: "Function"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 创建函数
+## Creating a Function
 
 ```bash {frame="none"}
 function name {
@@ -20,7 +20,7 @@ function name {
 }
 ```
 
-或者
+or
 
 ```bash {frame="none"}
 name() {
@@ -28,19 +28,19 @@ name() {
 }
 ```
 
-## 函数返回值
+## Function Return Value
 
-返回值有多种形式。
+There are multiple forms of return values.
 
-### 使用 $?
+### Using $?
 
-表示函数最后一条命令的退出状态码。
+Represents the exit status code of the last command in the function.
 
 ```bash {frame="none"}
 echo $?
 ```
 
-### 使用 return
+### Using Return
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -55,9 +55,9 @@ double
 echo "Result: $?"
 ```
 
-**本质是退出状态码，范围 [0, 255]，超出会对 256 取模。**
+**Essentially, it's the exit status code, ranging from [0, 255], and exceeding will be modulo 256.**
 
-### 使用标准输出
+### Using Standard Output
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -71,9 +71,9 @@ result=$(double)
 echo "Result: $result"
 ```
 
-`result` 会保存函数中所有的标准输出。
+`result` will save all the standard output from the function.
 
-## 函数传参
+## Function Parameters
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -90,13 +90,13 @@ result=$(add 1 2)
 echo "Result: $result"
 ```
 
-函数里面的 `$#`、`$1` 和外层的参数相互独立。
+The `$#`, `$1`, and parameters within the function are independent of the outer parameters.
 
-## 变量的作用域
+## Variable Scope
 
-### 函数外定义
+### Outside the Function
 
-哪里都能访问。
+Accessible anywhere.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -115,7 +115,7 @@ green
 yellow
 ```
 
-### 函数内定义
+### Inside the Function
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -123,7 +123,7 @@ yellow
 function foo {
     soda=green
 }
-# 函数没执行前无法访问
+# Cannot access before the function is executed
 echo $soda
 foo
 echo $soda
@@ -137,9 +137,9 @@ green
 yellow
 ```
 
-### 使用 local
+### Using Local
 
-`local` 变量只在函数内部生效，和外部重名变量相互独立。
+`local` variables only take effect within the function and are independent of external variables with the same name.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -160,19 +160,19 @@ yellow
 green
 ```
 
-## 变量是否被定义
+## Is a Variable Defined
 
-[可以使用参数展开的 + 标记](can-shu-zhan-kai.md#biao-ji)。
+[Can use parameter expansion's + marker](can-shu-zhan-kai.md#biao-ji).
 
-## 函数是否被定义
+## Is a Function Defined
 
-后面定义的同名函数会覆盖前面定义同名函数的，所以在定义函数之前，可以先判断一下。
+Later-defined functions with the same name will override previously defined functions with the same name, so it's a good idea to check before defining a function.
 
 ```bash {frame="none"}
 declare -f FUNC_NAME
 ```
 
-例如把函数写在 .bashrc 文件。
+For example, writing the function in the .bashrc file.
 
 ```bash {frame="none"}
 function sayhello() {
@@ -188,7 +188,7 @@ declare -f sayhello
 echo $?
 ```
 
-函数已定义，退出码为 0，未定义，退出码为 1。
+The function is defined, exit code is 0, not defined, exit code is 1.
 
 ```bash {frame="none"}
 if declare -f sayhello > /dev/null; then

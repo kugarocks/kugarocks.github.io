@@ -1,5 +1,5 @@
 ---
-title: "脚本"
+title: "Script"
 sidebar:
   collapsed: true
 ---

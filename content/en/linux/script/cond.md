@@ -1,20 +1,20 @@
 ---
-title: "条件结构"
+title: "Condition"
 description: ""
 summary: ""
 date: 2024-08-31T20:00:00+08:00
 lastmod: 2024-09-02T20:00:00+08:00
 weight: 3200
 seo:
-  title: "条件结构"
+  title: "Condition"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## IF 语句
+## If Statement
 
-如果 `command` 的退出码为 `0`，则执行 `then` 的内容。
+If the exit code of `command` is `0`, then execute the content of `then`.
 
 ```bash {frame="none"}
 if command
@@ -23,7 +23,7 @@ then
 fi
 ```
 
-另一种形式。
+Another form.
 
 ```bash {frame="none"}
 if command; then
@@ -31,7 +31,7 @@ if command; then
 fi
 ```
 
-### ELSE
+### Else
 
 ```bash {frame="none"}
 if command; then
@@ -41,7 +41,7 @@ else
 fi
 ```
 
-### ELIF
+### Elif
 
 ```bash {frame="none"}
 if command; then
@@ -51,9 +51,9 @@ elif command; then
 fi
 ```
 
-### 检查用户
+### Check User
 
-检查 soda 用户是否存在。
+Check if the soda user exists.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -69,45 +69,45 @@ soda:x:1001:1001:,,,:/home/soda:/bin/bash
 soda exists
 ```
 
-`grep` 有数据时，退出码为 `0`，没数据退出码为 `1`。
+`grep` has an exit code of `0` when there is data, and `1` when there is no data.
 
-## TEST 命令
+## Test Command
 
-测试条件，如果为真，返回码为 `0`，否则返回码为 `1`。
+Test conditions, if true, the return code is `0`, otherwise the return code is `1`.
 
 ```bash {frame="none"}
 test - check file types and compare values
 ```
 
-基本语法。
+Basic syntax.
 
 ```bash {frame="none"}
 test EXPRESSION
 ```
 
-简短语法。
+Short syntax.
 
 ```bash {frame="none"}
 [ EXPRESSION ]
 ```
 
-在命令行执行后，可以用 `echo $?` 看返回码。
+After executing on the command line, you can use `echo $?` to see the return code.
 
-### 检查文件
+### Check File
 
-* `[ -e file ]`：文件是否存在。
-* `[ -d file ]`：是否存在且为目录。
-* `[ -f file ]`：是否存在且为文件。
-* `[ -s file ]`：是否存在且为不为空。
-* `[ -r file ]`：是否存在且可读。
-* `[ -w file ]`：是否存在且可写。
-* `[ -x file ]`：是否存在且可执行。
-* `[ -O file ]`：是否存在且属于当前用户。
-* `[ -G file ]`：是否存在且属于用户组。
-* `[ a -nt b ]`：文件 a 是否比 b 新。
-* `[ a -ot b ]`：文件 a 是否比 b 旧。
+* `[ -e file ]`：Check if the file exists.
+* `[ -d file ]`：Check if the file exists and is a directory.
+* `[ -f file ]`：Check if the file exists and is a file.
+* `[ -s file ]`：Check if the file exists and is not empty.
+* `[ -r file ]`：Check if the file exists and is readable.
+* `[ -w file ]`：Check if the file exists and is writable.
+* `[ -x file ]`：Check if the file exists and is executable.
+* `[ -O file ]`：Check if the file exists and belongs to the current user.
+* `[ -G file ]`：Check if the file exists and belongs to the user group.
+* `[ a -nt b ]`：Check if file a is newer than file b.
+* `[ a -ot b ]`：Check if file a is older than file b.
 
-如果 `file` 或 `$file` 变量包含空格，要使用双引号。
+If `file` or `$file` variable contains spaces, use double quotes.
 
 ```bash {frame="none"}
 [ -e "file" ]
@@ -117,25 +117,25 @@ test EXPRESSION
 [ -e "$file" ]
 ```
 
-### 检查字符串
+### Check String
 
-* `[ -z str ]`：字符串是否为空（长度为 0）。
-* `[ -n str ]`：字符串是否不为空（长度不为 0）。
-* `[ s1 = s2 ]`：字符串是否相等。
-* `[ s1 != s2 ]`：字符串是否不等。
+* `[ -z str ]`：Check if the string is empty (length is 0).
+* `[ -n str ]`：Check if the string is not empty (length is not 0).
+* `[ s1 = s2 ]`：Check if the strings are equal.
+* `[ s1 != s2 ]`：Check if the strings are not equal.
 
-### 检查数值
+### Check Number
 
-* `[ a -eq b ]`：两个数是否相等。
-* `[ a -ne b ]`：两个数是否不等。
-* `[ a -gt b ]`：a 是否大于 b。
-* `[ a -ge b ]`：a 是否大于或等于 b。
-* `[ a -lt b ]`：a 是否小于 b。
-* `[ a -le b ]`：a 是否小于或等于 b。
+* `[ a -eq b ]`：Check if the two numbers are equal.
+* `[ a -ne b ]`：Check if the two numbers are not equal.
+* `[ a -gt b ]`：Check if a is greater than b.
+* `[ a -ge b ]`：Check if a is greater than or equal to b.
+* `[ a -lt b ]`：Check if a is less than b.
+* `[ a -le b ]`：Check if a is less than or equal to b.
 
-## 复合条件
+## Compound Conditions
 
-和传统的编程语言一致。
+Consistent with traditional programming languages.
 
 ```bash {frame="none"}
 [ cond1 ] && [ cond2 ]
@@ -145,9 +145,9 @@ test EXPRESSION
 [ cond1 ] || [ cond2 ]
 ```
 
-## 双括号
+## Double Parentheses
 
-双括号可以使用高级数学表达式，无需转义。
+Double parentheses can be used for advanced mathematical expressions without escaping.
 
 ```bash {frame="none"}
 if (( 2**10 > 1000 ))
@@ -156,9 +156,9 @@ then
 fi
 ```
 
-## 双方括号
+## Double Square Brackets
 
-提供字符串的高级匹配模式。
+Provide advanced matching patterns for strings.
 
 ```bash {frame="none"}
 if [[ $BASH_VERSION == 5.* ]]
@@ -167,20 +167,20 @@ then
 fi
 ```
 
-## CASE 语句
+## Case Statement
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
 
-# 脚本的第一个参数
+# The first parameter of the script
 case "$1" in
   start)
     echo "Starting the service..."
-    # 在这里添加启动服务的命令
+    # Add the command to start the service here
     ;;
   stop)
     echo "Stopping the service..."
-    # 在这里添加停止服务的命令
+    # Add the command to stop the service here
     ;;
   *)
     echo "Usage: $0 {start|stop}"
@@ -189,8 +189,8 @@ case "$1" in
 esac
 ```
 
-* `$0`：脚本名称。
-* `$1`：脚本的第一个参数
-* `)`：分支条件结束标记。
-* `;;`：分支命令结束标记。
-* `*)`：默认分支，所有分支不匹配时执行。
+* `$0`：The name of the script.
+* `$1`：The first parameter of the script
+* `)`：Branch condition end tag.
+* `;;`：Branch command end tag.
+* `*)`：Default branch, executed when no branch matches.

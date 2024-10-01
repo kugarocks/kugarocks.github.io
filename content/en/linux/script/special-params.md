@@ -1,20 +1,20 @@
 ---
-title: "特殊参数"
+title: "Special Parameters"
 description: ""
 summary: ""
 date: 2024-08-30T20:00:00+08:00
 lastmod: 2024-08-30T20:00:00+08:00
 weight: 3900
 seo:
-  title: "特殊参数"
+  title: "Special Parameters"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 参数：$?
+## Parameters: $?
 
-上一个命令或脚本的退出码，0 成功，非 0 失败。
+The exit code of the previous command or script, 0 for success, non-0 for failure.
 
 ```bash {frame="none"}
 ls 404
@@ -24,11 +24,11 @@ ls 404
 echo $?
 ```
 
-会输出 2，表示失败。脚本中可用 `exit` 指定返回码。
+Will output 2, indicating failure. The return code can be specified in scripts using `exit`.
 
-## 参数：$\#
+## Parameters: $#
 
-表示传递给脚本或函数的参数个数。
+Indicates the number of arguments passed to the script or function.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -43,9 +43,9 @@ echo $#
 2
 ```
 
-## 参数：$*
+## Parameters: $*
 
-传递给脚本的所有参数，默认以空格分隔。
+All arguments passed to the script, separated by spaces by default.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -60,11 +60,11 @@ echo $*
 p1 p2p3
 ```
 
-分隔符可以通过 `IFS` 变量修改。
+The separator can be modified through the `IFS` variable.
 
-## 参数：$@
+## Parameters: $@
 
-传递给脚本的所有参数，默认以空格分隔。
+All arguments passed to the script, separated by spaces by default.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -79,48 +79,48 @@ echo $@
 p1 p2p3
 ```
 
-分隔符可以通过 `IFS` 变量修改。
+The separator can be modified through the `IFS` variable.
 
-## 区别：$* 与 $@
+## Difference: $* vs $@
 
-主要区别在处理带有空格的参数。
+The main difference lies in handling arguments with spaces.
 
-* `$*`：代表的是所有参数的字符串，是一个整体。
-* `$@`：
-  * 不带双引号：与 `$*` 是一样的。
-  * 带上双引号：`"$@"`，表示参数数组，每个参数是独立的。
+* `$*`: Represents all arguments as a single string, a whole.
+* `$@`:
+  * Without double quotes: Same as `$*`.
+  * With double quotes: `"$@"`, represents an array of arguments, each argument is independent.
 
 ```bash {frame="none"}
-# 假设传递的参数是 "arg1" "arg2 with space" "arg3"
+# Assuming the arguments passed are "arg1" "arg2 with space" "arg3"
 for arg in "$@"; do
     echo "Argument: $arg"
 done
 ```
 
 ```bash {frame="none"}
-# 将所有参数传递给另一个脚本
+# Passing all arguments to another script
 another_script "$@"
 ```
 
-## 参数：$$
+## Parameters: $$
 
-当前脚本的进程 ID。
+The process ID of the current script.
 
 ```bash {frame="none"}
 echo $$
 ```
 
-## 参数：$\!
+## Parameters: $!
 
-最近在进程后台运行的进程 ID。
+The process ID of the most recently backgrounded process.
 
 ```bash {frame="none"}
 echo $!
 ```
 
-## 参数：$0
+## Parameters: $0
 
-当前脚本名称。
+The name of the current script.
 
 ```bash {frame="none"}
 echo $0
@@ -130,9 +130,9 @@ echo $0
 -bash
 ```
 
-## 参数：$n
+## Parameters: $n
 
-第 n 个参数。
+The nth argument.
 
 ```bash {frame="none"}
 #!/usr/bin/env bash
@@ -147,9 +147,9 @@ echo $1
 a
 ```
 
-## 参数：$-
+## Parameters: $-
 
-脚本的选项。
+The options of the script.
 
 ```bash {frame="none"}
 echo $-
@@ -159,4 +159,4 @@ echo $-
 himBHs
 ```
 
-上面是当前 Shell 的启动选项。
+Above are the startup options of the current Shell.
