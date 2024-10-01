@@ -227,30 +227,30 @@ Help for color mapping - "Current Window" =  1:Def
 
 ## 特殊字段说明
 
-### **PR**
+### PR
 
 优先级。
 
-### **NI**
+### NI
 
 Nice Value。
 
-### **VIRT**
+### VIRT
 
 Virtual Image (KiB)。
 
-### **RES**
+### RES
 
 Resident Size (KiB)。
 
-### **SHR**
+### SHR
 
 共享内存大小。
 
-### **S**
+### S
 
 进程状态，参考 PS 命令。
 
-### **TIME+**
+### TIME+
 
 CPU Time, hundredths，进程启动后占用的 CPU 时间总和。

@@ -1,5 +1,5 @@
 ---
-title: "附录"
+title: "Appendix"
 sidebar:
   collapsed: true
 ---

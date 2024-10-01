@@ -1,90 +1,90 @@
 ---
-title: "常用命令-2"
+title: "Commands-2"
 description: ""
 summary: ""
 date: 2024-08-24T20:00:00+08:00
 lastmod: 2024-08-29T20:00:00+08:00
 weight: 1100
 seo:
-  title: "常用命令-2"
+  title: "Commands-2"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## SORT
+## Sort
 
-默认按字符的编码排序，非数值。
+Sorts lines of text files by default, non-numeric.
 
 ```bash {frame="none"}
 sort - sort lines of text files
 ```
 
-### 按逆序排列
+### Reverse Order
 
 ```bash {frame="none"}
 sort -r file
 ```
 
-### 按数值排序
+### Numeric Sort
 
 ```bash {frame="none"}
 sort -n file
 ```
 
-### 按月份排序
+### Sort By Month
 
-月份格式：`Jan`、`Feb`、`Mar`。
+Month format: `Jan`, `Feb`, `Mar`.
 
 ```bash {frame="none"}
 sort -M file
 ```
 
-### 指定列
+### Specify Column
 
-默认按（连续的）空格或制表符分隔。
+Default is separated by (consecutive) spaces or tabs.
 
 ```bash {frame="none"}
 sort -k 1 file
 ```
 
-### 指定分隔符和列
+### Specify Delimiter And Column
 
-`-k` 下标从 1 开始，第 3 列为用户 ID。
+`-k` index starts from 1, the 3rd column is the user ID.
 
 ```bash {frame="none"}
 sort -t ':' -k 3 -n /etc/passwd
 ```
 
-### 忽略大小写
+### Ignore Case
 
 ```bash {frame="none"}
 sort -f file
 ```
 
-### 结果去重
+### Remove Duplicates
 
 ```bash {frame="none"}
 sort -u file
 ```
 
-## ALIAS
+## Alias
 
 ```bash {frame="none"}
 sort - sort lines of text files
 ```
 
-### 查看可能别名
+### Possible Aliases
 
 ```bash {frame="none"}
 alias -p
 ```
 
-## TYPE
+## Type
 
-### 外/内部命令
+### External/Internal Command
 
-可查看命令是否内部命令，内部命令与 Shell 编译成一体，与外部命令不同，无须子进程执行。
+Can view if a command is an internal command, internal commands are compiled into the shell, different from external commands, no subprocess execution is required.
 
 ```bash {frame="none"}
 type cd
@@ -104,7 +104,7 @@ type ps
 ps is hashed (/usr/bin/ps)
 ```
 
-### 查看所有实现
+### All Implementations
 
 ```bash {frame="none"}
 type -a echo
@@ -116,7 +116,7 @@ echo is /usr/bin/echo
 echo is /bin/echo
 ```
 
-### 查看命令的别名
+### Command Aliases
 
 ```bash {frame="none"}
 type ll
@@ -138,15 +138,15 @@ ls is /usr/bin/ls
 ls is /bin/ls
 ```
 
-## READLINK
+## Readlink
 
 ```bash {frame="none"}
 readlink - print resolved symbolic links or canonical file names
 ```
 
-### 查看最后的链接
+### Final Link
 
-不用一个一个看了。
+No need to look one by one.
 
 ```bash {frame="none"}
 readlink -f /bin/vim

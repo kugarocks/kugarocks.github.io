@@ -1,12 +1,12 @@
 ---
-title: "专业术语 - 1"
+title: "Terms - 1"
 description: ""
 summary: ""
 date: 2024-08-29T20:00:00+08:00
 lastmod: 2024-08-29T20:00:00+08:00
 weight: 100000
 seo:
-  title: "专业术语 - 1"
+  title: "Terms - 1"
   description: ""
   canonical: ""
   noindex: false

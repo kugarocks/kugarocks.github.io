@@ -1,20 +1,20 @@
 ---
-title: "终止进程"
+title: "Terminate Processes"
 description: ""
 summary: ""
 date: 2024-08-24T20:00:00+08:00
 lastmod: 2024-08-27T20:00:00+08:00
 weight: 1500
 seo:
-  title: "终止进程"
+  title: "Terminate Processes"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## KILL 命令
+## Kill Command
 
-其实它是一个给进程发信号的工具，不一定是杀进程。
+It's actually a tool for sending signals to processes, not necessarily killing them.
 
 ```bash {frame="none"}
 man kill
@@ -24,11 +24,11 @@ man kill
 kill - send a signal to a process
 ```
 
-### 默认信号
+### Default Signal
 
-`kill` 命令的默认信号是 `SIGTERM`，对应数字 `15`，优雅终止。
+The default signal for the `kill` command is `SIGTERM`, corresponding to number `15`, for a graceful termination.
 
-### 列出可用信号
+### Available Signals
 
 ```bash {frame="none"}
 kill -l
@@ -52,7 +52,7 @@ KILL
 TERM
 ```
 
-### 指定信号类型
+### Specify Signal Type
 
 ```bash {frame="none"}
 kill -s SIGKILL <PID>
@@ -62,25 +62,25 @@ kill -s SIGKILL <PID>
 kill -9 <PID>
 ```
 
-### 发给多个进程
+### Multiple Processes
 
 ```bash {frame="none"}
 kill -15 <PID> <PID> <PID>
 ```
 
-### 特殊进程号 -1
+### Special Process Number
 
-\-1 进程号表示所有进程，以下命令会终止你（当前用户）能终止的所有进程。
+The process number `-1` represents all processes, and the following command will terminate all processes that you (the current user) can terminate.
 
-{{< callout context="danger" title="危险" >}}
-不要在 root 用户执行
+{{< callout context="danger" title="Danger" >}}
+Do not execute in the root user
 {{< /callout >}}
 
 ```bash {frame="none"}
 kill -9 -1
 ```
 
-假如我想在 `kuga` 用户执行，可先在 `root` 用户查看该用户的进程。
+If I want to execute as the `kuga` user, I can first view the processes of that user as the `root` user.
 
 ```bash {frame="none"}
 ps -fu kuga
@@ -94,18 +94,18 @@ kuga       43056   42991  0 14:13 ?        00:00:00 sshd: kuga@pts/0
 kuga       43057   43056  0 14:13 pts/0    00:00:00 -bash
 ```
 
-然后再到 kuga 终端执行命令 `kill -9 -1`。
+Then, execute the command `kill -9 -1` in the kuga terminal.
 
 ```bash {frame="none"}
 Connection to x.x.x.x closed by remote host.
 Connection to x.x.x.x closed.
 ```
 
-会立刻断开连接，在 `root` 上查看 `kuga` 用户进程会发现全没了。
+This will immediately disconnect, and viewing the `kuga` user processes on `root` will find that they are all gone.
 
-## PKILL 命令
+## Pkill Command
 
-通过进程的名称来查找并发送信号给匹配的进程。
+It sends signals to processes based on their names.
 
 ```bash {frame="none"}
 man pkill
@@ -115,11 +115,11 @@ man pkill
 signal for processes based on name and other attributes
 ```
 
-### 默认信号
+### Default Signal
 
-`pkill` 命令的默认信号是 `SIGTERM`，对应数字 `15`，优雅终止。
+The default signal for the `pkill` command is `SIGTERM`, corresponding to number `15`, for a graceful termination.
 
-### 指定信号类型
+### Specify Signal Type
 
 ```bash {frame="none"}
 pkill -SIGKILL bash
@@ -129,7 +129,7 @@ pkill -SIGKILL bash
 pkill -9 bash
 ```
 
-### 指定用户进程
+### Specify User Processes
 
 ```bash {frame="none"}
 pkill -u kuga
@@ -139,15 +139,15 @@ pkill -u kuga
 pkill -9 -u kuga bash
 ```
 
-### 精确匹配进程名称
+### Precision Process Name
 
 ```bash {frame="none"}
 pkill -x sshd
 ```
 
-## PGREP
+## Pgrep
 
-通过进程的名称来查找进程 ID。
+It looks up process IDs based on process names.
 
 ```bash {frame="none"}
 man pgrep
@@ -157,13 +157,13 @@ man pgrep
 look up for processes based on name and other attributes 
 ```
 
-### 忽略大小写
+### Ignore Case
 
 ```bash {frame="none"}
 pgrep -i BASH
 ```
 
-### 指定用户进程
+### Specify User Processes
 
 ```bash {frame="none"}
 pgrep -u kuga
@@ -176,9 +176,9 @@ pgrep -u kuga
 44150
 ```
 
-### 列出进程 ID 和名称
+### Process IDs and Names
 
-没有 `-l` 就只会显示进程 ID。
+Without `-l`, it will only display the process ID.
 
 ```bash {frame="none"}
 pgrep -l bash
@@ -189,7 +189,7 @@ pgrep -l bash
 44150 bash
 ```
 
-### 列出匹配进程的数量
+### Number of Matching Processes
 
 ```bash {frame="none"}
 pgrep -c bash
@@ -199,7 +199,7 @@ pgrep -c bash
 2
 ```
 
-### 指定父进程 ID
+### Specify Parent PID
 
 ```bash {frame="none"}
 pgrep -P 1729
@@ -210,7 +210,7 @@ pgrep -P 1729
 44084
 ```
 
-### 最近启动的进程
+### Recently Started Processes
 
 ```bash {frame="none"}
 pgrep -n -l
@@ -220,7 +220,7 @@ pgrep -n -l
 pgrep -n bash -l
 ```
 
-### 最早启动的进程
+### Earliest Started Processes
 
 ```bash {frame="none"}
 pgrep -o -l
@@ -230,38 +230,38 @@ pgrep -o -l
 1 systemd
 ```
 
-### 精确匹配进程名称
+### Precision Process Name
 
 ```bash {frame="none"}
 pgrep -x sshd
 ```
 
-## 常用信号
+## Common Signals
 
-### **SIGTERM - 15**
+### SIGTERM - 15
 
-请求进程终止。这个信号是“友好”的终止请求，进程可以捕捉到这个信号并执行清理工作，然后退出。
-它是 `kill` 和 `pkill` 命令的默认信号。
-通常用于优雅地终止进程，给进程时间来处理未完成的任务。
+Requests the process to terminate. This signal is "friendly" and allows the process to perform cleanup before exiting.
+It is the default signal for `kill` and `pkill` commands.
+Usually used for a graceful termination of processes, giving them time to handle unfinished tasks.
 
-### **SIGKILL - 9**
+### SIGKILL - 9
 
-强制终止进程。此信号不能被进程捕捉、阻塞或忽略，进程会立即被终止。
-发送 `SIGKILL` 会直接停止进程，不允许进程进行任何清理操作。
-用于无法正常终止的进程，当 `SIGTERM` 无效时使用。
+Forces the process to terminate. This signal cannot be caught, blocked, or ignored, and the process will be immediately terminated.
+Sending `SIGKILL` will directly stop the process without allowing it to perform any cleanup operations.
+Used for processes that cannot be normally terminated, when `SIGTERM` is ineffective.
 
-### **SIGINT - 2**
+### SIGINT - 2
 
-中断信号，通常由用户通过 `Ctrl+C` 发送，用于中断前台运行的进程。
-用于手动中断进程，尤其是交互式进程。
+Interrupt signal, usually sent by the user through `Ctrl+C`, used to interrupt foreground running processes.
+Used for manually interrupting processes, especially interactive processes.
 
-### **SIGQUIT - 3**
+### SIGQUIT - 3
 
-退出信号，通常由用户通过 `Ctrl+\` 发送，表示希望进程生成核心转储（core dump）并退出。
-用于调试，当希望进程生成核心转储以便分析问题时使用。
+Quit signal, usually sent by the user through `Ctrl+\`, indicating that the process should generate a core dump and exit.
+Used for debugging, when you want the process to generate a core dump for analysis.
 
-### **SIGHUP - 1**
+### SIGHUP - 1
 
-挂起信号，通常表示终端或控制台断开连接。
-许多守护进程在接收到 `SIGHUP` 信号时，会重新加载其配置文件。
-用于重新加载守护进程的配置，或让守护进程重启。
+Hangup signal, usually indicating that the terminal or console connection has been disconnected.
+Many daemon processes will reload their configuration files when they receive the `SIGHUP` signal.
+Used for reloading the configuration of daemon processes or causing them to restart.

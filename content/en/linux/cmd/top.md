@@ -1,18 +1,18 @@
 ---
-title: "TOP 命令"
+title: "Top"
 description: ""
 summary: ""
 date: 2024-08-24T20:00:00+08:00
 lastmod: 2024-08-27T20:00:00+08:00
 weight: 1400
 seo:
-  title: "TOP 命令"
+  title: "Top"
   description: ""
   canonical: ""
   noindex: false
 ---
 
-## 简介
+## Introduction
 
 ```bash {frame="none"}
 man top
@@ -22,7 +22,7 @@ man top
 top - display Linux processes
 ```
 
-top 命令默认按进程 **CPU 使用率的倒序**进行排序，并动态展示结果。
+The top command defaults to sorting processes by **CPU usage rate** and dynamically displaying the results.
 
 ```bash {frame="none"}
 top - 09:19:05 up 6 days, 10:02,  2 users,  load average: 0.13, 0.05, 0.01
@@ -38,80 +38,80 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.   1197.7 avail Mem
       1 root      20   0  167744  13388   8416 S   0.0   0.8   0:07.59 systemd
 ```
 
-## 头部信息
+## Header Information
 
-### 系统信息
+### System Information
 
 ```bash {frame="none"}
 top - 09:19:05 up 6 days, 10:02,  2 users,  load average: 0.13, 0.05, 0.01
 ```
 
-* 当前系统时间：09:19:05
-* 系统运行时间：6 天 10 小时 2 分
-* 当前登录用户：2 个
-* 系统平均负载：1 分钟、5 分钟、15 分钟
+* Current system time: 09:19:05
+* System running time: 6 days 10 hours 2 minutes
+* Current logged in users: 2
+* System average load: 1 minute, 5 minutes, 15 minutes
 
-### 进程概要
+### Process Summary
 
 ```bash {frame="none"}
 Tasks: 126 total,   1 running, 125 sleeping,   0 stopped,   0 zombie
 ```
 
-* 总进程数：126
-* 正在运行的进程数：1
-* 睡眠状态的进程数：125
-* 停止状态的进程数：0
-* 僵尸状态的进程数：0
+* Total number of processes: 126
+* Number of running processes: 1
+* Number of sleeping processes: 125
+* Number of stopped processes: 0
+* Number of zombie processes: 0
 
-### CPU 使用情况
+### CPU Usage
 
 ```bash {frame="none"}
 %Cpu(s):  0.5 us,  0.0 sy,  0.0 ni, 99.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 ```
 
-* 用户进程的 CPU 占比：0.5, user
-* 系统进程的 CPU 占比：0.0, system
-* 包含 `nice value` 进程的 CPU 占比：0.0
-* 空闲 CPU 占比：99.5, idle
-* 等待 IO 操作的 CPU 占比：0.0, wait
-* 处理硬件中断的 CPU 占比：0.0, hardware interrupts
-* 处理软件中断的 CPU 占比：0.0, software interrupts
-* 被虚拟化程序偷走的 CPU 占比：0.0, stolen
+* CPU usage of user processes: 0.5, user
+* CPU usage of system processes: 0.0, system
+* CPU usage of processes with `nice value`: 0.0
+* Idle CPU usage: 99.5, idle
+* CPU usage of processes waiting for IO: 0.0, wait
+* CPU usage of handling hardware interrupts: 0.0, hardware interrupts
+* CPU usage of handling software interrupts: 0.0, software interrupts
+* CPU usage of CPU stolen by virtualization programs: 0.0, stolen
 
-### 内存使用情况
+### Memory Usage
 
 ```bash {frame="none"}
 MiB Mem :   1673.0 total,    252.3 free,    299.5 used,   1121.3 buff/cache
 ```
 
-* 单位：MiB, Million Byte
-* 总数：1673.0 MB
-* 空闲：252.3 MB
-* 已用：299.5 MB
-* 缓存：1121.3 MB
+* Unit: MiB, Million Byte
+* Total: 1673.0 MB
+* Free: 252.3 MB
+* Used: 299.5 MB
+* Cache: 1121.3 MB
 
-### 交换区使用情况
+### Swap Usage
 
 ```bash {frame="none"}
 MiB Swap:      0.0 total,      0.0 free,      0.0 used.   1197.7 avail Mem
 ```
 
-* 总数：0.0
-* 空闲：0.0
-* 已用：0.0
-* 可用：1197.7 MB（buff/cache）
+* Total: 0.0
+* Free: 0.0
+* Used: 0.0
+* Available: 1197.7 MB (buff/cache)
 
-总数为 0 有可能是因为没有配置交换区，可以使用以下命令检查。
+A total of 0 may be due to the lack of swap space. You can use the following command to check.
 
 ```bash {frame="none"}
 swapon --show
 ```
 
-如果什么也没有输出，就表示没有配置交换区。
+If there is no output, it means that no swap space is configured.
 
-## 字段管理模式
+## Field Management Mode
 
-按下 `f` 或 `Shift + f` 键，此时会进入字段管理模式。
+Press `f` or `Shift + f` to enter the field management mode.
 
 ```bash {frame="none"}
 Fields Management for window 1:Def, whose current sort field is %CPU
@@ -121,48 +121,47 @@ Fields Management for window 1:Def, whose current sort field is %CPU
 
 ### window 1:Def
 
-窗口编号是 1，使用默认（Default）的字段配置。
+The window number is 1, and the default (Default) field configuration is used.
 
-### 修改字段显示顺序
+### Fields Display Order
 
-按右方向键选择需要移动的字段，上下移动后，按回车或左方向键提交。
+Select the field that needs to be moved by pressing the right arrow key, move up and down, and then press Enter or the left arrow key to commit.
 
-### 设置是否显示字段
+### Fields Display Switch
 
-选择好字段后，按 `d` 或空格键。
+After selecting the field, press `d` or the space key.
 
-### 设置当前排序字段
+### Current Sorting Field
 
-选择好字段后，按 `s` 键，只在当前会话生效。
+After selecting the field, press the `s` key, which only takes effect in the current session.
 
-### 其它非常用字段
+### Other Fields
 
 go rocks
 
-## 多窗口模式
+## Multi-Window Mode
 
-按下 `Shift + A` 键，会出现 4 个 `top` 窗口，左上角会显示窗口的名称，
-每个窗口显示的字段和排序的方式不同，都可以通过字段管理模式修改。
+Press `Shift + A`, and 4 `top` windows will appear. The name of the window will be displayed in the upper left corner. Each window displays different fields and sorts in different ways, and can be modified through the field management mode.
 
-### 常用操作
+### Common Operations
 
-* 返回单窗口模式：`Shift + A`
-* 选择下一个窗口：`a`  键。
-* 选择上一个窗口：`w`  键。
-* 选择指定的窗口：`g`  键，选 `1-4` 。
-* 修改窗口的名称：`Shift + G`，输入 1-3 个字符。
-* 进入字段管理模式：`Shift + F`。
+* Return to single window mode: `Shift + A`
+* Select the next window: `a`  key.
+* Select the previous window: `w`  key.
+* Select a specific window: `g`  key, select `1-4`  .
+* Modify the window name: `Shift + G`, enter 1-3 characters.
+* Enter the field management mode: `Shift + F`.
 
-### 常见窗口
+### Common Windows
 
-* **1:Def**：编号 1，按 `%CPU` 逆序排序。
-* **2:Job**：编号 2，按 `PID` 逆序排序。
-* **3:Mem**：编号 3，按 `%Mem` 逆序排序。
-* **4:Usr**：编号 4，按 `USER` 逆序排序。
+* **1:Def**：Number 1, sorted in reverse order by `%CPU`.
+* **2:Job**：Number 2, sorted in reverse order by `PID`.
+* **3:Mem**：Number 3, sorted in reverse order by `%Mem`.
+* **4:Usr**：Number 4, sorted in reverse order by `USER`.
 
-## 个性化窗口颜色
+## Personalized Window Color
 
-`Shift + Z` 进入颜色配置模式，下面已经写得明明白白了。
+Press `Shift + Z` to enter the color configuration mode. The following is written clearly.
 
 ```bash {frame="none"}
 Help for color mapping - "Current Window" =  1:Def
@@ -191,66 +190,66 @@ Help for color mapping - "Current Window" =  1:Def
    'a' or 'w' to commit & change another, <Enter> to commit and end
 ```
 
-1. 可修改不同窗口（1:Def）的配置，按 `a` 或 `w` 选择。
-2. 可用开关：`Shift + B`、`z`、`b`。
-3. 可修改 4 个部分的颜色，`Shift + S/M/H/T`。
-4. 修改的颜色可以输入数字，也可以使用上下键选择。
-5. `q`  或 `Esc` 取消配置，`Enter` 提交配置。
+1. You can modify the configuration of different windows (1:Def) by pressing `a` or `w` to select.
+2. Available switches: `Shift + B`, `z`, `b`.
+3. You can modify the colors of 4 parts, `Shift + S/M/H/T`.
+4. The modified color can be entered as a number or selected using the up and down keys.
+5. Press `q`  or `Esc` to cancel the configuration, and `Enter` to submit the configuration.
 
-退出颜色模式后，如果想**持久化配置**，需要按 `Shift + W`，文件保存路径：
+After exiting the color mode, if you want to **persist the configuration**, you need to press `Shift + W`, and the file save path is:
 
 ```bash {frame="none"}
 ~/.config/procps/toprc
 ```
 
-注意，如果保存的时候在多窗口模式，下次打开也会是多窗口模式。
+Note that if you save in multi-window mode, it will also be in multi-window mode when you open it next time.
 
-## 常用快捷键
+## Common Shortcuts
 
-部分快捷键也会修改当前 top 命令会话窗口的属性。
+Some shortcuts will also modify the properties of the current top command session window.
 
-* **`h`**：显示帮助菜单，列出所有可用的命令。
-* **`0`**：切换值为 0 的字段显示/隐藏。
-* **`1`**：切换显示每个 CPU 核心的使用情况。
-* **`k`**：终止进程，输入 PID。
-* **`r`**：调整进程的优先级（renice）。
-* **`z`**：切换颜色显示模式。
-* **`x`**：高亮显示当前排序的列。
-* **`c`**：切换命令行显示/隐藏。
-* **`n`**：改变显示进程的数量，输入显示的进程数。
-* **`Shift + W`**：保存当前配置。
-* **`Shift + Z`**：进入颜色模式。
-* **`Shift + P`**：按 CPU 使用率排序。
-* **`Shift + M`**：按内存使用率排序。
-* **`Shift + N`**：按 PID 排序。
-* **`Shift + T`**：按进程运行时间排序。
+* **`h`**：Display the help menu, listing all available commands.
+* **`0`**：Toggle display/hide of fields with a value of 0.
+* **`1`**：Toggle display of CPU core usage.
+* **`k`**：Terminate a process, enter the PID.
+* **`r`**：Adjust the priority of the process (renice).
+* **`z`**：Toggle color display mode.
+* **`x`**：Highlight the column currently sorted.
+* **`c`**：Toggle display/hide of the command line.
+* **`n`**：Change the number of processes displayed, enter the number of processes to display.
+* **`Shift + W`**：Save the current configuration.
+* **`Shift + Z`**：Enter the color mode.
+* **`Shift + P`**：Sort by CPU usage rate.
+* **`Shift + M`**：Sort by memory usage rate.
+* **`Shift + N`**：Sort by PID.
+* **`Shift + T`**：Sort by process running time.
 
-## 特殊字段说明
+## Special Fields
 
-### **PR**
+### PR
 
-优先级。
+Priority.
 
-### **NI**
+### NI
 
-Nice Value。
+Nice Value.
 
-### **VIRT**
+### VIRT
 
-Virtual Image (KiB)。
+Virtual Image (KiB).
 
-### **RES**
+### RES
 
-Resident Size (KiB)。
+Resident Size (KiB).
 
-### **SHR**
+### SHR
 
-共享内存大小。
+Shared memory size.
 
-### **S**
+### S
 
-进程状态，参考 PS 命令。
+Process status, refer to PS command.
 
-### **TIME+**
+### TIME+
 
-CPU Time, hundredths，进程启动后占用的 CPU 时间总和。
+CPU Time, hundredths, the total CPU time occupied by the process after startup.
