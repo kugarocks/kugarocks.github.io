@@ -1,12 +1,12 @@
 ---
-title: "MacOS 开发环境"
+title: "MacOS"
 description: ""
 summary: ""
 date: 2024-07-24T00:00:00+08:00
 lastmod: 2024-07-29T00:00:00+08:00
 weight: 200
 seo:
-  title: "MacOS 开发环境"
+  title: "MacOS"
   description: ""
   canonical: ""
   noindex: false

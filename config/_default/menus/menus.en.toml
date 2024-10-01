@@ -54,8 +54,8 @@
   weight = 100
 
 [[sidebar_tech]]
-  name = "My Dev Env"
-  pageRef = "/tech/my-dev-env/"
+  name = "Dev Env"
+  pageRef = "/tech/dev-env/"
   weight = 200
 
 [[sidebar_tech]]
