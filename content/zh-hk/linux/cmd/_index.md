@@ -1,5 +1,5 @@
 ---
-title: "命令"
+title: "指令"
 sidebar:
   collapsed: true
 ---

@@ -1,5 +1,5 @@
 ---
-title: "附录"
+title: "附錄"
 sidebar:
   collapsed: true
 ---

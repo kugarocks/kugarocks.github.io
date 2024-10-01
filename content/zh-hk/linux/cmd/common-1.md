@@ -14,7 +14,7 @@ seo:
 
 ## MAN
 
-该指令可以查看手册页中不同的章节（Section）。
+呢個指令可以睇手冊頁中唔同嘅章節（Section）。
 
 ```bash {frame="none"}
 man man
@@ -51,7 +51,7 @@ man 9 fork # not work
 
 ### Games
 
-`fortune` 可以随机的名言警句和笑话。
+`fortune` 可以隨機嘅名言警句同笑話。
 
 ```bash {frame="none"}
 apt install fortune/fortune-mod/fortunes-zh
@@ -65,7 +65,7 @@ man 6 fortune
 fortune - print a random, hopefully interesting, adage
 ```
 
-可以结合 `cowsay` 和 `lolcat` 一起玩。
+可以結合 `cowsay` 同 `lolcat` 一齊玩。
 
 ```bash {frame="none"}
 fortune | cowsay | lolcat
@@ -93,13 +93,13 @@ man cat
 cat - concatenate files and print on the standard output
 ```
 
-### 显示行号 - 包括空行
+### 顯示行號 - 包括空行
 
 ```bash {frame="none"}
 cat -n FILE
 ```
 
-### 显示行号 - 不包括空行
+### 顯示行號 - 唔包括空行
 
 ```bash {frame="none"}
 cat -b FILE
@@ -115,7 +115,7 @@ man ls
 ls - list directory contents
 ```
 
-### 文件详细信息
+### 文件詳細信息
 
 ```bash {frame="none"}
 ls -lh
@@ -127,54 +127,54 @@ crw-rw-rw- 1 root tty  5,   0 Aug  7 22:33 /dev/tty
 brw-rw---- 1 root disk 252, 0 Aug  7 21:30 /dev/vda
 ```
 
-* 文件类型：`d` 目录，`-` 文件，`l` 链接，`c` 字符设备，`b` 块设备。
-* 文件权限：700，Owner: 7，Group: 0, Other: 0
-* 硬链接数：9
-* 文件属主：root
-* 文件组别：root
+* 文件類型：`d` 目錄，`-` 文件，`l` 鏈接，`c` 字符設備，`b` 塊設備。
+* 文件權限：700，Owner: 7，Group: 0, Other: 0
+* 硬鏈接數：9
+* 文件屬主：root
+* 文件組別：root
 * 文件大小：4.0K
-* 修改时间：Aug 7 22:38
-* 文件名称：root
-* 主设备号：Major Number，5/252，标识设备驱动程序
-* 次设备号：Minor Number，0，标识同一类设备中的某个设备实例
+* 修改時間：Aug 7 22:38
+* 文件名稱：root
+* 主設備號：Major Number，5/252，標識設備驅動程序
+* 次設備號：Minor Number，0，標識同一類設備中嘅某個設備實例
 
-### 只显示目录
+### 只顯示目錄
 
 ```bash {frame="none"}
 ls -ld */
 ```
 
-包括隐藏文件
+包括隱藏文件
 
 ```bash {frame="none"}
 ls -ld .*/ */
 ```
 
-### 显示特定目录信息
+### 顯示特定目錄信息
 
 ```bash {frame="none"}
 ls -ld /usr
 ```
 
-### 在文件后面添加类型符号
+### 喺文件後面添加類型符號
 
 ```bash {frame="none"}
 ls -lF /
 ```
 
-* `/`：目录
-* `*`：可执行文件
-* `@`：符号链接
+* `/`：目錄
+* `*`：可執行文件
+* `@`：符號鏈接
 * `|`：命名管道
 * `=`：套接字
 
-### 隐藏字符
+### 隱藏字符
 
 ```bash {frame="none"}
 ls ~ | wc -l
 ```
 
-`ls` 命令的输出中有隐藏字符 `\n`。
+`ls` 命令嘅輸出中有隱藏字符 `\n`。
 
 ```bash {frame="none"}
 ls ~ | od -c
@@ -185,7 +185,7 @@ ls ~ | od -c
 0000020
 ```
 
-还可以使用 `cat -A`。
+仲可以用 `cat -A`。
 
 ```bash {frame="none"}
 ls ~ | cat -A
@@ -199,7 +199,7 @@ foobar$
 
 ## FILE
 
-显示文件类型
+顯示文件類型
 
 ```bash {frame="none"}
 man file
@@ -209,7 +209,7 @@ man file
 file — determine file type
 ```
 
-### 字符/块设备
+### 字符/塊設備
 
 ```bash {frame="none"}
 file /dev/tty
@@ -229,9 +229,9 @@ file /dev/vda
 /dev/vda: block special (252/0)
 ```
 
-### 链接文件
+### 鏈接文件
 
-注意结尾斜杆。
+注意結尾斜杆。
 
 ```bash {frame="none"}
 file /bin
@@ -253,7 +253,7 @@ file /bin/
 
 ## LESS
 
-`more` 命令只能按回车加载，`less` 命令更强大，因为 less is more。
+`more` 命令只能按回車加載，`less` 命令更強大，因為 less is more。
 
 ```bash {frame="none"}
 man less
@@ -273,21 +273,21 @@ man usermod
 usermod - modify a user account
 ```
 
-### 禁止账号登录
+### 禁止賬號登錄
 
 ```bash {frame="none"}
 usermod -s /sbin/nologin kuga
 ```
 
-此命令会在 `/etc/passwd` 中把 `bin/sh` 改为 `/sbin/nologin`
+呢個命令會喺 `/etc/passwd` 中把 `bin/sh` 改為 `/sbin/nologin`
 
 ```bash {frame="none"}
 kuga:x:1000:1000::/home/kuga:/sbin/nologin
 ```
 
-### 授权用户组
+### 授權用戶組
 
-下面的命令会给 kuga 用户授权 sudo 用户组。
+下面嘅命令會俾 kuga 用戶授權 sudo 用戶組。
 
 ```bash {frame="none"}
 usermod -aG sudo kuga
@@ -303,7 +303,7 @@ man ln
 ln - make links between files
 ```
 
-### 软链接
+### 軟鏈接
 
 go rocks
 
@@ -317,13 +317,13 @@ man df
 df - report file system disk space usage
 ```
 
-### 以可读格式输出
+### 以可讀格式輸出
 
 ```bash {frame="none"}
 df -h
 ```
 
-### 指定文件系统类型
+### 指定文件系統類型
 
 ```bash {frame="none"}
 df -h -t ext4
@@ -333,7 +333,7 @@ df -h -t ext4
 df -h -t apfs
 ```
 
-`ext4` 是 Linux 的文件系统类型，`apfs` 是 macOS 的文件系统类型。
+`ext4` 係 Linux 嘅文件系統類型，`apfs` 係 macOS 嘅文件系統類型。
 
 ## DU
 
@@ -347,13 +347,13 @@ man du
 du - estimate file space usage
 ```
 
-### 查看文件/目录总大小
+### 睇文件/目錄總大小
 
 ```bash {frame="none"}
 du -sh ~/Downloads
 ```
 
-### 排序文件 - 含子目录
+### 排序文件 - 含子目錄
 
 ```bash {frame="none"}
 du -ah ~/Downloads/* | sort -rh | head -n 5
@@ -363,7 +363,7 @@ du -ah ~/Downloads/* | sort -rh | head -n 5
 du -ah ~/Downloads --max-depth=1 | sort -rh | head -n 10
 ```
 
-### 排序文件 - 不含子目录
+### 排序文件 - 唔含子目錄
 
 ```bash {frame="none"}
 du -sh ~/Downloads/* | sort -rh | head -n 5

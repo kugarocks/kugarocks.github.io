@@ -14,7 +14,7 @@ seo:
 
 ## SORT
 
-默认按字符的编码排序，非数值。
+預設按字符嘅編碼排序，唔係數值。
 
 ```bash {frame="none"}
 sort - sort lines of text files
@@ -26,7 +26,7 @@ sort - sort lines of text files
 sort -r file
 ```
 
-### 按数值排序
+### 按數值排序
 
 ```bash {frame="none"}
 sort -n file
@@ -42,27 +42,27 @@ sort -M file
 
 ### 指定列
 
-默认按（连续的）空格或制表符分隔。
+預設按（連續嘅）空格或者制表符分隔。
 
 ```bash {frame="none"}
 sort -k 1 file
 ```
 
-### 指定分隔符和列
+### 指定分隔符同列
 
-`-k` 下标从 1 开始，第 3 列为用户 ID。
+`-k` 下標由 1 開始，第 3 列係用戶 ID。
 
 ```bash {frame="none"}
 sort -t ':' -k 3 -n /etc/passwd
 ```
 
-### 忽略大小写
+### 忽略大小寫
 
 ```bash {frame="none"}
 sort -f file
 ```
 
-### 结果去重
+### 結果去重
 
 ```bash {frame="none"}
 sort -u file
@@ -74,7 +74,7 @@ sort -u file
 sort - sort lines of text files
 ```
 
-### 查看可能别名
+### 睇可能嘅別名
 
 ```bash {frame="none"}
 alias -p
@@ -82,9 +82,9 @@ alias -p
 
 ## TYPE
 
-### 外/内部命令
+### 外/內部命令
 
-可查看命令是否内部命令，内部命令与 Shell 编译成一体，与外部命令不同，无须子进程执行。
+可以睇命令係咪內部命令，內部命令同 Shell 編譯成一體，同外部命令唔同，唔使子進程執行。
 
 ```bash {frame="none"}
 type cd
@@ -104,7 +104,7 @@ type ps
 ps is hashed (/usr/bin/ps)
 ```
 
-### 查看所有实现
+### 睇所有實現
 
 ```bash {frame="none"}
 type -a echo
@@ -116,7 +116,7 @@ echo is /usr/bin/echo
 echo is /bin/echo
 ```
 
-### 查看命令的别名
+### 睇命令嘅別名
 
 ```bash {frame="none"}
 type ll
@@ -144,9 +144,9 @@ ls is /bin/ls
 readlink - print resolved symbolic links or canonical file names
 ```
 
-### 查看最后的链接
+### 睇最後嘅鏈接
 
-不用一个一个看了。
+唔使一個一個睇。
 
 ```bash {frame="none"}
 readlink -f /bin/vim

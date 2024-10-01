@@ -12,11 +12,11 @@ seo:
   noindex: false
 ---
 
-## 简介
+## 簡介
 
-全称 **Global Regular Expression Print**，来源于一个 Unix 编辑器 `ed` 中的命令 `g/re/p`，
-其中 `g`（global）是全局匹配，`re`（regular expression）是正则表达式，`p`（print）是打印。
-因此，`grep` 工具本质上就是用来全局匹配正则表达式并打印结果。
+全稱 **Global Regular Expression Print**，來源於一個 Unix 編輯器 `ed` 中嘅命令 `g/re/p`，
+其中 `g`（global）係全局匹配，`re`（regular expression）係正則表達式，`p`（print）係打印。
+所以，`grep` 工具本質上就係用嚟全局匹配正則表達式並打印結果。
 
 ```bash {frame="none"}
 man grep
@@ -26,26 +26,26 @@ man grep
 grep, egrep, fgrep, rgrep - print lines that match patterns
 ```
 
-另外 `egrep`、`fgrep` 、`rgrep` 分别与 `grep -E`、`grep -F` 、`grep -r` 相同。
-这些变体已被弃用，但为了向后兼容仍然提供。
-另外如果不使用正则表达式，**使用 `-F` 选项会更快**，
-因为默认情况下，即使没有使用正则表达式，`grep`  仍然会将模式视为正则表达式。
+另外 `egrep`、`fgrep` 、`rgrep` 分別同 `grep -E`、`grep -F` 、`grep -r` 一樣。
+呢啲變體已經被棄用，但為咗向後兼容仍然提供。
+另外如果唔使用正則表達式，**使用 `-F` 選項會快啲**，
+因為預設情況下，即使冇使用正則表達式，`grep`  仍然會將模式視為正則表達式。
 
-## 正则表达式
+## 正則表達式
 
-`grep` 默认使用POSIX的正则表达式，根据不同选项分为以下几种：
+`grep` 預設使用POSIX嘅正則表達式，根據唔同選項分為以下幾種：
 
-1. **基本正则表达式（Basic Regular Expressions，BRE）**：
-默认模式，POSIX 标准，某些元字符（如 `?`、`+`、`{}`）需要通过反斜杠 `\` 来转义。
+1. **基本正則表達式（Basic Regular Expressions，BRE）**：
+預設模式，POSIX 標準，某啲元字符（如 `?`、`+`、`{}`）需要通過反斜杠 `\` 嚟轉義。
 
-2. **扩展正则表达式（Extended Regular Expressions，ERE）**：
-通过 `grep -E` 或 `egrep` 使用，像 `?`、`+`、`{}` 等元字符可以直接使用，无需转义。
+2. **擴展正則表達式（Extended Regular Expressions，ERE）**：
+通過 `grep -E` 或 `egrep` 使用，像 `?`、`+`、`{}` 等元字符可以直接使用，唔使轉義。
 
-3. **Perl 风格的正则表达式（Perl-Compatible Regular Expressions，PCRE）**：
-某些 `grep` 实现（如 GNU `grep`）提供了 `-P` 选项，用于启用 Perl 风格的正则表达式。
+3. **Perl 風格嘅正則表達式（Perl-Compatible Regular Expressions，PCRE）**：
+某啲 `grep` 實現（如 GNU `grep`）提供咗 `-P` 選項，用於啟用 Perl 風格嘅正則表達式。
 
 {{< callout context="note" title="Note">}}
-某些 grep 实现（如 GNU grep）提供了 -P 选项，用于启用 Perl 风格的正则表达式。
+某啲 grep 實現（如 GNU grep）提供咗 -P 選項，用於啟用 Perl 風格嘅正則表達式。
 {{< /callout >}}
 
 ## 常用例子
@@ -56,13 +56,13 @@ grep, egrep, fgrep, rgrep - print lines that match patterns
 grep -v foo file
 ```
 
-### 忽略大小写
+### 忽略大小寫
 
 ```bash {frame="none"}
 grep -i Foo file
 ```
 
-### 统计匹配行数
+### 統計匹配行數
 
 ```bash {frame="none"}
 grep -c foo file
@@ -74,25 +74,25 @@ grep -c foo file
 grep -F foo file
 ```
 
-### 递归搜索目录文件
+### 遞歸搜索目錄文件
 
 ```bash {frame="none"}
 grep -r foo /path
 ```
 
-### 列出匹配的文件名
+### 列出匹配嘅文件名
 
 ```bash {frame="none"}
 grep -l foo *.txt
 ```
 
-### 列出不匹配的文件名
+### 列出唔匹配嘅文件名
 
 ```bash {frame="none"}
 grep -rL foo /path
 ```
 
-### 匹配行及后面 N 行
+### 匹配行及後面 N 行
 
 After
 
@@ -108,7 +108,7 @@ Before
 grep -B 3 foo file
 ```
 
-### 匹配行及前后 N 行
+### 匹配行及前後 N 行
 
 Context
 
@@ -116,7 +116,7 @@ Context
 grep -C 3 foo file
 ```
 
-### 匹配多个单词
+### 匹配多個單詞
 
 ```bash {frame="none"}
 grep -E 'foo|bar' file
@@ -126,13 +126,13 @@ grep -E 'foo|bar' file
 grep -e 'foo' -e 'bar' file
 ```
 
-### 排除目录某些文件
+### 排除目錄某啲文件
 
 ```bash {frame="none"}
 grep foo --exclude="*.log" /path
 ```
 
-### 匹配目录某些文件
+### 匹配目錄某啲文件
 
 ```bash {frame="none"}
 grep foo --include="*.txt" /path

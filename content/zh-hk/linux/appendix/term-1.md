@@ -1,12 +1,12 @@
 ---
-title: "专业术语 - 1"
+title: "專業術語 - 1"
 description: ""
 summary: ""
 date: 2024-08-29T20:00:00+08:00
 lastmod: 2024-08-29T20:00:00+08:00
 weight: 100000
 seo:
-  title: "专业术语 - 1"
+  title: "專業術語 - 1"
   description: ""
   canonical: ""
   noindex: false
@@ -14,7 +14,7 @@ seo:
 
 ## hassle-free
 
-无麻烦的，省心的。
+冇麻煩嘅，省心嘅。
 
 ```txt {frame="none" text-wrap="wrap"}
 Go compiles to a single, static binary with minimal runtime dependencies, making deployment straightforward and hassle-free. 
@@ -22,7 +22,7 @@ Go compiles to a single, static binary with minimal runtime dependencies, making
 
 ## syntactic sugar
 
-语法糖。`obscure` => 模糊/掩盖。
+語法糖。`obscure` => 模糊/掩蓋。
 
 ```txt {frame="none" text-wrap="wrap"}
 Ruby’s principle of “programmer happiness” sometimes results in syntactic sugar that may feel elegant to some but can obscure the inner workings of the code.
@@ -30,7 +30,7 @@ Ruby’s principle of “programmer happiness” sometimes results in syntactic 
 
 ## header section
 
-头部信息。
+頭部資訊。
 
 ```txt {frame="none" text-wrap="wrap"}
 The header section of the top command provides a snapshot of the overall system performance.
@@ -46,7 +46,7 @@ The available memory (avail Mem) includes both free RAM and memory that can be r
 
 ## parentheses
 
-括号 ()。
+括弧 ()。
 
 ```txt {frame="none" text-wrap="wrap"}
 Subshells are usually created using parentheses (), command substitution $(...), or background execution.
@@ -54,7 +54,7 @@ Subshells are usually created using parentheses (), command substitution $(...),
 
 ## invoke
 
-唤起、调用、执行。下面是 Bash 环境变量相关的解释。
+喚起、調用、執行。下面係 Bash 環境變量相關嘅解釋。
 
 ```txt {frame="none" text-wrap="wrap"}
 When a program is invoked it is given an array of strings called the environment.
@@ -62,7 +62,7 @@ When a program is invoked it is given an array of strings called the environment
 
 ## expands to
 
-展开为，发展为，代表。这翻译怪怪的。
+展開為，發展為，代表。呢個翻譯怪怪嘅。
 
 ```txt {frame="none" text-wrap="wrap"}
 ($$) Expands to the process ID of the shell. In a subshell, it expands to the process ID of the invoking shell, not the subshell.
@@ -70,7 +70,7 @@ When a program is invoked it is given an array of strings called the environment
 
 ## skeletal
 
-骨骼的，类似于脚手架。
+骨骼嘅，類似於腳手架。
 
 ```txt {frame="none" text-wrap="wrap"}
 The SKEL variable specifies the directory containing "skeletal" user files; in other words, files such as a sample .profile that will be copied to the new user's home directory when it is created.
@@ -78,7 +78,7 @@ The SKEL variable specifies the directory containing "skeletal" user files; in o
 
 ## hyphen
 
-连字符。
+連字符。
 
 ```txt {frame="none" text-wrap="wrap"}
 - (Hyphen): Represents a regular file. This is the most common file type, typically used for text files, binary files, or other standard files.
