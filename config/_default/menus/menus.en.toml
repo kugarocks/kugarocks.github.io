@@ -22,17 +22,17 @@
   weight = 100
 
 [[sidebar_toys]]
-  name = "小黄人百科"
+  name = "Minions Wiki"
   pageRef = "/toys/minions-wiki/"
   weight = 200
 
 [[sidebar_toys]]
-  name = "迷你聊天室"
+  name = "Minichat"
   pageRef = "/toys/minichat/"
   weight = 300
 
 [[sidebar_toys]]
-  name = "命令行工具"
+  name = "Terminal Tool"
   pageRef = "/toys/terminal-tool/"
   weight = 400
 
@@ -54,12 +54,12 @@
   weight = 100
 
 [[sidebar_tech]]
-  name = "我的开发环境"
+  name = "My Dev Env"
   pageRef = "/tech/my-dev-env/"
   weight = 200
 
 [[sidebar_tech]]
-  name = "四次元百宝袋"
+  name = "Four-D Pocket"
   pageRef = "/tech/fourd-pocket/"
   weight = 300
 
@@ -74,56 +74,56 @@
   weight = 100
 
 [[sidebar_linux]]
-  name = "第一章：Say My Name"
+  name = "Chapter 1: Say My Name"
   pageRef = "/linux/say-my-name/"
   weight = 200
 
 [[sidebar_linux]]
-  name = "第二章：Terminal"
+  name = "Chapter 2: Terminal"
   pageRef = "/linux/terminal/"
   weight = 300
 
 [[sidebar_linux]]
-  name = "第三章：Shell"
+  name = "Chapter 3: Shell"
   pageRef = "/linux/shell/"
   weight = 400
 
 [[sidebar_linux]]
-  name = "第四章：命令"
+  name = "Chapter 4: Commands"
   pageRef = "/linux/cmd/"
   weight = 500
 
 [[sidebar_linux]]
-  name = "第五章：环境变量"
+  name = "Chapter 5: Environment"
   pageRef = "/linux/env/"
   weight = 600
 
 [[sidebar_linux]]
-  name = "第六章：权限管理"
+  name = "Chapter 6: Permission"
   pageRef = "/linux/perm/"
   weight = 700
 
 [[sidebar_linux]]
-  name = "第七章：进程"
+  name = "Chapter 7: Process"
   pageRef = "/linux/proc/"
   weight = 800
 
 [[sidebar_linux]]
-  name = "第八章：文件系统"
+  name = "Chapter 8: File System"
   pageRef = "/linux/file-system/"
   weight = 900
 
 [[sidebar_linux]]
-  name = "第九章：Shell 脚本"
+  name = "Chapter 9: Shell Script"
   pageRef = "/linux/script/"
   weight = 1000
 
 [[sidebar_linux]]
-  name = "第十章：文本处理"
+  name = "Chapter 10: Text Processing"
   pageRef = "/linux/text/"
   weight = 1100
 
 [[sidebar_linux]]
-  name = "附录"
+  name = "Appendix"
   pageRef = "/linux/appendix/"
   weight = 10000
