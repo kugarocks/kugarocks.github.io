@@ -9,4 +9,9 @@ weight: 100
 
 ## KEYBOARD CAT ROCKS
 
-{{< video src="videos/misc/keyboard-cat-original.mp4" controls="true" >}}
+{{< video
+  src="videos/misc/keyboard-cat-original.mp4"
+  playsinline="true"
+  controls="true"
+  poster="images/misc/keyboard-cat-poster.jpg"
+>}}

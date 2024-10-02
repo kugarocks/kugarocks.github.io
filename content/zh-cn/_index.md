@@ -4,6 +4,7 @@ description: ""
 date: 2024-10-01T08:00:00+08:00
 lastmod: 2024-10-01T08:00:00+08:00
 video: "videos/minions/mini-rocks.mp4"
+videoPoster: "images/minions/mini-rocks-poster.jpg"
 
 sectionTitle1: '<a href="https://minions.wiki" target="_blank">https://minions.wiki</a>'
 sectionImage1: "images/minions/minions-wiki.jpg"
