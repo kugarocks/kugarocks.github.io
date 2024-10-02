@@ -127,3 +127,8 @@
   name = "附录"
   pageRef = "/linux/appendix/"
   weight = 10000
+
+[[footer]]
+  name = "粤ICP备2024312555号-1"
+  url = "https://beian.miit.gov.cn/"
+  weight = 10
