@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>环境变量 on kugarocks</title><link>https://www.kugarocks.com/zh-cn/linux/env/</link><description>Recent content in 环境变量 on kugarocks</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Tue, 27 Aug 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://www.kugarocks.com/zh-cn/linux/env/index.xml" rel="self" type="application/rss+xml"/><item><title>重要概念</title><link>https://www.kugarocks.com/zh-cn/linux/env/concept/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-cn/linux/env/concept/</guid><description>&lt;h2 id="起源">起源&lt;/h2>
+&lt;p>Linux 中的环境变量源自早期 UNIX 系统的设计需求。
+通过环境变量，用户和进程能够动态地影响系统行为，而不需要修改系统的核心代码。
+这种灵活性和可配置性使环境变量成为 Linux 系统和应用程序配置的关键部分。&lt;/p>
+&lt;p>在 UNIX 中，每个进程都有自己的环境（即一组环境变量），这些环境变量在进程的启动时由父进程传递给子进程。
+最典型的例子是当用户登录系统时，系统启动的 Shell 进程会继承一组默认的环境变量，例如用户的主目录、Shell 类型等。
+用户可以在这个基础上修改或添加环境变量，影响自己启动的程序或进程的行为。&lt;/p>
+&lt;h2 id="概念勘误">概念勘误&lt;/h2>
+&lt;p>有些书籍和文章会把环境变量分为&lt;del>全局环境变量和局部环境变量&lt;/del>，但这种分类是不准确的，
+因为在官方的文档中，从来没有这两种分类的定义，甚至连英文名称也没有。
+因此，为了避免语义上的逻辑问题，本文不会对环境变量进行上述的分类。&lt;/p></description></item><item><title>Shell 的启动过程</title><link>https://www.kugarocks.com/zh-cn/linux/env/shell-startup/</link><pubDate>Tue, 27 Aug 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-cn/linux/env/shell-startup/</guid><description>&lt;h2 id="shell-的启动方式">Shell 的启动方式&lt;/h2>
+&lt;p>Shell 的启动方式会影响环境变量的加载过程，可分为以下几种。&lt;/p>
+&lt;ul>
+&lt;li>交互式（Interactive）
+&lt;ul>
+&lt;li>登录：以登录方式启动的 Shell 实例，如 SSH 登录。&lt;/li>
+&lt;li>非登录：
+&lt;ul>
+&lt;li>在 Shell 中输入 Bash 新建 Shell 实例。&lt;/li>
+&lt;li>在 GNOME Terminal 中打开一个新的终端会话。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>非交互式（Non-Interactive）
+&lt;ul>
+&lt;li>在脚本中启动的 Shell 实例。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="什么是交互式-shell">什么是交互式 Shell&lt;/h2>
+
+ &lt;div class="card-nav d-flex flex-column flex-sm-row">
+ &lt;div class="card text-end w-100">
+ &lt;div class="card-body d-flex">
+ &lt;div class="d-flex flex-column me-auto text-start">
+ &lt;h5 class="card-title my-0">&lt;a href="https://www.gnu.org/software/bash/manual/bash.html#What-is-an-Interactive-Shell_003f" target="_blank" class="stretched-link text-reset text-decoration-none">What is an Interactive Shell&lt;/a>&lt;/h5>
+ &lt;p class="card-text mt-1">什么是交互式 Shell&lt;/p></description></item><item><title>常见环境变量</title><link>https://www.kugarocks.com/zh-cn/linux/env/variables/</link><pubDate>Tue, 27 Aug 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-cn/linux/env/variables/</guid><description>&lt;h2 id="shell">SHELL&lt;/h2>
+&lt;p>当前使用的 Shell。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">printenv SHELL&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">/bin/bash&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h2 id="home">HOME&lt;/h2>
+&lt;p>用户主目录路径。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">printenv HOME&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">/home/kuga&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h2 id="pwd">PWD&lt;/h2>
+&lt;p>当前目录的路径。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">printenv PWD&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">/home/kuga&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h2 id="user">USER&lt;/h2>
+&lt;p>当前用户。&lt;/p></description></item><item><title>Shebang</title><link>https://www.kugarocks.com/zh-cn/linux/env/shebang/</link><pubDate>Tue, 27 Aug 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-cn/linux/env/shebang/</guid><description>&lt;h2 id="简介">简介&lt;/h2>
+&lt;p>Shebang 是 Unix 和类 Unix 操作系统中的一个特殊符号，由字符 &lt;code>#!&lt;/code> 组成，
+用于指示脚本文件应该由哪个解释器来执行。它通常出现在脚本文件的第一行，后面跟着解释器的路径。
+Shebang 使得脚本文件能够像可执行程序一样直接运行，而不必手动调用解释器。&lt;/p>
+&lt;h2 id="名称由来">名称由来&lt;/h2>
+&lt;p>&lt;code>#&lt;/code> 在英语中表示 hash 或 sharp，&lt;code>!&lt;/code> 在编程和命令行中表示 bang，
+这两个符号组合在一起就成了 hash-bang 或 sharp-bang。
+随着时间的推移，hash-bang 最终简化为 shebang。&lt;/p></description></item></channel></rss>
