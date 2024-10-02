@@ -17,7 +17,7 @@ sectionContent2: 'Sending text messages should be very simple. No login, just ty
 sectionTitle3: 'Next: Terminal Tool 🚀'
 
 seo:
-  title: "Welcome to Doks" # custom title (optional)
+  title: "kugarocks" # custom title (optional)
   description: "" # custom description (recommended)
   canonical: "" # custom canonical URL (optional)
   noindex: false # false (default) or true
