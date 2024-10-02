@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on kugarocks</title><link>https://kugarocks.github.io/en/linux/cmd/</link><description>Recent content in Commands on kugarocks</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Wed, 04 Sep 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/en/linux/cmd/index.xml" rel="self" type="application/rss+xml"/><item><title>Commands-1</title><link>https://kugarocks.github.io/en/linux/cmd/common-1/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/cmd/common-1/</guid><description>&lt;h2 id="man">MAN&lt;/h2>
+&lt;p>This command can view different sections of the manual pages.&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man man&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none" text-wrap="wrap">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man - an interface to the system reference manuals
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">The table below shows the section numbers of the manual followed by the types of pages they contain.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">1&lt;/span> Executable programs or shell commands
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">2&lt;/span> System calls &lt;span class="o">(&lt;/span>functions provided by the kernel&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">3&lt;/span> Library calls &lt;span class="o">(&lt;/span>functions within program libraries&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">4&lt;/span> Special files &lt;span class="o">(&lt;/span>usually found in /dev&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">5&lt;/span> File formats and conventions, e.g. /etc/passwd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">6&lt;/span> Games
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">7&lt;/span> Miscellaneous &lt;span class="o">(&lt;/span>including macro packages and conventions&lt;span class="o">)&lt;/span>, e.g. man&lt;span class="o">(&lt;/span>7&lt;span class="o">)&lt;/span>, groff&lt;span class="o">(&lt;/span>7&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">8&lt;/span> System administration commands &lt;span class="o">(&lt;/span>usually only &lt;span class="k">for&lt;/span> root&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">9&lt;/span> Kernel routines &lt;span class="o">[&lt;/span>Non standard&lt;span class="o">]&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="section">Section&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man &lt;span class="m">1&lt;/span> ls/cp/mv
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">2&lt;/span> write/open/close
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">3&lt;/span> printf/malloc/free
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">4&lt;/span> tty/null/random
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">5&lt;/span> passwd/fstab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">7&lt;/span> man
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">8&lt;/span> ifconfig/iptables/mount
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">9&lt;/span> fork &lt;span class="c1"># not work&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="games">Games&lt;/h3>
+&lt;p>&lt;code>fortune&lt;/code> can randomly display quotes and jokes.&lt;/p></description></item><item><title>Commands-2</title><link>https://kugarocks.github.io/en/linux/cmd/common-2/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/cmd/common-2/</guid><description>&lt;h2 id="sort">Sort&lt;/h2>
+&lt;p>Sorts lines of text files by default, non-numeric.&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sort - sort lines of text files&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="reverse-order">Reverse Order&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sort -r file&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="numeric-sort">Numeric Sort&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sort -n file&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="sort-by-month">Sort By Month&lt;/h3>
+&lt;p>Month format: &lt;code>Jan&lt;/code>, &lt;code>Feb&lt;/code>, &lt;code>Mar&lt;/code>.&lt;/p></description></item><item><title>GREP</title><link>https://kugarocks.github.io/en/linux/cmd/grep/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/cmd/grep/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Full name &lt;strong>Global Regular Expression Print&lt;/strong>, originated from a Unix editor &lt;code>ed&lt;/code> command &lt;code>g/re/p&lt;/code>,
+where &lt;code>g&lt;/code> (global) is global matching, &lt;code>re&lt;/code> (regular expression) is regular expression, &lt;code>p&lt;/code> (print) is print.
+Therefore, the &lt;code>grep&lt;/code> tool is essentially used to globally match regular expressions and print the results.&lt;/p></description></item><item><title>PS</title><link>https://kugarocks.github.io/en/linux/cmd/ps/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/cmd/ps/</guid><description>&lt;h2 id="login-information">Login Information&lt;/h2>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">w&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> 13:46:05 up &lt;span class="m">3&lt;/span> days, 16:15, &lt;span class="m">2&lt;/span> users, load average: 0.00, 0.00, 0.00
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">USER TTY FROM LOGIN@ IDLE JCPU PCPU WHAT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">root pts/0 120.231.138.139 13:43 1.00s 0.00s 0.00s w
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">kuga pts/1 120.231.138.139 13:44 53.00s 0.02s 0.02s -bash&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>The commands executed below are all based on the above environment configuration.&lt;/p></description></item><item><title>Top</title><link>https://kugarocks.github.io/en/linux/cmd/top/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/cmd/top/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man top&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">top - display Linux processes&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>The top command defaults to sorting processes by &lt;strong>CPU usage rate&lt;/strong> and dynamically displaying the results.&lt;/p></description></item><item><title>Terminate Processes</title><link>https://kugarocks.github.io/en/linux/cmd/terminate/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/cmd/terminate/</guid><description>&lt;h2 id="kill-command">Kill Command&lt;/h2>
+&lt;p>It&amp;rsquo;s actually a tool for sending signals to processes, not necessarily killing them.&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man kill&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">kill&lt;/span> - send a signal to a process&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="default-signal">Default Signal&lt;/h3>
+&lt;p>The default signal for the &lt;code>kill&lt;/code> command is &lt;code>SIGTERM&lt;/code>, corresponding to number &lt;code>15&lt;/code>, for a graceful termination.&lt;/p></description></item><item><title>Compression</title><link>https://kugarocks.github.io/en/linux/cmd/compression/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/cmd/compression/</guid><description>&lt;p>todorocks&lt;/p></description></item></channel></rss>

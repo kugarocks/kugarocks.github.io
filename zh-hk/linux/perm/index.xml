@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>權限管理 on kugarocks</title><link>https://kugarocks.github.io/zh-hk/linux/perm/</link><description>Recent content in 權限管理 on kugarocks</description><generator>Hugo</generator><language>zh-hk</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Thu, 29 Aug 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/zh-hk/linux/perm/index.xml" rel="self" type="application/rss+xml"/><item><title>用戶管理</title><link>https://kugarocks.github.io/zh-hk/linux/perm/user-mgmt/</link><pubDate>Tue, 27 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-hk/linux/perm/user-mgmt/</guid><description>&lt;h2 id="用戶賬號">用戶賬號&lt;/h2>
+&lt;h3 id="etcpasswd">/etc/passwd&lt;/h3>
+&lt;p>Linux 使用 &lt;code>/etc/passwd&lt;/code> 文件嚟保存用戶賬號信息。
+因為好多服務進程需要讀取用戶賬號嘅信息，可以見到呢個文件嘅權限都係可讀嘅。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">-rw-r--r-- &lt;span class="m">1&lt;/span> root root &lt;span class="m">2010&lt;/span> Aug &lt;span class="m">24&lt;/span> 15:12 /etc/passwd&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>查看某個用戶嘅賬號信息。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">grep kuga /etc/passwd&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kuga:x:1000:1000:,,,:/home/kuga:/bin/bash&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">KEY&lt;/th>
+ &lt;th style="text-align: left">VALUE&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">用戶名&lt;/td>
+ &lt;td style="text-align: left">kuga&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">用戶密碼&lt;/td>
+ &lt;td style="text-align: left">x&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">用戶 ID&lt;/td>
+ &lt;td style="text-align: left">1000&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">用戶組 ID&lt;/td>
+ &lt;td style="text-align: left">1000&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">備註字段&lt;/td>
+ &lt;td style="text-align: left">,,,&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">目錄位置&lt;/td>
+ &lt;td style="text-align: left">/home/kuga&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">默認 Shell&lt;/td>
+ &lt;td style="text-align: left">/bin/bash&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>系統會預留一定嘅 UID 範圍，Ubuntu 新添加嘅用戶 ID 由 1000 開始。
+下面嘅命令會按第 3 個字段 UID 逆序排序，然後輸出前 10 行，只顯示 136 字段（用戶名，UID，目錄位置）。&lt;/p></description></item><item><title>組管理</title><link>https://kugarocks.github.io/zh-hk/linux/perm/group-mgmt/</link><pubDate>Tue, 27 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-hk/linux/perm/group-mgmt/</guid><description>&lt;h2 id="用戶同組嘅關係">用戶同組嘅關係&lt;/h2>
+&lt;h3 id="主組---primary-group">主組 - Primary Group&lt;/h3>
+&lt;p>創建用戶嘅時候，會同時創建一個同名組，呢個就係主組。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">grep soda /etc/passwd&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">soda:x:1001:1001:,,,:/home/soda:/bin/bash&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>第 4 個字段表示主組 ID 1001，仲可以用 groups 命令嚟睇。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">groups soda&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">soda : soda&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="附加組---secondary-groups">附加組 - Secondary Groups&lt;/h3>
+&lt;p>用戶仲可以屬於多個附加組，用嚟做權限嘅訪問控制。&lt;/p></description></item><item><title>文件權限</title><link>https://kugarocks.github.io/zh-hk/linux/perm/file-perm/</link><pubDate>Tue, 27 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-hk/linux/perm/file-perm/</guid><description>&lt;h2 id="組成結構">組成結構&lt;/h2>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">-rwxr-xr--&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>第一個字符表示文件嘅類型：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;code>-&lt;/code>&lt;/strong>：文件，例如文本文件、二進制文件等。&lt;/li>
+&lt;li>&lt;strong>&lt;code>d&lt;/code>&lt;/strong>：目錄。&lt;/li>
+&lt;li>&lt;strong>&lt;code>l&lt;/code>&lt;/strong>：符號鏈接，Symbolic link (Soft link)。&lt;/li>
+&lt;li>&lt;strong>&lt;code>b&lt;/code>&lt;/strong>：塊設備，例如硬盤、光盤等。&lt;/li>
+&lt;li>&lt;strong>&lt;code>c&lt;/code>&lt;/strong>：字符設備，例如終端設備、鍵盤等。&lt;/li>
+&lt;li>&lt;strong>&lt;code>p&lt;/code>&lt;/strong>：管道，進程間通信。&lt;/li>
+&lt;li>&lt;strong>&lt;code>s&lt;/code>&lt;/strong>：套接字，網絡通信，進程間數據交換。&lt;/li>
+&lt;/ul>
+&lt;p>後面嘅字符 3 個為一組（r=可讀、w=可寫、x=可執行），分別對應：&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">類別&lt;/th>
+ &lt;th style="text-align: left">權限&lt;/th>
+ &lt;th style="text-align: left">描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">擁有者&lt;/td>
+ &lt;td style="text-align: left">&lt;code>rwx&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">可讀/可寫/可執行&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">用戶組&lt;/td>
+ &lt;td style="text-align: left">&lt;code>r-x&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">可讀/不可寫/可執行&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">其他人&lt;/td>
+ &lt;td style="text-align: left">&lt;code>r--&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">可讀/不可寫/不可執行&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="目錄嘅可執行權限">目錄嘅可執行權限&lt;/h2>
+&lt;p>同文件嘅可執行權限一樣，如果要對目錄進行操作，目錄亦必須有可執行權限。&lt;/p></description></item><item><title>訪問控制列表</title><link>https://kugarocks.github.io/zh-hk/linux/perm/acl/</link><pubDate>Thu, 29 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-hk/linux/perm/acl/</guid><description>&lt;h2 id="acl">ACL&lt;/h2>
+&lt;p>訪問控制列表（Access Control List）係一種更為靈活同細粒度嘅權限管理機制，
+用嚟定義同控制文件系統對象嘅訪問權限。相比傳統嘅文件權限系統，ACL 提供咗更細緻嘅權限控制，
+容許你為唔同嘅用戶同用戶組設置特定嘅權限，唔再局限於傳統嘅三個角色（Owner、Group、Others）。&lt;/p>
+&lt;h2 id="安裝">安裝&lt;/h2>
+&lt;p>如果未安裝，可以用以下命令。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install acl&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h2 id="getfacl">getfacl&lt;/h2>
+&lt;p>獲取文件嘅訪問控制列表&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">getfacl - get file access control lists&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="使用例子">使用例子&lt;/h3>
+&lt;p>獲取 foo 文件嘅 ACL 信息。&lt;/p></description></item></channel></rss>

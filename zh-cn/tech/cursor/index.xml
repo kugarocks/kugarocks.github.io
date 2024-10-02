@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cursor on kugarocks</title><link>https://kugarocks.github.io/zh-cn/tech/cursor/</link><description>Recent content in Cursor on kugarocks</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Sun, 08 Sep 2024 00:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/zh-cn/tech/cursor/index.xml" rel="self" type="application/rss+xml"/><item><title>常用提示词</title><link>https://kugarocks.github.io/zh-cn/tech/cursor/prompt/</link><pubDate>Sun, 08 Sep 2024 00:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/tech/cursor/prompt/</guid><description>&lt;h2 id="prompt">Prompt&lt;/h2>
+&lt;h3 id="修改代码类型">修改代码类型&lt;/h3>
+&lt;p>修改 markdown 的代码框类型。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">把 markdown 的代码框类型全部改成 bash {frame=&amp;#34;none&amp;#34;}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>我使用的模型是 &lt;code>cursor-small&lt;/code>。&lt;/li>
+&lt;li>这里加了全部范围，所以会修改所有代码框类型。&lt;/li>
+&lt;li>如果不加全部，会检测代码框类型是否为 &lt;code>bash&lt;/code>。
+&lt;ul>
+&lt;li>是：修改。&lt;/li>
+&lt;li>否：不修改。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="中文翻译英文">中文翻译英文&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">翻译成英文，如果是标题，则每个单词的首字母大写。&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="中文翻译繁体-hk">中文翻译繁体-HK&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">把中文翻译成香港的粤语繁体中文。&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div></description></item></channel></rss>

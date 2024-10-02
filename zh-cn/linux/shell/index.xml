@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shell on kugarocks</title><link>https://kugarocks.github.io/zh-cn/linux/shell/</link><description>Recent content in Shell on kugarocks</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Tue, 27 Aug 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/zh-cn/linux/shell/index.xml" rel="self" type="application/rss+xml"/><item><title>Shell 简介</title><link>https://kugarocks.github.io/zh-cn/linux/shell/intro/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/shell/intro/</guid><description>&lt;h2 id="gnu-bash-manual">GNU Bash Manual&lt;/h2>
+&lt;p>Bash 是 Linux 中的默认 Shell，&lt;strong>官方手册是永远的神&lt;/strong>。&lt;/p>
+
+ &lt;div class="card-nav d-flex flex-column flex-sm-row">
+ &lt;div class="card text-end w-100">
+ &lt;div class="card-body d-flex">
+ &lt;div class="d-flex flex-column me-auto text-start">
+ &lt;h5 class="card-title my-0">&lt;a href="https://www.gnu.org/software/bash/manual/bash.html" target="_blank" class="stretched-link text-reset text-decoration-none">Bash Reference Manual&lt;/a>&lt;/h5>
+ &lt;p class="card-text mt-1">Bash 参考手册&lt;/p></description></item><item><title>命令行历史记录</title><link>https://kugarocks.github.io/zh-cn/linux/shell/command-history/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/shell/command-history/</guid><description>&lt;h2 id="神奇的-a">神奇的 ^[[A&lt;/h2>
+&lt;p>首先在命令行启动一个新 Shell &lt;code>/bin/sh&lt;/code>。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">/bin/sh&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>然后输入以下命令，一切正常。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ls -l&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>按一下方向键 ⬆️ 查看上一条命令。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">^&lt;span class="o">[[&lt;/span>A&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>你会发现看不到上一条命令，取而代之的是这几个字符 &lt;code>^[[A&lt;/code>。
+这是因为早期的 sh 并不支持查看命令的历史记录，直到 bash 才把这个功能加了上去。&lt;/p></description></item><item><title>Shell 基本操作</title><link>https://kugarocks.github.io/zh-cn/linux/shell/basic-operations/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/shell/basic-operations/</guid><description>&lt;h2 id="查看终端默认的-shell">查看终端默认的 Shell&lt;/h2>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$SHELL&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">/bin/bash&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>如果你在当前终端中启动了一个新的 Shell（比如从 Bash 切换到 Zsh），
+这个命令显示的仍然是默认的登录 Shell，这个配置是存放在 &lt;code>/etc/passwd&lt;/code> 里面的。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">grep root /etc/passwd&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">root:x:0:0:root:/root:/bin/bash&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>在 macOS 中，默认的 Shell 信息通常是存储在用户账户设置中的，而不是 &lt;code>/etc/passwd&lt;/code> 文件中。
+从 macOS Catalina（10.15）开始，默认的 shell 已更改为 &lt;code>zsh&lt;/code>，之前的默认 Shell 是 &lt;code>bash&lt;/code>。
+可以通过以下方法查看默认 shell。&lt;/p></description></item><item><title>内建命令与外部命令</title><link>https://kugarocks.github.io/zh-cn/linux/shell/command-type/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/shell/command-type/</guid><description>&lt;h2 id="内建命令">内建命令&lt;/h2>
+&lt;p>Builtin Commands。
+内建命令是由 Shell 自身实现的命令，它们在 Shell 内部运行，
+&lt;strong>无需启动新进程&lt;/strong>或调用外部程序，是 Shell 操作的基本功能。&lt;/p>
+&lt;h3 id="常见的内建命令">常见的内建命令&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>cd&lt;/code>：更改当前工作目录。&lt;/li>
+&lt;li>&lt;code>echo&lt;/code>：输出字符串到终端。&lt;/li>
+&lt;li>&lt;code>exit&lt;/code>：退出当前 Shell 会话。&lt;/li>
+&lt;li>&lt;code>export&lt;/code>：设置或导出环境变量。&lt;/li>
+&lt;li>&lt;code>alias&lt;/code>：为命令创建别名。&lt;/li>
+&lt;li>&lt;code>set&lt;/code>：设置 Shell 选项和变量。&lt;/li>
+&lt;li>&lt;code>read&lt;/code>：从标准输入读取一行并赋值给变量。&lt;/li>
+&lt;/ul>
+&lt;h3 id="完整的内键命令">完整的内键命令&lt;/h3>
+
+ &lt;div class="card-nav d-flex flex-column flex-sm-row">
+ &lt;div class="card text-end w-100">
+ &lt;div class="card-body d-flex">
+ &lt;div class="d-flex flex-column me-auto text-start">
+ &lt;h5 class="card-title my-0">&lt;a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html" target="_blank" class="stretched-link text-reset text-decoration-none">Bash Builtin Commands&lt;/a>&lt;/h5>
+ &lt;p class="card-text mt-1">Bash 内建命令&lt;/p></description></item><item><title>Shell 变量</title><link>https://kugarocks.github.io/zh-cn/linux/shell/shell-variables/</link><pubDate>Mon, 26 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/shell/shell-variables/</guid><description>&lt;h2 id="shell-variables">Shell Variables&lt;/h2>
+&lt;p>Shell 变量是一个统称，如果用的是某个特定的 Shell，例如 Bash，那么可以称它为 Bash 变量。
+但这里必须要注意，Shell 变量不是环境变量，不要被它的大写迷惑了，以下是相关的官方文档。&lt;/p>
+
+ &lt;div class="card-nav d-flex flex-column flex-sm-row">
+ &lt;div class="card text-end w-100">
+ &lt;div class="card-body d-flex">
+ &lt;div class="d-flex flex-column me-auto text-start">
+ &lt;h5 class="card-title my-0">&lt;a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Variables.html" target="_blank" class="stretched-link text-reset text-decoration-none">Shell Variables&lt;/a>&lt;/h5>
+ &lt;p class="card-text mt-1">Shell 变量&lt;/p></description></item><item><title>Subshell</title><link>https://kugarocks.github.io/zh-cn/linux/shell/subshell/</link><pubDate>Tue, 27 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/shell/subshell/</guid><description>&lt;h2 id="subshell">Subshell&lt;/h2>
+&lt;p>Subshell 的定义在一些书本或资料中模糊不清，给出的解释往往和某些例子自相矛盾，让人捉摸不透。
+因此，为了避免这种语义与逻辑上的问题，这里不会给出它的定义（建议参考官方 BASH 手册），
+也不会使用 “子 Shell” 这个翻译，仅仅从它的实际表现去理解它的定义。
+下面列举的变量和 Subshell 概念有着密切的联系。&lt;/p>
+
+ &lt;div class="card-nav d-flex flex-column flex-sm-row">
+ &lt;div class="card text-end w-100">
+ &lt;div class="card-body d-flex">
+ &lt;div class="d-flex flex-column me-auto text-start">
+ &lt;h5 class="card-title my-0">&lt;a href="https://www.gnu.org/software/bash/manual/bash.html" target="_blank" class="stretched-link text-reset text-decoration-none">Bash Reference Manual&lt;/a>&lt;/h5>
+ &lt;p class="card-text mt-1">Bash 参考手册&lt;/p></description></item></channel></rss>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>命令 on kugarocks</title><link>https://kugarocks.github.io/zh-cn/linux/cmd/</link><description>Recent content in 命令 on kugarocks</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Wed, 04 Sep 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/zh-cn/linux/cmd/index.xml" rel="self" type="application/rss+xml"/><item><title>常用命令-1</title><link>https://kugarocks.github.io/zh-cn/linux/cmd/common-1/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/cmd/common-1/</guid><description>&lt;h2 id="man">MAN&lt;/h2>
+&lt;p>该指令可以查看手册页中不同的章节（Section）。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man man&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none" text-wrap="wrap">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man - an interface to the system reference manuals
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">The table below shows the section numbers of the manual followed by the types of pages they contain.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">1&lt;/span> Executable programs or shell commands
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">2&lt;/span> System calls &lt;span class="o">(&lt;/span>functions provided by the kernel&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">3&lt;/span> Library calls &lt;span class="o">(&lt;/span>functions within program libraries&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">4&lt;/span> Special files &lt;span class="o">(&lt;/span>usually found in /dev&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">5&lt;/span> File formats and conventions, e.g. /etc/passwd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">6&lt;/span> Games
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">7&lt;/span> Miscellaneous &lt;span class="o">(&lt;/span>including macro packages and conventions&lt;span class="o">)&lt;/span>, e.g. man&lt;span class="o">(&lt;/span>7&lt;span class="o">)&lt;/span>, groff&lt;span class="o">(&lt;/span>7&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">8&lt;/span> System administration commands &lt;span class="o">(&lt;/span>usually only &lt;span class="k">for&lt;/span> root&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">9&lt;/span> Kernel routines &lt;span class="o">[&lt;/span>Non standard&lt;span class="o">]&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="section">Section&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man &lt;span class="m">1&lt;/span> ls/cp/mv
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">2&lt;/span> write/open/close
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">3&lt;/span> printf/malloc/free
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">4&lt;/span> tty/null/random
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">5&lt;/span> passwd/fstab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">7&lt;/span> man
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">8&lt;/span> ifconfig/iptables/mount
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">man &lt;span class="m">9&lt;/span> fork &lt;span class="c1"># not work&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="games">Games&lt;/h3>
+&lt;p>&lt;code>fortune&lt;/code> 可以随机的名言警句和笑话。&lt;/p></description></item><item><title>常用命令-2</title><link>https://kugarocks.github.io/zh-cn/linux/cmd/common-2/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/cmd/common-2/</guid><description>&lt;h2 id="sort">SORT&lt;/h2>
+&lt;p>默认按字符的编码排序，非数值。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sort - sort lines of text files&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="按逆序排列">按逆序排列&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sort -r file&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="按数值排序">按数值排序&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sort -n file&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="按月份排序">按月份排序&lt;/h3>
+&lt;p>月份格式：&lt;code>Jan&lt;/code>、&lt;code>Feb&lt;/code>、&lt;code>Mar&lt;/code>。&lt;/p></description></item><item><title>GREP 命令</title><link>https://kugarocks.github.io/zh-cn/linux/cmd/grep/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/cmd/grep/</guid><description>&lt;h2 id="简介">简介&lt;/h2>
+&lt;p>全称 &lt;strong>Global Regular Expression Print&lt;/strong>，来源于一个 Unix 编辑器 &lt;code>ed&lt;/code> 中的命令 &lt;code>g/re/p&lt;/code>，
+其中 &lt;code>g&lt;/code>（global）是全局匹配，&lt;code>re&lt;/code>（regular expression）是正则表达式，&lt;code>p&lt;/code>（print）是打印。
+因此，&lt;code>grep&lt;/code> 工具本质上就是用来全局匹配正则表达式并打印结果。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man grep&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">grep, egrep, fgrep, rgrep - print lines that match patterns&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>另外 &lt;code>egrep&lt;/code>、&lt;code>fgrep&lt;/code> 、&lt;code>rgrep&lt;/code> 分别与 &lt;code>grep -E&lt;/code>、&lt;code>grep -F&lt;/code> 、&lt;code>grep -r&lt;/code> 相同。
+这些变体已被弃用，但为了向后兼容仍然提供。
+另外如果不使用正则表达式，&lt;strong>使用 &lt;code>-F&lt;/code> 选项会更快&lt;/strong>，
+因为默认情况下，即使没有使用正则表达式，&lt;code>grep&lt;/code> 仍然会将模式视为正则表达式。&lt;/p></description></item><item><title>PS 命令</title><link>https://kugarocks.github.io/zh-cn/linux/cmd/ps/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/cmd/ps/</guid><description>&lt;h2 id="登录信息">登录信息&lt;/h2>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">w&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> 13:46:05 up &lt;span class="m">3&lt;/span> days, 16:15, &lt;span class="m">2&lt;/span> users, load average: 0.00, 0.00, 0.00
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">USER TTY FROM LOGIN@ IDLE JCPU PCPU WHAT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">root pts/0 120.231.138.139 13:43 1.00s 0.00s 0.00s w
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">kuga pts/1 120.231.138.139 13:44 53.00s 0.02s 0.02s -bash&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>下面执行的命令都是基于以上的环境配置。&lt;/p></description></item><item><title>TOP 命令</title><link>https://kugarocks.github.io/zh-cn/linux/cmd/top/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/cmd/top/</guid><description>&lt;h2 id="简介">简介&lt;/h2>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man top&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">top - display Linux processes&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>top 命令默认按进程 &lt;strong>CPU 使用率的倒序&lt;/strong>进行排序，并动态展示结果。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">top - 09:19:05 up &lt;span class="m">6&lt;/span> days, 10:02, &lt;span class="m">2&lt;/span> users, load average: 0.13, 0.05, 0.01
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Tasks: &lt;span class="m">126&lt;/span> total, &lt;span class="m">1&lt;/span> running, &lt;span class="m">125&lt;/span> sleeping, &lt;span class="m">0&lt;/span> stopped, &lt;span class="m">0&lt;/span> zombie
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">%Cpu&lt;span class="o">(&lt;/span>s&lt;span class="o">)&lt;/span>: 0.5 us, 0.0 sy, 0.0 ni, 99.5 id, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">MiB Mem : 1673.0 total, 252.3 free, 299.5 used, 1121.3 buff/cache
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">MiB Swap: 0.0 total, 0.0 free, 0.0 used. 1197.7 avail Mem
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">988&lt;/span> root &lt;span class="m">20&lt;/span> &lt;span class="m">0&lt;/span> &lt;span class="m">90428&lt;/span> &lt;span class="m">14260&lt;/span> &lt;span class="m">11860&lt;/span> S 0.7 0.8 58:31.33 AliYunDun
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">1008&lt;/span> root &lt;span class="m">20&lt;/span> &lt;span class="m">0&lt;/span> &lt;span class="m">139912&lt;/span> &lt;span class="m">36880&lt;/span> &lt;span class="m">18280&lt;/span> S 0.7 2.2 99:59.21 AliYunDunMonito
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">39433&lt;/span> root &lt;span class="m">20&lt;/span> &lt;span class="m">0&lt;/span> &lt;span class="m">10508&lt;/span> &lt;span class="m">3912&lt;/span> &lt;span class="m">3304&lt;/span> R 0.3 0.2 0:00.03 top
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">1&lt;/span> root &lt;span class="m">20&lt;/span> &lt;span class="m">0&lt;/span> &lt;span class="m">167744&lt;/span> &lt;span class="m">13388&lt;/span> &lt;span class="m">8416&lt;/span> S 0.0 0.8 0:07.59 systemd&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h2 id="头部信息">头部信息&lt;/h2>
+&lt;h3 id="系统信息">系统信息&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">top - 09:19:05 up &lt;span class="m">6&lt;/span> days, 10:02, &lt;span class="m">2&lt;/span> users, load average: 0.13, 0.05, 0.01&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>当前系统时间：09:19:05&lt;/li>
+&lt;li>系统运行时间：6 天 10 小时 2 分&lt;/li>
+&lt;li>当前登录用户：2 个&lt;/li>
+&lt;li>系统平均负载：1 分钟、5 分钟、15 分钟&lt;/li>
+&lt;/ul>
+&lt;h3 id="进程概要">进程概要&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Tasks: &lt;span class="m">126&lt;/span> total, &lt;span class="m">1&lt;/span> running, &lt;span class="m">125&lt;/span> sleeping, &lt;span class="m">0&lt;/span> stopped, &lt;span class="m">0&lt;/span> zombie&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>总进程数：126&lt;/li>
+&lt;li>正在运行的进程数：1&lt;/li>
+&lt;li>睡眠状态的进程数：125&lt;/li>
+&lt;li>停止状态的进程数：0&lt;/li>
+&lt;li>僵尸状态的进程数：0&lt;/li>
+&lt;/ul>
+&lt;h3 id="cpu-使用情况">CPU 使用情况&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">%Cpu&lt;span class="o">(&lt;/span>s&lt;span class="o">)&lt;/span>: 0.5 us, 0.0 sy, 0.0 ni, 99.5 id, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>用户进程的 CPU 占比：0.5, user&lt;/li>
+&lt;li>系统进程的 CPU 占比：0.0, system&lt;/li>
+&lt;li>包含 &lt;code>nice value&lt;/code> 进程的 CPU 占比：0.0&lt;/li>
+&lt;li>空闲 CPU 占比：99.5, idle&lt;/li>
+&lt;li>等待 IO 操作的 CPU 占比：0.0, wait&lt;/li>
+&lt;li>处理硬件中断的 CPU 占比：0.0, hardware interrupts&lt;/li>
+&lt;li>处理软件中断的 CPU 占比：0.0, software interrupts&lt;/li>
+&lt;li>被虚拟化程序偷走的 CPU 占比：0.0, stolen&lt;/li>
+&lt;/ul>
+&lt;h3 id="内存使用情况">内存使用情况&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">MiB Mem : 1673.0 total, 252.3 free, 299.5 used, 1121.3 buff/cache&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>单位：MiB, Million Byte&lt;/li>
+&lt;li>总数：1673.0 MB&lt;/li>
+&lt;li>空闲：252.3 MB&lt;/li>
+&lt;li>已用：299.5 MB&lt;/li>
+&lt;li>缓存：1121.3 MB&lt;/li>
+&lt;/ul>
+&lt;h3 id="交换区使用情况">交换区使用情况&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">MiB Swap: 0.0 total, 0.0 free, 0.0 used. 1197.7 avail Mem&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>总数：0.0&lt;/li>
+&lt;li>空闲：0.0&lt;/li>
+&lt;li>已用：0.0&lt;/li>
+&lt;li>可用：1197.7 MB（buff/cache）&lt;/li>
+&lt;/ul>
+&lt;p>总数为 0 有可能是因为没有配置交换区，可以使用以下命令检查。&lt;/p></description></item><item><title>终止进程</title><link>https://kugarocks.github.io/zh-cn/linux/cmd/terminate/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/cmd/terminate/</guid><description>&lt;h2 id="kill-命令">KILL 命令&lt;/h2>
+&lt;p>其实它是一个给进程发信号的工具，不一定是杀进程。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man kill&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">kill&lt;/span> - send a signal to a process&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="默认信号">默认信号&lt;/h3>
+&lt;p>&lt;code>kill&lt;/code> 命令的默认信号是 &lt;code>SIGTERM&lt;/code>，对应数字 &lt;code>15&lt;/code>，优雅终止。&lt;/p></description></item><item><title>压缩与解压</title><link>https://kugarocks.github.io/zh-cn/linux/cmd/compression/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/cmd/compression/</guid><description>&lt;p>todorocks&lt;/p></description></item></channel></rss>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>进程 on kugarocks</title><link>https://kugarocks.github.io/zh-cn/linux/proc/</link><description>Recent content in 进程 on kugarocks</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Sun, 01 Sep 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/zh-cn/linux/proc/index.xml" rel="self" type="application/rss+xml"/><item><title>Systemd</title><link>https://kugarocks.github.io/zh-cn/linux/proc/systemd/</link><pubDate>Fri, 30 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/proc/systemd/</guid><description>&lt;h2 id="systemd">Systemd&lt;/h2>
+&lt;p>系统的第一个进程，进程号为 1。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ps -p &lt;span class="m">1&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">PID TTY TIME CMD
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">1&lt;/span> ? 00:00:04 systemd&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>但当我们想显示详细信息的时候，结果会有些不一样。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ps -p &lt;span class="m">1&lt;/span> -f&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">UID PID PPID C STIME TTY TIME CMD
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">root &lt;span class="m">1&lt;/span> &lt;span class="m">0&lt;/span> &lt;span class="m">0&lt;/span> Aug07 ? 00:00:04 /sbin/init noibrs&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>其实这两个进程是一样的，因为 &lt;code>init&lt;/code> 指向的是 &lt;code>systemd&lt;/code>。&lt;/p></description></item><item><title>文件描述符</title><link>https://kugarocks.github.io/zh-cn/linux/proc/fd/</link><pubDate>Fri, 30 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/proc/fd/</guid><description>&lt;h2 id="基本概念">基本概念&lt;/h2>
+&lt;p>文件描述符（File Descriptor，FD） 是在操作系统中，
+用来表示已打开的文件或其他输入/输出资源的&lt;strong>整数标识符&lt;/strong>。
+它是操作系统与应用程序之间进行文件操作的桥梁。&lt;/p>
+&lt;p>在 Linux 中，文件描述符是一个非负整数，
+操作系统为每个打开的文件或输入/输出（I/O）资源（如管道、网络套接字等）分配一个文件描述符。
+每当进程请求打开一个文件或资源时，操作系统会返回一个文件描述符，
+以后进程就可以通过这个描述符来访问该文件或资源。&lt;/p>
+&lt;h2 id="常见的文件描述符">常见的文件描述符&lt;/h2>
+&lt;p>所有进程都会自动打开下面 3 个文件描述符。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">描述符&lt;/th>
+ &lt;th style="text-align: left">名称&lt;/th>
+ &lt;th style="text-align: left">描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;code>0&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">STDIN&lt;/td>
+ &lt;td style="text-align: left">标准输入&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;code>1&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">STDOUT&lt;/td>
+ &lt;td style="text-align: left">标准输出&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;code>2&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">STDERR&lt;/td>
+ &lt;td style="text-align: left">标准错误&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>例如：命令的重定向就直接使用了上面的文件描述符。&lt;/p></description></item><item><title>管道</title><link>https://kugarocks.github.io/zh-cn/linux/proc/pipe/</link><pubDate>Fri, 30 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/proc/pipe/</guid><description>&lt;h2 id="基本概念">基本概念&lt;/h2>
+&lt;p>管道可以把一个命令的输出作为下一个命令的输入，
+在命令行环境中通过符号 &lt;code>|&lt;/code> 来表示，是一种进程间的单向通信形式，基于文件描述符实现。&lt;/p>
+&lt;h2 id="工作原理">工作原理&lt;/h2>
+&lt;p>管道会创建了内存缓冲区，两个进程（命令）通过这个缓冲区通信。&lt;/p>
+&lt;h3 id="创建管道">创建管道&lt;/h3>
+&lt;p>使用 &lt;code>|&lt;/code> 创建管道时，Shell 会调 &lt;code>pipe()&lt;/code> 来创建管道，包含两个文件描述符。&lt;/p>
+&lt;ul>
+&lt;li>写入端文件描述符：&lt;code>A&lt;/code>。&lt;/li>
+&lt;li>读取端文件描述符：&lt;code>B&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;h3 id="命令连接">命令连接&lt;/h3>
+&lt;ul>
+&lt;li>左侧命令：把标准输出（文件描述符 &lt;code>1&lt;/code>）重定向到管道的写入端 &lt;code>A&lt;/code>&lt;strong>。&lt;/strong>&lt;/li>
+&lt;li>右侧命令：把标准输入（文件描述符 &lt;code>0&lt;/code>）重定向到管道的读取端 &lt;code>B&lt;/code>&lt;strong>。&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="数据流动">数据流动&lt;/h3>
+&lt;ul>
+&lt;li>实时数据传输：两边的命令会并行执行，不会等前一个命令结束。&lt;/li>
+&lt;li>无临时文件：数据在内存中传递。&lt;/li>
+&lt;li>缓冲区大小：取决于系统。&lt;/li>
+&lt;/ul>
+&lt;h2 id="查看缓冲区大小">查看缓冲区大小&lt;/h2>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cat /proc/sys/fs/pipe-max-size&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="m">1048576&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h2 id="局限性">局限性&lt;/h2>
+&lt;ul>
+&lt;li>单向通信：双向通信需要使用其他机制，如命名管道（FIFO）或套接字。&lt;/li>
+&lt;li>缓冲区大小：如果缓冲区满了，上游命令会暂停。&lt;/li>
+&lt;/ul></description></item><item><title>LSOF 命令</title><link>https://kugarocks.github.io/zh-cn/linux/proc/lsof/</link><pubDate>Sun, 01 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/proc/lsof/</guid><description>&lt;p>todorocks&lt;/p></description></item><item><title>ULIMIT 命令</title><link>https://kugarocks.github.io/zh-cn/linux/proc/ulimit/</link><pubDate>Sun, 01 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/proc/ulimit/</guid><description>&lt;p>todorocks&lt;/p></description></item></channel></rss>

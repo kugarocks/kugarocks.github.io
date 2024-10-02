@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Permission Management on kugarocks</title><link>https://kugarocks.github.io/en/linux/perm/</link><description>Recent content in Permission Management on kugarocks</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Thu, 29 Aug 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/en/linux/perm/index.xml" rel="self" type="application/rss+xml"/><item><title>User Management</title><link>https://kugarocks.github.io/en/linux/perm/user-mgmt/</link><pubDate>Tue, 27 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/perm/user-mgmt/</guid><description>&lt;h2 id="user-account">User Account&lt;/h2>
+&lt;h3 id="etcpasswd">/etc/passwd&lt;/h3>
+&lt;p>Linux uses the &lt;code>/etc/passwd&lt;/code> file to store user account information.
+Because many service processes need to read user account information, you can see that the file&amp;rsquo;s permissions are all readable.&lt;/p></description></item><item><title>Group Management</title><link>https://kugarocks.github.io/en/linux/perm/group-mgmt/</link><pubDate>Tue, 27 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/perm/group-mgmt/</guid><description>&lt;h2 id="usergroup-relationship">User/Group Relationship&lt;/h2>
+&lt;h3 id="primary-group">Primary Group&lt;/h3>
+&lt;p>When a user is created, a group with the same name is also created, which is the primary group.&lt;/p></description></item><item><title>File Permission</title><link>https://kugarocks.github.io/en/linux/perm/file-perm/</link><pubDate>Tue, 27 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/perm/file-perm/</guid><description>&lt;h2 id="composition-structure">Composition Structure&lt;/h2>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">-rwxr-xr--&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>The first character indicates the file type:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;code>-&lt;/code>&lt;/strong>：File, such as text files, binary files, etc.&lt;/li>
+&lt;li>&lt;strong>&lt;code>d&lt;/code>&lt;/strong>：Directory.&lt;/li>
+&lt;li>&lt;strong>&lt;code>l&lt;/code>&lt;/strong>：Symbolic link, Symbolic link (Soft link).&lt;/li>
+&lt;li>&lt;strong>&lt;code>b&lt;/code>&lt;/strong>：Block device, such as hard disk, CD-ROM, etc.&lt;/li>
+&lt;li>&lt;strong>&lt;code>c&lt;/code>&lt;/strong>：Character device, such as terminal device, keyboard, etc.&lt;/li>
+&lt;li>&lt;strong>&lt;code>p&lt;/code>&lt;/strong>：Pipe, inter-process communication.&lt;/li>
+&lt;li>&lt;strong>&lt;code>s&lt;/code>&lt;/strong>：Socket, network communication, data exchange between processes.&lt;/li>
+&lt;/ul>
+&lt;p>The following characters are grouped into 3 (r=read, w=write, x=execute), corresponding to:&lt;/p></description></item><item><title>Access Control List</title><link>https://kugarocks.github.io/en/linux/perm/acl/</link><pubDate>Thu, 29 Aug 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/perm/acl/</guid><description>&lt;h2 id="acl">ACL&lt;/h2>
+&lt;p>Access Control List (ACL) is a more flexible and fine-grained permission management mechanism,
+used to define and control the access permissions of file system objects. Compared to traditional file permission systems, ACL provides more detailed permission control,
+allowing you to set specific permissions for different users and user groups, no longer limited to the traditional three roles (Owner, Group, Others).&lt;/p></description></item></channel></rss>

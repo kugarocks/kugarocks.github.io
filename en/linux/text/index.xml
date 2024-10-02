@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Text Processing on kugarocks</title><link>https://kugarocks.github.io/en/linux/text/</link><description>Recent content in Text Processing on kugarocks</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Thu, 05 Sep 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/en/linux/text/index.xml" rel="self" type="application/rss+xml"/><item><title>Multi-Lines Text</title><link>https://kugarocks.github.io/en/linux/text/multi-lines/</link><pubDate>Wed, 04 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/text/multi-lines/</guid><description>&lt;h2 id="echo-command">Echo Command&lt;/h2>
+&lt;p>Using the &lt;code>-e&lt;/code> option can create simple multi-line text.&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> -e &lt;span class="s1">&amp;#39;aa\nbb&amp;#39;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">aa
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bb&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h2 id="here-document">Here Document&lt;/h2>
+&lt;p>Here Document (abbreviated as Heredoc) is a way of input redirection in Shell,
+allowing you to embed multi-line text within scripts or commands and pass it to commands or files.&lt;/p></description></item><item><title>Regular Expression</title><link>https://kugarocks.github.io/en/linux/text/regex/</link><pubDate>Wed, 04 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/text/regex/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Regular Expressions (regex) can be divided into the following categories based on different standards.&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">Type&lt;/th>
+ &lt;th style="text-align: left">Abbr&lt;/th>
+ &lt;th style="text-align: left">Full Name&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">Basic Regular Expressions&lt;/td>
+ &lt;td style="text-align: left">BRE&lt;/td>
+ &lt;td style="text-align: left">Basic Regular Expressions&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Extended Regular Expressions&lt;/td>
+ &lt;td style="text-align: left">ERE&lt;/td>
+ &lt;td style="text-align: left">Extended Regular Expressions&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Perl Regular Expressions&lt;/td>
+ &lt;td style="text-align: left">PCRE&lt;/td>
+ &lt;td style="text-align: left">Perl-Compatible Regular Expressions&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">POSIX Regular Expressions&lt;/td>
+ &lt;td style="text-align: left">BRE &amp;amp; ERE&lt;/td>
+ &lt;td style="text-align: left">BRE &amp;amp; ERE&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>BRE and ERE are two types of regular expressions in the POSIX standard,
+BRE is more basic and requires escaping certain metacharacters, ERE is an extension of BRE, providing more metacharacters and functions.
+PCRE is a more powerful and flexible type of regular expression,
+widely used in modern programming languages such as: Python, Ruby, Javascript.&lt;/p></description></item><item><title>SED</title><link>https://kugarocks.github.io/en/linux/text/sed/</link><pubDate>Wed, 04 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/text/sed/</guid><description>&lt;h2 id="stream-editor">Stream Editor&lt;/h2>
+&lt;p>A Stream Text Processor, authored by &lt;strong>Lee E. McMahon&lt;/strong>.&lt;/p>
+&lt;h3 id="basic-syntax">Basic Syntax&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sed &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> &lt;span class="s1">&amp;#39;command&amp;#39;&lt;/span> file&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>&lt;code>OPTIONS&lt;/code>: Command options.&lt;/li>
+&lt;li>&lt;code>command&lt;/code>: Print, replace, delete, etc.&lt;/li>
+&lt;li>&lt;code>file&lt;/code>: The file to process; if omitted, reads from STDIN.&lt;/li>
+&lt;/ul>
+&lt;p>Omitting &lt;code>file&lt;/code> enters interactive mode, executing one line at a time.&lt;/p></description></item><item><title>GAWK-1</title><link>https://kugarocks.github.io/en/linux/text/gawk-1/</link><pubDate>Thu, 05 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/text/gawk-1/</guid><description>&lt;h2 id="gnu-awk">Gnu Awk&lt;/h2>
+&lt;p>&lt;code>Gawk&lt;/code> is the GNU version of the text processing tool.
+In most GNU/Linux distributions, &lt;code>Gawk&lt;/code> is the default &lt;code>awk&lt;/code> implementation, so there is usually no difference in daily use.&lt;/p></description></item><item><title>GAWK-2</title><link>https://kugarocks.github.io/en/linux/text/gawk-2/</link><pubDate>Thu, 05 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/linux/text/gawk-2/</guid><description>&lt;h2 id="regular-expression">Regular Expression&lt;/h2>
+&lt;p>&lt;code>gawk&lt;/code> defaults to using ERE mode.&lt;/p>
+&lt;h3 id="basic-usage">Basic Usage&lt;/h3>
+&lt;p>First, create the &lt;code>foo&lt;/code> text file.&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cat &lt;span class="s">&amp;lt;&amp;lt;EOF &amp;gt; foo
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">a1,a2,a3
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">b1,b2,b3
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOF&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gawk -F, &lt;span class="s1">&amp;#39;/1,a/{ print $1 }&amp;#39;&lt;/span> foo&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">a1&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>Here, the entire line is matched, equivalent to &lt;code>$0&lt;/code>.&lt;/p></description></item></channel></rss>

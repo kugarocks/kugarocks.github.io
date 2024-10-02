@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>文本处理 on kugarocks</title><link>https://kugarocks.github.io/zh-cn/linux/text/</link><description>Recent content in 文本处理 on kugarocks</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Thu, 05 Sep 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/zh-cn/linux/text/index.xml" rel="self" type="application/rss+xml"/><item><title>创建多行文本</title><link>https://kugarocks.github.io/zh-cn/linux/text/multi-lines/</link><pubDate>Wed, 04 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/text/multi-lines/</guid><description>&lt;h2 id="echo-命令">ECHO 命令&lt;/h2>
+&lt;p>使用 &lt;code>-e&lt;/code> 选项可以创建简单的多行文本。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> -e &lt;span class="s1">&amp;#39;aa\nbb&amp;#39;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">aa
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bb&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h2 id="here-document">Here Document&lt;/h2>
+&lt;p>Here Document（缩写为 Heredoc）是 Shell 中的一种输入重定向方式，
+允许在脚本或命令中嵌入多行文本并传递给命令或文件。&lt;/p>
+&lt;h3 id="基本语法">基本语法&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">command&lt;/span> &lt;span class="s">&amp;lt;&amp;lt;EOF
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">多行文本内容
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOF&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>&lt;code>command&lt;/code>：如 &lt;code>cat&lt;/code>、&lt;code>sed&lt;/code>、&lt;code>gawk&lt;/code>。&lt;/li>
+&lt;li>&lt;code>&amp;lt;&amp;lt;EOF&lt;/code>：标记文档的开始并定义结束标记。&lt;/li>
+&lt;li>&lt;code>EOF&lt;/code>：标记文档结束位置。&lt;/li>
+&lt;/ul>
+&lt;p>这里的 &lt;code>EOF&lt;/code> 只是一个例子，可用任意标记。&lt;/p></description></item><item><title>正则表达式</title><link>https://kugarocks.github.io/zh-cn/linux/text/regex/</link><pubDate>Wed, 04 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/text/regex/</guid><description>&lt;h2 id="简介">简介&lt;/h2>
+&lt;p>正则表达式（Regular Expressions, regex）根据不同的标准可分为以下几类。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">类型&lt;/th>
+ &lt;th style="text-align: left">缩写&lt;/th>
+ &lt;th style="text-align: left">全称&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">基本正则表达式&lt;/td>
+ &lt;td style="text-align: left">BRE&lt;/td>
+ &lt;td style="text-align: left">BRE，Basic Regular Expressions&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">扩展正则表达式&lt;/td>
+ &lt;td style="text-align: left">ERE&lt;/td>
+ &lt;td style="text-align: left">ERE，Extended Regular Expressions&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Perl 正则表达式&lt;/td>
+ &lt;td style="text-align: left">PCRE&lt;/td>
+ &lt;td style="text-align: left">Perl-Compatible Regular Expressions&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">POSIX 正则表达式&lt;/td>
+ &lt;td style="text-align: left">BRE &amp;amp; ERE&lt;/td>
+ &lt;td style="text-align: left">BRE &amp;amp; ERE&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>BRE 和 ERE 是 POSIX 标准中的两种正则表达式，
+BRE 较为基础，需要对某些元字符转义，ERE 是 BRE 的扩展，提供了更多的元字符和功能。
+PCRE 是一种功能更强大、语法更灵活的正则表达式类型，
+广泛用于现代编程语言如：Python、Ruby、Javascript。&lt;/p></description></item><item><title>SED 命令</title><link>https://kugarocks.github.io/zh-cn/linux/text/sed/</link><pubDate>Wed, 04 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/text/sed/</guid><description>&lt;h2 id="stream-editor">Stream Editor&lt;/h2>
+&lt;p>流式文本处理器，作者是 &lt;strong>Lee E. McMahon&lt;/strong>。&lt;/p>
+&lt;h3 id="基本语法">基本语法&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sed &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> &lt;span class="s1">&amp;#39;command&amp;#39;&lt;/span> file&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>&lt;code>OPTIONS&lt;/code>：命令选项。&lt;/li>
+&lt;li>&lt;code>command&lt;/code>：打印、替换、删除等。&lt;/li>
+&lt;li>&lt;code>file&lt;/code>：处理的文件，如果省略，读取 STDIN。&lt;/li>
+&lt;/ul>
+&lt;p>省略 &lt;code>file&lt;/code> 为交互模式，输入一行执行一次。&lt;/p>
+&lt;h3 id="运行过程">运行过程&lt;/h3>
+&lt;ul>
+&lt;li>读入一行数据：
+&lt;ul>
+&lt;li>有匹配规则：
+&lt;ul>
+&lt;li>匹配成功：执行相关操作。&lt;/li>
+&lt;li>匹配失败：原样打印数据。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>无匹配规则：执行相关操作。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="命令引号">命令引号&lt;/h3>
+&lt;ul>
+&lt;li>单引号：可减少转义字符的影响，&lt;strong>优先使用&lt;/strong>。&lt;/li>
+&lt;li>双引号：可使用变量参数，需处理特殊字符。&lt;/li>
+&lt;/ul>
+&lt;h2 id="常用例子">常用例子&lt;/h2>
+&lt;h3 id="替换第一处">替换第一处&lt;/h3>
+&lt;p>把第一处出现的 a 替换成 b。&lt;/p></description></item><item><title>GAWK 命令 - 1</title><link>https://kugarocks.github.io/zh-cn/linux/text/gawk-1/</link><pubDate>Thu, 05 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/text/gawk-1/</guid><description>&lt;h2 id="gnu-awk">GNU AWK&lt;/h2>
+&lt;p>&lt;code>gawk&lt;/code> 是 GNU 版本的文本处理工具。
+在大多数 GNU/Linux 发行版中，&lt;code>gawk&lt;/code> 是默认的 &lt;code>awk&lt;/code> 实现，因此在日常使用中通常没有区别。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">readlink -f /usr/bin/awk&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">/usr/bin/gawk&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>&lt;code>gawk&lt;/code> 命令默认使用 ERE 模式。&lt;/p></description></item><item><title>GAWK 命令 - 2</title><link>https://kugarocks.github.io/zh-cn/linux/text/gawk-2/</link><pubDate>Thu, 05 Sep 2024 20:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/linux/text/gawk-2/</guid><description>&lt;h2 id="正则匹配">正则匹配&lt;/h2>
+&lt;p>&lt;code>gawk&lt;/code> 默认使用 ERE 模式。&lt;/p>
+&lt;h3 id="基础用法">基础用法&lt;/h3>
+&lt;p>首先创建 &lt;code>foo&lt;/code> 文本文件。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cat &lt;span class="s">&amp;lt;&amp;lt;EOF &amp;gt; foo
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">a1,a2,a3
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">b1,b2,b3
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOF&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gawk -F, &lt;span class="s1">&amp;#39;/1,a/{ print $1 }&amp;#39;&lt;/span> foo&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">a1&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>这里是用&lt;strong>整行&lt;/strong>去匹配的，等价于 &lt;code>$0&lt;/code>。&lt;/p></description></item></channel></rss>
