@@ -23,7 +23,7 @@
     {{ with .Params.video }}
       {{ $video := resources.Get . }}
       {{ if $video }}
-        <video src="{{ $video.RelPermalink }}" autoplay muted controls>
+        <video src="{{ $video.RelPermalink }}" controls>
           <p>您的浏览器不支持 HTML5 视频。请升级您的浏览器。</p>
         </video>
       {{ else }}
