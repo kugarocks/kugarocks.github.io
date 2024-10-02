@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
+    # Checkout code
+    - name: Checkout code
+      uses: actions/checkout@v4
+
     # Setup Node.js
     - name: Set up Node.js
       uses: actions/setup-node@v4
@@ -19,7 +23,7 @@ jobs:
     # Setup Hugo Extended version
     # Ensure that the Hugo Extended version is used
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
+      uses: peaceiris/actions-hugo@v3
       with:
         hugo-version: '0.134.2'
         extended: true
