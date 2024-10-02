@@ -26,3 +26,15 @@ Change all markdown code block types to bash {frame="none"}
 * If you don't add the full range, it will detect whether the code block type is `bash`.
   * Yes: Modify.
   * No: Do not modify.
+
+### Translate to English
+
+```txt {frame="none"}
+Translate to English, if it is a title, then capitalize the first letter of each word.
+```
+
+### Translate to Traditional-HK
+
+```txt {frame="none"}
+Translate to Traditional-HK.
+```
