@@ -24,7 +24,7 @@
       {{ $video := resources.Get . }}
       {{ if $video }}
         {{ $image := resources.Get $.Params.videoPoster }}
-        <video src="{{ $video.RelPermalink }}" controls playsinline poster="{{ $image.RelPermalink }}">
+        <video src="{{ $video.RelPermalink }}" preload="auto" controls playsinline poster="{{ $image.RelPermalink }}">
           <p>您的浏览器不支持 HTML5 视频。请升级您的浏览器。</p>
         </video>
       {{ else }}
