@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>四次元百寶袋 on kugarocks</title><link>https://www.kugarocks.com/zh-hk/tech/fourd-pocket/</link><description>Recent content in 四次元百寶袋 on kugarocks</description><generator>Hugo</generator><language>zh-hk</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Sun, 08 Sep 2024 00:00:00 +0800</lastBuildDate><atom:link href="https://www.kugarocks.com/zh-hk/tech/fourd-pocket/index.xml" rel="self" type="application/rss+xml"/><item><title>Homebrew</title><link>https://www.kugarocks.com/zh-hk/tech/fourd-pocket/homebrew/</link><pubDate>Thu, 22 Aug 2024 00:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/tech/fourd-pocket/homebrew/</guid><description>&lt;h2 id="更換國內源">更換國內源&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>四次元百寶袋 on kugarocks</title><link>https://www.kugarocks.com/zh-hk/tech/fourd-pocket/</link><description>Recent content in 四次元百寶袋 on kugarocks</description><generator>Hugo</generator><language>zh-hk</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Thu, 03 Oct 2024 00:18:00 +0800</lastBuildDate><atom:link href="https://www.kugarocks.com/zh-hk/tech/fourd-pocket/index.xml" rel="self" type="application/rss+xml"/><item><title>Homebrew</title><link>https://www.kugarocks.com/zh-hk/tech/fourd-pocket/homebrew/</link><pubDate>Thu, 22 Aug 2024 00:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/tech/fourd-pocket/homebrew/</guid><description>&lt;h2 id="更換國內源">更換國內源&lt;/h2>
 &lt;h3 id="主倉庫配置">主倉庫配置&lt;/h3>
 
 
@@ -208,4 +208,31 @@
 畢竟對於一個 5 年前嘅老項目，好多依賴嘅軟件都更新咗，會出現各種各樣嘅問題。&lt;/p>
 &lt;h2 id="php-72">PHP 7.2&lt;/h2>
 &lt;p>2024 年嘅 PHP 已經去到 8.X 咗，有啲特性已經唔再支持，所以只能安裝舊版。
-不過 Homebrew 嘅官方唔提供舊版本嘅下載，需要使用 &lt;code>shivammathur/homebrew-php&lt;/code>。&lt;/p></description></item></channel></rss>
+不過 Homebrew 嘅官方唔提供舊版本嘅下載，需要使用 &lt;code>shivammathur/homebrew-php&lt;/code>。&lt;/p></description></item><item><title>Shadow 構建和安裝</title><link>https://www.kugarocks.com/zh-hk/tech/fourd-pocket/shadow-install/</link><pubDate>Thu, 03 Oct 2024 00:18:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/tech/fourd-pocket/shadow-install/</guid><description>&lt;h2 id="orbstack">Orbstack&lt;/h2>
+&lt;p>在 macOS 上使用 Orbstack 構建和安裝 Shadow 項目。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew install orbstack&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>打開 Orbstack 應用（更換鏡像倉庫，可選）。&lt;/p>
+&lt;h2 id="安裝依賴">安裝依賴&lt;/h2>
+&lt;p>進入容器。&lt;/p>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker run -it --name shadow ubuntu:22.04 /bin/bash&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>先更新軟件包，否則無法安裝任何東西。&lt;/p></description></item></channel></rss>

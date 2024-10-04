@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MINI-ROCKS on kugarocks</title><link>https://www.kugarocks.com/zh-hk/</link><description>Recent content in MINI-ROCKS on kugarocks</description><generator>Hugo</generator><language>zh-hk</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Mon, 30 Sep 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://www.kugarocks.com/zh-hk/index.xml" rel="self" type="application/rss+xml"/><item><title>README</title><link>https://www.kugarocks.com/zh-hk/toys/readme/</link><pubDate>Mon, 30 Sep 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/toys/readme/</guid><description>&lt;h2 id="keyboard-cat-rocks">KEYBOARD CAT ROCKS&lt;/h2>
-&lt;video controls preload="auto" width="100%" playsinline class="html-video">
+&lt;video controls preload="auto" width="100%" poster="/images/misc/keyboard-cat-poster.jpg" playsinline class="html-video">
  &lt;source src="https://www.kugarocks.com/videos/misc/keyboard-cat-original.mp4" type="video/mp4">
  &lt;span>您的瀏覽器不支持嵌入式視頻，但別擔心，您可以&lt;a href="https://www.kugarocks.com/videos/misc/keyboard-cat-original.mp4">下載它&lt;/a>並用您喜歡的視頻播放器觀看！&lt;/span>
  &lt;/video></description></item><item><title>README</title><link>https://www.kugarocks.com/zh-hk/linux/readme/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/linux/readme/</guid><description>&lt;h2 id="what-do-u-got">WHAT DO U GOT&lt;/h2>
@@ -35,7 +35,7 @@
  &lt;h5 class="card-title my-0">&lt;a href="https://minions.wiki" target="_blank" class="stretched-link text-reset text-decoration-none">Minions Wiki&lt;/a>&lt;/h5>
  &lt;p class="card-text mt-1">小黃人百科&lt;/p></description></item><item><title>第一章：Say My Name</title><link>https://www.kugarocks.com/zh-hk/linux/say-my-name/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/linux/say-my-name/</guid><description>&lt;h2 id="linux-torvalds">Linux Torvalds&lt;/h2>
 &lt;p>呢個名嘅發音要點讀呢，幾好奇，搵咗一下，仲真係有人搞咗個集合，救命啊哈哈哈。&lt;/p>
-&lt;video controls preload="auto" width="100%" playsinline class="html-video">
+&lt;video controls preload="auto" width="100%" poster="/images/misc/say-my-name-poster.jpg" playsinline class="html-video">
  &lt;source src="https://www.kugarocks.com/videos/misc/say-my-name.mp4" type="video/mp4">
  &lt;span>您的瀏覽器不支持嵌入式視頻，但別擔心，您可以&lt;a href="https://www.kugarocks.com/videos/misc/say-my-name.mp4">下載它&lt;/a>並用您喜歡的視頻播放器觀看！&lt;/span>
  &lt;/video>
