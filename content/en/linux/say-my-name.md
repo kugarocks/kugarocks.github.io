@@ -16,7 +16,12 @@ seo:
 
 How to pronounce this name is quite curious, searched it, and someone even made a collection, oh my god, haha.
 
-{{< video src="videos/misc/say-my-name.mp4" controls="true" >}}
+{{< video
+  src="videos/misc/say-my-name.mp4"
+  playsinline="true"
+  controls="true"
+  poster="images/misc/say-my-name-poster.jpg"
+>}}
 
 ## Definition of Linux
 

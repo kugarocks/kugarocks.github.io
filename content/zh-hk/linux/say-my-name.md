@@ -16,7 +16,12 @@ seo:
 
 呢個名嘅發音要點讀呢，幾好奇，搵咗一下，仲真係有人搞咗個集合，救命啊哈哈哈。
 
-{{< video src="videos/misc/say-my-name.mp4" controls="true" >}}
+{{< video
+  src="videos/misc/say-my-name.mp4"
+  playsinline="true"
+  controls="true"
+  poster="images/misc/say-my-name-poster.jpg"
+>}}
 
 ## Linux 定義
 

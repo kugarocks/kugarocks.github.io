@@ -16,7 +16,12 @@ seo:
 
 这个名字的发音要怎么读呢，挺好奇的，搜了一下，还真有人搞了一个集合，救命啊哈哈哈。
 
-{{< video src="videos/misc/say-my-name.mp4" controls="true" >}}
+{{< video
+  src="videos/misc/say-my-name.mp4"
+  playsinline="true"
+  controls="true"
+  poster="images/misc/say-my-name-poster.jpg"
+>}}
 
 ## Linux 的定义
 
