@@ -293,3 +293,11 @@ table {
     border-bottom: 1px solid #e9ecef;
 }
 
+// better code block title
+.expressive-code .frame.is-terminal .header {
+    justify-content: flex-start;
+    padding-left: 1rem;
+}
+.expressive-code .frame.is-terminal .header::before {
+    display: none;
+}
