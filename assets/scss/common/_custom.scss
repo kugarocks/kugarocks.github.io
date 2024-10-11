@@ -294,6 +294,10 @@ table {
 .home .navbar {
     border-bottom: 1px solid #e9ecef;
 }
+[data-bs-theme="dark"] 
+body.home .navbar {
+    border-bottom: 1px solid #23262f;
+}
 
 // better code block title
 .expressive-code .frame.is-terminal .header {
