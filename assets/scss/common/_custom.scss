@@ -287,9 +287,11 @@ table {
     padding-top: 3rem;
 }
 
-// fix navbar shake
+// magic fix navbar shake
 .navbar {
     height: 68px;
+}
+.home .navbar {
     border-bottom: 1px solid #e9ecef;
 }
 
