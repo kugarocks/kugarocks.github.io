@@ -3,6 +3,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -11,6 +12,7 @@
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man man&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
+
 
 
 
@@ -38,6 +40,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -59,6 +62,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -71,6 +75,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -80,6 +85,7 @@
  &lt;/figure>
 &lt;/div>
 &lt;h3 id="按數值排序">按數值排序&lt;/h3>
+
 
 
 
@@ -99,6 +105,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -107,6 +114,7 @@
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man grep&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
+
 
 
 
@@ -125,6 +133,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -133,6 +142,7 @@
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">w&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
+
 
 
 
@@ -151,6 +161,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -159,6 +170,7 @@
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man top&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
+
 
 
 
@@ -171,6 +183,7 @@
  &lt;/figure>
 &lt;/div>
 &lt;p>top 命令預設按進程 &lt;strong>CPU 使用率嘅倒序&lt;/strong>嚟排序，並動態展示結果。&lt;/p>
+
 
 
 
@@ -197,6 +210,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -212,6 +226,7 @@
 &lt;li>系統平均負載：1 分鐘、5 分鐘、15 分鐘&lt;/li>
 &lt;/ul>
 &lt;h3 id="進程概要">進程概要&lt;/h3>
+
 
 
 
@@ -231,6 +246,7 @@
 &lt;li>僵屍狀態嘅進程數：0&lt;/li>
 &lt;/ul>
 &lt;h3 id="cpu-使用情況">CPU 使用情況&lt;/h3>
+
 
 
 
@@ -256,6 +272,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -272,6 +289,7 @@
 &lt;li>緩存：1121.3 MB&lt;/li>
 &lt;/ul>
 &lt;h3 id="交換區使用情況">交換區使用情況&lt;/h3>
+
 
 
 
@@ -294,6 +312,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -302,6 +321,7 @@
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">man kill&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
+
 
 
 

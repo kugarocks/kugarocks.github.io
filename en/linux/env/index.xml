@@ -7,6 +7,7 @@ This flexibility and configurability make environment variables a key part of Li
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -15,6 +16,7 @@ This flexibility and configurability make environment variables a key part of Li
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">printenv SHELL&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
+
 
 
 
@@ -31,6 +33,7 @@ This flexibility and configurability make environment variables a key part of Li
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -39,6 +42,7 @@ This flexibility and configurability make environment variables a key part of Li
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">printenv HOME&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
+
 
 
 

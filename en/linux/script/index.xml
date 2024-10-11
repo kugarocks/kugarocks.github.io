@@ -2,6 +2,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -12,6 +13,7 @@
 &lt;/div>
 &lt;h2 id="variable-assignment">Variable Assignment&lt;/h2>
 &lt;p>No spaces are allowed around the &lt;code>=&lt;/code> sign.&lt;/p>
+
 
 
 
@@ -29,6 +31,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -41,6 +44,7 @@
  &lt;/figure>
 &lt;/div>
 &lt;p>Another form.&lt;/p></description></item><item><title>Loop</title><link>https://www.kugarocks.com/en/linux/script/loop/</link><pubDate>Fri, 30 Aug 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/en/linux/script/loop/</guid><description>&lt;h2 id="for-statement">For Statement&lt;/h2>
+
 
 
 
@@ -65,6 +69,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -79,6 +84,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -87,6 +93,7 @@
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">./foo a&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
+
 
 
 
@@ -135,6 +142,7 @@ so executing the following commands will not have any effect (&lt;code>$$&lt;/co
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -146,6 +154,7 @@ so executing the following commands will not have any effect (&lt;code>$$&lt;/co
  &lt;/figure>
 &lt;/div>
 &lt;p>or&lt;/p>
+
 
 
 
@@ -167,6 +176,7 @@ Through parameter expansion, you can get the value of a variable, modify the val
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -175,6 +185,7 @@ Through parameter expansion, you can get the value of a variable, modify the val
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ls &lt;span class="m">404&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
+
 
 
 

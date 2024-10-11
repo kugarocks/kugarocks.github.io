@@ -11,6 +11,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -23,6 +24,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -32,6 +34,7 @@
  &lt;/figure>
 &lt;/div>
 &lt;p>按一下方向鍵 ⬆️ 睇下上一條命令。&lt;/p>
+
 
 
 
@@ -48,6 +51,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -56,6 +60,7 @@
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$SHELL&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
+
 
 
 
@@ -72,6 +77,7 @@
 
 
 
+
 &lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
@@ -80,6 +86,7 @@
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">grep root /etc/passwd&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
+
 
 
 
