@@ -38,7 +38,7 @@ jobs:
 
     # Add custom domain
     - name: Add CNAME file
-      run: echo "https://kugarocks.github.io" > ./gh-pages/CNAME
+      run: echo "kugarocks.github.io" > ./gh-pages/CNAME
 
     # Deploy the contents of the gh-pages directory
     - name: Deploy to GitHub Pages
@@ -54,7 +54,7 @@ jobs:
 
     # Add custom domain
     - name: Add CNAME file
-      run: echo "https://www.kugarocks.com" > ./al-pages/CNAME
+      run: echo "www.kugarocks.com" > ./al-pages/CNAME
 
     # Deploy the contents of the al-pages directory
     - name: Deploy to Aliyun Pages
