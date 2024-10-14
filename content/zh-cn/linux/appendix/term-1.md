@@ -83,3 +83,19 @@ The SKEL variable specifies the directory containing "skeletal" user files; in o
 ```txt {frame="none" text-wrap="wrap"}
 - (Hyphen): Represents a regular file. This is the most common file type, typically used for text files, binary files, or other standard files.
 ```
+
+## identical
+
+完全相同的，无差别的。
+
+```txt {frame="none" text-wrap="wrap"}
+MySQL replica parts are not identical and they can't be randomly addressed.
+```
+
+## interchangeable
+
+可互/替换的。
+
+```txt {frame="none" text-wrap="wrap"}
+MySQL replica parts need their own identity and can not be interchangeable just like with deployment.
+```
