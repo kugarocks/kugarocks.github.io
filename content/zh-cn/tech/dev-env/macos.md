@@ -230,3 +230,18 @@ Download [.kubectl\_aliases](https://raw.githubusercontent.com/ahmetb/kubectl-al
 # Print the full command before running it
 function kubectl() { echo "+ kubectl $@">&2; command kubectl $@; }
 ```
+
+## Others
+
+### jq
+
+{{< link-card
+  title="jq"
+  description="A lightweight and flexible command-line JSON processor."
+  href="https://github.com/jqlang/jq"
+  target="_blank"
+>}}
+
+```bash {frame="none"}
+brew install jq
+```

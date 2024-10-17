@@ -99,3 +99,11 @@ MySQL replica parts are not identical and they can't be randomly addressed.
 ```txt {frame="none" text-wrap="wrap"}
 MySQL replica parts need their own identity and can not be interchangeable just like with deployment.
 ```
+
+## clustering
+
+杂乱或混乱。
+
+```txt {frame="none" text-wrap="wrap"}
+We use $XDG_DATA_HOME(X Desktop Group, XDG) to avoid cluttering the user's home directory.
+```
