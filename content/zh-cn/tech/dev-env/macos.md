@@ -233,7 +233,11 @@ function kubectl() { echo "+ kubectl $@">&2; command kubectl $@; }
 
 ## Others
 
-### jq
+### jq - JSON processor
+
+```bash {frame="none"}
+brew install jq
+```
 
 {{< link-card
   title="jq"
@@ -241,7 +245,3 @@ function kubectl() { echo "+ kubectl $@">&2; command kubectl $@; }
   href="https://github.com/jqlang/jq"
   target="_blank"
 >}}
-
-```bash {frame="none"}
-brew install jq
-```
