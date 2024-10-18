@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>开发环境 on kugarocks</title><link>https://kugarocks.github.io/zh-cn/tech/dev-env/</link><description>Recent content in 开发环境 on kugarocks</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Mon, 29 Jul 2024 00:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/zh-cn/tech/dev-env/index.xml" rel="self" type="application/rss+xml"/><item><title>MacOS</title><link>https://kugarocks.github.io/zh-cn/tech/dev-env/macos/</link><pubDate>Wed, 24 Jul 2024 00:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/tech/dev-env/macos/</guid><description>&lt;h2 id="keyboard">Keyboard&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>开发环境 on kugarocks</title><link>https://kugarocks.github.io/zh-cn/tech/dev-env/</link><description>Recent content in 开发环境 on kugarocks</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Fri, 18 Oct 2024 21:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/zh-cn/tech/dev-env/index.xml" rel="self" type="application/rss+xml"/><item><title>MacOS</title><link>https://kugarocks.github.io/zh-cn/tech/dev-env/macos/</link><pubDate>Wed, 24 Jul 2024 00:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/tech/dev-env/macos/</guid><description>&lt;h2 id="keyboard">Keyboard&lt;/h2>
 &lt;p>System Preferences&lt;/p>
 &lt;ul>
 &lt;li>Key Repeat: Fast&lt;/li>
@@ -181,4 +181,45 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">LANG&lt;/span>&lt;span class="o">=&lt;/span>en_US.UTF-8
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">LC_CTYPE&lt;/span>&lt;span class="o">=&lt;/span>en_US.UTF-8&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
-&lt;/div></description></item></channel></rss>
+&lt;/div></description></item><item><title>nvim</title><link>https://kugarocks.github.io/zh-cn/tech/dev-env/nvim/</link><pubDate>Fri, 18 Oct 2024 21:00:00 +0800</pubDate><guid>https://kugarocks.github.io/zh-cn/tech/dev-env/nvim/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
+&lt;p>可在 &lt;a href="https://github.com/neovim/neovim/releases">GitHub Release&lt;/a> 中下载二进制版本，并设置环境变量。&lt;/p>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="s2">/neovim/bin:&lt;/span>&lt;span class="nv">$PATH&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;p>使用 Homebrew 安装需要下载依赖和编译，速度较慢，且只能下载部分版本。&lt;/p>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew install neovim&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h2 id="插件管理">插件管理&lt;/h2>
+&lt;p>推荐使用 &lt;code>lazy.nvim&lt;/code>。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/folke/lazy.nvim">lazy.nvim&lt;/a>：Neovim 专用，启动快，延迟加载，使用 Lua 编写。&lt;/li>
+&lt;li>&lt;a href="https://github.com/junegunn/vim-plug">vim-plug&lt;/a>：Vim/Neovim 通用，历史悠久，使用 Vimscript 编写。&lt;/li>
+&lt;li>&lt;a href="https://github.com/wbthomason/packer.nvim">packer.nvim&lt;/a>：不再维护（2023 年 8 月）。&lt;/li>
+&lt;/ul>
+&lt;h2 id="lazynvim">lazy.nvim&lt;/h2>
+
+ &lt;div class="card-nav d-flex flex-column flex-sm-row">
+ &lt;div class="card text-end w-100">
+ &lt;div class="card-body d-flex">
+ &lt;div class="d-flex flex-column me-auto text-start">
+ &lt;h5 class="card-title my-0">&lt;a href="https://lazy.folke.io/installation" target="_blank" class="stretched-link text-reset text-decoration-none">官方安装文档&lt;/a>&lt;/h5>
+ &lt;p class="card-text mt-1">lazy.folke.io/installation&lt;/p></description></item></channel></rss>
