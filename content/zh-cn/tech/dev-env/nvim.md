@@ -254,3 +254,25 @@ brew install font-hack-nerd-font
 * 进入 `Preferences > Profiles > Text`。
 * 勾选 `Use a different font for non-ASCII text`。
 * 然后选择你安装的 Nerd Font。
+
+## 常用快捷键
+
+* 转换窗口：`Ctrl+w+h/l`
+* 进入目录：`Ctrl+]`
+* 新建文件：`a` + 文件名，带 `/` 表示目录。
+* 删除文件：`d` + `y`。
+* 新建终端：`:term`。
+* 缓冲列表：`:ls`。
+* 切换缓冲：`:b [num]`。
+
+## 退出终端的插入模式
+
+在 `init.lua` 中添加。
+
+```lua {frame="none"}
+vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
+```
+
+* `t` 表示终端模式。
+* `<esc>` 表示新的退出键。
+* `<C-\><C-n>` 表示实际的退出键。
