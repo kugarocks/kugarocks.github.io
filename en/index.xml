@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MINI-ROCKS on kugarocks</title><link>https://www.kugarocks.com/en/</link><description>Recent content in MINI-ROCKS on kugarocks</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Mon, 30 Sep 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://www.kugarocks.com/en/index.xml" rel="self" type="application/rss+xml"/><item><title>README</title><link>https://www.kugarocks.com/en/toys/readme/</link><pubDate>Mon, 30 Sep 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/en/toys/readme/</guid><description>&lt;h2 id="keyboard-cat-rocks">KEYBOARD CAT ROCKS&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MINI-ROCKS on kugarocks</title><link>https://www.kugarocks.com/en/</link><description>Recent content in MINI-ROCKS on kugarocks</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Sat, 19 Oct 2024 10:00:00 +0800</lastBuildDate><atom:link href="https://www.kugarocks.com/en/index.xml" rel="self" type="application/rss+xml"/><item><title>README</title><link>https://www.kugarocks.com/en/toys/readme/</link><pubDate>Mon, 30 Sep 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/en/toys/readme/</guid><description>&lt;h2 id="keyboard-cat-rocks">KEYBOARD CAT ROCKS&lt;/h2>
 &lt;video controls preload="auto" width="100%" poster="/images/misc/keyboard-cat-poster.jpg" playsinline class="html-video">
  &lt;source src="https://www.kugarocks.com/videos/misc/keyboard-cat-original.mp4" type="video/mp4">
  &lt;span>Your browser doesn't support embedded videos, but don't worry, you can &lt;a href="https://www.kugarocks.com/videos/misc/keyboard-cat-original.mp4">download it&lt;/a> and watch it with your favorite video player!&lt;/span>
@@ -45,7 +45,172 @@ However, the Minions inside are not yet complete, and I will continue to improve
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">defaults write -g ApplePressAndHoldEnabled -bool false&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
-&lt;p>Shortcuts&lt;/p></description></item><item><title>Minichat</title><link>https://www.kugarocks.com/en/toys/minichat/</link><pubDate>Mon, 30 Sep 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/en/toys/minichat/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Shortcuts&lt;/p></description></item><item><title>Homebrew</title><link>https://www.kugarocks.com/en/tech/dev-env/homebrew/</link><pubDate>Thu, 22 Aug 2024 00:00:00 +0800</pubDate><guid>https://www.kugarocks.com/en/tech/dev-env/homebrew/</guid><description>&lt;h2 id="chinese-source">Chinese Source&lt;/h2>
+&lt;h3 id="main-repository">Main Repository&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> &lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> git remote -v&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/brew.git &lt;span class="o">(&lt;/span>fetch&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/brew.git &lt;span class="o">(&lt;/span>push&lt;span class="o">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="core-repository">Core Repository&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> &lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> git remote -v&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/homebrew-core.git &lt;span class="o">(&lt;/span>fetch&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/homebrew-core.git &lt;span class="o">(&lt;/span>push&lt;span class="o">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="aliyun-mirror">Aliyun Mirror&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">HOMEBREW_BOTTLE_DOMAIN&lt;/span>&lt;span class="o">=&lt;/span>https://mirrors.aliyun.com/homebrew/homebrew-bottles&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="ustc-mirror">USTC Mirror&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.ustc.edu.cn/brew.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">HOMEBREW_BOTTLE_DOMAIN&lt;/span>&lt;span class="o">=&lt;/span>https://mirrors.ustc.edu.cn/homebrew-bottles&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="tsinghua-university-mirror">Tsinghua University Mirror&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">HOMEBREW_BOTTLE_DOMAIN&lt;/span>&lt;span class="o">=&lt;/span>https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="verify-source">Verify Source&lt;/h3>
+&lt;p>After completing the source change operation, you can execute the following command to verify whether the source configuration is successful.&lt;/p></description></item><item><title>Minichat</title><link>https://www.kugarocks.com/en/toys/minichat/</link><pubDate>Mon, 30 Sep 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/en/toys/minichat/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>Once I wanted to send a piece of text from one computer to another, but found that such a simple requirement didn&amp;rsquo;t have a straightforward tool.
 I asked ChatGPT, summarized the existing tools, and found that none of them were very useful.&lt;/p></description></item><item><title>Chapter 2: Terminal</title><link>https://www.kugarocks.com/en/linux/terminal/</link><pubDate>Sat, 24 Aug 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/en/linux/terminal/</guid><description>&lt;h2 id="early-terminals">Early Terminals&lt;/h2>
 &lt;p>
@@ -223,5 +388,4 @@ I asked ChatGPT, summarized the existing tools, and found that none of them were
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">LANG&lt;/span>&lt;span class="o">=&lt;/span>en_US.UTF-8
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">LC_CTYPE&lt;/span>&lt;span class="o">=&lt;/span>en_US.UTF-8&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
-&lt;/div></description></item><item><title>Terminal Tool</title><link>https://www.kugarocks.com/en/toys/terminal-tool/</link><pubDate>Mon, 30 Sep 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/en/toys/terminal-tool/</guid><description>&lt;h2 id="with-bubbletea">With Bubbletea&lt;/h2>
-&lt;p>Coming soon&amp;hellip;&lt;/p></description></item></channel></rss>
+&lt;/div></description></item></channel></rss>

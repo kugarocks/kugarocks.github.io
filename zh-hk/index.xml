@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MINI-ROCKS on kugarocks</title><link>https://www.kugarocks.com/zh-hk/</link><description>Recent content in MINI-ROCKS on kugarocks</description><generator>Hugo</generator><language>zh-hk</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Mon, 30 Sep 2024 20:00:00 +0800</lastBuildDate><atom:link href="https://www.kugarocks.com/zh-hk/index.xml" rel="self" type="application/rss+xml"/><item><title>README</title><link>https://www.kugarocks.com/zh-hk/toys/readme/</link><pubDate>Mon, 30 Sep 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/toys/readme/</guid><description>&lt;h2 id="keyboard-cat-rocks">KEYBOARD CAT ROCKS&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MINI-ROCKS on kugarocks</title><link>https://www.kugarocks.com/zh-hk/</link><description>Recent content in MINI-ROCKS on kugarocks</description><generator>Hugo</generator><language>zh-hk</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Sat, 19 Oct 2024 10:00:00 +0800</lastBuildDate><atom:link href="https://www.kugarocks.com/zh-hk/index.xml" rel="self" type="application/rss+xml"/><item><title>README</title><link>https://www.kugarocks.com/zh-hk/toys/readme/</link><pubDate>Mon, 30 Sep 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/toys/readme/</guid><description>&lt;h2 id="keyboard-cat-rocks">KEYBOARD CAT ROCKS&lt;/h2>
 &lt;video controls preload="auto" width="100%" poster="/images/misc/keyboard-cat-poster.jpg" playsinline class="html-video">
  &lt;source src="https://www.kugarocks.com/videos/misc/keyboard-cat-original.mp4" type="video/mp4">
  &lt;span>您的瀏覽器不支持嵌入式視頻，但別擔心，您可以&lt;a href="https://www.kugarocks.com/videos/misc/keyboard-cat-original.mp4">下載它&lt;/a>並用您喜歡的視頻播放器觀看！&lt;/span>
@@ -62,7 +62,172 @@ Linux 核心由 Linus Torvalds 喺 1991 年 9 月 17 日首次發佈，
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">defaults write -g ApplePressAndHoldEnabled -bool false&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
-&lt;p>Shortcuts&lt;/p></description></item><item><title>迷你聊天室</title><link>https://www.kugarocks.com/zh-hk/toys/minichat/</link><pubDate>Mon, 30 Sep 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/toys/minichat/</guid><description>&lt;h2 id="簡介">簡介&lt;/h2>
+&lt;p>Shortcuts&lt;/p></description></item><item><title>Homebrew</title><link>https://www.kugarocks.com/zh-hk/tech/dev-env/homebrew/</link><pubDate>Thu, 22 Aug 2024 00:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/tech/dev-env/homebrew/</guid><description>&lt;h2 id="更換國內源">更換國內源&lt;/h2>
+&lt;h3 id="主倉庫配置">主倉庫配置&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> &lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> git remote -v&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/brew.git &lt;span class="o">(&lt;/span>fetch&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/brew.git &lt;span class="o">(&lt;/span>push&lt;span class="o">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="核心倉庫配置">核心倉庫配置&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> &lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> git remote -v&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/homebrew-core.git &lt;span class="o">(&lt;/span>fetch&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/homebrew-core.git &lt;span class="o">(&lt;/span>push&lt;span class="o">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="阿里雲鏡像">阿里雲鏡像&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">HOMEBREW_BOTTLE_DOMAIN&lt;/span>&lt;span class="o">=&lt;/span>https://mirrors.aliyun.com/homebrew/homebrew-bottles&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="中科大鏡像">中科大鏡像&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.ustc.edu.cn/brew.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">HOMEBREW_BOTTLE_DOMAIN&lt;/span>&lt;span class="o">=&lt;/span>https://mirrors.ustc.edu.cn/homebrew-bottles&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="清華大學鏡像">清華大學鏡像&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">HOMEBREW_BOTTLE_DOMAIN&lt;/span>&lt;span class="o">=&lt;/span>https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="驗證源配置">驗證源配置&lt;/h3>
+&lt;p>完成更換源操作後，可以執行以下命令驗證源配置是否成功。&lt;/p></description></item><item><title>迷你聊天室</title><link>https://www.kugarocks.com/zh-hk/toys/minichat/</link><pubDate>Mon, 30 Sep 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/toys/minichat/</guid><description>&lt;h2 id="簡介">簡介&lt;/h2>
 &lt;p>有一次我想把一段文本從一台電腦發到另一台電腦上，但發現如此簡單的需求卻冇直接了當嘅工具。
 問咗一下 ChatGPT，總結咗一下現有嘅工具，發現都唔太好用。&lt;/p>
 &lt;table>
@@ -330,5 +495,4 @@ Linux 核心由 Linus Torvalds 喺 1991 年 9 月 17 日首次發佈，
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">LANG&lt;/span>&lt;span class="o">=&lt;/span>en_US.UTF-8
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">LC_CTYPE&lt;/span>&lt;span class="o">=&lt;/span>en_US.UTF-8&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
-&lt;/div></description></item><item><title>命令行工具</title><link>https://www.kugarocks.com/zh-hk/toys/terminal-tool/</link><pubDate>Mon, 30 Sep 2024 20:00:00 +0800</pubDate><guid>https://www.kugarocks.com/zh-hk/toys/terminal-tool/</guid><description>&lt;h2 id="with-bubbletea">With Bubbletea&lt;/h2>
-&lt;p>Coming soon&amp;hellip;&lt;/p></description></item></channel></rss>
+&lt;/div></description></item></channel></rss>
