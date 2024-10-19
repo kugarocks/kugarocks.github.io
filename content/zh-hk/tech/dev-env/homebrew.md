@@ -3,8 +3,8 @@ title: "Homebrew"
 description: ""
 summary: ""
 date: 2024-08-22T00:00:00+08:00
-lastmod: 2024-09-08T00:00:00+08:00
-weight: 400
+lastmod: 2024-10-19T10:00:00+08:00
+weight: 210
 seo:
   title: "Homebrew"
   description: ""

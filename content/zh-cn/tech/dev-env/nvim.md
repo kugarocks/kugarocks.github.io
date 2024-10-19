@@ -85,7 +85,7 @@ require("config.lazy")
 ```
 
 {{< callout context="caution" title="注意" icon="outline/alert-octagon" >}}
-下面的 lazyrepo 是 GitHub 仓库，网络不通时可手动下载，然后改为本地路径。
+下面的 lazyrepo 是 GitHub 仓库，网络不通时可[使用代理](#使用代理)。
 {{< /callout >}}
 
 ```lua {title="~/.config/nvim/lua/config/lazy.lua"}
@@ -193,8 +193,8 @@ echo "Init ~/.config/nvim/ done"
 ```lua {title="nvim-tree.lua"}
 return {
   "kyazdani42/nvim-tree.lua",
-  requires = {
-    "kyazdani42/nvim-web-devicons", -- 需要这个库以支持图标
+  dependencies = {
+    "kyazdani42/nvim-web-devicons", -- file icon dependency
   },
   config = function()
     require("nvim-tree").setup {}
@@ -202,4 +202,55 @@ return {
 }
 ```
 
-使用 `:NvimTreeToggle` 打开文件树。
+进入 `nvim`，会自动拉取依赖，也可手动拉取。
+
+```bash {frame="none"}
+:Lazy sync
+```
+
+### 使用代理
+
+网络不通时，可使用代理。
+
+```bash {frame="none"}
+git config --global url."https://mirror.ghproxy.com/https://github.com/".insteadof https://github.com/
+```
+
+查看代理配置。
+
+```bash {frame="none"}
+git config --global --get-regexp url
+```
+
+删除代理，也可以在 `~/.gitconfig` 中删除。
+
+```bash {frame="none"}
+git config --global --unset url.https://mirror.ghproxy.com/https://github.com/
+```
+
+### 打开文件树
+
+```bash {frame="none"}
+:NvimTreeToggle
+```
+
+图标显示不正常，需要安装字体，并在 `iTerm2` 中设置字体。
+
+### 安装字体
+
+{{< link-card
+  title="Nerd Font"
+  href="https://github.com/ryanoasis/nerd-fonts"
+  target="_blank"
+>}}
+
+```bash {frame="none"}
+brew install font-hack-nerd-font
+```
+
+配置 `iTerm2` 字体。
+
+* 打开 `iTerm2`。
+* 进入 `Preferences > Profiles > Text`。
+* 勾选 `Use a different font for non-ASCII text`。
+* 然后选择你安装的 Nerd Font。
