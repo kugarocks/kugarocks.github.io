@@ -186,7 +186,7 @@ EOL
 echo "Init ~/.config/nvim/ done"
 ```
 
-## nvim-tree.lua
+## nvim-tree
 
 在 `~/.config/nvim/lua/plugins/` 创建 `nvim-tree.lua`。
 
@@ -255,10 +255,97 @@ brew install font-hack-nerd-font
 * 勾选 `Use a different font for non-ASCII text`。
 * 然后选择你安装的 Nerd Font。
 
+* `t` 表示终端模式。
+* `<esc>` 表示新的退出键。
+* `<C-\><C-n>` 表示实际的退出键。
+
+## nvim-treesitter
+
+```lua {title="nvim-treesitter.lua"}
+return {
+  "nvim-treesitter/nvim-treesitter",
+  run = ":TSUpdate",
+  config = function()
+    require("nvim-treesitter.configs").setup {
+      ensure_installed = "all", -- Install all parsers or specify a list
+      highlight = {
+        enable = true, -- Enable highlighting
+      },
+    }
+  end,
+}
+```
+
+## Monokai 主题
+
+```lua {title="monokai.lua"}
+return {
+    "tanvirtin/monokai.nvim",
+    config = function()
+        local monokai = require('monokai')
+        local palette = monokai.classic
+        monokai.setup {
+            palette = {
+                base1 = "#000000",
+                base2 = "#000000",
+                base3 = "#000000",
+                base4 = "#000000",
+                base5 = "#000000",
+                base6 = "#000000",
+                base7 = "#000000",
+            },
+            custom_hlgroups = {
+                LineNr = {
+                    fg = "#75715E",
+                },
+            },
+            italics = false
+        }
+        -- inform nvim-tree to load after monokai.nvim
+        vim.api.nvim_exec_autocmds("User", { pattern = "MonokaiLoaded" })
+    end
+}
+```
+
+{{< callout context="caution" title="注意" icon="outline/alert-octagon" >}}
+`nvim-tree` 必须在 `monokai.nvim` 之后加载。
+{{< /callout >}}
+
+监听事件，确保 `nvim-tree` 在 `monokai.nvim` 之后加载。
+
+```lua {title="nvim-tree.lua"}
+return {
+  "kyazdani42/nvim-tree.lua",
+  dependencies = {
+    "kyazdani42/nvim-web-devicons", -- icons dependency
+  },
+  -- Must be loaded after monokai.nvim
+  -- Otherwise, the icons color may be wrong
+  event = "User MonokaiLoaded",
+  config = function()
+    require("nvim-tree").setup {
+      renderer = {
+        icons = {
+          show = {
+            file = true,
+            folder = true,
+            git = true,
+          },
+        },
+      },
+      filters = {
+        dotfiles = true, -- show hidden files if false, hide if true
+      },
+    }
+  end
+}
+```
+
 ## 常用快捷键
 
 * 转换窗口：`Ctrl+w+h/l`
 * 进入目录：`Ctrl+]`
+* 隐藏文件：`Ctrl+h`
 * 新建文件：`a` + 文件名，带 `/` 表示目录。
 * 删除文件：`d` + `y`。
 * 新建终端：`:term`。
@@ -272,7 +359,3 @@ brew install font-hack-nerd-font
 ```lua {frame="none"}
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
 ```
-
-* `t` 表示终端模式。
-* `<esc>` 表示新的退出键。
-* `<C-\><C-n>` 表示实际的退出键。
