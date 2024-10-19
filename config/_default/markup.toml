@@ -27,6 +27,9 @@ defaultMarkdownHandler = "goldmark"
   style = ''
   tabWidth = 2
 
+# highlight style list
+# https://github.com/alecthomas/chroma/blob/2e669a272c1d94f2320721c20b41427c7a1b6818/styles/compat.go
+
 [tableOfContents]
   endLevel = 3
   ordered = false
