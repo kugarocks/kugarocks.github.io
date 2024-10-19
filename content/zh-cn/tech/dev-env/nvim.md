@@ -335,6 +335,81 @@ return {
 }
 ```
 
+## 语言服务协议
+
+`gopls` 是 Go 语言的 LSP(Language Server Protocol) 服务。
+
+```bash {frame="none"}
+go install golang.org/x/tools/gopls@latest
+```
+
+```bash {title="nvim-lspconfig.lua"}
+return {
+  "neovim/nvim-lspconfig",
+  config = function()
+    local lspconfig = require("lspconfig")
+    lspconfig.gopls.setup {
+      settings = {
+        gopls = {
+          staticcheck = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+            unreachable = true,
+          },
+        },
+      },
+      on_attach = function(client, bufnr)
+        vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "" })
+        vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "" })
+        vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "" })
+        vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "" })
+      end,
+    }
+  end,
+}
+```
+
+`DiagnosticSignError` 设置为空，否则行号左侧会显示 `E` 符号，导致布局抖动。
+
+## 自动补全
+
+`nvim-cmp` 是 Neovim 的自动补全插件。
+
+```lua {title="nvim-cmp.lua"}
+return {
+  "hrsh7th/nvim-cmp",
+  dependencies = {
+    "hrsh7th/cmp-nvim-lsp",   -- LSP source for nvim-cmp
+    "hrsh7th/cmp-buffer",      -- Buffer completion source
+    "hrsh7th/cmp-path",        -- Path completion source
+    "hrsh7th/cmp-cmdline",     -- Cmdline completion source
+    "hrsh7th/vim-vsnip",       -- Snippet engine
+  },
+  config = function()
+    local cmp = require("cmp")
+    cmp.setup({
+      snippet = {
+        expand = function(args)
+          vim.fn["vsnip#anonymous"](args.body) -- For vsnip users.
+        end,
+      },
+      mapping = {
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        -- ['<C-e>'] = cmp.mapping.complete(), -- trigger completion
+      },
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "path" },
+      },
+    })
+  end,
+}
+```
+
 ## 常用快捷键
 
 * 转换窗口：`Ctrl+w+h/l`
@@ -353,3 +428,11 @@ return {
 ```lua {frame="none"}
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
 ```
+
+## 配置源码
+
+{{< link-card
+  title="nvim-plugins"
+  href="https://github.com/kugarocks/nvim-plugins"
+  target="_blank"
+>}}
