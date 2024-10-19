@@ -286,17 +286,11 @@ return {
         local palette = monokai.classic
         monokai.setup {
             palette = {
-                base1 = "#000000",
                 base2 = "#000000",
-                base3 = "#000000",
-                base4 = "#000000",
-                base5 = "#000000",
-                base6 = "#000000",
-                base7 = "#000000",
             },
             custom_hlgroups = {
                 LineNr = {
-                    fg = "#75715E",
+                    fg = "gray",
                 },
             },
             italics = false
