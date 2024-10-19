@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Development Environment on kugarocks</title><link>https://kugarocks.github.io/en/tech/dev-env/</link><description>Recent content in Development Environment on kugarocks</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Mon, 29 Jul 2024 00:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/en/tech/dev-env/index.xml" rel="self" type="application/rss+xml"/><item><title>MacOS</title><link>https://kugarocks.github.io/en/tech/dev-env/macos/</link><pubDate>Wed, 24 Jul 2024 00:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/tech/dev-env/macos/</guid><description>&lt;h2 id="keyboard">Keyboard&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Development Environment on kugarocks</title><link>https://kugarocks.github.io/en/tech/dev-env/</link><description>Recent content in Development Environment on kugarocks</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2020-2024 Thulite</copyright><lastBuildDate>Sat, 19 Oct 2024 10:00:00 +0800</lastBuildDate><atom:link href="https://kugarocks.github.io/en/tech/dev-env/index.xml" rel="self" type="application/rss+xml"/><item><title>MacOS</title><link>https://kugarocks.github.io/en/tech/dev-env/macos/</link><pubDate>Wed, 24 Jul 2024 00:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/tech/dev-env/macos/</guid><description>&lt;h2 id="keyboard">Keyboard&lt;/h2>
 &lt;p>System Preferences&lt;/p>
 &lt;ul>
 &lt;li>Key Repeat: Fast&lt;/li>
@@ -17,7 +17,172 @@
  &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">defaults write -g ApplePressAndHoldEnabled -bool false&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
  &lt;/figure>
 &lt;/div>
-&lt;p>Shortcuts&lt;/p></description></item><item><title>zshrc</title><link>https://kugarocks.github.io/en/tech/dev-env/zshrc/</link><pubDate>Wed, 24 Jul 2024 00:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/tech/dev-env/zshrc/</guid><description>&lt;div class="expressive-code">
+&lt;p>Shortcuts&lt;/p></description></item><item><title>Homebrew</title><link>https://kugarocks.github.io/en/tech/dev-env/homebrew/</link><pubDate>Thu, 22 Aug 2024 00:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/tech/dev-env/homebrew/</guid><description>&lt;h2 id="chinese-source">Chinese Source&lt;/h2>
+&lt;h3 id="main-repository">Main Repository&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> &lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> git remote -v&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/brew.git &lt;span class="o">(&lt;/span>fetch&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/brew.git &lt;span class="o">(&lt;/span>push&lt;span class="o">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="core-repository">Core Repository&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> &lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> git remote -v&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/homebrew-core.git &lt;span class="o">(&lt;/span>fetch&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">origin https://github.com/Homebrew/homebrew-core.git &lt;span class="o">(&lt;/span>push&lt;span class="o">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="aliyun-mirror">Aliyun Mirror&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">HOMEBREW_BOTTLE_DOMAIN&lt;/span>&lt;span class="o">=&lt;/span>https://mirrors.aliyun.com/homebrew/homebrew-bottles&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="ustc-mirror">USTC Mirror&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.ustc.edu.cn/brew.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">HOMEBREW_BOTTLE_DOMAIN&lt;/span>&lt;span class="o">=&lt;/span>https://mirrors.ustc.edu.cn/homebrew-bottles&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="tsinghua-university-mirror">Tsinghua University Mirror&lt;/h3>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight" frame="none">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">HOMEBREW_BOTTLE_DOMAIN&lt;/span>&lt;span class="o">=&lt;/span>https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="verify-source">Verify Source&lt;/h3>
+&lt;p>After completing the source change operation, you can execute the following command to verify whether the source configuration is successful.&lt;/p></description></item><item><title>zshrc</title><link>https://kugarocks.github.io/en/tech/dev-env/zshrc/</link><pubDate>Wed, 24 Jul 2024 00:00:00 +0800</pubDate><guid>https://kugarocks.github.io/en/tech/dev-env/zshrc/</guid><description>&lt;div class="expressive-code">
  &lt;figure class="frame not-content">
  &lt;figcaption class="header">
  &lt;span class="title">&lt;/span>
