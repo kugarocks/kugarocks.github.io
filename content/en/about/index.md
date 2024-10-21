@@ -10,7 +10,7 @@ identifier: "about"
 | Like | Open Source |
 | Work | 115NetDisk/KuGou/BIGO/Quwan |
 | Lang | Golang/Python/PHP |
-| Recent | Cursor |
+| Recent | Cursor/Neovim |
 
 ## Contact Me
 

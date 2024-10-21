@@ -10,7 +10,7 @@ identifier: "about"
 | 喜歡 | 開源 |
 | 工作經歷 | 115網盤/酷狗/BIGO/趣丸 |
 | 編程語言 | Golang/Python/PHP |
-| 最近 | Cursor |
+| 最近 | Cursor/Neovim |
 
 ## 聯繫我
 
