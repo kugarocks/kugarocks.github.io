@@ -63,9 +63,9 @@
       <div class="row justify-content-center text-center align-items-center">
         {{ with .Params }}
           <h2 class="h4">{{ .sectionTitle3 | safeHTML }}</h2>
-          {{/*  <p class="mb-5">{{ .sectionContent3 | safeHTML }}</p>  */}}
-          {{/*  {{ $image := resources.Get .sectionImage3 }}  */}}
-          {{/*  <img src="{{ $image.RelPermalink }}" class="img-fluid">  */}}
+          <p class="mb-5">{{ .sectionContent3 | safeHTML }}</p>
+          {{ $image := resources.Get .sectionImage3 }}
+          <img src="{{ $image.RelPermalink }}" class="img-fluid">
         {{ end }}
       </div>
     </div>
