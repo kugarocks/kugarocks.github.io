@@ -34,7 +34,7 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: 'Blog',
-      link: '/blog/2025/transfer-to-vitepress',
+      link: '/blog/2025/my-dotfiles',
       activeMatch: '/blog/'
     },
     {
@@ -103,13 +103,14 @@ function sidebarBlog(): DefaultTheme.SidebarItem[] {
       text: '2025',
       collapsed: false,
       items: [
-        { text: 'Transfer to VitePress', link: '2025/transfer-to-vitepress' },
+        { text: 'My Dotfiles', link: '2025/my-dotfiles' },
       ]
     },
     {
       text: '2024',
       collapsed: false,
       items: [
+        { text: 'Neovim Setup', link: '2024/neovim-setup' },
         { text: 'Install Older macOS', link: '2024/install-older-macos' },
         { text: 'Compile Shadow Utils', link: '2024/compile-shadow-utils' },
         { text: 'Hello World', link: '2024/hello-world' },
