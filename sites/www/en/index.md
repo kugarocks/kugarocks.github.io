@@ -17,11 +17,11 @@ hero:
 
 features:
   - title: About Me
-    details: Backend Engineer since 2014, SRE since 2024. Currently working at OSCHINA.
+    details: Backend Engineer since 2014, SRE since 2024. Currently working at <a href="https://www.oschina.net" target="_blank">OSCHINA</a>.
   - title: Markdown Finder
     details: Quickly find and copy code snippets from Markdown files — no mouse needed.
   - title: Minichat
-    details: Terminal-style chat room. https://minichat.kugarocks.com
+    details: Terminal-style chat room. <a href="https://minichat.kugarocks.com" target="_blank">https://minichat.kugarocks.com</a>
   - title: About You
     details: Got music or tech skills? I am building something cool. JOIN ME!
 ---

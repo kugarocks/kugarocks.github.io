@@ -54,3 +54,17 @@ img[src='/search.png'] {
     padding-right: calc((100vw - var(--vp-layout-max-width)) / 2 + 26.5px) !important;
   }
 }
+
+/* 自定义链接样式 */
+.VPFeature .details a {
+  color: var(--vp-c-tip-1);
+  text-decoration: underline;
+}
+
+.VPFeature .details a:hover {
+  opacity: 0.8;
+}
+
+html.dark .VPFeature .details a {
+  color: var(--vp-c-brand-1);
+}
