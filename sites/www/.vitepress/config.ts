@@ -64,8 +64,8 @@ export default defineConfig({
 
   /* prettier-ignore */
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/vitepress-logo-mini.svg' }],
-    ['link', { rel: 'icon', type: 'image/png', href: '/vitepress-logo-mini.png' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/images/vitepress/vitepress-logo-mini.svg' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/images/vitepress/vitepress-logo-mini.png' }],
     ['meta', { name: 'theme-color', content: '#5f67ee' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'VitePress' }],
@@ -89,8 +89,6 @@ export default defineConfig({
         indexName: 'vitepress'
       }
     },
-
-    carbonAds: { code: 'CEBDT27Y', placement: 'vuejsorg' }
   },
 
   locales: {
@@ -104,7 +102,7 @@ export default defineConfig({
         customIcon: {
           vitepress: localIconLoader(
             import.meta.url,
-            '../public/vitepress-logo-mini.svg'
+            '../public/images/vitepress/vitepress-logo-mini.svg'
           ),
           firebase: 'logos:firebase'
         }
