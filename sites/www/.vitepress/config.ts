@@ -77,6 +77,8 @@ export default defineConfig({
   themeConfig: {
     // logo: { src: '/vitepress-logo-mini.svg', width: 24, height: 24 },
 
+    outline: 'deep',
+
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ],
