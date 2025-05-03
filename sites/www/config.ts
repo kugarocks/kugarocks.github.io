@@ -47,11 +47,11 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: 'Kubernetes',
-          link: 'https://work.kugarocks.com'
+          link: 'https://www.kugarocks.com'
         },
         {
           text: 'Docker',
-          link: 'https://work.kugarocks.com'
+          link: 'https://www.kugarocks.com'
         },
       ]
     },
@@ -64,33 +64,33 @@ function nav(): DefaultTheme.NavItem[] {
         },
         {
           text: 'Redis',
-          link: 'https://work.kugarocks.com'
+          link: 'https://www.kugarocks.com'
         },
         {
           text: 'MySQL',
-          link: 'https://work.kugarocks.com'
+          link: 'https://www.kugarocks.com'
         },
       ]
     },
     {
-      text: 'Books',
+      text: 'Databases',
       items: [
         {
-          text: 'Linux Basic',
-          link: 'https://work.kugarocks.com'
+          text: 'MySQL',
+          link: 'https://www.kugarocks.com'
+        },
+        {
+          text: 'Clickhouse',
+          link: 'https://www.kugarocks.com'
         },
       ]
     },
     {
-      text: 'Links',
+      text: 'Other',
       items: [
         {
-          text: 'kugaworks',
+          text: 'Work Log',
           link: 'https://work.kugarocks.com'
-        },
-        {
-          text: 'kugamusic',
-          link: 'https://music.kugarocks.com'
         }
       ]
     }

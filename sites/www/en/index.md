@@ -3,8 +3,7 @@ layout: home
 
 hero:
   name: kugarocks
-  text: 
-  tagline: I love coding and music. Here is where I log my life. Making little stuff and playing guitar.
+  text: Come on now follow my lead 🎸🤘
   actions:
     - theme: brand
       text: Rednote
