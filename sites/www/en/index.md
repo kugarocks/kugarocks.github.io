@@ -16,12 +16,12 @@ hero:
     alt: guitar-gopher
 
 features:
-  - title: Focus on Your Content
-    details: Effortlessly create beautiful documentation sites with just markdown.
-  - title: Enjoy the Vite DX
-    details: Instant server start, lightning fast hot updates, and leverage Vite ecosystem plugins.
-  - title: Customize with Vue
-    details: Use Vue syntax and components directly in markdown, or build custom themes with Vue.
-  - title: Ship Fast Sites
-    details: Fast initial load with static HTML, fast post-load navigation with client-side routing.
+  - title: About Me
+    details: Backend Engineer since 2014, SRE since 2024. Currently working at OSCHINA.
+  - title: Markdown Finder
+    details: Quickly find and copy code snippets from Markdown files — no mouse needed.
+  - title: Minichat
+    details: Terminal-style chat room. https://minichat.kugarocks.com
+  - title: About You
+    details: Got music or tech skills? I am building something cool. JOIN ME!
 ---
