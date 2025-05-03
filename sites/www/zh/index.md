@@ -16,7 +16,7 @@ hero:
       text: GitHub
       link: https://github.com/vuejs/vitepress
   image:
-      src: /guitar-gopher.png
+      src: images/misc/guitar-gopher.png
       alt: guitar-gopher
 
 features:

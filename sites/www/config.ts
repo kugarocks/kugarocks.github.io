@@ -12,8 +12,11 @@ export default defineAdditionalConfig({
     nav: nav(),
 
     sidebar: {
-      '/guide/': { base: '/guide/', items: sidebarGuide() },
-      '/reference/': { base: '/reference/', items: sidebarReference() }
+      // Blog
+      '/blog/': { base: '/blog/', items: sidebarBlog() },
+
+      // Middlewares
+      '/middlewares/nginx/': { base: '/middlewares/nginx/', items: sidebarNginx() },
     },
 
     editLink: {
@@ -23,7 +26,6 @@ export default defineAdditionalConfig({
 
     footer: {
       message: '<a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2024312555号-1</a>',
-      copyright: 'Copyright © 2024-present kugarocks'
     }
   }
 })
@@ -32,8 +34,8 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: 'Blog',
-      link: '/guide/what-is-vitepress',
-      activeMatch: '/guide/'
+      link: '/blog/2025/transfer-to-vitepress',
+      activeMatch: '/blog/'
     },
     {
       text: 'Projects',
@@ -58,7 +60,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: 'Nginx',
-          link: 'https://work.kugarocks.com'
+          link: '/middlewares/nginx/what-is-vitepress'
         },
         {
           text: 'Redis',
@@ -90,6 +92,41 @@ function nav(): DefaultTheme.NavItem[] {
           text: 'kugamusic',
           link: 'https://music.kugarocks.com'
         }
+      ]
+    }
+  ]
+}
+
+function sidebarBlog(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: '2025',
+      collapsed: false,
+      items: [
+        { text: 'Transfer to VitePress', link: '2025/transfer-to-vitepress' },
+      ]
+    },
+    {
+      text: '2024',
+      collapsed: false,
+      items: [
+        { text: 'Install Older macOS', link: '2024/install-older-macos' },
+        { text: 'Compile Shadow Utils', link: '2024/compile-shadow-utils' },
+        { text: 'Hello World', link: '2024/hello-world' },
+      ]
+    }
+  ]
+}
+
+function sidebarNginx(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Introduction',
+      collapsed: false,
+      items: [
+        { text: 'What is VitePress?', link: 'what-is-vitepress' },
+        { text: 'Getting Started', link: 'getting-started' },
+        { text: 'Routing', link: 'routing' },
       ]
     }
   ]
