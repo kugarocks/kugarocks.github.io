@@ -47,3 +47,10 @@ img[src='/search.png'] {
   width: 100%;
   aspect-ratio: 1 / 1;
 }
+
+/* Avoid navbar layout shift */
+@media (min-width: 1440px) {
+  :where([dir="ltr"]) .VPNavBar.has-sidebar .content {
+    padding-right: calc((100vw - var(--vp-layout-max-width)) / 2 + 26.5px) !important;
+  }
+}
