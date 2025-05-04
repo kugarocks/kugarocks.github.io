@@ -19,11 +19,6 @@ export default defineAdditionalConfig({
       '/middlewares/nginx/': { base: '/middlewares/nginx/', items: sidebarNginx() },
     },
 
-    editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
-      text: 'Edit this page on GitHub'
-    },
-
     footer: {
       message: '<a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2024312555号-1</a>',
     }
@@ -36,11 +31,6 @@ function nav(): DefaultTheme.NavItem[] {
       text: 'Blog',
       link: '/blog/2025/my-dotfiles',
       activeMatch: '/blog/'
-    },
-    {
-      text: 'Projects',
-      link: '/guide/what-is-vitepress',
-      activeMatch: '/guide/'
     },
     {
       text: 'Cloud Native',
