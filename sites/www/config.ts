@@ -33,19 +33,6 @@ function nav(): DefaultTheme.NavItem[] {
       activeMatch: '/blog/'
     },
     {
-      text: 'Linux',
-      items: [
-        {
-          text: 'Basics',
-          link: 'https://www.kugarocks.com'
-        },
-        {
-          text: 'Docker',
-          link: 'https://www.kugarocks.com'
-        },
-      ]
-    },
-    {
       text: 'Cloud Native',
       items: [
         {
@@ -84,6 +71,19 @@ function nav(): DefaultTheme.NavItem[] {
         },
         {
           text: 'Clickhouse',
+          link: 'https://www.kugarocks.com'
+        },
+      ]
+    },
+    {
+      text: 'Linux',
+      items: [
+        {
+          text: 'Basics',
+          link: 'https://www.kugarocks.com'
+        },
+        {
+          text: 'Docker',
           link: 'https://www.kugarocks.com'
         },
       ]
