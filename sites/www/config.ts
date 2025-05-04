@@ -15,8 +15,8 @@ export default defineAdditionalConfig({
       // Blog
       '/blog/': { base: '/blog/', items: sidebarBlog() },
 
-      // Middlewares
-      '/middlewares/nginx/': { base: '/middlewares/nginx/', items: sidebarNginx() },
+      // Middleware
+      '/middleware/nginx/': { base: '/middleware/nginx/', items: sidebarNginx() },
     },
 
     footer: {
@@ -33,6 +33,19 @@ function nav(): DefaultTheme.NavItem[] {
       activeMatch: '/blog/'
     },
     {
+      text: 'Linux',
+      items: [
+        {
+          text: 'Basics',
+          link: 'https://www.kugarocks.com'
+        },
+        {
+          text: 'Docker',
+          link: 'https://www.kugarocks.com'
+        },
+      ]
+    },
+    {
       text: 'Cloud Native',
       items: [
         {
@@ -46,11 +59,11 @@ function nav(): DefaultTheme.NavItem[] {
       ]
     },
     {
-      text: 'Middlewares',
+      text: 'Middleware',
       items: [
         {
           text: 'Nginx',
-          link: '/middlewares/nginx/what-is-vitepress'
+          link: '/middleware/nginx/what-is-vitepress'
         },
         {
           text: 'Redis',
@@ -63,7 +76,7 @@ function nav(): DefaultTheme.NavItem[] {
       ]
     },
     {
-      text: 'Databases',
+      text: 'Database',
       items: [
         {
           text: 'MySQL',
