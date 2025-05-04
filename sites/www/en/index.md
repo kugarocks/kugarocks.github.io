@@ -10,7 +10,7 @@ hero:
       link: https://www.xiaohongshu.com/user/profile/65683d68000000001c01b1e5
     - theme: alt
       text: GitHub
-      link: https://github.com/vuejs/vitepress
+      link: https://github.com/kugarocks
   image:
     src: images/misc/guitar-gopher.png
     alt: guitar-gopher
