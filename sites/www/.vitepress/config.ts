@@ -80,7 +80,7 @@ export default defineConfig({
     outline: 'deep',
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/kugarocks' }
     ],
 
     search: {
