@@ -8,13 +8,13 @@ labels: ["neovim"]
 
 You can download the binary from the [GitHub Release](https://github.com/neovim/neovim/releases) page and set the environment variable:
 
-```bash {frame="none"}
+```bash
 export PATH="$HOME/neovim/bin:$PATH"
 ```
 
 Installing via Homebrew requires downloading dependencies and compiling, which is slower and only supports certain versions:
 
-```bash {frame="none"}
+```bash
 brew install neovim
 ```
 
@@ -32,9 +32,10 @@ It is recommended to use `lazy.nvim`:
 
 ### Configuration Directory
 
-```txt {frame="none"}
+```txt
 ~/.config/nvim
 ```
+
 ### Structured Configuration
 
 You can create plugin configuration files under `~/.config/nvim/lua/plugins/`:
@@ -98,7 +99,7 @@ require("lazy").setup({
 
 ### Automation Script
 
-```bash {frame="none"}
+```bash
 bash init.sh
 ```
 
@@ -168,7 +169,7 @@ return {
 
 Open Neovim, and dependencies will be automatically fetched; you can also manually pull them:
 
-```bash {frame="none"}
+```bash
 :Lazy sync
 ```
 
@@ -176,25 +177,25 @@ Open Neovim, and dependencies will be automatically fetched; you can also manual
 
 If your network is inaccessible, you can use a proxy:
 
-```bash {frame="none"}
+```bash
 git config --global url."https://mirror.ghproxy.com/https://github.com/".insteadof https://github.com/
 ```
 
 View proxy configuration:
 
-```bash {frame="none"}
+```bash
 git config --global --get-regexp url
 ```
 
 Remove the proxy; you can also delete it in `~/.gitconfig`:
 
-```bash {frame="none"}
+```bash
 git config --global --unset url."https://mirror.ghproxy.com/https://github.com/"
 ```
 
 ### Opening the File Tree
 
-```bash {frame="none"}
+```bash
 :NvimTreeToggle
 ```
 
@@ -204,7 +205,7 @@ Icons may not display correctly; you need to install a font and configure it in 
 
 [Nerd Font](https://github.com/ryanoasis/nerd-fonts)
 
-```bash {frame="none"}
+```bash
 brew install font-hack-nerd-font
 ```
 
@@ -297,7 +298,7 @@ return {
 
 `gopls` is the Go language server protocol implementation.
 
-```bash {frame="none"}
+```bash
 go install golang.org/x/tools/gopls@latest
 ```
 
@@ -389,6 +390,6 @@ return {
 
 Add the following to your `init.lua`:
 
-```lua {frame="none"}
+```lua
 vim.keymap.set('t', '<esc>', [[<C-\\><C-n>]])
 ```
