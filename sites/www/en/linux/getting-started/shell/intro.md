@@ -7,7 +7,7 @@ A shell is a command-line interpreter that lets you interact with the operating 
 Bash is the default Shell in Linux, **the official manual is forever divine**.
 
 ::: info Bash Reference Manual
-<a href="https://www.gnu.org/software/bash/manual/bash.html" target="_blank">https://www.gnu.org/software/bash/manual/bash.html</a>
+https://www.gnu.org/software/bash/manual/bash.html
 :::
 
 ## Definition of Shell

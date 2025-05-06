@@ -6,10 +6,10 @@ nor will we use the translation "sub Shell", but rather understand its definitio
 The variables listed below are closely related to the concept of Subshell.
 
 ::: info Bash Reference Manual
-<a href="https://www.gnu.org/software/bash/manual/bash.html" target="_blank">https://www.gnu.org/software/bash/manual/bash.html</a>
+https://www.gnu.org/software/bash/manual/bash.html
 :::
 
-### BASH_SUBSHELL
+## BASH_SUBSHELL
 
 Shell variable, **not an environment variable**, as explained in the official manual.
 
@@ -33,7 +33,7 @@ echo $BASH_SUBSHELL
 0
 ```
 
-### SHLVL
+## SHLVL
 
 **Environment variable**, as explained in the official manual.
 

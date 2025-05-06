@@ -18,7 +18,7 @@ Builtin commands are implemented by the Shell itself, they run
 ### Builtin Commands Ref
 
 ::: info Bash Built-In Commands
-<a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html" target="_blank">https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html</a>
+https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html
 :::
 
 ## External Commands

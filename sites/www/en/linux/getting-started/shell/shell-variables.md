@@ -4,11 +4,11 @@ Shell variables are a general term. If you are using a specific shell, such as B
 But it is important to note that shell variables are not environment variables, do not be confused by their capitalization, here are the relevant official documents.
 
 ::: info Shell Variables
-<a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Variables.html" target="_blank">https://www.gnu.org/software/bash/manual/html_node/Shell-Variables.html</a>
+https://www.gnu.org/software/bash/manual/html_node/Shell-Variables.html
 :::
 
 ::: info Bash Variables
-<a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html" target="_blank">https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html</a>
+https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
 :::
 
 You can also view it by using the man command and searching for `Shell Variables`.
