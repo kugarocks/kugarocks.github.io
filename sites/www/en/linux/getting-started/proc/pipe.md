@@ -1,3 +1,5 @@
+# Pipe
+
 ## Basic Concepts
 
 A pipe can use the output of one command as the input of the next command,

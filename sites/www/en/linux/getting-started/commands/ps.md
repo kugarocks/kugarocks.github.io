@@ -1,21 +1,6 @@
-## Login Information
+# PS
 
-```bash
-w
-```
-
-```bash
- 13:46:05 up 3 days, 16:15,  2 users,  load average: 0.00, 0.00, 0.00
-USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
-root     pts/0    120.231.138.139  13:43    1.00s  0.00s  0.00s w
-kuga     pts/1    120.231.138.139  13:44   53.00s  0.02s  0.02s -bash
-```
-
-The commands executed below are all based on the above environment configuration.
-
-## Process Status
-
-PS stands for Process Status.
+PS stands for **Process Status**.
 
 ```bash
 man ps
@@ -32,6 +17,21 @@ ps - report a snapshot of the current processes.
 | GNU  | Improved version by GNU Project | `--` |
 
 Due to historical reasons, the `ps` command is mixed with various styles, and sometimes it looks like 💩.
+
+## Login Information
+
+```bash
+w
+```
+
+```bash
+ 13:46:05 up 3 days, 16:15,  2 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+root     pts/0    120.231.138.139  13:43    1.00s  0.00s  0.00s w
+kuga     pts/1    120.231.138.139  13:44   53.00s  0.02s  0.02s -bash
+```
+
+The commands executed below are all based on the above environment configuration.
 
 ## Without Any Options
 

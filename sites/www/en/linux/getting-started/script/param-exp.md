@@ -1,10 +1,10 @@
-## Parameter Expansion
+# Parameter Expansion
 
 In Bash, parameter expansion is a mechanism for manipulating and handling the contents of variables.
 Through parameter expansion, you can get the value of a variable, modify the value of a variable, or provide a default value for an unset variable.
 
 ::: info Shell Parameter Expansion
-<a href="https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion" target="_blank">https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion</a>
+https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion
 :::
 
 ## Variable Expansion
@@ -61,9 +61,9 @@ else
 fi
 ```
 
-{{< callout context="danger" title="Note" >}}
+::: danger
 If `${var+defined}` is not used with double quotes, when an empty string is returned, the condition will become `[ -n ]`, which is a valid condition, will not produce any errors, and its return value is true. Obviously this is unreasonable, so double quotes must be added.
-{{< /callout >}}
+:::
 
 ### Mark -
 

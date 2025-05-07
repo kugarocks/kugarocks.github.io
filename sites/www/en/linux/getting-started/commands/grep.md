@@ -1,4 +1,4 @@
-## Introduction
+# GREP
 
 Full name **Global Regular Expression Print**, originated from a Unix editor `ed` command `g/re/p`,
 where `g` (global) is global matching, `re` (regular expression) is regular expression, `p` (print) is print.
@@ -30,9 +30,9 @@ Used with `grep -E` or `egrep`, metacharacters like `?`, `+`, `{}` can be used d
 3. **Perl-Style Regular Expressions (PCRE)**:
 Some `grep` implementations (such as GNU `grep`) provide the `-P` option to enable Perl-style regular expressions.
 
-{{< callout context="note" title="Note">}}
+::: warning
 Some grep implementations (such as GNU grep) provide the -P option to enable Perl-style regular expressions.
-{{< /callout >}}
+:::
 
 ## Common Examples
 

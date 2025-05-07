@@ -1,3 +1,5 @@
+# Signal
+
 ## Bash Shell
 
 By default, the Bash Shell ignores the `SIGQUIT(3)` and `SIGTERM(15)` signals,

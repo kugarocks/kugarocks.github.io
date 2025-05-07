@@ -144,7 +144,7 @@ function sidebarLinux(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: 'README',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: 'WHAT DO U GOT', link: 'what-do-u-got' },
         { text: 'Say My Name', link: 'say-my-name' },
@@ -161,6 +161,90 @@ function sidebarLinux(): DefaultTheme.SidebarItem[] {
         { text: 'Command Type', link: 'shell/command-type' },
         { text: 'Shell Variables', link: 'shell/shell-variables' },
         { text: 'Subshell', link: 'shell/subshell' },
+      ]
+    },
+    {
+      text: 'Commands',
+      collapsed: true,
+      items: [
+        { text: 'Common Commands 1', link: 'commands/common-1' },
+        { text: 'Common Commands 2', link: 'commands/common-2' },
+        { text: 'Grep', link: 'commands/grep' },
+        { text: 'PS', link: 'commands/ps' },
+        { text: 'TOP', link: 'commands/top' },
+        { text: 'Terminate Process', link: 'commands/terminate' },
+        { text: 'Compression', link: 'commands/compression' },
+      ]
+    },
+    {
+      text: 'Environment',
+      collapsed: true,
+      items: [
+        { text: 'Concept', link: 'env/concept' },
+        { text: 'Shell Startup Process', link: 'env/shell-startup' },
+        { text: 'Environment Variables', link: 'env/variables' },
+        { text: 'Shebang', link: 'env/shebang' },
+      ]
+    },
+    {
+      text: 'Permission',
+      collapsed: true,
+      items: [
+        { text: 'User Management', link: 'perm/user-mgmt' },
+        { text: 'Group Management', link: 'perm/group-mgmt' },
+        { text: 'File Permission', link: 'perm/file-perm' },
+        { text: 'Access Control List', link: 'perm/acl' },
+      ]
+    },
+    {
+      text: 'Process',
+      collapsed: true,
+      items: [
+        { text: 'Systemd', link: 'proc/systemd' },
+        { text: 'File Descriptor', link: 'proc/fd' },
+        { text: 'Pipe', link: 'proc/pipe' },
+        { text: 'LSOF', link: 'proc/lsof' },
+        { text: 'ULIMIT', link: 'proc/ulimit' },
+      ]
+    },
+    {
+      text: 'File System',
+      collapsed: true,
+      items: [
+        { text: 'Introduction', link: 'file-system/intro' },
+      ]
+    },
+    {
+      text: 'Shell Script',
+      collapsed: true,
+      items: [
+        { text: 'Basic Syntax', link: 'script/syntax' },
+        { text: 'Condition', link: 'script/cond' },
+        { text: 'Loop', link: 'script/loop' },
+        { text: 'Input', link: 'script/input' },
+        { text: 'Output', link: 'script/output' },
+        { text: 'Signal', link: 'script/signal' },
+        { text: 'Function', link: 'script/func' },
+        { text: 'Parameter Expansion', link: 'script/param-exp' },
+        { text: 'Special Parameters', link: 'script/special-params' },
+      ]
+    },
+    {
+      text: 'Text Processing',
+      collapsed: true,
+      items: [
+        { text: 'Multi-Lines Text', link: 'text/multi-lines' },
+        { text: 'Regular Expression', link: 'text/regex' },
+        { text: 'SED', link: 'text/sed' },
+        { text: 'GAWK 1', link: 'text/gawk-1' },
+        { text: 'GAWK 2', link: 'text/gawk-2' },
+      ]
+    },
+    {
+      text: 'Appendix',
+      collapsed: true,
+      items: [
+        { text: 'Term 1', link: 'appendix/term-1' },
       ]
     },
   ]

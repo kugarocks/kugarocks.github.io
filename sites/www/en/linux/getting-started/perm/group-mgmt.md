@@ -1,4 +1,6 @@
-## User/Group Relationship
+# Group Management
+
+## Relationship
 
 ### Primary Group
 

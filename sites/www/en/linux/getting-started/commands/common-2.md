@@ -1,3 +1,5 @@
+# Common Commands 2
+
 ## Sort
 
 Sorts lines of text files by default, non-numeric.
@@ -55,10 +57,6 @@ sort -u file
 ```
 
 ## Alias
-
-```bash
-sort - sort lines of text files
-```
 
 ### Possible Aliases
 

@@ -1,3 +1,5 @@
+# Function
+
 ## Creating a Function
 
 ```bash

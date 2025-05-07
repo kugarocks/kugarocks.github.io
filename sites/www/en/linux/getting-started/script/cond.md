@@ -1,3 +1,5 @@
+# Condition
+
 ## If Statement
 
 If the exit code of `command` is `0`, then execute the content of `then`.

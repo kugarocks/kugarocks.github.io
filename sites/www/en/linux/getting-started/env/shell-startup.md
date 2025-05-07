@@ -1,3 +1,5 @@
+# Shell Startup Process
+
 ## Startup Methods
 
 The startup methods of Shell will affect the loading process of environment variables, which can be divided into the following categories.
@@ -13,10 +15,10 @@ The startup methods of Shell will affect the loading process of environment vari
 ## Interactive Shell
 
 ::: info What is an Interactive Shell
-<a href="https://www.gnu.org/software/bash/manual/bash.html#What-is-an-Interactive-Shell_003f" target="_blank">https://www.gnu.org/software/bash/manual/bash.html#What-is-an-Interactive-Shell_003f</a>
+https://www.gnu.org/software/bash/manual/bash.html#What-is-an-Interactive-Shell_003f
 :::
 
-```bash {frame="none" text-wrap="wrap"}
+```txt
 An interactive shell is one started without non-option arguments (unless -s is specified) and without specifying the -c option, whose input and error output are both connected to terminals (as determined by isatty(3)), or one started with the -i option.
 
 An interactive shell generally reads from and writes to a user’s terminal.
@@ -24,7 +26,7 @@ An interactive shell generally reads from and writes to a user’s terminal.
 The -s invocation option may be used to set the positional parameters when an interactive shell is started.
 ```
 
-```bash {frame="none" text-wrap="wrap"}
+```txt
 An interactive shell is a shell that is started without non-option arguments (unless the -s option is specified) and without specifying the -c option, whose input and error output are both connected to terminals (as determined by isatty(3)), or a shell started with the -i option.
 
 An interactive shell generally reads from and writes to a user’s terminal.
@@ -232,7 +234,7 @@ esac
 
 Of course, you can use the BASH_ENV variable to set the file to load, as explained below.
 
-```bash {frame="none" text-wrap="wrap"}
+```txt
 If this variable is set when Bash is invoked to execute a shell script, its value is expanded and used as the name of a startup file to read before executing the script. See Bash Startup Files.
 ```
 

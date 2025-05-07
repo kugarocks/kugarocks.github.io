@@ -1,4 +1,4 @@
-## Introduction
+# Shebang
 
 Shebang is a special symbol in Unix and Unix-like operating systems, composed of the characters `#!`, used to indicate which interpreter should execute a script file. It usually appears at the beginning of a script file, followed by the path of the interpreter.
 Shebang allows script files to be run directly like executable programs, without manually calling the interpreter.

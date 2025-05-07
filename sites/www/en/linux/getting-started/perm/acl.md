@@ -1,4 +1,4 @@
-## ACL
+# Acess Control List
 
 Access Control List (ACL) is a more flexible and fine-grained permission management mechanism,
 used to define and control the access permissions of file system objects. Compared to traditional file permission systems, ACL provides more detailed permission control,
@@ -160,7 +160,3 @@ For files using ACL, there will be a + sign after the permission column.
 ```bash
 -rw-rw-r--+
 ```
-
-## RBAC
-
-About 7-8 years ago, I once encountered a management interface for ACL, which was later changed to RBAC.

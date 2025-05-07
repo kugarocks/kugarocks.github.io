@@ -1,3 +1,5 @@
+# Terminate Process
+
 ## Kill Command
 
 It's actually a tool for sending signals to processes, not necessarily killing them.
@@ -58,9 +60,9 @@ kill -15 <PID> <PID> <PID>
 
 The process number `-1` represents all processes, and the following command will terminate all processes that you (the current user) can terminate.
 
-{{< callout context="danger" title="Danger" >}}
+::: danger
 Do not execute in the root user
-{{< /callout >}}
+:::
 
 ```bash
 kill -9 -1

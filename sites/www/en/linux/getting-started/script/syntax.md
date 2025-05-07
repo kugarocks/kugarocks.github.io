@@ -1,3 +1,5 @@
+# Basic Syntax
+
 ## Shebang
 
 ```bash
@@ -62,7 +64,7 @@ echo "dir is: $(pwd)"
 count=$(ls $(pwd) | wc -l)
 ```
 
-[Here, `ls` did not use the `-l` option, but the value of count is 4, the reason is here.](/en/linux/cmd/common-1/#hidden-character)
+[`ls` did not use the `-l` option, but the value is 4, the reason is here.](/linux/getting-started/commands/common-1#hidden-characters)
 
 ## Output Redirection
 

@@ -1,3 +1,5 @@
+# Environment Variables
+
 ## SHELL
 
 The current shell in use.

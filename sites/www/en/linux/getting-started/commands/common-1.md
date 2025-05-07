@@ -1,3 +1,5 @@
+# Common Commands 1
+
 ## MAN
 
 This command can view different sections of the manual pages.
