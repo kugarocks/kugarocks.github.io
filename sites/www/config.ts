@@ -6,7 +6,7 @@ const pkg = require('vitepress/package.json')
 
 export default defineAdditionalConfig({
   lang: 'en-US',
-  description: 'Vite & Vue powered static site generator.',
+  description: '',
 
   themeConfig: {
     nav: nav(),
@@ -35,52 +35,48 @@ function nav(): DefaultTheme.NavItem[] {
       link: '/blog/2025/my-dotfiles',
       activeMatch: '/blog/'
     },
-    {
-      text: 'Cloud Native',
-      activeMatch: '/cloud-native/',
-      items: [
-        {
-          text: 'Kubernetes',
-          link: 'https://www.kugarocks.com'
-        },
-        {
-          text: 'Docker',
-          link: 'https://www.kugarocks.com'
-        },
-      ]
-    },
-    {
-      text: 'Middleware',
-      activeMatch: '/middleware/',
-      items: [
-        {
-          text: 'Nginx',
-          link: '/middleware/nginx/what-is-vitepress'
-        },
-        {
-          text: 'Redis',
-          link: 'https://www.kugarocks.com'
-        },
-        {
-          text: 'MySQL',
-          link: 'https://www.kugarocks.com'
-        },
-      ]
-    },
-    {
-      text: 'Database',
-      activeMatch: '/database/',
-      items: [
-        {
-          text: 'MySQL',
-          link: 'https://www.kugarocks.com'
-        },
-        {
-          text: 'Clickhouse',
-          link: 'https://www.kugarocks.com'
-        },
-      ]
-    },
+    // {
+    //   text: 'Cloud Native',
+    //   activeMatch: '/cloud-native/',
+    //   items: [
+    //     {
+    //       text: 'Kubernetes',
+    //       link: 'https://www.kugarocks.com'
+    //     },
+    //     {
+    //       text: 'Docker',
+    //       link: 'https://www.kugarocks.com'
+    //     },
+    //   ]
+    // },
+    // {
+    //   text: 'Middleware',
+    //   activeMatch: '/middleware/',
+    //   items: [
+    //     {
+    //       text: 'Nginx',
+    //       link: '/middleware/nginx/what-is-vitepress'
+    //     },
+    //     {
+    //       text: 'Redis',
+    //       link: 'https://www.kugarocks.com'
+    //     },
+    //   ]
+    // },
+    // {
+    //   text: 'Database',
+    //   activeMatch: '/database/',
+    //   items: [
+    //     {
+    //       text: 'MySQL',
+    //       link: 'https://www.kugarocks.com'
+    //     },
+    //     {
+    //       text: 'Clickhouse',
+    //       link: 'https://www.kugarocks.com'
+    //     },
+    //   ]
+    // },
     {
       text: 'Linux',
       activeMatch: '/linux/',
@@ -91,16 +87,16 @@ function nav(): DefaultTheme.NavItem[] {
         },
       ]
     },
-    {
-      text: 'Other',
-      activeMatch: '/other/',
-      items: [
-        {
-          text: 'Work Log',
-          link: 'https://work.kugarocks.com'
-        }
-      ]
-    }
+    // {
+    //   text: 'Other',
+    //   activeMatch: '/other/',
+    //   items: [
+    //     {
+    //       text: 'Work Log',
+    //       link: 'https://work.kugarocks.com'
+    //     }
+    //   ]
+    // }
   ]
 }
 

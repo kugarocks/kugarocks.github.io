@@ -6,7 +6,7 @@ const pkg = require('vitepress/package.json')
 
 export default defineAdditionalConfig({
   lang: 'zh-Hans',
-  description: '由 Vite 和 Vue 驱动的静态站点生成器',
+  description: '',
 
   themeConfig: {
     nav: nav(),
@@ -14,9 +14,10 @@ export default defineAdditionalConfig({
     search: { options: searchOptions() },
 
     sidebar: {
-      '/zh/guide/': { base: '/zh/guide/', items: sidebarGuide() },
-      '/zh/reference/': { base: '/zh/reference/', items: sidebarReference() }
+      // Blog
+      '/blog/': { base: '/blog/', items: sidebarBlog() }
     },
+
 
     editLink: {
       pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
@@ -24,8 +25,7 @@ export default defineAdditionalConfig({
     },
 
     footer: {
-      message: '<a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2024312555号-1</a>',
-      copyright: 'Copyright © 2024-present kugarocks'
+      message: '<a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2024312555号-1</a>'
     },
 
     docFooter: {
@@ -62,105 +62,30 @@ export default defineAdditionalConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: '指南',
-      link: '/zh/guide/what-is-vitepress',
-      activeMatch: '/zh/guide/'
-    },
-    {
-      text: '参考',
-      link: '/zh/reference/site-config',
-      activeMatch: '/zh/reference/'
-    },
-    {
-      text: pkg.version,
-      items: [
-        {
-          text: '更新日志',
-          link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md'
-        },
-        {
-          text: '参与贡献',
-          link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md'
-        }
-      ]
+      text: 'Blog',
+      link: '/zh/blog/2025/my-dotfiles',
+      activeMatch: '/blog/'
     }
   ]
 }
 
-function sidebarGuide(): DefaultTheme.SidebarItem[] {
+function sidebarBlog(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: '简介',
+      text: '2025',
       collapsed: false,
       items: [
-        { text: '什么是 VitePress？', link: 'what-is-vitepress' },
-        { text: '快速开始', link: 'getting-started' },
-        { text: '路由', link: 'routing' },
-        { text: '部署', link: 'deploy' }
+        { text: 'My Dotfiles', link: '2025/my-dotfiles' }
       ]
     },
     {
-      text: '写作',
+      text: '2024',
       collapsed: false,
       items: [
-        { text: 'Markdown 扩展', link: 'markdown' },
-        { text: '资源处理', link: 'asset-handling' },
-        { text: 'frontmatter', link: 'frontmatter' },
-        { text: '在 Markdown 使用 Vue', link: 'using-vue' },
-        { text: '国际化', link: 'i18n' }
-      ]
-    },
-    {
-      text: '自定义',
-      collapsed: false,
-      items: [
-        { text: '自定义主题', link: 'custom-theme' },
-        { text: '扩展默认主题', link: 'extending-default-theme' },
-        { text: '构建时数据加载', link: 'data-loading' },
-        { text: 'SSR 兼容性', link: 'ssr-compat' },
-        { text: '连接 CMS', link: 'cms' }
-      ]
-    },
-    {
-      text: '实验性功能',
-      collapsed: false,
-      items: [
-        { text: 'MPA 模式', link: 'mpa-mode' },
-        { text: 'sitemap 生成', link: 'sitemap-generation' }
-      ]
-    },
-    { text: '配置和 API 参考', base: '/zh/reference/', link: 'site-config' }
-  ]
-}
-
-function sidebarReference(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: '参考',
-      items: [
-        { text: '站点配置', link: 'site-config' },
-        { text: 'frontmatter 配置', link: 'frontmatter-config' },
-        { text: '运行时 API', link: 'runtime-api' },
-        { text: 'CLI', link: 'cli' },
-        {
-          text: '默认主题',
-          base: '/zh/reference/default-theme-',
-          items: [
-            { text: '概览', link: 'config' },
-            { text: '导航栏', link: 'nav' },
-            { text: '侧边栏', link: 'sidebar' },
-            { text: '主页', link: 'home-page' },
-            { text: '页脚', link: 'footer' },
-            { text: '布局', link: 'layout' },
-            { text: '徽章', link: 'badge' },
-            { text: '团队页', link: 'team-page' },
-            { text: '上下页链接', link: 'prev-next-links' },
-            { text: '编辑链接', link: 'edit-link' },
-            { text: '最后更新时间戳', link: 'last-updated' },
-            { text: '搜索', link: 'search' },
-            { text: 'Carbon Ads', link: 'carbon-ads' }
-          ]
-        }
+        { text: 'Neovim Setup', link: '2024/neovim-setup' },
+        { text: 'Install Older macOS', link: '2024/install-older-macos' },
+        { text: 'Compile Shadow Utils', link: '2024/compile-shadow-utils' },
+        { text: 'Hello World', link: '2024/hello-world' }
       ]
     }
   ]

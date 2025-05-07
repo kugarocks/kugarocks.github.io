@@ -5,12 +5,12 @@ hero:
   name: kugarocks
   text: Come on now follow my lead 🎸🤘
   actions:
-    - theme: brand
-      text: Rednote
-      link: https://www.xiaohongshu.com/user/profile/65683d68000000001c01b1e5
-    - theme: alt
-      text: GitHub
+    - text: GitHub
+      theme: brand
       link: https://github.com/kugarocks
+    - text: Rednote
+      theme: alt
+      link: https://www.xiaohongshu.com/user/profile/65683d68000000001c01b1e5
   image:
     src: images/misc/guitar-gopher.png
     alt: guitar-gopher
