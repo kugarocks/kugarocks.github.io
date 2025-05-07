@@ -12,7 +12,7 @@ hero:
       theme: alt
       link: https://www.xiaohongshu.com/user/profile/65683d68000000001c01b1e5
   image:
-    src: images/misc/guitar-gopher.png
+    src: /images/misc/guitar-gopher.png
     alt: guitar-gopher
 
 features:

@@ -1,93 +1,85 @@
----
-labels: ["linux"]
----
+# 编译 Shadow Utils
 
-# Compile Shadow Utils
+## Orbstack
 
-I found a bug in [shadow-maint/shadow](https://github.com/shadow-maint/shadow) by accident
-and submitted this [pull request](https://github.com/shadow-maint/shadow/pull/1086) to fix it.
-Below are the steps to build and test the project.
+在 macOS 上使用 Orbstack 构建和安装 Shadow 项目。
 
-## Install Orbstack
-
-Build and install the Shadow project on macOS using Orbstack.
-
-```bash {frame="none"}
+```bash
 brew install orbstack
 ```
 
-Open the Orbstack application (change the image repository, optional).
+打开 Orbstack 应用（更换镜像仓库，可选）。
 
-## Install Dependencies
+## 安装相关依赖
 
-Enter the container.
+进入容器。
 
-```bash {frame="none"}
+```bash
 docker run -it --name shadow ubuntu:22.04 /bin/bash
 ```
 
-First, update the packages.
+先更新软件包，不然什么都装不了。
 
-```bash {frame="none"}
+```bash
 apt-get update
 ```
 
-Install `vim` and `git`.
+安装 `vim` 和 `git`。
 
-```bash {frame="none"}
+```bash
 apt-get install -y vim git
 ```
 
-Refer to the shadow [project documentation](https://github.com/shadow-maint/shadow/blob/master/doc/contributions/build_install.md) to install the necessary dependencies.
+参考 shadow [项目文档](https://github.com/shadow-maint/shadow/blob/master/doc/contributions/build_install.md)，安装相关依赖。
 
-```bash {frame="none"}
+```bash
 apt-get build-dep -y shadow
 ```
 
-The following error is usually reported.
+一般会报以下错误。
 
-```bash {frame="none"}
+```bash
 E: You must put some 'deb-src' URIs in your sources.list
 ```
 
-Use `vim` to edit `/etc/apt/sources.list` and add the `deb-src` source.
+使用 `vim` 编辑 `/etc/apt/sources.list`，添加 `deb-src` 源。
 
-```bash {frame="none"}
+```bash
 # See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to
 # newer versions of the distribution.
 deb http://archive.ubuntu.com/ubuntu/ jammy main restricted
-# deb-src http://archive.ubuntu.com/ubuntu/ jammy main restricted
+# deb-src http://archive.ubuntu.com/ubuntu/ jammy main restricte
 ```
 
-Remove the comment from the `# deb-src` line above, then run again.
+把上面的 `# deb-src` 注释去掉就行，再次运行。
 
-```bash {frame="none"}
+```bash
 apt-get update
 ```
 
-Install the necessary dependencies again, this time it should not report an error.
+再次安装相关依赖，这次应该不会报错了。
 
-```bash {frame="none"}
+```bash
 apt-get build-dep -y shadow
 ```
 
-## Configuration
+## 配置
 
-Download the source code.
+下载源码。
 
-```bash {frame="none"}
+```bash
 git clone https://github.com/shadow-maint/shadow.git
 ```
 
-Run the project's configuration script `autogen.sh`.
+运行项目的配置脚本 `autogen.sh`。
 
-```bash {frame="none"}
+```bash
 ./autogen.sh --without-selinux --enable-man --with-yescrypt
 ```
 
-The following errors occur.
+报错如下。
 
-```bash {frame="none"}
+```bash
 autoreconf: configure.ac: not using Intltool
 autoreconf: configure.ac: not using Gtkdoc
 autoreconf: running: aclocal --force
@@ -99,47 +91,47 @@ configure.ac:135: error: possibly undefined macro: AC_MSG_WARN
 autoreconf: error: /usr/bin/autoconf failed with exit status: 1
 ```
 
-There are a few errors here, first handle `LT_LIB_DLLOAD`.
+这里有几个错误，先处理 `LT_LIB_DLLOAD`。
 
-```bash {frame="none"}
+```bash
 apt-get install -y libltdl-dev
 ```
 
-Run `./autogen.sh` again.
+再运行 `./autogen.sh`。
 
-```bash {frame="none"}
+```bash
 configure.ac:135: error: possibly undefined macro: AC_MSG_WARN
       If this token and others are legitimate, please use m4_pattern_allow.
       See the Autoconf documentation.
 autoreconf: error: /usr/bin/autoconf failed with exit status: 1
 ```
 
-Then install `pkg-config`.
+再安装 `pkg-config`。
 
-```bash {frame="none"}
+```bash
 apt-get install -y pkg-config
 ```
 
-Running `./autogen.sh` again will still report an error.
+再次运行 `./autogen.sh` 还会报错。
 
-```bash {frame="none"}
+```bash
 configure: error: readpassphrase() is missing, either from libc or libbsd
 ```
 
-Install `libbsd-dev`.
+安装 `libbsd-dev`。
 
-```bash {frame="none"}
+```bash
 apt-get install -y libbsd-dev
 ```
 
-Running `./autogen.sh` again should not report an error.
+再次运行 `./autogen.sh` 应该不会报错了。
 
-## Build & Install
+## 构建安装
 
-```bash {frame="none"}
+```bash
 make -j4
 ```
 
-```bash {frame="none"}
+```bash
 make install
 ```

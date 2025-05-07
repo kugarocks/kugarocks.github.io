@@ -1,46 +1,54 @@
----
-labels: ["neovim"]
----
+# Neovim 配置
 
-# Neovim Setup
+## 安装
 
-## Installation
-
-You can download the binary from the [GitHub Release](https://github.com/neovim/neovim/releases) page and set the environment variable:
+可在 [GitHub Release](https://github.com/neovim/neovim/releases) 中下载二进制版本，并设置环境变量。
 
 ```bash
 export PATH="$HOME/neovim/bin:$PATH"
 ```
 
-Installing via Homebrew requires downloading dependencies and compiling, which is slower and only supports certain versions:
+使用 Homebrew 安装需要下载依赖和编译，速度较慢，且只能下载部分版本。
 
 ```bash
 brew install neovim
 ```
 
-## Plugin Management
+## 插件管理
 
-It is recommended to use `lazy.nvim`:
+推荐使用 `lazy.nvim`。
 
-* [lazy.nvim](https://github.com/folke/lazy.nvim): Neovim-specific, fast startup, lazy loading, written in Lua.
-* [vim-plug](https://github.com/junegunn/vim-plug): Universal for Vim/Neovim, long-standing, written in Vimscript.
-* [packer.nvim](https://github.com/wbthomason/packer.nvim): No longer maintained (as of August 2023).
+* [lazy.nvim](https://github.com/folke/lazy.nvim)：Neovim 专用，启动快，延迟加载，使用 Lua 编写。
+* [vim-plug](https://github.com/junegunn/vim-plug)：Vim/Neovim 通用，历史悠久，使用 Vimscript 编写。
+* [packer.nvim](https://github.com/wbthomason/packer.nvim)：不再维护（2023 年 8 月）。
 
 ## lazy.nvim
 
-[Official Installation Guide](https://lazy.folke.io/installation)
+::: info 官方安装文档
+https://lazy.folke.io/installation
+:::
 
-### Configuration Directory
+### 配置目录
 
-```txt
+不同系统的配置目录如下。
+
+::: code-group
+
+```txt [macOS]
 ~/.config/nvim
 ```
 
-### Structured Configuration
+```txt [Windows]
+~\AppData\Local\nvim
+```
 
-You can create plugin configuration files under `~/.config/nvim/lua/plugins/`:
+:::
 
-```txt {title="Directory Structure"}
+### 结构化配置
+
+可在 `~/.config/nvim/lua/plugins/` 中创建插件的配置文件。
+
+```txt [目录结构]
 ~/.config/nvim
 ├── lua
 │   ├── config
@@ -52,15 +60,15 @@ You can create plugin configuration files under `~/.config/nvim/lua/plugins/`:
 └── init.lua
 ```
 
-```lua {title="~/.config/nvim/init.lua"}
+```lua [~/.config/nvim/init.lua]
 require("config.lazy")
 ```
 
 ::: warning
-The `lazyrepo` below refers to the GitHub repository; if your network is inaccessible, you can [use a proxy](#using-a-proxy).
+下面的 lazyrepo 是 GitHub 仓库，网络不通时可[使用代理](#使用代理)。
 :::
 
-```lua {title="~/.config/nvim/lua/config/lazy.lua"}
+```lua [~/.config/nvim/lua/config/lazy.lua"]
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -78,9 +86,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to set up `mapleader` and `maplocalleader` before
+-- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
--- This is also a good place to set other options (vim.opt).
+-- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -90,23 +98,24 @@ require("lazy").setup({
     -- import your plugins
     { import = "plugins" },
   },
-  -- colorscheme to use when installing plugins
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
 ```
 
-### Automation Script
+### 自动化脚本
 
 ```bash
 bash init.sh
 ```
 
-```bash {title="init.sh"}
+```bash [init.sh]
 #!/usr/bin/env bash
 
-# Create directories
+# create dir
 mkdir -p ~/.config/nvim/lua/config
 mkdir -p ~/.config/nvim/lua/plugins
 
@@ -134,16 +143,22 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-# Set leaders
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-# Setup lazy.nvim
+-- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+    -- import your plugins
     { import = "plugins" },
   },
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
+  -- automatically check for plugin updates
   checker = { enabled = true },
 })
 EOL
@@ -153,9 +168,9 @@ echo "Init ~/.config/nvim/ done"
 
 ## nvim-tree
 
-Create `nvim-tree.lua` under `~/.config/nvim/lua/plugins/`:
+在 `~/.config/nvim/lua/plugins/` 创建 `nvim-tree.lua`。
 
-```lua {title="nvim-tree.lua"}
+```lua [nvim-tree.lua]
 return {
   "kyazdani42/nvim-tree.lua",
   dependencies = {
@@ -167,62 +182,64 @@ return {
 }
 ```
 
-Open Neovim, and dependencies will be automatically fetched; you can also manually pull them:
+进入 `nvim`，会自动拉取依赖，也可手动拉取。
 
 ```bash
 :Lazy sync
 ```
 
-### Using a Proxy
+### 使用代理
 
-If your network is inaccessible, you can use a proxy:
+网络不通时，可使用代理。
 
 ```bash
 git config --global url."https://mirror.ghproxy.com/https://github.com/".insteadof https://github.com/
 ```
 
-View proxy configuration:
+查看代理配置。
 
 ```bash
 git config --global --get-regexp url
 ```
 
-Remove the proxy; you can also delete it in `~/.gitconfig`:
+删除代理，也可以在 `~/.gitconfig` 中删除。
 
 ```bash
-git config --global --unset url."https://mirror.ghproxy.com/https://github.com/"
+git config --global --unset url.https://mirror.ghproxy.com/https://github.com/
 ```
 
-### Opening the File Tree
+### 打开文件树
 
 ```bash
 :NvimTreeToggle
 ```
 
-Icons may not display correctly; you need to install a font and configure it in iTerm2.
+图标显示不正常，需要安装字体，并在 `iTerm2` 中设置字体。
 
-### Installing Fonts
+### 安装字体
 
-[Nerd Font](https://github.com/ryanoasis/nerd-fonts)
+::: info Nerd Font
+https://github.com/ryanoasis/nerd-fonts
+:::
 
 ```bash
 brew install font-hack-nerd-font
 ```
 
-Configure the font in iTerm2:
+配置 `iTerm2` 字体。
 
-* Open iTerm2.
-* Go to Preferences > Profiles > Text.
-* Check "Use a different font for non-ASCII text".
-* Then select the Nerd Font you installed.
+* 打开 `iTerm2`。
+* 进入 `Preferences > Profiles > Text`。
+* 勾选 `Use a different font for non-ASCII text`。
+* 然后选择你安装的 Nerd Font。
 
-* `t` stands for terminal mode.
-* `<esc>` stands for the new exit key.
-* `<C-\\><C-n>` stands for the actual exit key.
+* `t` 表示终端模式。
+* `<esc>` 表示新的退出键。
+* `<C-\><C-n>` 表示实际的退出键。
 
 ## nvim-treesitter
 
-```lua {title="nvim-treesitter.lua"}
+```lua [nvim-treesitter.lua]
 return {
   "nvim-treesitter/nvim-treesitter",
   run = ":TSUpdate",
@@ -237,9 +254,9 @@ return {
 }
 ```
 
-## Monokai Theme
+## Monokai 主题
 
-```lua {title="monokai.lua"}
+```lua ["monokai.lua]
 return {
     "tanvirtin/monokai.nvim",
     config = function()
@@ -263,17 +280,19 @@ return {
 ```
 
 ::: warning
-`nvim-tree` must be loaded after `monokai.nvim`, otherwise icon colors may be incorrect.
+`nvim-tree` 必须在 `monokai.nvim` 之后加载。
 :::
 
-Listen for events to ensure `nvim-tree` loads after `monokai.nvim`:
+监听事件，确保 `nvim-tree` 在 `monokai.nvim` 之后加载。
 
-```lua {title="nvim-tree.lua"}
+```lua [nvim-tree.lua]
 return {
   "kyazdani42/nvim-tree.lua",
   dependencies = {
     "kyazdani42/nvim-web-devicons", -- icons dependency
   },
+  -- Must be loaded after monokai.nvim
+  -- Otherwise, the icons color may be wrong
   event = "User MonokaiLoaded",
   config = function()
     require("nvim-tree").setup {
@@ -287,22 +306,22 @@ return {
         },
       },
       filters = {
-        dotfiles = true, -- hide hidden files if false, show if true
+        dotfiles = true, -- show hidden files if false, hide if true
       },
     }
   end
 }
 ```
 
-## Language Server Protocol
+## 语言服务协议
 
-`gopls` is the Go language server protocol implementation.
+`gopls` 是 Go 语言的 LSP(Language Server Protocol) 服务。
 
 ```bash
 go install golang.org/x/tools/gopls@latest
 ```
 
-```bash {title="nvim-lspconfig.lua"}
+```bash ["nvim-lspconfig.lua]
 return {
   "neovim/nvim-lspconfig",
   config = function()
@@ -329,13 +348,13 @@ return {
 }
 ```
 
-`DiagnosticSignError` is set to empty to prevent the `E` symbol from appearing on the left of line numbers, which may cause layout shifts.
+`DiagnosticSignError` 设置为空，否则行号左侧会显示 `E` 符号，导致布局抖动。
 
-## Auto Completion
+## 自动补全
 
-`nvim-cmp` is the auto-completion plugin for Neovim.
+`nvim-cmp` 是 Neovim 的自动补全插件。
 
-```lua {title="nvim-cmp.lua"}
+```lua [nvim-cmp.lua]
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
@@ -369,27 +388,33 @@ return {
 }
 ```
 
-## Common Keybindings
+## 常用快捷键
 
-* Window navigation: `Ctrl+w+h/l`
-* Go to directory: `Ctrl+]`
-* Show hidden files: `Ctrl+h`
-* Create a file: `a` + filename (use `/` to denote directories)
-* Cut a file: `x`
-* Paste a file: `p`
-* Delete a file: `d` + `y`
-* Open a terminal: `:term`
-* List buffers: `:ls`
-* Switch buffer: `:b [num]`
-* Horizontal split: `Ctrl+v`, panes labeled `a`/`b`
-* Vertical split: `Ctrl+x`, panes labeled `a`/`b`
-* Suspend process: `Ctrl+z`
-* Resume process: `fg`
+* 转换窗口：`Ctrl+w+h/l`
+* 进入目录：`Ctrl+]`
+* 隐藏文件：`Ctrl+h`
+* 新建文件：`a` + 文件名，带 `/` 表示目录
+* 剪切文件：`x`
+* 粘贴文件：`p`
+* 删除文件：`d` + `y`
+* 新建终端：`:term`
+* 缓冲列表：`:ls`
+* 切换缓冲：`:b [num]`
+* 左插窗口：`Ctrl+v`，编号为 `a`/`b`
+* 上插窗口：`Ctrl+x`，编号为 `a`/`b`
+* 挂起进程：`Ctrl+z`
+* 恢复进程：`fg`
 
-## Exiting Terminal Insert Mode
+## 退出终端的插入模式
 
-Add the following to your `init.lua`:
+在 `init.lua` 中添加。
 
 ```lua
-vim.keymap.set('t', '<esc>', [[<C-\\><C-n>]])
+vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
 ```
+
+## 配置源码
+
+::: info nvim-plugins
+https://github.com/kugarocks/dotfiles
+:::

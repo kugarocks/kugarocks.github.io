@@ -15,7 +15,7 @@ export default defineAdditionalConfig({
 
     sidebar: {
       // Blog
-      '/blog/': { base: '/blog/', items: sidebarBlog() }
+      '/zh/blog/': { base: '/zh/blog/', items: sidebarBlog() }
     },
 
 
@@ -75,16 +75,16 @@ function sidebarBlog(): DefaultTheme.SidebarItem[] {
       text: '2025',
       collapsed: false,
       items: [
-        { text: 'My Dotfiles', link: '2025/my-dotfiles' }
+        { text: '我的 Dotfiles', link: '2025/my-dotfiles' }
       ]
     },
     {
       text: '2024',
       collapsed: false,
       items: [
-        { text: 'Neovim Setup', link: '2024/neovim-setup' },
-        { text: 'Install Older macOS', link: '2024/install-older-macos' },
-        { text: 'Compile Shadow Utils', link: '2024/compile-shadow-utils' },
+        { text: 'Neovim 配置', link: '2024/neovim-setup' },
+        { text: '安装旧版 macOS', link: '2024/install-older-macos' },
+        { text: '编译 Shadow Utils', link: '2024/compile-shadow-utils' },
         { text: 'Hello World', link: '2024/hello-world' }
       ]
     }

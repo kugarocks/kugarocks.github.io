@@ -1,4 +1,4 @@
 # Hello World
 
-This site was first built with [Thulite](https://thulite.io/),
-now migrated to [VitePress](https://vitepress.dev).
+此网站初次由 [Thulite](https://thulite.io/) 创建,
+现已迁移到 [VitePress](https://vitepress.dev).
