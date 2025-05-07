@@ -1,4 +1,4 @@
-name: Deploy Hugo site to GitHub Pages
+name: Deploy VitePress site to GitHub Pages
 
 on:
   push:
@@ -18,26 +18,28 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20.17.0'
-
-    # Setup Hugo Extended version
-    # Ensure that the Hugo Extended version is used
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v3
-      with:
-        hugo-version: '0.134.2'
-        extended: true
+        node-version: '22.15'
 
     # Install dependencies
     - name: Install dependencies
       run: npm install
 
-    # Build the Hugo site, output to the gh-pages directory
-    - name: Build Hugo site to gh-pages
-      run: hugo --minify --gc --baseURL="https://kugarocks.github.io/" -d ./gh-pages
+    # Build the VitePress site for GitHub Pages
+    - name: Build VitePress site for GitHub Pages
+      run: npm run build
+      env:
+        BASE_URL: https://kugarocks.github.io/
 
-    # Add custom domain
-    - name: Add CNAME file
+    # Create gh-pages directory if it doesn't exist
+    - name: Create gh-pages directory
+      run: mkdir -p ./gh-pages
+
+    # Copy build files to gh-pages directory
+    - name: Copy build files to gh-pages
+      run: cp -r ./.vitepress/dist/* ./gh-pages/
+
+    # Add custom domain for GitHub Pages
+    - name: Add CNAME file for GitHub Pages
       run: echo "kugarocks.github.io" > ./gh-pages/CNAME
 
     # Deploy the contents of the gh-pages directory
@@ -48,12 +50,22 @@ jobs:
         publish_dir: ./gh-pages
         publish_branch: gh-pages
 
-    # Build the Hugo site, output to the al-pages directory
-    - name: Build Hugo site to al-pages
-      run: hugo --minify --gc --baseURL="https://www.kugarocks.com/" -d ./al-pages
+    # Build the VitePress site for Aliyun Pages
+    - name: Build VitePress site for Aliyun
+      run: npm run build
+      env:
+        BASE_URL: https://www.kugarocks.com/
 
-    # Add custom domain
-    - name: Add CNAME file
+    # Create al-pages directory if it doesn't exist
+    - name: Create al-pages directory
+      run: mkdir -p ./al-pages
+
+    # Copy build files to al-pages directory
+    - name: Copy build files to al-pages
+      run: cp -r ./.vitepress/dist/* ./al-pages/
+
+    # Add custom domain for Aliyun Pages
+    - name: Add CNAME file for Aliyun Pages
       run: echo "www.kugarocks.com" > ./al-pages/CNAME
 
     # Deploy the contents of the al-pages directory
