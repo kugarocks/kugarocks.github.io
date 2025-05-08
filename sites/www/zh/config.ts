@@ -69,7 +69,17 @@ function nav(): DefaultTheme.NavItem[] {
       text: 'Blog',
       link: '/zh/blog/2025/my-dotfiles',
       activeMatch: '/blog/'
-    }
+    },
+    {
+      text: 'Linux',
+      activeMatch: '/linux/',
+      items: [
+        {
+          text: 'Getting Started',
+          link: '/linux/getting-started/meme'
+        },
+      ]
+    },
   ]
 }
 
