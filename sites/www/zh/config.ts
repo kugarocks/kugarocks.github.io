@@ -21,7 +21,6 @@ export default defineAdditionalConfig({
       '/zh/linux/getting-started/': { base: '/zh/linux/getting-started/', items: sidebarLinux() },
     },
 
-
     editLink: {
       pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页面'
@@ -76,7 +75,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: 'Getting Started',
-          link: '/linux/getting-started/meme'
+          link: '/zh/linux/getting-started/meme'
         },
       ]
     },
