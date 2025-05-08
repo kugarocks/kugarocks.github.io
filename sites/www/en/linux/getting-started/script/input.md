@@ -40,7 +40,7 @@ name=$(basename $0)
 
 ## Special Parameters
 
-[Reference here.](te-shu-can-shu.md)
+[Reference here.](/linux/getting-started/script/special-params)
 
 ## Shift Parameters
 

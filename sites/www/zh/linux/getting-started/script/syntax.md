@@ -64,7 +64,7 @@ echo "dir is: $(pwd)"
 count=$(ls $(pwd) | wc -l)
 ```
 
-[在这里 `ls` 没有使用 `-l` 选项，但 count 的值是 4，原因在这。](/zh-cn/linux/cmd/common-1/#隐藏字符)
+[在这里 `ls` 没有使用 `-l` 选项，但 count 的值是 4，原因在这。](/zh/linux/getting-started/commands/common-1#隐藏字符)
 
 ## 输出重定向
 

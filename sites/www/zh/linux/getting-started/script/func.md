@@ -150,7 +150,7 @@ green
 
 ## 变量是否被定义
 
-[可以使用参数展开的 + 标记](can-shu-zhan-kai.md#biao-ji)。
+[可以使用参数展开的 + 标记](/zh/linux/getting-started/script/param-exp#标记)。
 
 ## 函数是否被定义
 

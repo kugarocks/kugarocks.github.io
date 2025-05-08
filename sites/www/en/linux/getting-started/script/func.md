@@ -150,7 +150,7 @@ green
 
 ## Is a Variable Defined
 
-[Can use parameter expansion's + marker](can-shu-zhan-kai.md#biao-ji).
+[Can use parameter expansion's + marker](/linux/getting-started/script/param-exp#mark).
 
 ## Is a Function Defined
 

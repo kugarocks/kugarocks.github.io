@@ -40,7 +40,7 @@ name=$(basename $0)
 
 ## 特殊参数
 
-[参考这里。](te-shu-can-shu.md)
+[参考这里。](/zh/linux/getting-started/script/special-params)
 
 ## 移动参数
 
