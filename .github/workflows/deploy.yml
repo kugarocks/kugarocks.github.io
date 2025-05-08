@@ -20,13 +20,17 @@ jobs:
       with:
         node-version: '22.15'
 
-    # Install dependencies
+    # Change to the sites/www directory and install dependencies
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd sites/www
+        npm install
 
     # Build the VitePress site for GitHub Pages
     - name: Build VitePress site for GitHub Pages
-      run: npm run build
+      run: |
+        cd sites/www
+        npm run build
       env:
         BASE_URL: https://kugarocks.github.io/
 
@@ -36,7 +40,7 @@ jobs:
 
     # Copy build files to gh-pages directory
     - name: Copy build files to gh-pages
-      run: cp -r ./.vitepress/dist/* ./gh-pages/
+      run: cp -r ./sites/www/.vitepress/dist/* ./gh-pages/
 
     # Add custom domain for GitHub Pages
     - name: Add CNAME file for GitHub Pages
@@ -52,7 +56,9 @@ jobs:
 
     # Build the VitePress site for Aliyun Pages
     - name: Build VitePress site for Aliyun
-      run: npm run build
+      run: |
+        cd sites/www
+        npm run build
       env:
         BASE_URL: https://www.kugarocks.com/
 
@@ -62,7 +68,7 @@ jobs:
 
     # Copy build files to al-pages directory
     - name: Copy build files to al-pages
-      run: cp -r ./.vitepress/dist/* ./al-pages/
+      run: cp -r ./sites/www/.vitepress/dist/* ./al-pages/
 
     # Add custom domain for Aliyun Pages
     - name: Add CNAME file for Aliyun Pages
