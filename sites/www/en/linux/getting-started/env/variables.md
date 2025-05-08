@@ -52,11 +52,11 @@ kuga
 
 The path where executable programs are searched, separated by colons.
 
-```bash}
+```bash
 printenv PATH
 ```
 
-```bash}
+```bash
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ```
 
@@ -64,10 +64,10 @@ printenv PATH
 
 The level of the shell, starting from 1.
 
-```bash}
+```bash
 printenv SHLVL
 ```
 
-```bash}
+```bash
 1
 ```
