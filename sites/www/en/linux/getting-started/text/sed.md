@@ -1,8 +1,6 @@
 # SED
 
-## Stream Editor
-
-A Stream Text Processor, authored by **Lee E. McMahon**.
+Stream Editor, a stream text processor, authored by **Lee E. McMahon**.
 
 ### Basic Syntax
 

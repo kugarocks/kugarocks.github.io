@@ -25,7 +25,7 @@ The most commonly used Linux file system, which combines stability and performan
 
 * Maximum file size is 2 TB.
 * Maximum partition size is 32 TB.
-* The default logging mode is [Ordered Mode](di-ba-zhang-wen-jian-xi-tong.md#order-you-xu-mo-shi).
+* The default logging mode is Ordered Mode
 * Supports multiple logging modes.
 
 ### Vfat

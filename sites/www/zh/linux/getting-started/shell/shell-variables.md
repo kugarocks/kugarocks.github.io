@@ -1,7 +1,7 @@
-# Shell Variables
+# Shell 变量
 
-Shell variables are a general term. If you are using a specific shell, such as Bash, you can call it a Bash variable.
-But it is important to note that shell variables are not environment variables, do not be confused by their capitalization, here are the relevant official documents.
+Shell 变量是一个统称，如果用的是某个特定的 Shell，例如 Bash，那么可以称它为 Bash 变量。
+但这里必须要注意，Shell 变量不是环境变量，不要被它的大写迷惑了，以下是相关的官方文档。
 
 ::: info Shell Variables
 https://www.gnu.org/software/bash/manual/html_node/Shell-Variables.html
@@ -11,7 +11,7 @@ https://www.gnu.org/software/bash/manual/html_node/Shell-Variables.html
 https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
 :::
 
-You can also view it by using the man command and searching for `Shell Variables`.
+使用 man 指令，然后搜索 `Shell Variables` 也能查看。
 
 ```bash
 man bash
@@ -21,11 +21,11 @@ man bash
 /Shell Variables
 ```
 
-## Common Variables
+## 常见 Shell 变量
 
 ### PS1
 
-Shell command prompt.
+Shell 命令提示符。
 
 ```bash
 echo $PS1
@@ -37,7 +37,7 @@ echo $PS1
 
 ### UID
 
-Current user ID.
+当前用户 ID。
 
 ```bash
 echo $UID
@@ -58,7 +58,7 @@ UID          PID    PPID  C STIME TTY          TIME CMD
 kuga       46635   46570  0 10:56 ?        00:00:00 sshd: kuga@pts/0
 ```
 
-You can see that the parent process of bash is sshd.
+可以看到 bash 的父进程是 sshd。
 
 ### BASH\_VERSION
 
@@ -72,7 +72,7 @@ echo $BASH_VERSION
 
 ### BASH\_SUBSHELL
 
-&#x20;Subshell nesting level, starting from 0.
+&#x20;Subshell 的嵌套级别，从 0 开始。
 
 ```bash
 echo $BASH_SUBSHELL
@@ -84,7 +84,7 @@ echo $BASH_SUBSHELL
 
 ### SECONDS
 
-Seconds since the shell started.
+Shell 启动到现在的秒数。
 
 ```bash
 echo $SECONDS
@@ -96,7 +96,7 @@ echo $SECONDS
 
 ### RANDOM
 
-0 \~ 32767 random number.
+0 \~ 32767 随机数。
 
 ```bash
 echo $RANDOM
@@ -106,6 +106,6 @@ echo $RANDOM
 1024
 ```
 
-## Custom Variables
+## 自定义 Shell 变量
 
-[Refer to the later chapter on environment variables](/en/linux/getting-started/env/concept#customizing-shell-vars)
+[参考后面环境变量的章节](/zh/linux/getting-started/env/concept#自定义-shell-变量)

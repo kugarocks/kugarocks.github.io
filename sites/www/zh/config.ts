@@ -15,7 +15,10 @@ export default defineAdditionalConfig({
 
     sidebar: {
       // Blog
-      '/zh/blog/': { base: '/zh/blog/', items: sidebarBlog() }
+      '/zh/blog/': { base: '/zh/blog/', items: sidebarBlog() },
+
+      // Linux
+      '/zh/linux/getting-started/': { base: '/zh/linux/getting-started/', items: sidebarLinux() },
     },
 
 
@@ -34,7 +37,8 @@ export default defineAdditionalConfig({
     },
 
     outline: {
-      label: '页面导航'
+      label: '页面导航',
+      level: 'deep',
     },
 
     lastUpdated: {
@@ -133,4 +137,114 @@ function searchOptions(): Partial<DefaultTheme.AlgoliaSearchOptions> {
       }
     }
   }
+}
+
+function sidebarLinux(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'README',
+      collapsed: true,
+      items: [
+        { text: 'Meme', link: 'meme' },
+        { text: 'Say My Name', link: 'say-my-name' },
+      ]
+    },
+    {
+      text: 'Shell',
+      collapsed: true,
+      items: [
+        { text: '终端', link: 'shell/terminal' },
+        { text: 'Shell 简介', link: 'shell/intro' },
+        { text: '命令行历史记录', link: 'shell/command-history' },
+        { text: 'Shell 基本操作', link: 'shell/basic-operations' },
+        { text: '内建命令和外部命令', link: 'shell/command-type' },
+        { text: 'Shell 变量', link: 'shell/shell-variables' },
+        { text: 'Subshell', link: 'shell/subshell' },
+      ]
+    },
+    {
+      text: '命令',
+      collapsed: true,
+      items: [
+        { text: '常用命令 1', link: 'commands/common-1' },
+        { text: '常用命令 2', link: 'commands/common-2' },
+        { text: 'GREP', link: 'commands/grep' },
+        { text: 'PS', link: 'commands/ps' },
+        { text: 'TOP', link: 'commands/top' },
+        { text: '终止进程', link: 'commands/terminate' },
+        { text: '压缩与解压', link: 'commands/compression' },
+      ]
+    },
+    {
+      text: '环境变量',
+      collapsed: true,
+      items: [
+        { text: '概念', link: 'env/concept' },
+        { text: 'Shell 的启动过程', link: 'env/shell-startup' },
+        { text: '常见环境变量', link: 'env/variables' },
+        { text: 'Shebang', link: 'env/shebang' },
+      ]
+    },
+    {
+      text: '权限管理',
+      collapsed: true,
+      items: [
+        { text: '用户管理', link: 'perm/user-mgmt' },
+        { text: '组管理', link: 'perm/group-mgmt' },
+        { text: '文件权限', link: 'perm/file-perm' },
+        { text: '访问控制列表', link: 'perm/acl' },
+      ]
+    },
+    {
+      text: '进程',
+      collapsed: true,
+      items: [
+        { text: 'Systemd', link: 'proc/systemd' },
+        { text: '文件描述符', link: 'proc/fd' },
+        { text: '管道', link: 'proc/pipe' },
+        { text: 'LSOF', link: 'proc/lsof' },
+        { text: 'ULIMIT', link: 'proc/ulimit' },
+      ]
+    },
+    {
+      text: '文件系统',
+      collapsed: true,
+      items: [
+        { text: '简介', link: 'file-system/intro' },
+      ]
+    },
+    {
+      text: 'Shell 脚本',
+      collapsed: true,
+      items: [
+        { text: '基本语法', link: 'script/syntax' },
+        { text: '条件结构', link: 'script/cond' },
+        { text: '循环结构', link: 'script/loop' },
+        { text: '输入处理', link: 'script/input' },
+        { text: '输出处理', link: 'script/output' },
+        { text: '信号处理', link: 'script/signal' },
+        { text: '函数', link: 'script/func' },
+        { text: '参数展开', link: 'script/param-exp' },
+        { text: '特殊参数', link: 'script/special-params' },
+      ]
+    },
+    {
+      text: '文本处理',
+      collapsed: true,
+      items: [
+        { text: '创建多行文本', link: 'text/multi-lines' },
+        { text: '正则表达式', link: 'text/regex' },
+        { text: 'SED', link: 'text/sed' },
+        { text: 'GAWK 1', link: 'text/gawk-1' },
+        { text: 'GAWK 2', link: 'text/gawk-2' },
+      ]
+    },
+    {
+      text: '附录',
+      collapsed: true,
+      items: [
+        { text: '专业术语 1', link: 'appendix/term-1' },
+      ]
+    },
+  ]
 }

@@ -15,9 +15,6 @@ export default defineAdditionalConfig({
       // Blog
       '/blog/': { base: '/blog/', items: sidebarBlog() },
 
-      // Middleware
-      '/middleware/nginx/': { base: '/middleware/nginx/', items: sidebarNginx() },
-
       // Linux
       '/linux/getting-started/': { base: '/linux/getting-started/', items: sidebarLinux() },
     },
@@ -83,7 +80,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: 'Getting Started',
-          link: '/linux/getting-started/what-do-u-got'
+          link: '/linux/getting-started/meme'
         },
       ]
     },
@@ -122,27 +119,13 @@ function sidebarBlog(): DefaultTheme.SidebarItem[] {
   ]
 }
 
-function sidebarNginx(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: 'Introduction',
-      collapsed: false,
-      items: [
-        { text: 'What is VitePress?', link: 'what-is-vitepress' },
-        { text: 'Getting Started', link: 'getting-started' },
-        { text: 'Routing', link: 'routing' },
-      ]
-    }
-  ]
-}
-
 function sidebarLinux(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: 'README',
       collapsed: true,
       items: [
-        { text: 'WHAT DO U GOT', link: 'what-do-u-got' },
+        { text: 'Meme', link: 'meme' },
         { text: 'Say My Name', link: 'say-my-name' },
       ]
     },

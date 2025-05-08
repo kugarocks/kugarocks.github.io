@@ -1,7 +1,5 @@
 # Regular Expression
 
-## Introduction
-
 Regular Expressions (regex) can be divided into the following categories based on different standards.
 
 | Type | Abbr | Full Name |

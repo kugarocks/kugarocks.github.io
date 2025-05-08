@@ -61,14 +61,17 @@ function processMarkdownFile($filePath) {
     // 2. 替换 {frame="none"} 为空字符串
     $content = str_replace(' {frame="none"}', '', $content);
     
+    // 3. 替换 {frame="none" text-wrap="wrap"} 为空字符串
+    $content = str_replace(' {frame="none" text-wrap="wrap"}', '', $content);
+    
     // 3. 将 ```bash {title="xxx"} 转换为 ```bash [xxx]
     $content = preg_replace('/```(\w+)\s+\{title="([^"]+)"\}/', '```$1 [$2]', $content);
     
-    // 4. 转换视频标签
-    $content = convertVideoTags($content);
-    
-    // 5. 转换链接卡片
+    // 4. 转换链接卡片
     $content = convertLinkCards($content);
+    
+    // 5. 转换 callout 短代码为 VitePress 容器
+    $content = convertCallouts($content);
     
     // 保存修改后的文件
     file_put_contents($filePath, $content);
@@ -85,35 +88,6 @@ function removeFrontmatter($content) {
     }
     
     return $content;
-}
-
-/**
- * 转换视频标签
- */
-function convertVideoTags($content) {
-    // 匹配视频标签及其属性
-    $pattern = '/\{\{<\s*video\s+(.*?)>\}\}/s';
-    
-    return preg_replace_callback($pattern, function($matches) {
-        $attributes = $matches[1];
-        
-        // 提取src属性
-        if (preg_match('/src="([^"]+)"/', $attributes, $srcMatch)) {
-            $src = $srcMatch[1];
-            
-            // 检查是否有poster属性
-            $posterAttr = '';
-            if (preg_match('/poster="([^"]+)"/', $attributes, $posterMatch)) {
-                $posterAttr = ' poster="' . $posterMatch[1] . '"';
-            }
-            
-            // 构建HTML视频标签
-            return "<video controls width=\"100%\"$posterAttr>\n  <source src=\"$src\" type=\"video/mp4\" />\n</video>";
-        }
-        
-        // 如果没有找到src属性，返回原始内容
-        return $matches[0];
-    }, $content);
 }
 
 /**
@@ -139,13 +113,34 @@ function convertLinkCards($content) {
             return $matches[0]; // 如果没有找到href属性，返回原始内容
         }
         
-        // 提取target属性
-        $target = '';
-        if (preg_match('/target="([^"]+)"/', $attributes, $targetMatch)) {
-            $target = ' target="' . $targetMatch[1] . '"';
+        // 构建TIP容器和链接
+        return "::: info $title\n$href\n:::";
+    }, $content);
+}
+
+/**
+ * 转换Hugo callout短代码为VitePress容器
+ */
+function convertCallouts($content) {
+    // 匹配callout短代码及其内容，使title属性可选
+    $pattern = '/\{\{<\s*callout\s+context="([^"]+)"(?:\s+title="([^"]+)")?\s*>\}\}(.*?)\{\{<\s*\/callout\s*>\}\}/s';
+    
+    return preg_replace_callback($pattern, function($matches) {
+        $context = $matches[1];
+        $content = trim($matches[3]);
+        
+        // 根据context映射到VitePress容器类型
+        $containerType = 'info';
+        switch ($context) {
+            case 'danger':
+                $containerType = 'danger';
+                break;
+            default:
+                $containerType = 'warning';
+                break;
         }
         
-        // 构建TIP容器和链接
-        return "::: TIP $title\n<a href=\"$href\"$target>$href</a>\n:::";
+        // 构建VitePress容器，不特殊处理title
+        return "::: $containerType\n$content\n:::";
     }, $content);
 }
