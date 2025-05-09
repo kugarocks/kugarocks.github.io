@@ -30,52 +30,32 @@ jobs:
     - name: Install dependencies
       run: pnpm www:install
 
-    # Build the VitePress site for GitHub Pages
-    - name: Build VitePress site for GitHub Pages
-      run: pnpm www:build:github
+    # Build the VitePress site
+    - name: Build VitePress site
+      run: pnpm www:build
 
-    # Create gh-pages directory if it doesn't exist
-    - name: Create gh-pages directory
-      run: mkdir -p ./gh-pages
+    # Deploy to GitHub Pages
+    - name: Add CNAME for GitHub Pages
+      run: echo "kugarocks.github.io" > ./sites/www/.vitepress/dist/CNAME
 
-    # Copy build files to gh-pages directory
-    - name: Copy build files to gh-pages
-      run: cp -r ./sites/www/.vitepress/dist/* ./gh-pages/
-
-    # Add custom domain for GitHub Pages
-    - name: Add CNAME file for GitHub Pages
-      run: echo "kugarocks.github.io" > ./gh-pages/CNAME
-
-    # Deploy the contents of the gh-pages directory
+    # Deploy the contents to gh-pages branch
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./gh-pages
+        publish_dir: ./sites/www/.vitepress/dist
         publish_branch: gh-pages
 
-    # Build the VitePress site for Aliyun Pages
-    - name: Build VitePress site for Aliyun
-      run: pnpm www:build:aliyun
+    # Deploy to Aliyun Pages
+    - name: Update CNAME for Aliyun Pages
+      run: echo "www.kugarocks.com" > ./sites/www/.vitepress/dist/CNAME
 
-    # Create al-pages directory if it doesn't exist
-    - name: Create al-pages directory
-      run: mkdir -p ./al-pages
-
-    # Copy build files to al-pages directory
-    - name: Copy build files to al-pages
-      run: cp -r ./sites/www/.vitepress/dist/* ./al-pages/
-
-    # Add custom domain for Aliyun Pages
-    - name: Add CNAME file for Aliyun Pages
-      run: echo "www.kugarocks.com" > ./al-pages/CNAME
-
-    # Deploy the contents of the al-pages directory
+    # Deploy the contents to al-pages branch
     - name: Deploy to Aliyun Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./al-pages
+        publish_dir: ./sites/www/.vitepress/dist
         publish_branch: al-pages
 
     # Notify Aliyun server to pull code using HTTP webhook
