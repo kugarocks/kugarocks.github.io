@@ -4,6 +4,7 @@
   "scripts": {
     "www:dev": "pnpm --dir sites/www dev",
     "www:install": "pnpm --dir sites/www install",
+    "www:build": "pnpm --dir sites/www build",
     "www:build:github": "pnpm --dir sites/www build --base=https://kugarocks.github.io/",
     "www:build:aliyun": "pnpm --dir sites/www build --base=https://www.kugarocks.com/"
   }
