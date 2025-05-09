@@ -19,20 +19,20 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '22.15'
+    
+    # Setup pnpm
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 10.10.0
 
-    # Change to the sites/www directory and install dependencies
+    # Install dependencies
     - name: Install dependencies
-      run: |
-        cd sites/www
-        npm install
+      run: pnpm www:install
 
     # Build the VitePress site for GitHub Pages
     - name: Build VitePress site for GitHub Pages
-      run: |
-        cd sites/www
-        npm run build
-      env:
-        BASE_URL: https://kugarocks.github.io/
+      run: pnpm www:build:github
 
     # Create gh-pages directory if it doesn't exist
     - name: Create gh-pages directory
@@ -56,11 +56,7 @@ jobs:
 
     # Build the VitePress site for Aliyun Pages
     - name: Build VitePress site for Aliyun
-      run: |
-        cd sites/www
-        npm run build
-      env:
-        BASE_URL: https://www.kugarocks.com/
+      run: pnpm www:build:aliyun
 
     # Create al-pages directory if it doesn't exist
     - name: Create al-pages directory
