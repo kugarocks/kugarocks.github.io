@@ -1,1 +1,0 @@
-const s="https://kugarocks.github.io/images/misc/ibm-2260.png",t="https://kugarocks.github.io/images/misc/iterm2-cover.png",i="https://kugarocks.github.io/images/misc/teletype-model-33.png";export{s as _,t as a,i as b};
