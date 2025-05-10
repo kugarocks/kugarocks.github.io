@@ -30,11 +30,11 @@ jobs:
     - name: Install dependencies
       run: pnpm www:install
 
-    # Build for GitHub Pages
-    - name: Build VitePress site for GitHub Pages
+    # Build the VitePress site
+    - name: Build VitePress site
       run: pnpm www:build
-      
-    # Add CNAME for GitHub Pages
+
+    # Deploy to GitHub Pages
     - name: Add CNAME for GitHub Pages
       run: echo "kugarocks.github.io" > ./sites/www/.vitepress/dist/CNAME
 
@@ -46,29 +46,16 @@ jobs:
         publish_dir: ./sites/www/.vitepress/dist
         publish_branch: gh-pages
 
-    # Create a separate build for Aliyun Pages
-    - name: Create separate directory for Aliyun build
-      run: mkdir -p ./sites/www/.vitepress/dist-aliyun
-      
-    # Build again for Aliyun Pages
-    - name: Build VitePress site for Aliyun Pages
-      run: |
-        # 清除之前的构建缓存，确保干净构建
-        rm -rf ./sites/www/.vitepress/.temp
-        pnpm www:build
-        # 将构建结果复制到阿里云专用目录
-        cp -r ./sites/www/.vitepress/dist/* ./sites/www/.vitepress/dist-aliyun/
-
-    # Update CNAME for Aliyun Pages
+    # Deploy to Aliyun Pages
     - name: Update CNAME for Aliyun Pages
-      run: echo "www.kugarocks.com" > ./sites/www/.vitepress/dist-aliyun/CNAME
+      run: echo "www.kugarocks.com" > ./sites/www/.vitepress/dist/CNAME
 
     # Deploy the contents to al-pages branch
     - name: Deploy to Aliyun Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./sites/www/.vitepress/dist-aliyun
+        publish_dir: ./sites/www/.vitepress/dist
         publish_branch: al-pages
 
     # Notify Aliyun server to pull code using HTTP webhook
